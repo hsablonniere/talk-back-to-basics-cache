@@ -2,6 +2,10 @@
 
 ## Tweets
 
+* https://twitter.com/malwaredllc/status/1525920922439278592
+* https://twitter.com/ericbureltech/status/1536711135063334913
+* https://twitter.com/geekprocess/status/1536915794226843648
+
 ## Articles, talks, podcasts...
 
 * https://jakearchibald.com/2020/multiple-versions-same-time/
@@ -30,6 +34,17 @@
 * https://www.youtube.com/watch?v=81tsfhuE5w8
 * https://www.youtube.com/watch?v=BC6NvHssquI
 * https://www.youtube.com/watch?v=QHpdk-o68JE
+* https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers
+* https://www.smashingmagazine.com/2022/05/performance-game-changer-back-forward-cache/
+* https://www.smashingmagazine.com/2017/11/understanding-vary-header/
+* https://www.smashingmagazine.com/2016/05/modern-wordpress-server-stack/
+* https://www.smashingmagazine.com/2016/05/five-simple-steps-test-varnish-cache-deployment-varnishtest/
+* https://www.smashingmagazine.com/2014/03/wordpress-performance-improvements-that-can-go-wrong/
+* https://www.smashingmagazine.com/2013/12/speed-up-your-mobile-website-with-varnish/
+* https://css-tricks.com/netlify-does-cache-invalidation-for-you/
+* https://css-tricks.com/strategies-for-cache-busting-css/
+* https://css-tricks.com/cache-aware-server-push/
+* https://spinupwp.com/wordpress-caching-all-you-need-to-know/
 
 ### RFC
 
