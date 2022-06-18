@@ -43,44 +43,20 @@ Une personne qui a suivi la présentation repart avec :
 
 ## Abstract
 
-Dans le cadre de nos projets Web, on finit tous tôt au tard par optimiser les deux points suivants : réduire les temps de chargement de nos utilisateurs et soulager la charge de nos serveurs.
-Dans les deux cas, on fait appel à ce bon vieux cache HTTP.
-Au départ, ça parait simple, il suffit "juste" de l'active.
+Dans le cadre de nos projets Web, on finit tous tôt au tard par faire appel à ce bon vieux cache HTTP.
+Évidemment, on cherche à réduire les temps de chargement de nos utilisateurs et à soulager la charge de nos serveurs.
+Au départ, ça parait simple, il suffit "juste" de l'activer.
 Au milieu, on se perd un peu dans en-têtes et les multiples couches qui entre en jeu.
 Et à la fin, ça se termine bien trop souvent par un "Ça ne marche pas ? Essaye en vidant ton cache !".
 
-Choisir et implémenter une stratégie de cache ne se fait pas à la fin du projet.
-Il faut y penser durant toutes les étapes : conception, développement, build, déploiement et run.
+Choisir et implémenter une stratégie de cache, c'est complexe et ça ne se fait pas à la fin du projet.
+Chaque étape est concernée : conception, développement, build, déploiement et run.
 Pour choisir la meilleure stratégie, il est important de bien comprendre comment tout cela fonctionne.
 
 Au menu de cette session, je vous propose de (re)découvrir le cache HTTP par l'exemple et la pratique.
 Nous reviendrons sur les différents en-têtes HTTP gérés par les navigateurs, CDN, proxys-cache et autres serveurs.
 Nous parlerons des différents caches présents au sein des navigateurs (HTTP, Service Worker, back/forward...).
 Enfin, nous aborderons différents contextes et cas de figures en proposant des stratégies adaptées.
-
-
-
-Dans le cadre de nos projets Web, on a tous envie d'améliorer les temps de chargement de nos utilisateurs et de soulager la charge de nos serveurs.
-On finira tôt ou tard par se tourner vers ce bon vieux cache HTTP.
-Au début ça parait simple.
-Au milieu, on se perd dans les couches et les en-têtes.
-Et à la fin, ça se termine bien trop souvent par un "Ah, ça ne marche pas ? Essaye en vidant ton cache !".
-
-Parfois ça passe. On n'a pas forcément bien compris ce qu'on a fait, mais les perfs sont plutôt bonnes. Parfois ça casse. Le serveur prend tout le traffic et on corrige des tickets à coup de "Ah, ça ne marche pas ? Essaye en vidant ton cache !".
-
-Que ce soit pour soulager nos serveurs, pour améliorer les temps de chargement de nos utilisateurs ou bien les deux, un projet Web moderne finira tôt ou tard par se reposer sur le cache HTTP. Au début ça parait simple, mais à la fin, ça se termine bien trop souvent par un "Ah, ça ne marche pas ? Essaye en vidant ton cache !".
-
-Que ce soit pour soulager nos serveurs, pour améliorer les temps de chargement de nos utilisateurs ou bien les deux, un projet Web moderne finira tôt ou tard par se reposer sur le cache HTTP. Au début ça parait simple, mais à la fin, ça se termine bien trop souvent par un "Ah, ça ne marche pas ? Essaye en vidant ton cache !".
-
-Cette complexité relative est liée à la variété d'en-têtes HTTP qui entre en jeu. Certains sont envoyés par le client d'autres par le serveur. 
-
-Elle est aussi liée au nombre de couches
-
-En effet, choisir et implémenter une bonne stratégie de cache, c'est complexe. On ne sait pas toujours quelle couche a caché une réponse, ni pourquoi. On mélange les en-têtes client vs. serveur. Il faut bien comprendre ce qu'il se passe au cours de la vie d'une requête HTTP.
-
-Ces petits trous dans le gigantesque éventail de connaissances du développeur moderne ont parfois des impacts non négligeables sur la sécurité de nos applications et sur la préservation de notre vie privée en tant qu’utilisateur du Web.
-
-Au menu de cette session, je vous propose de (re)découvrir le cache HTTP par l'exemple et la pratique. Nous reviendrons sur les différents en-têtes HTTP gérés par les navigateurs, CDN, proxys-cache et autres serveurs. Nous parlerons des différents caches présents au sein des navigateurs (cache HTTP, cache Service Worker, cache back/forward...). Enfin, nous aborderons différents contextes et cas de figures en proposant des stratégies adaptées.
 
 ## Message pour le comité
 
