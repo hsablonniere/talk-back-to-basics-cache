@@ -43,15 +43,13 @@ Une personne qui a suivi la présentation repart avec :
 
 ## Abstract
 
-Dans le cadre de nos projets Web, on finit tous tôt au tard par faire appel à ce bon vieux cache HTTP.
-Évidemment, on cherche à réduire les temps de chargement de nos utilisateurs et à soulager la charge de nos serveurs.
-Au départ, ça parait simple, il suffit "juste" de l'activer.
-Au milieu, on se perd un peu dans les en-têtes et les multiples couches qui entrent en jeu.
-Et à la fin, ça se termine bien trop souvent par un « Ça ne marche pas ? Essaye en vidant ton cache ! ».
+Dans le cadre de nos projets Web, en cherchant à réduire les temps de chargement de nos utilisateurs ou encore à soulager la charge de nos serveur, vous faites appel à ce bon vieux cache HTTP. Au départ, ça parait simple, il suffit de l'activer.
+Au milieu, vous voilà perdus dans les en-têtes et les multiples couches qui entrent en jeu.
+Et à la fin, vous entendez bien trop souvent par un « Ça ne marche pas ? Essaye en vidant ton cache ! ».
 
-Choisir et implémenter une stratégie de cache, c'est complexe et ça ne se fait pas à la fin du projet.
+Choisir et implémenter une stratégie de cache, c'est complexe et ça se fait dès le début du projet.
 Chaque étape est concernée : conception, développement, build, déploiement et run.
-Pour faire les bons choix, il est important de bien comprendre comment tout cela fonctionne.
+Pour faire les bons choix, il est important que vous compreniez comment tout cela fonctionne.
 
 Au menu de cette session, je vous propose de (re)découvrir le cache HTTP par l'exemple et la pratique.
 Nous reviendrons sur les différents en-têtes HTTP gérés par les navigateurs, CDN, proxys-cache et autres serveurs.
