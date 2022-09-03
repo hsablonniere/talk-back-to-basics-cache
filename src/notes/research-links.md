@@ -45,9 +45,38 @@
 * https://css-tricks.com/strategies-for-cache-busting-css/
 * https://css-tricks.com/cache-aware-server-push/
 * https://spinupwp.com/wordpress-caching-all-you-need-to-know/
+* https://www.fastly.com/blog/best-practices-using-vary-header
+  * https://developer.fastly.com/reference/vcl/
 
 ### RFC
 
 * https://www.rfc-editor.org/rfc/rfc2616.html
 * https://httpwg.org/specs/rfc7234.html
 * https://httpwg.org/specs/rfc9111.html
+
+### Tools
+
+* https://en.wikipedia.org/wiki/Nginx
+* https://en.wikipedia.org/wiki/Squid_(software)
+* https://en.wikipedia.org/wiki/Varnish_(software)
+* https://en.wikipedia.org/wiki/Apache_Traffic_Server
+* https://en.wikipedia.org/wiki/Apache_HTTP_Server
+* https://caddyserver.com/docs/quick-starts/reverse-proxy#reverse-proxy-quick-start
+  * proxy but no cache
+* https://doc.traefik.io/traefik-enterprise/middlewares/http-cache/
+* https://docs.haproxy.org/2.6/configuration.html#6
+
+### Random
+
+* https://github.com/jimmywarting/cache-polyfill/blob/master/src/cache.js
+* https://developers.cloudflare.com/cache/get-started/
+* https://developer.fastly.com/reference/http/http-headers/Vary/
+* https://www.fastly.com/blog/best-practices-using-vary-header
+* https://www.fastly.com/blog/best-practices-using-vary-header
+* https://www.smashingmagazine.com/2017/11/understanding-vary-header/
+* https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary
+* https://www.nginx.com/blog/nginx-high-performance-caching/#WhatdoesNGINXcache
+* https://medium.com/programming-articles/caching-post-responses-with-nginx-1c0c064bb6b0
+* https://www.thedotproduct.org/posts/nginx-vary-header-handling.html
+* https://github.com/nginx/nginx/blob/master/src/http/ngx_http_file_cache.c
+* https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cache_valid
