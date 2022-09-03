@@ -1,0 +1,3022 @@
+2022/08/21 23:28:12 [debug] 1#1: bind() 0.0.0.0:8080 #7 
+2022/08/21 23:28:12 [notice] 1#1: using the "epoll" event method
+2022/08/21 23:28:12 [debug] 1#1: counter: 00007FF7E7139080, 1
+2022/08/21 23:28:12 [notice] 1#1: nginx/1.23.1
+2022/08/21 23:28:12 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2022/08/21 23:28:12 [notice] 1#1: OS: Linux 5.18.6-arch1-1
+2022/08/21 23:28:12 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2022/08/21 23:28:12 [debug] 1#1: write: 8, 00007FFE8AB8F7D0, 2, 0
+2022/08/21 23:28:12 [debug] 1#1: setproctitle: "nginx: master process nginx-debug -g daemon off;"
+2022/08/21 23:28:12 [notice] 1#1: start worker processes
+2022/08/21 23:28:12 [debug] 1#1: channel 4:8
+2022/08/21 23:28:12 [notice] 1#1: start worker process 31
+2022/08/21 23:28:12 [debug] 1#1: channel 9:10
+2022/08/21 23:28:12 [debug] 31#31: add cleanup: 0000561C2A6C10A8
+2022/08/21 23:28:12 [notice] 1#1: start cache manager process 32
+2022/08/21 23:28:12 [debug] 1#1: pass channel s:1 pid:32 fd:9 to s:0 pid:31 fd:4
+2022/08/21 23:28:12 [debug] 31#31: malloc: 0000561C2A69F980:8
+2022/08/21 23:28:12 [debug] 1#1: channel 11:12
+2022/08/21 23:28:12 [debug] 32#32: close listening 0.0.0.0:8080 #7 
+2022/08/21 23:28:12 [debug] 32#32: add cleanup: 0000561C2A6C10A8
+2022/08/21 23:28:12 [debug] 32#32: malloc: 0000561C2A69F980:8
+2022/08/21 23:28:12 [notice] 1#1: start cache loader process 33
+2022/08/21 23:28:12 [debug] 1#1: pass channel s:2 pid:33 fd:11 to s:0 pid:31 fd:4
+2022/08/21 23:28:12 [debug] 1#1: pass channel s:2 pid:33 fd:11 to s:1 pid:32 fd:9
+2022/08/21 23:28:12 [debug] 1#1: sigsuspend
+2022/08/21 23:28:12 [debug] 31#31: notify eventfd: 10
+2022/08/21 23:28:12 [debug] 31#31: eventfd: 11
+2022/08/21 23:28:12 [debug] 31#31: testing the EPOLLRDHUP flag: success
+2022/08/21 23:28:12 [debug] 31#31: malloc: 0000561C2A6AC440:6144
+2022/08/21 23:28:12 [debug] 33#33: close listening 0.0.0.0:8080 #7 
+2022/08/21 23:28:12 [debug] 31#31: malloc: 0000561C2A6C3AF0:122880
+2022/08/21 23:28:12 [debug] 32#32: notify eventfd: 11
+2022/08/21 23:28:12 [debug] 31#31: malloc: 0000561C2A6E1B00:49152
+2022/08/21 23:28:12 [debug] 33#33: add cleanup: 0000561C2A6C10A8
+2022/08/21 23:28:12 [debug] 32#32: eventfd: 12
+2022/08/21 23:28:12 [debug] 31#31: malloc: 0000561C2A6EDB10:49152
+2022/08/21 23:28:12 [debug] 33#33: malloc: 0000561C2A69F980:8
+2022/08/21 23:28:12 [debug] 32#32: testing the EPOLLRDHUP flag: success
+2022/08/21 23:28:12 [debug] 32#32: malloc: 0000561C2A6AC440:6144
+2022/08/21 23:28:12 [debug] 32#32: malloc: 0000561C2A6C3AF0:122880
+2022/08/21 23:28:12 [debug] 32#32: malloc: 0000561C2A6E1B00:49152
+2022/08/21 23:28:12 [debug] 32#32: malloc: 0000561C2A6EDB10:49152
+2022/08/21 23:28:12 [debug] 31#31: epoll add event: fd:7 op:1 ev:00002001
+2022/08/21 23:28:12 [debug] 31#31: epoll add event: fd:8 op:1 ev:00002001
+2022/08/21 23:28:12 [debug] 31#31: setproctitle: "nginx: worker process"
+2022/08/21 23:28:12 [debug] 31#31: worker cycle
+2022/08/21 23:28:12 [debug] 31#31: epoll timer: -1
+2022/08/21 23:28:12 [debug] 31#31: epoll: fd:8 ev:0001 d:0000561C2A6C3BE0
+2022/08/21 23:28:12 [debug] 31#31: channel handler
+2022/08/21 23:28:12 [debug] 31#31: channel: 32
+2022/08/21 23:28:12 [debug] 31#31: channel command: 1
+2022/08/21 23:28:12 [debug] 31#31: get channel s:1 pid:32 fd:4
+2022/08/21 23:28:12 [debug] 33#33: notify eventfd: 13
+2022/08/21 23:28:12 [debug] 31#31: channel: 32
+2022/08/21 23:28:12 [debug] 31#31: channel command: 1
+2022/08/21 23:28:12 [debug] 31#31: get channel s:2 pid:33 fd:12
+2022/08/21 23:28:12 [debug] 33#33: eventfd: 14
+2022/08/21 23:28:12 [debug] 32#32: epoll add event: fd:10 op:1 ev:00002001
+2022/08/21 23:28:12 [debug] 31#31: channel: -2
+2022/08/21 23:28:12 [debug] 31#31: timer delta: 1
+2022/08/21 23:28:12 [debug] 32#32: setproctitle: "nginx: cache manager process"
+2022/08/21 23:28:12 [debug] 31#31: worker cycle
+2022/08/21 23:28:12 [debug] 32#32: event timer add: -1: 0:133347490
+2022/08/21 23:28:12 [debug] 31#31: epoll timer: -1
+2022/08/21 23:28:12 [debug] 32#32: epoll timer: 0
+2022/08/21 23:28:12 [debug] 32#32: epoll: fd:10 ev:0001 d:0000561C2A6C3AF0
+2022/08/21 23:28:12 [debug] 32#32: channel handler
+2022/08/21 23:28:12 [debug] 33#33: testing the EPOLLRDHUP flag: success
+2022/08/21 23:28:12 [debug] 32#32: channel: 32
+2022/08/21 23:28:12 [debug] 32#32: channel command: 1
+2022/08/21 23:28:12 [debug] 33#33: malloc: 0000561C2A6AC440:6144
+2022/08/21 23:28:12 [debug] 32#32: get channel s:2 pid:33 fd:8
+2022/08/21 23:28:12 [debug] 32#32: channel: -2
+2022/08/21 23:28:12 [debug] 32#32: timer delta: 1
+2022/08/21 23:28:12 [debug] 33#33: malloc: 0000561C2A6C3AF0:122880
+2022/08/21 23:28:12 [debug] 32#32: event timer del: -1: 133347490
+2022/08/21 23:28:12 [debug] 33#33: malloc: 0000561C2A6E1B00:49152
+2022/08/21 23:28:12 [debug] 32#32: http file cache expire
+2022/08/21 23:28:12 [debug] 32#32: malloc: 0000561C2A6A0360:55
+2022/08/21 23:28:12 [debug] 32#32: shmtx lock
+2022/08/21 23:28:12 [debug] 33#33: malloc: 0000561C2A6EDB10:49152
+2022/08/21 23:28:12 [debug] 32#32: shmtx unlock
+2022/08/21 23:28:12 [debug] 32#32: shmtx lock
+2022/08/21 23:28:12 [debug] 32#32: shmtx unlock
+2022/08/21 23:28:12 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:28:12 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:28:12 [debug] 32#32: event timer add: -1: 10000:133357491
+2022/08/21 23:28:12 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:28:12 [debug] 33#33: epoll add event: fd:12 op:1 ev:00002001
+2022/08/21 23:28:12 [debug] 33#33: setproctitle: "nginx: cache loader process"
+2022/08/21 23:28:12 [debug] 33#33: event timer add: -1: 60000:133407490
+2022/08/21 23:28:12 [debug] 33#33: epoll timer: 60000
+2022/08/21 23:28:22 [debug] 32#32: timer delta: 10007
+2022/08/21 23:28:22 [debug] 32#32: event timer del: -1: 133357491
+2022/08/21 23:28:22 [debug] 32#32: http file cache expire
+2022/08/21 23:28:22 [debug] 32#32: malloc: 0000561C2A6A0360:55
+2022/08/21 23:28:22 [debug] 32#32: shmtx lock
+2022/08/21 23:28:22 [debug] 32#32: shmtx unlock
+2022/08/21 23:28:22 [debug] 32#32: shmtx lock
+2022/08/21 23:28:22 [debug] 32#32: shmtx unlock
+2022/08/21 23:28:22 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:28:22 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:28:22 [debug] 32#32: event timer add: -1: 10000:133367498
+2022/08/21 23:28:22 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:28:26 [debug] 31#31: epoll: fd:7 ev:0001 d:0000561C2A6C3AF0
+2022/08/21 23:28:26 [debug] 31#31: accept on 0.0.0.0:8080, ready: 0
+2022/08/21 23:28:26 [debug] 31#31: posix_memalign: 0000561C2A69E190:512 @16
+2022/08/21 23:28:26 [debug] 31#31: *1 accept: 127.0.0.1:58864 fd:13
+2022/08/21 23:28:26 [debug] 31#31: *1 event timer add: 13: 60000:133421082
+2022/08/21 23:28:26 [debug] 31#31: *1 reusable connection: 1
+2022/08/21 23:28:26 [debug] 31#31: *1 epoll add event: fd:13 op:1 ev:80002001
+2022/08/21 23:28:26 [debug] 31#31: timer delta: 13591
+2022/08/21 23:28:26 [debug] 31#31: worker cycle
+2022/08/21 23:28:26 [debug] 31#31: epoll timer: 60000
+2022/08/21 23:28:26 [debug] 31#31: epoll: fd:13 ev:0001 d:0000561C2A6C3CD0
+2022/08/21 23:28:26 [debug] 31#31: *1 http wait request handler
+2022/08/21 23:28:26 [debug] 31#31: *1 malloc: 0000561C2A6841B0:1024
+2022/08/21 23:28:26 [debug] 31#31: *1 recv: eof:0, avail:-1
+2022/08/21 23:28:26 [debug] 31#31: *1 recv: fd:13 92 of 1024
+2022/08/21 23:28:26 [debug] 31#31: *1 reusable connection: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 posix_memalign: 0000561C2A69ADE0:4096 @16
+2022/08/21 23:28:26 [debug] 31#31: *1 http process request line
+2022/08/21 23:28:26 [debug] 31#31: *1 http request line: "GET / HTTP/1.1"
+2022/08/21 23:28:26 [debug] 31#31: *1 http uri: "/"
+2022/08/21 23:28:26 [debug] 31#31: *1 http args: ""
+2022/08/21 23:28:26 [debug] 31#31: *1 http exten: ""
+2022/08/21 23:28:26 [debug] 31#31: *1 posix_memalign: 0000561C2A6ADC50:4096 @16
+2022/08/21 23:28:26 [debug] 31#31: *1 http process request header line
+2022/08/21 23:28:26 [debug] 31#31: *1 http header: "Host: localhost:8080"
+2022/08/21 23:28:26 [debug] 31#31: *1 http header: "User-Agent: curl/7.83.1"
+2022/08/21 23:28:26 [debug] 31#31: *1 http header: "Accept: */*"
+2022/08/21 23:28:26 [debug] 31#31: *1 http header: "x-header: two"
+2022/08/21 23:28:26 [debug] 31#31: *1 http header done
+2022/08/21 23:28:26 [debug] 31#31: *1 event timer del: 13: 133421082
+2022/08/21 23:28:26 [debug] 31#31: *1 generic phase: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 rewrite phase: 1
+2022/08/21 23:28:26 [debug] 31#31: *1 test location: "/"
+2022/08/21 23:28:26 [debug] 31#31: *1 using configuration "/"
+2022/08/21 23:28:26 [debug] 31#31: *1 http cl:-1 max:1048576
+2022/08/21 23:28:26 [debug] 31#31: *1 rewrite phase: 3
+2022/08/21 23:28:26 [debug] 31#31: *1 post rewrite phase: 4
+2022/08/21 23:28:26 [debug] 31#31: *1 generic phase: 5
+2022/08/21 23:28:26 [debug] 31#31: *1 generic phase: 6
+2022/08/21 23:28:26 [debug] 31#31: *1 generic phase: 7
+2022/08/21 23:28:26 [debug] 31#31: *1 access phase: 8
+2022/08/21 23:28:26 [debug] 31#31: *1 access phase: 9
+2022/08/21 23:28:26 [debug] 31#31: *1 access phase: 10
+2022/08/21 23:28:26 [debug] 31#31: *1 post access phase: 11
+2022/08/21 23:28:26 [debug] 31#31: *1 generic phase: 12
+2022/08/21 23:28:26 [debug] 31#31: *1 generic phase: 13
+2022/08/21 23:28:26 [debug] 31#31: *1 http init upstream, client timer: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 epoll add event: fd:13 op:3 ev:80002005
+2022/08/21 23:28:26 [debug] 31#31: *1 http cache key: "http://localhost:8000"
+2022/08/21 23:28:26 [debug] 31#31: *1 http cache key: "/"
+2022/08/21 23:28:26 [debug] 31#31: *1 add cleanup: 0000561C2A6AE7D0
+2022/08/21 23:28:26 [debug] 31#31: shmtx lock
+2022/08/21 23:28:26 [debug] 31#31: slab alloc: 120 slot: 4
+2022/08/21 23:28:26 [debug] 31#31: slab alloc: 00007FF7E609F080
+2022/08/21 23:28:26 [debug] 31#31: shmtx unlock
+2022/08/21 23:28:26 [debug] 31#31: *1 http file cache exists: -5 e:0
+2022/08/21 23:28:26 [debug] 31#31: *1 cache file: "/var/nginx-cache/f/d7/cb4fbe6a5f6caec1f1715b85fecd2d7f"
+2022/08/21 23:28:26 [debug] 31#31: *1 add cleanup: 0000561C2A6AE820
+2022/08/21 23:28:26 [debug] 31#31: *1 http upstream cache: -5
+2022/08/21 23:28:26 [debug] 31#31: *1 http script copy: "Host"
+2022/08/21 23:28:26 [debug] 31#31: *1 http script var: "localhost"
+2022/08/21 23:28:26 [debug] 31#31: *1 http script copy: "Connection"
+2022/08/21 23:28:26 [debug] 31#31: *1 http script copy: "close"
+2022/08/21 23:28:26 [debug] 31#31: *1 http script copy: ""
+2022/08/21 23:28:26 [debug] 31#31: *1 http script copy: ""
+2022/08/21 23:28:26 [debug] 31#31: *1 http script copy: ""
+2022/08/21 23:28:26 [debug] 31#31: *1 http script copy: ""
+2022/08/21 23:28:26 [debug] 31#31: *1 http proxy header: "User-Agent: curl/7.83.1"
+2022/08/21 23:28:26 [debug] 31#31: *1 http proxy header: "Accept: */*"
+2022/08/21 23:28:26 [debug] 31#31: *1 http proxy header: "x-header: two"
+2022/08/21 23:28:26 [debug] 31#31: *1 http proxy header:
+"GET / HTTP/1.0
+Host: localhost
+Connection: close
+User-Agent: curl/7.83.1
+Accept: */*
+x-header: two
+
+"
+2022/08/21 23:28:26 [debug] 31#31: *1 http cleanup add: 0000561C2A6AE990
+2022/08/21 23:28:26 [debug] 31#31: *1 get rr peer, try: 2
+2022/08/21 23:28:26 [debug] 31#31: *1 get rr peer, current: 0000561C2A6BBDF8 -1
+2022/08/21 23:28:26 [debug] 31#31: *1 stream socket 14
+2022/08/21 23:28:26 [debug] 31#31: *1 epoll add connection: fd:14 ev:80002005
+2022/08/21 23:28:26 [debug] 31#31: *1 connect to [::1]:8000, fd:14 #2
+2022/08/21 23:28:26 [debug] 31#31: *1 http upstream connect: -2
+2022/08/21 23:28:26 [debug] 31#31: *1 posix_memalign: 0000561C2A69C6D0:128 @16
+2022/08/21 23:28:26 [debug] 31#31: *1 event timer add: 14: 60000:133421082
+2022/08/21 23:28:26 [debug] 31#31: *1 http finalize request: -4, "/?" a:1, c:2
+2022/08/21 23:28:26 [debug] 31#31: *1 http request count:2 blk:0
+2022/08/21 23:28:26 [debug] 31#31: timer delta: 0
+2022/08/21 23:28:26 [debug] 31#31: worker cycle
+2022/08/21 23:28:26 [debug] 31#31: epoll timer: 60000
+2022/08/21 23:28:26 [debug] 31#31: epoll: fd:13 ev:0004 d:0000561C2A6C3CD0
+2022/08/21 23:28:26 [debug] 31#31: *1 http run request: "/?"
+2022/08/21 23:28:26 [debug] 31#31: *1 http upstream check client, write event:1, "/"
+2022/08/21 23:28:26 [debug] 31#31: epoll: fd:14 ev:0004 d:0000561C2A6C3DC0
+2022/08/21 23:28:26 [debug] 31#31: *1 http upstream request: "/?"
+2022/08/21 23:28:26 [debug] 31#31: *1 http upstream send request handler
+2022/08/21 23:28:26 [debug] 31#31: *1 http upstream send request
+2022/08/21 23:28:26 [debug] 31#31: *1 http upstream send request body
+2022/08/21 23:28:26 [debug] 31#31: *1 chain writer buf fl:1 s:107
+2022/08/21 23:28:26 [debug] 31#31: *1 chain writer in: 0000561C2A6AE9D0
+2022/08/21 23:28:26 [debug] 31#31: *1 writev: 107 of 107
+2022/08/21 23:28:26 [debug] 31#31: *1 chain writer out: 0000000000000000
+2022/08/21 23:28:26 [debug] 31#31: *1 event timer del: 14: 133421082
+2022/08/21 23:28:26 [debug] 31#31: *1 event timer add: 14: 60000:133421083
+2022/08/21 23:28:26 [debug] 31#31: timer delta: 1
+2022/08/21 23:28:26 [debug] 31#31: worker cycle
+2022/08/21 23:28:26 [debug] 31#31: epoll timer: 60000
+2022/08/21 23:28:26 [debug] 31#31: epoll: fd:14 ev:0005 d:0000561C2A6C3DC0
+2022/08/21 23:28:26 [debug] 31#31: *1 http upstream request: "/?"
+2022/08/21 23:28:26 [debug] 31#31: *1 http upstream process header
+2022/08/21 23:28:26 [debug] 31#31: *1 malloc: 0000561C2A6A4420:4096
+2022/08/21 23:28:26 [debug] 31#31: *1 recv: eof:0, avail:-1
+2022/08/21 23:28:26 [debug] 31#31: *1 recv: fd:14 130 of 3731
+2022/08/21 23:28:26 [debug] 31#31: *1 http proxy status 200 "200 OK"
+2022/08/21 23:28:26 [debug] 31#31: *1 http proxy header: "cache-control: public, max-age=500"
+2022/08/21 23:28:26 [debug] 31#31: *1 posix_memalign: 0000561C2A6A5430:4096 @16
+2022/08/21 23:28:26 [debug] 31#31: *1 http proxy header: "vary: x-header"
+2022/08/21 23:28:26 [debug] 31#31: *1 http proxy header: "Date: Sun, 21 Aug 2022 23:28:26 GMT"
+2022/08/21 23:28:26 [debug] 31#31: *1 http proxy header: "Connection: close"
+2022/08/21 23:28:26 [debug] 31#31: *1 http proxy header done
+2022/08/21 23:28:26 [debug] 31#31: *1 HTTP/1.1 200 OK
+Server: nginx/1.23.1
+Date: Sun, 21 Aug 2022 23:28:26 GMT
+Transfer-Encoding: chunked
+Connection: keep-alive
+cache-control: public, max-age=500
+vary: x-header
+
+2022/08/21 23:28:26 [debug] 31#31: *1 write new buf t:1 f:0 0000561C2A6A5508, pos 0000561C2A6A5508, size: 182 file: 0, size: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 http write filter: l:0 f:0 s:182
+2022/08/21 23:28:26 [debug] 31#31: *1 http file cache set header
+2022/08/21 23:28:26 [debug] 31#31: *1 http file cache vary: "x-header"
+2022/08/21 23:28:26 [debug] 31#31: *1 http file cache vary: x-header
+2022/08/21 23:28:26 [debug] 31#31: *1 http cacheable: 1
+2022/08/21 23:28:26 [debug] 31#31: *1 http proxy filter init s:200 h:0 c:0 l:-1
+2022/08/21 23:28:26 [debug] 31#31: *1 http upstream process upstream
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe read upstream: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe preread: 3
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe buf free s:0 t:1 f:0 0000561C2A6A4420, pos 0000561C2A6A460C, size: 3 file: 0, size: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe length: -1
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe write chain
+2022/08/21 23:28:26 [debug] 31#31: *1 add cleanup: 0000561C2A6A5778
+2022/08/21 23:28:26 [debug] 31#31: *1 hashed path: /var/cache/nginx/proxy_temp/1/00/0000000001
+2022/08/21 23:28:26 [debug] 31#31: *1 temp fd:-1
+2022/08/21 23:28:26 [debug] 31#31: *1 temp file: "/var/cache/nginx/proxy_temp/1"
+2022/08/21 23:28:26 [debug] 31#31: *1 temp file: "/var/cache/nginx/proxy_temp/1/00"
+2022/08/21 23:28:26 [debug] 31#31: *1 hashed path: /var/cache/nginx/proxy_temp/1/00/0000000001
+2022/08/21 23:28:26 [debug] 31#31: *1 temp fd:15
+2022/08/21 23:28:26 [debug] 31#31: *1 write: 15, 0000561C2A6A4420, 492, 0
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe write downstream: 1
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe write busy: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe write: out:0000000000000000, f:0
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe read upstream: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe buf free s:0 t:1 f:0 0000561C2A6A4420, pos 0000561C2A6A460C, size: 3 file: 0, size: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe length: -1
+2022/08/21 23:28:26 [debug] 31#31: *1 event timer: 14, old: 133421083, new: 133421088
+2022/08/21 23:28:26 [debug] 31#31: *1 http upstream request: "/?"
+2022/08/21 23:28:26 [debug] 31#31: *1 http upstream dummy handler
+2022/08/21 23:28:26 [debug] 31#31: timer delta: 5
+2022/08/21 23:28:26 [debug] 31#31: worker cycle
+2022/08/21 23:28:26 [debug] 31#31: epoll timer: 59995
+2022/08/21 23:28:26 [debug] 31#31: epoll: fd:14 ev:2005 d:0000561C2A6C3DC0
+2022/08/21 23:28:26 [debug] 31#31: *1 http upstream request: "/?"
+2022/08/21 23:28:26 [debug] 31#31: *1 http upstream process upstream
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe read upstream: 1
+2022/08/21 23:28:26 [debug] 31#31: *1 readv: eof:1, avail:-1
+2022/08/21 23:28:26 [debug] 31#31: *1 readv: 1, last:3601
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe recv chain: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe buf free s:0 t:1 f:0 0000561C2A6A4420, pos 0000561C2A6A460C, size: 3 file: 0, size: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe length: -1
+2022/08/21 23:28:26 [debug] 31#31: *1 input buf #0
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe write chain
+2022/08/21 23:28:26 [debug] 31#31: *1 write: 15, 0000561C2A6A460C, 3, 492
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe write downstream: 1
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe write downstream flush out
+2022/08/21 23:28:26 [debug] 31#31: *1 http output filter "/?"
+2022/08/21 23:28:26 [debug] 31#31: *1 http copy filter: "/?"
+2022/08/21 23:28:26 [debug] 31#31: *1 malloc: 0000561C2A6F9B20:32768
+2022/08/21 23:28:26 [debug] 31#31: *1 read: 15, 0000561C2A6F9B20, 3, 492
+2022/08/21 23:28:26 [debug] 31#31: *1 http postpone filter "/?" 0000561C2A6A5968
+2022/08/21 23:28:26 [debug] 31#31: *1 http chunk: 3
+2022/08/21 23:28:26 [debug] 31#31: *1 write old buf t:1 f:0 0000561C2A6A5508, pos 0000561C2A6A5508, size: 182 file: 0, size: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 write new buf t:1 f:0 0000561C2A6A59E8, pos 0000561C2A6A59E8, size: 3 file: 0, size: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 write new buf t:1 f:0 0000561C2A6F9B20, pos 0000561C2A6F9B20, size: 3 file: 0, size: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 write new buf t:0 f:0 0000000000000000, pos 0000561C28A3E6FA, size: 2 file: 0, size: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 http write filter: l:0 f:1 s:190
+2022/08/21 23:28:26 [debug] 31#31: *1 http write filter limit 2097152
+2022/08/21 23:28:26 [debug] 31#31: *1 writev: 190 of 190
+2022/08/21 23:28:26 [debug] 31#31: *1 http write filter 0000000000000000
+2022/08/21 23:28:26 [debug] 31#31: *1 http copy filter: 0 "/?"
+2022/08/21 23:28:26 [debug] 31#31: *1 pipe write downstream done
+2022/08/21 23:28:26 [debug] 31#31: *1 event timer: 14, old: 133421083, new: 133421089
+2022/08/21 23:28:26 [debug] 31#31: *1 http file cache update
+2022/08/21 23:28:26 [debug] 31#31: *1 http file cache rename: "/var/cache/nginx/proxy_temp/1/00/0000000001" to "/var/nginx-cache/f/d7/cb4fbe6a5f6caec1f1715b85fecd2d7f"
+2022/08/21 23:28:26 [debug] 31#31: *1 malloc: 0000561C2A69C680:66
+2022/08/21 23:28:26 [debug] 31#31: *1 malloc: 0000561C2A69C8A0:495
+2022/08/21 23:28:26 [debug] 31#31: shmtx lock
+2022/08/21 23:28:26 [debug] 31#31: shmtx unlock
+2022/08/21 23:28:26 [debug] 31#31: *1 http upstream exit: 0000000000000000
+2022/08/21 23:28:26 [debug] 31#31: *1 finalize http upstream request: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 finalize http proxy request
+2022/08/21 23:28:26 [debug] 31#31: *1 free rr peer 2 0
+2022/08/21 23:28:26 [debug] 31#31: *1 close http upstream connection: 14
+2022/08/21 23:28:26 [debug] 31#31: *1 free: 0000561C2A69C6D0, unused: 48
+2022/08/21 23:28:26 [debug] 31#31: *1 event timer del: 14: 133421083
+2022/08/21 23:28:26 [debug] 31#31: *1 reusable connection: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 http upstream temp fd: 15
+2022/08/21 23:28:26 [debug] 31#31: *1 http output filter "/?"
+2022/08/21 23:28:26 [debug] 31#31: *1 http copy filter: "/?"
+2022/08/21 23:28:26 [debug] 31#31: *1 http postpone filter "/?" 00007FFE8AB8F4B0
+2022/08/21 23:28:26 [debug] 31#31: *1 http chunk: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 write new buf t:0 f:0 0000000000000000, pos 0000561C28A3E6F7, size: 5 file: 0, size: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 http write filter: l:1 f:0 s:5
+2022/08/21 23:28:26 [debug] 31#31: *1 http write filter limit 2097152
+2022/08/21 23:28:26 [debug] 31#31: *1 writev: 5 of 5
+2022/08/21 23:28:26 [debug] 31#31: *1 http write filter 0000000000000000
+2022/08/21 23:28:26 [debug] 31#31: *1 http copy filter: 0 "/?"
+2022/08/21 23:28:26 [debug] 31#31: *1 http finalize request: 0, "/?" a:1, c:1
+2022/08/21 23:28:26 [debug] 31#31: *1 set http keepalive handler
+2022/08/21 23:28:26 [debug] 31#31: *1 http close request
+2022/08/21 23:28:26 [debug] 31#31: *1 http log handler
+2022/08/21 23:28:26 [debug] 31#31: *1 run cleanup: 0000561C2A6A5778
+2022/08/21 23:28:26 [debug] 31#31: *1 file cleanup: fd:15
+2022/08/21 23:28:26 [debug] 31#31: *1 run cleanup: 0000561C2A6AE7D0
+2022/08/21 23:28:26 [debug] 31#31: *1 free: 0000561C2A6F9B20
+2022/08/21 23:28:26 [debug] 31#31: *1 free: 0000561C2A6A4420
+2022/08/21 23:28:26 [debug] 31#31: *1 free: 0000561C2A69ADE0, unused: 2
+2022/08/21 23:28:26 [debug] 31#31: *1 free: 0000561C2A6ADC50, unused: 1
+2022/08/21 23:28:26 [debug] 31#31: *1 free: 0000561C2A6A5430, unused: 2264
+2022/08/21 23:28:26 [debug] 31#31: *1 free: 0000561C2A6841B0
+2022/08/21 23:28:26 [debug] 31#31: *1 hc free: 0000000000000000
+2022/08/21 23:28:26 [debug] 31#31: *1 hc busy: 0000000000000000 0
+2022/08/21 23:28:26 [debug] 31#31: *1 tcp_nodelay
+2022/08/21 23:28:26 [debug] 31#31: *1 reusable connection: 1
+2022/08/21 23:28:26 [debug] 31#31: *1 event timer add: 13: 75000:133436089
+2022/08/21 23:28:26 [debug] 31#31: timer delta: 1
+2022/08/21 23:28:26 [debug] 31#31: worker cycle
+2022/08/21 23:28:26 [debug] 31#31: epoll timer: 75000
+2022/08/21 23:28:26 [debug] 31#31: epoll: fd:13 ev:2005 d:0000561C2A6C3CD0
+2022/08/21 23:28:26 [debug] 31#31: *1 http keepalive handler
+2022/08/21 23:28:26 [debug] 31#31: *1 malloc: 0000561C2A6841B0:1024
+2022/08/21 23:28:26 [debug] 31#31: *1 recv: eof:1, avail:-1
+2022/08/21 23:28:26 [debug] 31#31: *1 recv: fd:13 0 of 1024
+2022/08/21 23:28:26 [info] 31#31: *1 client 127.0.0.1 closed keepalive connection
+2022/08/21 23:28:26 [debug] 31#31: *1 close http connection: 13
+2022/08/21 23:28:26 [debug] 31#31: *1 event timer del: 13: 133436089
+2022/08/21 23:28:26 [debug] 31#31: *1 reusable connection: 0
+2022/08/21 23:28:26 [debug] 31#31: *1 free: 0000561C2A6841B0
+2022/08/21 23:28:26 [debug] 31#31: *1 free: 0000561C2A69E190, unused: 136
+2022/08/21 23:28:26 [debug] 31#31: timer delta: 1
+2022/08/21 23:28:26 [debug] 31#31: worker cycle
+2022/08/21 23:28:26 [debug] 31#31: epoll timer: -1
+2022/08/21 23:28:32 [debug] 32#32: timer delta: 10010
+2022/08/21 23:28:32 [debug] 32#32: event timer del: -1: 133367498
+2022/08/21 23:28:32 [debug] 32#32: http file cache expire
+2022/08/21 23:28:32 [debug] 32#32: malloc: 0000561C2A6A0360:55
+2022/08/21 23:28:32 [debug] 32#32: shmtx lock
+2022/08/21 23:28:32 [debug] 32#32: shmtx unlock
+2022/08/21 23:28:32 [debug] 32#32: shmtx lock
+2022/08/21 23:28:32 [debug] 32#32: shmtx unlock
+2022/08/21 23:28:32 [debug] 32#32: http file cache size: 1 c:1 w:-1
+2022/08/21 23:28:32 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:28:32 [debug] 32#32: event timer add: -1: 10000:133377508
+2022/08/21 23:28:32 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:28:42 [debug] 32#32: timer delta: 10010
+2022/08/21 23:28:42 [debug] 32#32: event timer del: -1: 133377508
+2022/08/21 23:28:42 [debug] 32#32: http file cache expire
+2022/08/21 23:28:42 [debug] 32#32: malloc: 0000561C2A6A0360:55
+2022/08/21 23:28:42 [debug] 32#32: shmtx lock
+2022/08/21 23:28:42 [debug] 32#32: shmtx unlock
+2022/08/21 23:28:42 [debug] 32#32: shmtx lock
+2022/08/21 23:28:42 [debug] 32#32: shmtx unlock
+2022/08/21 23:28:42 [debug] 32#32: http file cache size: 1 c:1 w:-1
+2022/08/21 23:28:42 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:28:42 [debug] 32#32: event timer add: -1: 10000:133387518
+2022/08/21 23:28:42 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:28:49 [debug] 31#31: epoll: fd:7 ev:0001 d:0000561C2A6C3AF0
+2022/08/21 23:28:49 [debug] 31#31: accept on 0.0.0.0:8080, ready: 0
+2022/08/21 23:28:49 [debug] 31#31: posix_memalign: 0000561C2A69E190:512 @16
+2022/08/21 23:28:49 [debug] 31#31: *3 accept: 127.0.0.1:38816 fd:13
+2022/08/21 23:28:49 [debug] 31#31: *3 event timer add: 13: 60000:133443793
+2022/08/21 23:28:49 [debug] 31#31: *3 reusable connection: 1
+2022/08/21 23:28:49 [debug] 31#31: *3 epoll add event: fd:13 op:1 ev:80002001
+2022/08/21 23:28:49 [debug] 31#31: timer delta: 22703
+2022/08/21 23:28:49 [debug] 31#31: worker cycle
+2022/08/21 23:28:49 [debug] 31#31: epoll timer: 60000
+2022/08/21 23:28:49 [debug] 31#31: epoll: fd:13 ev:0001 d:0000561C2A6C3CD1
+2022/08/21 23:28:49 [debug] 31#31: *3 http wait request handler
+2022/08/21 23:28:49 [debug] 31#31: *3 malloc: 0000561C2A6841B0:1024
+2022/08/21 23:28:49 [debug] 31#31: *3 recv: eof:0, avail:-1
+2022/08/21 23:28:49 [debug] 31#31: *3 recv: fd:13 92 of 1024
+2022/08/21 23:28:49 [debug] 31#31: *3 reusable connection: 0
+2022/08/21 23:28:49 [debug] 31#31: *3 posix_memalign: 0000561C2A69ADE0:4096 @16
+2022/08/21 23:28:49 [debug] 31#31: *3 http process request line
+2022/08/21 23:28:49 [debug] 31#31: *3 http request line: "GET / HTTP/1.1"
+2022/08/21 23:28:49 [debug] 31#31: *3 http uri: "/"
+2022/08/21 23:28:49 [debug] 31#31: *3 http args: ""
+2022/08/21 23:28:49 [debug] 31#31: *3 http exten: ""
+2022/08/21 23:28:49 [debug] 31#31: *3 posix_memalign: 0000561C2A6ADC50:4096 @16
+2022/08/21 23:28:49 [debug] 31#31: *3 http process request header line
+2022/08/21 23:28:49 [debug] 31#31: *3 http header: "Host: localhost:8080"
+2022/08/21 23:28:49 [debug] 31#31: *3 http header: "User-Agent: curl/7.83.1"
+2022/08/21 23:28:49 [debug] 31#31: *3 http header: "Accept: */*"
+2022/08/21 23:28:49 [debug] 31#31: *3 http header: "x-header: two"
+2022/08/21 23:28:49 [debug] 31#31: *3 http header done
+2022/08/21 23:28:49 [debug] 31#31: *3 event timer del: 13: 133443793
+2022/08/21 23:28:49 [debug] 31#31: *3 generic phase: 0
+2022/08/21 23:28:49 [debug] 31#31: *3 rewrite phase: 1
+2022/08/21 23:28:49 [debug] 31#31: *3 test location: "/"
+2022/08/21 23:28:49 [debug] 31#31: *3 using configuration "/"
+2022/08/21 23:28:49 [debug] 31#31: *3 http cl:-1 max:1048576
+2022/08/21 23:28:49 [debug] 31#31: *3 rewrite phase: 3
+2022/08/21 23:28:49 [debug] 31#31: *3 post rewrite phase: 4
+2022/08/21 23:28:49 [debug] 31#31: *3 generic phase: 5
+2022/08/21 23:28:49 [debug] 31#31: *3 generic phase: 6
+2022/08/21 23:28:49 [debug] 31#31: *3 generic phase: 7
+2022/08/21 23:28:49 [debug] 31#31: *3 access phase: 8
+2022/08/21 23:28:49 [debug] 31#31: *3 access phase: 9
+2022/08/21 23:28:49 [debug] 31#31: *3 access phase: 10
+2022/08/21 23:28:49 [debug] 31#31: *3 post access phase: 11
+2022/08/21 23:28:49 [debug] 31#31: *3 generic phase: 12
+2022/08/21 23:28:49 [debug] 31#31: *3 generic phase: 13
+2022/08/21 23:28:49 [debug] 31#31: *3 http init upstream, client timer: 0
+2022/08/21 23:28:49 [debug] 31#31: *3 epoll add event: fd:13 op:3 ev:80002005
+2022/08/21 23:28:49 [debug] 31#31: *3 http cache key: "http://localhost:8000"
+2022/08/21 23:28:49 [debug] 31#31: *3 http cache key: "/"
+2022/08/21 23:28:49 [debug] 31#31: *3 add cleanup: 0000561C2A6AE7D0
+2022/08/21 23:28:49 [debug] 31#31: shmtx lock
+2022/08/21 23:28:49 [debug] 31#31: shmtx unlock
+2022/08/21 23:28:49 [debug] 31#31: *3 http file cache exists: 0 e:1
+2022/08/21 23:28:49 [debug] 31#31: *3 cache file: "/var/nginx-cache/f/d7/cb4fbe6a5f6caec1f1715b85fecd2d7f"
+2022/08/21 23:28:49 [debug] 31#31: *3 add cleanup: 0000561C2A6AE820
+2022/08/21 23:28:49 [debug] 31#31: *3 http file cache fd: 14
+2022/08/21 23:28:49 [debug] 31#31: *3 read: 14, 0000561C2A6AE8A0, 492, 0
+2022/08/21 23:28:49 [debug] 31#31: *3 http file cache vary: "x-header"
+2022/08/21 23:28:49 [debug] 31#31: *3 http file cache vary: x-header
+2022/08/21 23:28:49 [debug] 31#31: shmtx lock
+2022/08/21 23:28:49 [debug] 31#31: shmtx unlock
+2022/08/21 23:28:49 [debug] 31#31: *3 http upstream cache: 0
+2022/08/21 23:28:49 [debug] 31#31: *3 posix_memalign: 0000561C2A6A4420:4096 @16
+2022/08/21 23:28:49 [debug] 31#31: *3 http proxy status 200 "200 OK"
+2022/08/21 23:28:49 [debug] 31#31: *3 http proxy header: "cache-control: public, max-age=500"
+2022/08/21 23:28:49 [debug] 31#31: *3 http proxy header: "vary: x-header"
+2022/08/21 23:28:49 [debug] 31#31: *3 http proxy header: "Date: Sun, 21 Aug 2022 23:28:26 GMT"
+2022/08/21 23:28:49 [debug] 31#31: *3 http proxy header: "Connection: close"
+2022/08/21 23:28:49 [debug] 31#31: *3 http proxy header done
+2022/08/21 23:28:49 [debug] 31#31: *3 http file cache send: /var/nginx-cache/f/d7/cb4fbe6a5f6caec1f1715b85fecd2d7f
+2022/08/21 23:28:49 [debug] 31#31: *3 HTTP/1.1 200 OK
+Server: nginx/1.23.1
+Date: Sun, 21 Aug 2022 23:28:49 GMT
+Transfer-Encoding: chunked
+Connection: keep-alive
+cache-control: public, max-age=500
+vary: x-header
+
+2022/08/21 23:28:49 [debug] 31#31: *3 write new buf t:1 f:0 0000561C2A6A46D0, pos 0000561C2A6A46D0, size: 182 file: 0, size: 0
+2022/08/21 23:28:49 [debug] 31#31: *3 http write filter: l:0 f:0 s:182
+2022/08/21 23:28:49 [debug] 31#31: *3 http output filter "/?"
+2022/08/21 23:28:49 [debug] 31#31: *3 http copy filter: "/?"
+2022/08/21 23:28:49 [debug] 31#31: *3 read: 14, 0000561C2A6A4878, 3, 492
+2022/08/21 23:28:49 [debug] 31#31: *3 http postpone filter "/?" 0000561C2A6A4880
+2022/08/21 23:28:49 [debug] 31#31: *3 http chunk: 3
+2022/08/21 23:28:49 [debug] 31#31: *3 write old buf t:1 f:0 0000561C2A6A46D0, pos 0000561C2A6A46D0, size: 182 file: 0, size: 0
+2022/08/21 23:28:49 [debug] 31#31: *3 write new buf t:1 f:0 0000561C2A6A4900, pos 0000561C2A6A4900, size: 3 file: 0, size: 0
+2022/08/21 23:28:49 [debug] 31#31: *3 write new buf t:1 f:0 0000561C2A6A4878, pos 0000561C2A6A4878, size: 3 file: 0, size: 0
+2022/08/21 23:28:49 [debug] 31#31: *3 write new buf t:0 f:0 0000000000000000, pos 0000561C28A3E6F5, size: 7 file: 0, size: 0
+2022/08/21 23:28:49 [debug] 31#31: *3 http write filter: l:1 f:0 s:195
+2022/08/21 23:28:49 [debug] 31#31: *3 http write filter limit 2097152
+2022/08/21 23:28:49 [debug] 31#31: *3 writev: 195 of 195
+2022/08/21 23:28:49 [debug] 31#31: *3 http write filter 0000000000000000
+2022/08/21 23:28:49 [debug] 31#31: *3 http copy filter: 0 "/?"
+2022/08/21 23:28:49 [debug] 31#31: *3 http finalize request: 0, "/?" a:1, c:2
+2022/08/21 23:28:49 [debug] 31#31: *3 http request count:2 blk:0
+2022/08/21 23:28:49 [debug] 31#31: *3 http finalize request: -4, "/?" a:1, c:1
+2022/08/21 23:28:49 [debug] 31#31: *3 set http keepalive handler
+2022/08/21 23:28:49 [debug] 31#31: *3 http close request
+2022/08/21 23:28:49 [debug] 31#31: *3 http log handler
+2022/08/21 23:28:49 [debug] 31#31: *3 run cleanup: 0000561C2A6AE820
+2022/08/21 23:28:49 [debug] 31#31: *3 file cleanup: fd:14
+2022/08/21 23:28:49 [debug] 31#31: *3 run cleanup: 0000561C2A6AE7D0
+2022/08/21 23:28:49 [debug] 31#31: *3 http file cache cleanup
+2022/08/21 23:28:49 [debug] 31#31: *3 http file cache free, fd: 14
+2022/08/21 23:28:49 [debug] 31#31: shmtx lock
+2022/08/21 23:28:49 [debug] 31#31: shmtx unlock
+2022/08/21 23:28:49 [debug] 31#31: *3 free: 0000561C2A69ADE0, unused: 2
+2022/08/21 23:28:49 [debug] 31#31: *3 free: 0000561C2A6ADC50, unused: 0
+2022/08/21 23:28:49 [debug] 31#31: *3 free: 0000561C2A6A4420, unused: 2560
+2022/08/21 23:28:49 [debug] 31#31: *3 free: 0000561C2A6841B0
+2022/08/21 23:28:49 [debug] 31#31: *3 hc free: 0000000000000000
+2022/08/21 23:28:49 [debug] 31#31: *3 hc busy: 0000000000000000 0
+2022/08/21 23:28:49 [debug] 31#31: *3 tcp_nodelay
+2022/08/21 23:28:49 [debug] 31#31: *3 reusable connection: 1
+2022/08/21 23:28:49 [debug] 31#31: *3 event timer add: 13: 75000:133458793
+2022/08/21 23:28:49 [debug] 31#31: timer delta: 0
+2022/08/21 23:28:49 [debug] 31#31: worker cycle
+2022/08/21 23:28:49 [debug] 31#31: epoll timer: 75000
+2022/08/21 23:28:49 [debug] 31#31: epoll: fd:13 ev:2005 d:0000561C2A6C3CD1
+2022/08/21 23:28:49 [debug] 31#31: *3 http keepalive handler
+2022/08/21 23:28:49 [debug] 31#31: *3 malloc: 0000561C2A6841B0:1024
+2022/08/21 23:28:49 [debug] 31#31: *3 recv: eof:1, avail:-1
+2022/08/21 23:28:49 [debug] 31#31: *3 recv: fd:13 0 of 1024
+2022/08/21 23:28:49 [info] 31#31: *3 client 127.0.0.1 closed keepalive connection
+2022/08/21 23:28:49 [debug] 31#31: *3 close http connection: 13
+2022/08/21 23:28:49 [debug] 31#31: *3 event timer del: 13: 133458793
+2022/08/21 23:28:49 [debug] 31#31: *3 reusable connection: 0
+2022/08/21 23:28:49 [debug] 31#31: *3 free: 0000561C2A6841B0
+2022/08/21 23:28:49 [debug] 31#31: *3 free: 0000561C2A69E190, unused: 136
+2022/08/21 23:28:49 [debug] 31#31: timer delta: 1
+2022/08/21 23:28:49 [debug] 31#31: worker cycle
+2022/08/21 23:28:49 [debug] 31#31: epoll timer: -1
+2022/08/21 23:28:49 [debug] 31#31: epoll: fd:7 ev:0001 d:0000561C2A6C3AF0
+2022/08/21 23:28:49 [debug] 31#31: accept on 0.0.0.0:8080, ready: 0
+2022/08/21 23:28:49 [debug] 31#31: posix_memalign: 0000561C2A69E190:512 @16
+2022/08/21 23:28:49 [debug] 31#31: *4 accept: 127.0.0.1:38828 fd:13
+2022/08/21 23:28:49 [debug] 31#31: *4 event timer add: 13: 60000:133444331
+2022/08/21 23:28:49 [debug] 31#31: *4 reusable connection: 1
+2022/08/21 23:28:49 [debug] 31#31: *4 epoll add event: fd:13 op:1 ev:80002001
+2022/08/21 23:28:49 [debug] 31#31: timer delta: 537
+2022/08/21 23:28:49 [debug] 31#31: worker cycle
+2022/08/21 23:28:49 [debug] 31#31: epoll timer: 60000
+2022/08/21 23:28:49 [debug] 31#31: epoll: fd:13 ev:0001 d:0000561C2A6C3CD0
+2022/08/21 23:28:49 [debug] 31#31: *4 http wait request handler
+2022/08/21 23:28:49 [debug] 31#31: *4 malloc: 0000561C2A6841B0:1024
+2022/08/21 23:28:49 [debug] 31#31: *4 recv: eof:0, avail:-1
+2022/08/21 23:28:49 [debug] 31#31: *4 recv: fd:13 92 of 1024
+2022/08/21 23:28:49 [debug] 31#31: *4 reusable connection: 0
+2022/08/21 23:28:49 [debug] 31#31: *4 posix_memalign: 0000561C2A69ADE0:4096 @16
+2022/08/21 23:28:49 [debug] 31#31: *4 http process request line
+2022/08/21 23:28:49 [debug] 31#31: *4 http request line: "GET / HTTP/1.1"
+2022/08/21 23:28:49 [debug] 31#31: *4 http uri: "/"
+2022/08/21 23:28:49 [debug] 31#31: *4 http args: ""
+2022/08/21 23:28:49 [debug] 31#31: *4 http exten: ""
+2022/08/21 23:28:49 [debug] 31#31: *4 posix_memalign: 0000561C2A6ADC50:4096 @16
+2022/08/21 23:28:49 [debug] 31#31: *4 http process request header line
+2022/08/21 23:28:49 [debug] 31#31: *4 http header: "Host: localhost:8080"
+2022/08/21 23:28:49 [debug] 31#31: *4 http header: "User-Agent: curl/7.83.1"
+2022/08/21 23:28:49 [debug] 31#31: *4 http header: "Accept: */*"
+2022/08/21 23:28:49 [debug] 31#31: *4 http header: "x-header: two"
+2022/08/21 23:28:49 [debug] 31#31: *4 http header done
+2022/08/21 23:28:49 [debug] 31#31: *4 event timer del: 13: 133444331
+2022/08/21 23:28:49 [debug] 31#31: *4 generic phase: 0
+2022/08/21 23:28:49 [debug] 31#31: *4 rewrite phase: 1
+2022/08/21 23:28:49 [debug] 31#31: *4 test location: "/"
+2022/08/21 23:28:49 [debug] 31#31: *4 using configuration "/"
+2022/08/21 23:28:49 [debug] 31#31: *4 http cl:-1 max:1048576
+2022/08/21 23:28:49 [debug] 31#31: *4 rewrite phase: 3
+2022/08/21 23:28:49 [debug] 31#31: *4 post rewrite phase: 4
+2022/08/21 23:28:49 [debug] 31#31: *4 generic phase: 5
+2022/08/21 23:28:49 [debug] 31#31: *4 generic phase: 6
+2022/08/21 23:28:49 [debug] 31#31: *4 generic phase: 7
+2022/08/21 23:28:49 [debug] 31#31: *4 access phase: 8
+2022/08/21 23:28:49 [debug] 31#31: *4 access phase: 9
+2022/08/21 23:28:49 [debug] 31#31: *4 access phase: 10
+2022/08/21 23:28:49 [debug] 31#31: *4 post access phase: 11
+2022/08/21 23:28:49 [debug] 31#31: *4 generic phase: 12
+2022/08/21 23:28:49 [debug] 31#31: *4 generic phase: 13
+2022/08/21 23:28:49 [debug] 31#31: *4 http init upstream, client timer: 0
+2022/08/21 23:28:49 [debug] 31#31: *4 epoll add event: fd:13 op:3 ev:80002005
+2022/08/21 23:28:49 [debug] 31#31: *4 http cache key: "http://localhost:8000"
+2022/08/21 23:28:49 [debug] 31#31: *4 http cache key: "/"
+2022/08/21 23:28:49 [debug] 31#31: *4 add cleanup: 0000561C2A6AE7D0
+2022/08/21 23:28:49 [debug] 31#31: shmtx lock
+2022/08/21 23:28:49 [debug] 31#31: shmtx unlock
+2022/08/21 23:28:49 [debug] 31#31: *4 http file cache exists: 0 e:1
+2022/08/21 23:28:49 [debug] 31#31: *4 cache file: "/var/nginx-cache/f/d7/cb4fbe6a5f6caec1f1715b85fecd2d7f"
+2022/08/21 23:28:49 [debug] 31#31: *4 add cleanup: 0000561C2A6AE820
+2022/08/21 23:28:49 [debug] 31#31: *4 http file cache fd: 14
+2022/08/21 23:28:49 [debug] 31#31: *4 read: 14, 0000561C2A6AE8A0, 492, 0
+2022/08/21 23:28:49 [debug] 31#31: *4 http file cache vary: "x-header"
+2022/08/21 23:28:49 [debug] 31#31: *4 http file cache vary: x-header
+2022/08/21 23:28:49 [debug] 31#31: shmtx lock
+2022/08/21 23:28:49 [debug] 31#31: shmtx unlock
+2022/08/21 23:28:49 [debug] 31#31: *4 http upstream cache: 0
+2022/08/21 23:28:49 [debug] 31#31: *4 posix_memalign: 0000561C2A6A4420:4096 @16
+2022/08/21 23:28:49 [debug] 31#31: *4 http proxy status 200 "200 OK"
+2022/08/21 23:28:49 [debug] 31#31: *4 http proxy header: "cache-control: public, max-age=500"
+2022/08/21 23:28:49 [debug] 31#31: *4 http proxy header: "vary: x-header"
+2022/08/21 23:28:49 [debug] 31#31: *4 http proxy header: "Date: Sun, 21 Aug 2022 23:28:26 GMT"
+2022/08/21 23:28:49 [debug] 31#31: *4 http proxy header: "Connection: close"
+2022/08/21 23:28:49 [debug] 31#31: *4 http proxy header done
+2022/08/21 23:28:49 [debug] 31#31: *4 http file cache send: /var/nginx-cache/f/d7/cb4fbe6a5f6caec1f1715b85fecd2d7f
+2022/08/21 23:28:49 [debug] 31#31: *4 HTTP/1.1 200 OK
+Server: nginx/1.23.1
+Date: Sun, 21 Aug 2022 23:28:49 GMT
+Transfer-Encoding: chunked
+Connection: keep-alive
+cache-control: public, max-age=500
+vary: x-header
+
+2022/08/21 23:28:49 [debug] 31#31: *4 write new buf t:1 f:0 0000561C2A6A46D0, pos 0000561C2A6A46D0, size: 182 file: 0, size: 0
+2022/08/21 23:28:49 [debug] 31#31: *4 http write filter: l:0 f:0 s:182
+2022/08/21 23:28:49 [debug] 31#31: *4 http output filter "/?"
+2022/08/21 23:28:49 [debug] 31#31: *4 http copy filter: "/?"
+2022/08/21 23:28:49 [debug] 31#31: *4 read: 14, 0000561C2A6A4878, 3, 492
+2022/08/21 23:28:49 [debug] 31#31: *4 http postpone filter "/?" 0000561C2A6A4880
+2022/08/21 23:28:49 [debug] 31#31: *4 http chunk: 3
+2022/08/21 23:28:49 [debug] 31#31: *4 write old buf t:1 f:0 0000561C2A6A46D0, pos 0000561C2A6A46D0, size: 182 file: 0, size: 0
+2022/08/21 23:28:49 [debug] 31#31: *4 write new buf t:1 f:0 0000561C2A6A4900, pos 0000561C2A6A4900, size: 3 file: 0, size: 0
+2022/08/21 23:28:49 [debug] 31#31: *4 write new buf t:1 f:0 0000561C2A6A4878, pos 0000561C2A6A4878, size: 3 file: 0, size: 0
+2022/08/21 23:28:49 [debug] 31#31: *4 write new buf t:0 f:0 0000000000000000, pos 0000561C28A3E6F5, size: 7 file: 0, size: 0
+2022/08/21 23:28:49 [debug] 31#31: *4 http write filter: l:1 f:0 s:195
+2022/08/21 23:28:49 [debug] 31#31: *4 http write filter limit 2097152
+2022/08/21 23:28:49 [debug] 31#31: *4 writev: 195 of 195
+2022/08/21 23:28:49 [debug] 31#31: *4 http write filter 0000000000000000
+2022/08/21 23:28:49 [debug] 31#31: *4 http copy filter: 0 "/?"
+2022/08/21 23:28:49 [debug] 31#31: *4 http finalize request: 0, "/?" a:1, c:2
+2022/08/21 23:28:49 [debug] 31#31: *4 http request count:2 blk:0
+2022/08/21 23:28:49 [debug] 31#31: *4 http finalize request: -4, "/?" a:1, c:1
+2022/08/21 23:28:49 [debug] 31#31: *4 set http keepalive handler
+2022/08/21 23:28:49 [debug] 31#31: *4 http close request
+2022/08/21 23:28:49 [debug] 31#31: *4 http log handler
+2022/08/21 23:28:49 [debug] 31#31: *4 run cleanup: 0000561C2A6AE820
+2022/08/21 23:28:49 [debug] 31#31: *4 file cleanup: fd:14
+2022/08/21 23:28:49 [debug] 31#31: *4 run cleanup: 0000561C2A6AE7D0
+2022/08/21 23:28:49 [debug] 31#31: *4 http file cache cleanup
+2022/08/21 23:28:49 [debug] 31#31: *4 http file cache free, fd: 14
+2022/08/21 23:28:49 [debug] 31#31: shmtx lock
+2022/08/21 23:28:49 [debug] 31#31: shmtx unlock
+2022/08/21 23:28:49 [debug] 31#31: *4 free: 0000561C2A69ADE0, unused: 2
+2022/08/21 23:28:49 [debug] 31#31: *4 free: 0000561C2A6ADC50, unused: 0
+2022/08/21 23:28:49 [debug] 31#31: *4 free: 0000561C2A6A4420, unused: 2560
+2022/08/21 23:28:49 [debug] 31#31: *4 free: 0000561C2A6841B0
+2022/08/21 23:28:49 [debug] 31#31: *4 hc free: 0000000000000000
+2022/08/21 23:28:49 [debug] 31#31: *4 hc busy: 0000000000000000 0
+2022/08/21 23:28:49 [debug] 31#31: *4 tcp_nodelay
+2022/08/21 23:28:49 [debug] 31#31: *4 reusable connection: 1
+2022/08/21 23:28:49 [debug] 31#31: *4 event timer add: 13: 75000:133459331
+2022/08/21 23:28:49 [debug] 31#31: timer delta: 0
+2022/08/21 23:28:49 [debug] 31#31: worker cycle
+2022/08/21 23:28:49 [debug] 31#31: epoll timer: 75000
+2022/08/21 23:28:49 [debug] 31#31: epoll: fd:13 ev:2005 d:0000561C2A6C3CD0
+2022/08/21 23:28:49 [debug] 31#31: *4 http keepalive handler
+2022/08/21 23:28:49 [debug] 31#31: *4 malloc: 0000561C2A6841B0:1024
+2022/08/21 23:28:49 [debug] 31#31: *4 recv: eof:1, avail:-1
+2022/08/21 23:28:49 [debug] 31#31: *4 recv: fd:13 0 of 1024
+2022/08/21 23:28:49 [info] 31#31: *4 client 127.0.0.1 closed keepalive connection
+2022/08/21 23:28:49 [debug] 31#31: *4 close http connection: 13
+2022/08/21 23:28:49 [debug] 31#31: *4 event timer del: 13: 133459331
+2022/08/21 23:28:49 [debug] 31#31: *4 reusable connection: 0
+2022/08/21 23:28:49 [debug] 31#31: *4 free: 0000561C2A6841B0
+2022/08/21 23:28:49 [debug] 31#31: *4 free: 0000561C2A69E190, unused: 136
+2022/08/21 23:28:49 [debug] 31#31: timer delta: 0
+2022/08/21 23:28:49 [debug] 31#31: worker cycle
+2022/08/21 23:28:49 [debug] 31#31: epoll timer: -1
+2022/08/21 23:28:52 [debug] 32#32: timer delta: 10010
+2022/08/21 23:28:52 [debug] 32#32: event timer del: -1: 133387518
+2022/08/21 23:28:52 [debug] 32#32: http file cache expire
+2022/08/21 23:28:52 [debug] 32#32: malloc: 0000561C2A6A0360:55
+2022/08/21 23:28:52 [debug] 32#32: shmtx lock
+2022/08/21 23:28:52 [debug] 32#32: shmtx unlock
+2022/08/21 23:28:52 [debug] 32#32: shmtx lock
+2022/08/21 23:28:52 [debug] 32#32: shmtx unlock
+2022/08/21 23:28:52 [debug] 32#32: http file cache size: 1 c:1 w:-1
+2022/08/21 23:28:52 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:28:52 [debug] 32#32: event timer add: -1: 10000:133397528
+2022/08/21 23:28:52 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:29:02 [debug] 32#32: timer delta: 10010
+2022/08/21 23:29:02 [debug] 32#32: event timer del: -1: 133397528
+2022/08/21 23:29:02 [debug] 32#32: http file cache expire
+2022/08/21 23:29:02 [debug] 32#32: malloc: 0000561C2A6A0360:55
+2022/08/21 23:29:02 [debug] 32#32: shmtx lock
+2022/08/21 23:29:02 [debug] 32#32: shmtx unlock
+2022/08/21 23:29:02 [debug] 32#32: shmtx lock
+2022/08/21 23:29:02 [debug] 32#32: shmtx unlock
+2022/08/21 23:29:02 [debug] 32#32: http file cache size: 1 c:1 w:-1
+2022/08/21 23:29:02 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:29:02 [debug] 32#32: event timer add: -1: 10000:133407538
+2022/08/21 23:29:02 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:29:12 [debug] 32#32: timer delta: 10010
+2022/08/21 23:29:12 [debug] 32#32: event timer del: -1: 133407538
+2022/08/21 23:29:12 [debug] 32#32: http file cache expire
+2022/08/21 23:29:12 [debug] 32#32: malloc: 0000561C2A6A0360:55
+2022/08/21 23:29:12 [debug] 32#32: shmtx lock
+2022/08/21 23:29:12 [debug] 32#32: shmtx unlock
+2022/08/21 23:29:12 [debug] 32#32: shmtx lock
+2022/08/21 23:29:12 [debug] 32#32: shmtx unlock
+2022/08/21 23:29:12 [debug] 32#32: http file cache size: 1 c:1 w:-1
+2022/08/21 23:29:12 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:29:12 [debug] 32#32: event timer add: -1: 10000:133417548
+2022/08/21 23:29:12 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:29:12 [debug] 33#33: timer delta: 60061
+2022/08/21 23:29:12 [debug] 33#33: event timer del: -1: 133407490
+2022/08/21 23:29:12 [debug] 33#33: http file cache loader
+2022/08/21 23:29:12 [debug] 33#33: walk tree "/var/nginx-cache"
+2022/08/21 23:29:12 [debug] 33#33: tree name 1:"f"
+2022/08/21 23:29:12 [debug] 33#33: malloc: 0000561C2A6A0360:19
+2022/08/21 23:29:12 [debug] 33#33: tree path "/var/nginx-cache/f"
+2022/08/21 23:29:12 [debug] 33#33: tree enter dir "/var/nginx-cache/f"
+2022/08/21 23:29:12 [debug] 33#33: walk tree "/var/nginx-cache/f"
+2022/08/21 23:29:12 [debug] 33#33: tree name 2:"d7"
+2022/08/21 23:29:12 [debug] 33#33: malloc: 0000561C2A6A0380:22
+2022/08/21 23:29:12 [debug] 33#33: tree path "/var/nginx-cache/f/d7"
+2022/08/21 23:29:12 [debug] 33#33: tree enter dir "/var/nginx-cache/f/d7"
+2022/08/21 23:29:12 [debug] 33#33: walk tree "/var/nginx-cache/f/d7"
+2022/08/21 23:29:12 [debug] 33#33: tree name 2:".."
+2022/08/21 23:29:12 [debug] 33#33: tree name 1:"."
+2022/08/21 23:29:12 [debug] 33#33: tree name 32:"cb4fbe6a5f6caec1f1715b85fecd2d7f"
+2022/08/21 23:29:12 [debug] 33#33: malloc: 0000561C2A6A03A0:55
+2022/08/21 23:29:12 [debug] 33#33: tree path "/var/nginx-cache/f/d7/cb4fbe6a5f6caec1f1715b85fecd2d7f"
+2022/08/21 23:29:12 [debug] 33#33: tree file "/var/nginx-cache/f/d7/cb4fbe6a5f6caec1f1715b85fecd2d7f"
+2022/08/21 23:29:12 [debug] 33#33: shmtx lock
+2022/08/21 23:29:12 [debug] 33#33: shmtx unlock
+2022/08/21 23:29:12 [debug] 33#33: http file cache loader time elapsed: 0
+2022/08/21 23:29:12 [debug] 33#33: tree name 2:".."
+2022/08/21 23:29:12 [debug] 33#33: tree name 1:"."
+2022/08/21 23:29:12 [debug] 33#33: tree name 2:".."
+2022/08/21 23:29:12 [debug] 33#33: tree name 1:"."
+2022/08/21 23:29:12 [notice] 33#33: http file cache: /var/nginx-cache 0.004M, bsize: 4096
+2022/08/21 23:29:12 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2022/08/21 23:29:12 [notice] 1#1: cache loader process 33 exited with code 0
+2022/08/21 23:29:12 [debug] 1#1: shmtx forced unlock
+2022/08/21 23:29:12 [debug] 1#1: shmtx forced unlock
+2022/08/21 23:29:12 [debug] 1#1: wake up, sigio 0
+2022/08/21 23:29:12 [debug] 1#1: reap children
+2022/08/21 23:29:12 [debug] 1#1: child: 0 31 e:0 t:0 d:0 r:1 j:0
+2022/08/21 23:29:12 [debug] 1#1: child: 1 32 e:0 t:0 d:0 r:1 j:0
+2022/08/21 23:29:12 [debug] 1#1: child: 2 33 e:0 t:1 d:0 r:0 j:0
+2022/08/21 23:29:12 [debug] 1#1: pass close channel s:2 pid:33 to:31
+2022/08/21 23:29:12 [debug] 1#1: pass close channel s:2 pid:33 to:32
+2022/08/21 23:29:12 [debug] 1#1: sigsuspend
+2022/08/21 23:29:12 [notice] 1#1: signal 29 (SIGIO) received
+2022/08/21 23:29:12 [debug] 1#1: wake up, sigio 0
+2022/08/21 23:29:12 [debug] 1#1: sigsuspend
+2022/08/21 23:29:12 [debug] 32#32: epoll: fd:10 ev:0001 d:0000561C2A6C3AF0
+2022/08/21 23:29:12 [debug] 31#31: epoll: fd:8 ev:0001 d:0000561C2A6C3BE0
+2022/08/21 23:29:12 [debug] 32#32: channel handler
+2022/08/21 23:29:12 [debug] 31#31: channel handler
+2022/08/21 23:29:12 [debug] 32#32: channel: 32
+2022/08/21 23:29:12 [debug] 31#31: channel: 32
+2022/08/21 23:29:12 [debug] 32#32: channel command: 2
+2022/08/21 23:29:12 [debug] 31#31: channel command: 2
+2022/08/21 23:29:12 [debug] 32#32: close channel s:2 pid:33 our:33 fd:8
+2022/08/21 23:29:12 [debug] 31#31: close channel s:2 pid:33 our:33 fd:12
+2022/08/21 23:29:12 [debug] 32#32: channel: -2
+2022/08/21 23:29:12 [debug] 32#32: timer delta: 57
+2022/08/21 23:29:12 [debug] 32#32: epoll timer: 9943
+2022/08/21 23:29:12 [debug] 31#31: channel: -2
+2022/08/21 23:29:12 [debug] 31#31: timer delta: 23274
+2022/08/21 23:29:12 [debug] 31#31: worker cycle
+2022/08/21 23:29:12 [debug] 31#31: epoll timer: -1
+2022/08/21 23:29:22 [debug] 32#32: timer delta: 9953
+2022/08/21 23:29:22 [debug] 32#32: event timer del: -1: 133417548
+2022/08/21 23:29:22 [debug] 32#32: http file cache expire
+2022/08/21 23:29:22 [debug] 32#32: malloc: 0000561C2A6A0360:55
+2022/08/21 23:29:22 [debug] 32#32: shmtx lock
+2022/08/21 23:29:22 [debug] 32#32: shmtx unlock
+2022/08/21 23:29:22 [debug] 32#32: shmtx lock
+2022/08/21 23:29:22 [debug] 32#32: shmtx unlock
+2022/08/21 23:29:22 [debug] 32#32: http file cache size: 1 c:1 w:-1
+2022/08/21 23:29:22 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:29:22 [debug] 32#32: event timer add: -1: 10000:133427558
+2022/08/21 23:29:22 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:29:32 [debug] 32#32: timer delta: 10010
+2022/08/21 23:29:32 [debug] 32#32: event timer del: -1: 133427558
+2022/08/21 23:29:32 [debug] 32#32: http file cache expire
+2022/08/21 23:29:32 [debug] 32#32: malloc: 0000561C2A6A0360:55
+2022/08/21 23:29:32 [debug] 32#32: shmtx lock
+2022/08/21 23:29:32 [debug] 32#32: shmtx unlock
+2022/08/21 23:29:32 [debug] 32#32: shmtx lock
+2022/08/21 23:29:32 [debug] 32#32: shmtx unlock
+2022/08/21 23:29:32 [debug] 32#32: http file cache size: 1 c:1 w:-1
+2022/08/21 23:29:32 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:29:32 [debug] 32#32: event timer add: -1: 10000:133437568
+2022/08/21 23:29:32 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:29:35 [notice] 31#31: signal 2 (SIGINT) received, exiting
+2022/08/21 23:29:35 [notice] 1#1: signal 2 (SIGINT) received, exiting
+2022/08/21 23:29:35 [info] 31#31: epoll_wait() failed (4: Interrupted system call)
+2022/08/21 23:29:35 [debug] 31#31: timer delta: 22377
+2022/08/21 23:29:35 [debug] 1#1: wake up, sigio 0
+2022/08/21 23:29:35 [notice] 31#31: exiting
+2022/08/21 23:29:35 [notice] 32#32: signal 2 (SIGINT) received, exiting
+2022/08/21 23:29:35 [debug] 1#1: child: 0 31 e:0 t:0 d:0 r:1 j:0
+2022/08/21 23:29:35 [info] 32#32: epoll_wait() failed (4: Interrupted system call)
+2022/08/21 23:29:35 [debug] 32#32: timer delta: 2414
+2022/08/21 23:29:35 [notice] 32#32: exiting
+2022/08/21 23:29:35 [debug] 1#1: child: 1 32 e:0 t:0 d:0 r:1 j:0
+2022/08/21 23:29:35 [debug] 1#1: termination cycle: 50
+2022/08/21 23:29:35 [debug] 1#1: sigsuspend
+2022/08/21 23:29:35 [debug] 31#31: flush files
+2022/08/21 23:29:35 [debug] 31#31: run cleanup: 0000561C2A6C10A8
+2022/08/21 23:29:35 [debug] 31#31: run cleanup: 0000561C2A6BBBD8
+2022/08/21 23:29:35 [debug] 31#31: cleanup resolver
+2022/08/21 23:29:35 [debug] 31#31: run cleanup: 0000561C2A6A25F8
+2022/08/21 23:29:35 [debug] 31#31: free: 0000561C2A6C2120
+2022/08/21 23:29:35 [debug] 31#31: free: 0000561C2A6B78E0
+2022/08/21 23:29:35 [debug] 31#31: free: 0000561C2A6B68D0
+2022/08/21 23:29:35 [debug] 31#31: free: 0000561C2A6B1800
+2022/08/21 23:29:35 [debug] 31#31: free: 0000561C2A6B0740
+2022/08/21 23:29:35 [debug] 31#31: free: 0000561C2A6AF680
+2022/08/21 23:29:35 [debug] 31#31: free: 0000561C2A6A0410, unused: 0
+2022/08/21 23:29:35 [debug] 31#31: free: 0000561C2A6A8430, unused: 1
+2022/08/21 23:29:35 [debug] 31#31: free: 0000561C2A6B28C0, unused: 0
+2022/08/21 23:29:35 [debug] 31#31: free: 0000561C2A6B98F0, unused: 0
+2022/08/21 23:29:35 [debug] 31#31: free: 0000561C2A6BD900, unused: 2112
+2022/08/21 23:29:35 [notice] 31#31: exit
+2022/08/21 23:29:35 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2022/08/21 23:29:35 [notice] 1#1: worker process 31 exited with code 0
+2022/08/21 23:29:35 [debug] 1#1: shmtx forced unlock
+2022/08/21 23:29:35 [debug] 1#1: shmtx forced unlock
+2022/08/21 23:29:35 [debug] 1#1: wake up, sigio 3
+2022/08/21 23:29:35 [debug] 1#1: reap children
+2022/08/21 23:29:35 [debug] 1#1: child: 0 31 e:1 t:1 d:0 r:1 j:0
+2022/08/21 23:29:35 [debug] 1#1: pass close channel s:0 pid:31 to:32
+2022/08/21 23:29:35 [debug] 1#1: child: 1 32 e:1 t:0 d:0 r:1 j:0
+2022/08/21 23:29:35 [debug] 1#1: termination cycle: 50
+2022/08/21 23:29:35 [debug] 1#1: sigsuspend
+2022/08/21 23:29:35 [notice] 1#1: signal 29 (SIGIO) received
+2022/08/21 23:29:35 [debug] 1#1: wake up, sigio 2
+2022/08/21 23:29:35 [debug] 1#1: termination cycle: 50
+2022/08/21 23:29:35 [debug] 1#1: sigsuspend
+2022/08/21 23:29:35 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2022/08/21 23:29:35 [notice] 1#1: cache manager process 32 exited with code 0
+2022/08/21 23:29:35 [debug] 1#1: shmtx forced unlock
+2022/08/21 23:29:35 [debug] 1#1: shmtx forced unlock
+2022/08/21 23:29:35 [debug] 1#1: wake up, sigio 1
+2022/08/21 23:29:35 [debug] 1#1: reap children
+2022/08/21 23:29:35 [debug] 1#1: child: 0 -1 e:1 t:1 d:0 r:1 j:0
+2022/08/21 23:29:35 [debug] 1#1: child: 1 32 e:1 t:1 d:0 r:1 j:0
+2022/08/21 23:29:35 [notice] 1#1: exit
+2022/08/21 23:29:35 [debug] 1#1: close listening 0.0.0.0:8080 #7 
+2022/08/21 23:29:35 [debug] 1#1: run cleanup: 0000561C2A6BBBD8
+2022/08/21 23:29:35 [debug] 1#1: cleanup resolver
+2022/08/21 23:29:35 [debug] 1#1: run cleanup: 0000561C2A6A25F8
+2022/08/21 23:29:35 [debug] 1#1: free: 0000561C2A6C2120
+2022/08/21 23:29:35 [debug] 1#1: free: 0000561C2A6B78E0
+2022/08/21 23:29:35 [debug] 1#1: free: 0000561C2A6B68D0
+2022/08/21 23:29:35 [debug] 1#1: free: 0000561C2A6B1800
+2022/08/21 23:29:35 [debug] 1#1: free: 0000561C2A6B0740
+2022/08/21 23:29:35 [debug] 1#1: free: 0000561C2A6AF680
+2022/08/21 23:29:35 [debug] 1#1: free: 0000561C2A6A0410, unused: 0
+2022/08/21 23:29:35 [debug] 1#1: free: 0000561C2A6A8430, unused: 1
+2022/08/21 23:29:35 [debug] 1#1: free: 0000561C2A6B28C0, unused: 0
+2022/08/21 23:29:35 [debug] 1#1: free: 0000561C2A6B98F0, unused: 0
+2022/08/21 23:29:35 [debug] 1#1: free: 0000561C2A6BD900, unused: 2137
+2022/08/21 23:29:36 [debug] 1#1: bind() 0.0.0.0:8080 #7 
+2022/08/21 23:29:36 [notice] 1#1: using the "epoll" event method
+2022/08/21 23:29:36 [debug] 1#1: counter: 00007FE36DAD6080, 1
+2022/08/21 23:29:36 [notice] 1#1: nginx/1.23.1
+2022/08/21 23:29:36 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2022/08/21 23:29:36 [notice] 1#1: OS: Linux 5.18.6-arch1-1
+2022/08/21 23:29:36 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2022/08/21 23:29:36 [debug] 1#1: write: 8, 00007FFFEB012E90, 2, 0
+2022/08/21 23:29:36 [debug] 1#1: setproctitle: "nginx: master process nginx-debug -g daemon off;"
+2022/08/21 23:29:36 [notice] 1#1: start worker processes
+2022/08/21 23:29:36 [debug] 1#1: channel 4:8
+2022/08/21 23:29:36 [notice] 1#1: start worker process 31
+2022/08/21 23:29:36 [debug] 1#1: channel 9:10
+2022/08/21 23:29:36 [debug] 31#31: add cleanup: 000055D3A26760A8
+2022/08/21 23:29:36 [debug] 31#31: malloc: 000055D3A2654980:8
+2022/08/21 23:29:36 [notice] 1#1: start cache manager process 32
+2022/08/21 23:29:36 [debug] 1#1: pass channel s:1 pid:32 fd:9 to s:0 pid:31 fd:4
+2022/08/21 23:29:36 [debug] 1#1: channel 11:12
+2022/08/21 23:29:36 [debug] 32#32: close listening 0.0.0.0:8080 #7 
+2022/08/21 23:29:36 [debug] 31#31: notify eventfd: 10
+2022/08/21 23:29:36 [notice] 1#1: start cache loader process 33
+2022/08/21 23:29:36 [debug] 31#31: eventfd: 11
+2022/08/21 23:29:36 [debug] 32#32: add cleanup: 000055D3A26760A8
+2022/08/21 23:29:36 [debug] 1#1: pass channel s:2 pid:33 fd:11 to s:0 pid:31 fd:4
+2022/08/21 23:29:36 [debug] 1#1: pass channel s:2 pid:33 fd:11 to s:1 pid:32 fd:9
+2022/08/21 23:29:36 [debug] 1#1: sigsuspend
+2022/08/21 23:29:36 [debug] 32#32: malloc: 000055D3A2654980:8
+2022/08/21 23:29:36 [debug] 31#31: testing the EPOLLRDHUP flag: success
+2022/08/21 23:29:36 [debug] 31#31: malloc: 000055D3A2661440:6144
+2022/08/21 23:29:36 [debug] 33#33: close listening 0.0.0.0:8080 #7 
+2022/08/21 23:29:36 [debug] 31#31: malloc: 000055D3A2678AF0:122880
+2022/08/21 23:29:36 [debug] 31#31: malloc: 000055D3A2696B00:49152
+2022/08/21 23:29:36 [debug] 33#33: add cleanup: 000055D3A26760A8
+2022/08/21 23:29:36 [debug] 31#31: malloc: 000055D3A26A2B10:49152
+2022/08/21 23:29:36 [debug] 33#33: malloc: 000055D3A2654980:8
+2022/08/21 23:29:36 [debug] 32#32: notify eventfd: 11
+2022/08/21 23:29:36 [debug] 31#31: epoll add event: fd:7 op:1 ev:00002001
+2022/08/21 23:29:36 [debug] 32#32: eventfd: 12
+2022/08/21 23:29:36 [debug] 31#31: epoll add event: fd:8 op:1 ev:00002001
+2022/08/21 23:29:36 [debug] 32#32: testing the EPOLLRDHUP flag: success
+2022/08/21 23:29:36 [debug] 31#31: setproctitle: "nginx: worker process"
+2022/08/21 23:29:36 [debug] 31#31: worker cycle
+2022/08/21 23:29:36 [debug] 31#31: epoll timer: -1
+2022/08/21 23:29:36 [debug] 32#32: malloc: 000055D3A2661440:6144
+2022/08/21 23:29:36 [debug] 31#31: epoll: fd:8 ev:0001 d:000055D3A2678BE0
+2022/08/21 23:29:36 [debug] 31#31: channel handler
+2022/08/21 23:29:36 [debug] 32#32: malloc: 000055D3A2678AF0:122880
+2022/08/21 23:29:36 [debug] 31#31: channel: 32
+2022/08/21 23:29:36 [debug] 32#32: malloc: 000055D3A2696B00:49152
+2022/08/21 23:29:36 [debug] 31#31: channel command: 1
+2022/08/21 23:29:36 [debug] 31#31: get channel s:1 pid:32 fd:4
+2022/08/21 23:29:36 [debug] 33#33: notify eventfd: 13
+2022/08/21 23:29:36 [debug] 31#31: channel: 32
+2022/08/21 23:29:36 [debug] 31#31: channel command: 1
+2022/08/21 23:29:36 [debug] 31#31: get channel s:2 pid:33 fd:12
+2022/08/21 23:29:36 [debug] 33#33: eventfd: 14
+2022/08/21 23:29:36 [debug] 31#31: channel: -2
+2022/08/21 23:29:36 [debug] 32#32: malloc: 000055D3A26A2B10:49152
+2022/08/21 23:29:36 [debug] 31#31: timer delta: 1
+2022/08/21 23:29:36 [debug] 31#31: worker cycle
+2022/08/21 23:29:36 [debug] 31#31: epoll timer: -1
+2022/08/21 23:29:36 [debug] 33#33: testing the EPOLLRDHUP flag: success
+2022/08/21 23:29:36 [debug] 33#33: malloc: 000055D3A2661440:6144
+2022/08/21 23:29:36 [debug] 33#33: malloc: 000055D3A2678AF0:122880
+2022/08/21 23:29:36 [debug] 33#33: malloc: 000055D3A2696B00:49152
+2022/08/21 23:29:36 [debug] 33#33: malloc: 000055D3A26A2B10:49152
+2022/08/21 23:29:36 [debug] 32#32: epoll add event: fd:10 op:1 ev:00002001
+2022/08/21 23:29:36 [debug] 32#32: setproctitle: "nginx: cache manager process"
+2022/08/21 23:29:36 [debug] 32#32: event timer add: -1: 0:133431723
+2022/08/21 23:29:36 [debug] 32#32: epoll timer: 0
+2022/08/21 23:29:36 [debug] 32#32: epoll: fd:10 ev:0001 d:000055D3A2678AF0
+2022/08/21 23:29:36 [debug] 32#32: channel handler
+2022/08/21 23:29:36 [debug] 32#32: channel: 32
+2022/08/21 23:29:36 [debug] 32#32: channel command: 1
+2022/08/21 23:29:36 [debug] 32#32: get channel s:2 pid:33 fd:8
+2022/08/21 23:29:36 [debug] 32#32: channel: -2
+2022/08/21 23:29:36 [debug] 32#32: timer delta: 1
+2022/08/21 23:29:36 [debug] 32#32: event timer del: -1: 133431723
+2022/08/21 23:29:36 [debug] 32#32: http file cache expire
+2022/08/21 23:29:36 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:29:36 [debug] 32#32: shmtx lock
+2022/08/21 23:29:36 [debug] 33#33: epoll add event: fd:12 op:1 ev:00002001
+2022/08/21 23:29:36 [debug] 32#32: shmtx unlock
+2022/08/21 23:29:36 [debug] 32#32: shmtx lock
+2022/08/21 23:29:36 [debug] 33#33: setproctitle: "nginx: cache loader process"
+2022/08/21 23:29:36 [debug] 32#32: shmtx unlock
+2022/08/21 23:29:36 [debug] 33#33: event timer add: -1: 60000:133491723
+2022/08/21 23:29:36 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:29:36 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:29:36 [debug] 33#33: epoll timer: 60000
+2022/08/21 23:29:36 [debug] 32#32: event timer add: -1: 10000:133441724
+2022/08/21 23:29:36 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:29:46 [debug] 32#32: timer delta: 10010
+2022/08/21 23:29:46 [debug] 32#32: event timer del: -1: 133441724
+2022/08/21 23:29:46 [debug] 32#32: http file cache expire
+2022/08/21 23:29:46 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:29:46 [debug] 32#32: shmtx lock
+2022/08/21 23:29:46 [debug] 32#32: shmtx unlock
+2022/08/21 23:29:46 [debug] 32#32: shmtx lock
+2022/08/21 23:29:46 [debug] 32#32: shmtx unlock
+2022/08/21 23:29:46 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:29:46 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:29:46 [debug] 32#32: event timer add: -1: 10000:133451734
+2022/08/21 23:29:46 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:29:56 [debug] 32#32: timer delta: 10010
+2022/08/21 23:29:56 [debug] 32#32: event timer del: -1: 133451734
+2022/08/21 23:29:56 [debug] 32#32: http file cache expire
+2022/08/21 23:29:56 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:29:56 [debug] 32#32: shmtx lock
+2022/08/21 23:29:56 [debug] 32#32: shmtx unlock
+2022/08/21 23:29:56 [debug] 32#32: shmtx lock
+2022/08/21 23:29:56 [debug] 32#32: shmtx unlock
+2022/08/21 23:29:56 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:29:56 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:29:56 [debug] 32#32: event timer add: -1: 10000:133461744
+2022/08/21 23:29:56 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:30:06 [debug] 32#32: timer delta: 10007
+2022/08/21 23:30:06 [debug] 32#32: event timer del: -1: 133461744
+2022/08/21 23:30:06 [debug] 32#32: http file cache expire
+2022/08/21 23:30:06 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:30:06 [debug] 32#32: shmtx lock
+2022/08/21 23:30:06 [debug] 32#32: shmtx unlock
+2022/08/21 23:30:06 [debug] 32#32: shmtx lock
+2022/08/21 23:30:06 [debug] 32#32: shmtx unlock
+2022/08/21 23:30:06 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:30:06 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:30:06 [debug] 32#32: event timer add: -1: 10000:133471752
+2022/08/21 23:30:06 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:30:16 [debug] 32#32: timer delta: 10001
+2022/08/21 23:30:16 [debug] 32#32: event timer del: -1: 133471752
+2022/08/21 23:30:16 [debug] 32#32: http file cache expire
+2022/08/21 23:30:16 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:30:16 [debug] 32#32: shmtx lock
+2022/08/21 23:30:16 [debug] 32#32: shmtx unlock
+2022/08/21 23:30:16 [debug] 32#32: shmtx lock
+2022/08/21 23:30:16 [debug] 32#32: shmtx unlock
+2022/08/21 23:30:16 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:30:16 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:30:16 [debug] 32#32: event timer add: -1: 10000:133481753
+2022/08/21 23:30:16 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:30:26 [debug] 32#32: timer delta: 10008
+2022/08/21 23:30:26 [debug] 32#32: event timer del: -1: 133481753
+2022/08/21 23:30:26 [debug] 32#32: http file cache expire
+2022/08/21 23:30:26 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:30:26 [debug] 32#32: shmtx lock
+2022/08/21 23:30:26 [debug] 32#32: shmtx unlock
+2022/08/21 23:30:26 [debug] 32#32: shmtx lock
+2022/08/21 23:30:26 [debug] 32#32: shmtx unlock
+2022/08/21 23:30:26 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:30:26 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:30:26 [debug] 32#32: event timer add: -1: 10000:133491762
+2022/08/21 23:30:26 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:30:36 [debug] 32#32: timer delta: 10009
+2022/08/21 23:30:36 [debug] 32#32: event timer del: -1: 133491762
+2022/08/21 23:30:36 [debug] 32#32: http file cache expire
+2022/08/21 23:30:36 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:30:36 [debug] 32#32: shmtx lock
+2022/08/21 23:30:36 [debug] 32#32: shmtx unlock
+2022/08/21 23:30:36 [debug] 32#32: shmtx lock
+2022/08/21 23:30:36 [debug] 32#32: shmtx unlock
+2022/08/21 23:30:36 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:30:36 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:30:36 [debug] 32#32: event timer add: -1: 10000:133501771
+2022/08/21 23:30:36 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:30:37 [debug] 33#33: timer delta: 60058
+2022/08/21 23:30:37 [debug] 33#33: event timer del: -1: 133491723
+2022/08/21 23:30:37 [debug] 33#33: http file cache loader
+2022/08/21 23:30:37 [debug] 33#33: walk tree "/var/nginx-cache"
+2022/08/21 23:30:37 [debug] 33#33: tree name 2:".."
+2022/08/21 23:30:37 [debug] 33#33: tree name 1:"."
+2022/08/21 23:30:37 [notice] 33#33: http file cache: /var/nginx-cache 0.000M, bsize: 4096
+2022/08/21 23:30:37 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2022/08/21 23:30:37 [notice] 1#1: cache loader process 33 exited with code 0
+2022/08/21 23:30:37 [debug] 1#1: shmtx forced unlock
+2022/08/21 23:30:37 [debug] 1#1: shmtx forced unlock
+2022/08/21 23:30:37 [debug] 1#1: wake up, sigio 0
+2022/08/21 23:30:37 [debug] 1#1: reap children
+2022/08/21 23:30:37 [debug] 1#1: child: 0 31 e:0 t:0 d:0 r:1 j:0
+2022/08/21 23:30:37 [debug] 1#1: child: 1 32 e:0 t:0 d:0 r:1 j:0
+2022/08/21 23:30:37 [debug] 1#1: child: 2 33 e:0 t:1 d:0 r:0 j:0
+2022/08/21 23:30:37 [debug] 1#1: pass close channel s:2 pid:33 to:31
+2022/08/21 23:30:37 [debug] 1#1: pass close channel s:2 pid:33 to:32
+2022/08/21 23:30:37 [debug] 1#1: sigsuspend
+2022/08/21 23:30:37 [notice] 1#1: signal 29 (SIGIO) received
+2022/08/21 23:30:37 [debug] 1#1: wake up, sigio 0
+2022/08/21 23:30:37 [debug] 1#1: sigsuspend
+2022/08/21 23:30:37 [debug] 32#32: epoll: fd:10 ev:0001 d:000055D3A2678AF0
+2022/08/21 23:30:37 [debug] 31#31: epoll: fd:8 ev:0001 d:000055D3A2678BE0
+2022/08/21 23:30:37 [debug] 32#32: channel handler
+2022/08/21 23:30:37 [debug] 31#31: channel handler
+2022/08/21 23:30:37 [debug] 32#32: channel: 32
+2022/08/21 23:30:37 [debug] 32#32: channel command: 2
+2022/08/21 23:30:37 [debug] 31#31: channel: 32
+2022/08/21 23:30:37 [debug] 32#32: close channel s:2 pid:33 our:33 fd:8
+2022/08/21 23:30:37 [debug] 31#31: channel command: 2
+2022/08/21 23:30:37 [debug] 32#32: channel: -2
+2022/08/21 23:30:37 [debug] 31#31: close channel s:2 pid:33 our:33 fd:12
+2022/08/21 23:30:37 [debug] 32#32: timer delta: 61
+2022/08/21 23:30:37 [debug] 32#32: epoll timer: 9939
+2022/08/21 23:30:37 [debug] 31#31: channel: -2
+2022/08/21 23:30:37 [debug] 31#31: timer delta: 60108
+2022/08/21 23:30:37 [debug] 31#31: worker cycle
+2022/08/21 23:30:37 [debug] 31#31: epoll timer: -1
+2022/08/21 23:30:47 [debug] 32#32: timer delta: 9949
+2022/08/21 23:30:47 [debug] 32#32: event timer del: -1: 133501771
+2022/08/21 23:30:47 [debug] 32#32: http file cache expire
+2022/08/21 23:30:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:30:47 [debug] 32#32: shmtx lock
+2022/08/21 23:30:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:30:47 [debug] 32#32: shmtx lock
+2022/08/21 23:30:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:30:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:30:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:30:47 [debug] 32#32: event timer add: -1: 10000:133511781
+2022/08/21 23:30:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:30:57 [debug] 32#32: timer delta: 10007
+2022/08/21 23:30:57 [debug] 32#32: event timer del: -1: 133511781
+2022/08/21 23:30:57 [debug] 32#32: http file cache expire
+2022/08/21 23:30:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:30:57 [debug] 32#32: shmtx lock
+2022/08/21 23:30:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:30:57 [debug] 32#32: shmtx lock
+2022/08/21 23:30:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:30:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:30:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:30:57 [debug] 32#32: event timer add: -1: 10000:133521788
+2022/08/21 23:30:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:31:07 [debug] 32#32: timer delta: 10010
+2022/08/21 23:31:07 [debug] 32#32: event timer del: -1: 133521788
+2022/08/21 23:31:07 [debug] 32#32: http file cache expire
+2022/08/21 23:31:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:31:07 [debug] 32#32: shmtx lock
+2022/08/21 23:31:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:31:07 [debug] 32#32: shmtx lock
+2022/08/21 23:31:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:31:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:31:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:31:07 [debug] 32#32: event timer add: -1: 10000:133531798
+2022/08/21 23:31:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:31:17 [debug] 32#32: timer delta: 10010
+2022/08/21 23:31:17 [debug] 32#32: event timer del: -1: 133531798
+2022/08/21 23:31:17 [debug] 32#32: http file cache expire
+2022/08/21 23:31:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:31:17 [debug] 32#32: shmtx lock
+2022/08/21 23:31:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:31:17 [debug] 32#32: shmtx lock
+2022/08/21 23:31:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:31:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:31:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:31:17 [debug] 32#32: event timer add: -1: 10000:133541808
+2022/08/21 23:31:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:31:27 [debug] 32#32: timer delta: 10010
+2022/08/21 23:31:27 [debug] 32#32: event timer del: -1: 133541808
+2022/08/21 23:31:27 [debug] 32#32: http file cache expire
+2022/08/21 23:31:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:31:27 [debug] 32#32: shmtx lock
+2022/08/21 23:31:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:31:27 [debug] 32#32: shmtx lock
+2022/08/21 23:31:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:31:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:31:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:31:27 [debug] 32#32: event timer add: -1: 10000:133551819
+2022/08/21 23:31:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:31:37 [debug] 32#32: timer delta: 10009
+2022/08/21 23:31:37 [debug] 32#32: event timer del: -1: 133551819
+2022/08/21 23:31:37 [debug] 32#32: http file cache expire
+2022/08/21 23:31:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:31:37 [debug] 32#32: shmtx lock
+2022/08/21 23:31:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:31:37 [debug] 32#32: shmtx lock
+2022/08/21 23:31:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:31:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:31:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:31:37 [debug] 32#32: event timer add: -1: 10000:133561828
+2022/08/21 23:31:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:31:47 [debug] 32#32: timer delta: 10010
+2022/08/21 23:31:47 [debug] 32#32: event timer del: -1: 133561828
+2022/08/21 23:31:47 [debug] 32#32: http file cache expire
+2022/08/21 23:31:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:31:47 [debug] 32#32: shmtx lock
+2022/08/21 23:31:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:31:47 [debug] 32#32: shmtx lock
+2022/08/21 23:31:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:31:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:31:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:31:47 [debug] 32#32: event timer add: -1: 10000:133571838
+2022/08/21 23:31:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:31:57 [debug] 32#32: timer delta: 10010
+2022/08/21 23:31:57 [debug] 32#32: event timer del: -1: 133571838
+2022/08/21 23:31:57 [debug] 32#32: http file cache expire
+2022/08/21 23:31:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:31:57 [debug] 32#32: shmtx lock
+2022/08/21 23:31:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:31:57 [debug] 32#32: shmtx lock
+2022/08/21 23:31:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:31:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:31:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:31:57 [debug] 32#32: event timer add: -1: 10000:133581849
+2022/08/21 23:31:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:32:07 [debug] 32#32: timer delta: 10009
+2022/08/21 23:32:07 [debug] 32#32: event timer del: -1: 133581849
+2022/08/21 23:32:07 [debug] 32#32: http file cache expire
+2022/08/21 23:32:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:32:07 [debug] 32#32: shmtx lock
+2022/08/21 23:32:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:32:07 [debug] 32#32: shmtx lock
+2022/08/21 23:32:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:32:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:32:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:32:07 [debug] 32#32: event timer add: -1: 10000:133591858
+2022/08/21 23:32:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:32:17 [debug] 32#32: timer delta: 10010
+2022/08/21 23:32:17 [debug] 32#32: event timer del: -1: 133591858
+2022/08/21 23:32:17 [debug] 32#32: http file cache expire
+2022/08/21 23:32:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:32:17 [debug] 32#32: shmtx lock
+2022/08/21 23:32:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:32:17 [debug] 32#32: shmtx lock
+2022/08/21 23:32:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:32:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:32:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:32:17 [debug] 32#32: event timer add: -1: 10000:133601868
+2022/08/21 23:32:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:32:27 [debug] 32#32: timer delta: 10010
+2022/08/21 23:32:27 [debug] 32#32: event timer del: -1: 133601868
+2022/08/21 23:32:27 [debug] 32#32: http file cache expire
+2022/08/21 23:32:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:32:27 [debug] 32#32: shmtx lock
+2022/08/21 23:32:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:32:27 [debug] 32#32: shmtx lock
+2022/08/21 23:32:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:32:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:32:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:32:27 [debug] 32#32: event timer add: -1: 10000:133611878
+2022/08/21 23:32:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:32:37 [debug] 32#32: timer delta: 10010
+2022/08/21 23:32:37 [debug] 32#32: event timer del: -1: 133611878
+2022/08/21 23:32:37 [debug] 32#32: http file cache expire
+2022/08/21 23:32:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:32:37 [debug] 32#32: shmtx lock
+2022/08/21 23:32:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:32:37 [debug] 32#32: shmtx lock
+2022/08/21 23:32:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:32:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:32:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:32:37 [debug] 32#32: event timer add: -1: 10000:133621888
+2022/08/21 23:32:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:32:47 [debug] 32#32: timer delta: 10010
+2022/08/21 23:32:47 [debug] 32#32: event timer del: -1: 133621888
+2022/08/21 23:32:47 [debug] 32#32: http file cache expire
+2022/08/21 23:32:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:32:47 [debug] 32#32: shmtx lock
+2022/08/21 23:32:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:32:47 [debug] 32#32: shmtx lock
+2022/08/21 23:32:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:32:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:32:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:32:47 [debug] 32#32: event timer add: -1: 10000:133631898
+2022/08/21 23:32:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:32:57 [debug] 32#32: timer delta: 10007
+2022/08/21 23:32:57 [debug] 32#32: event timer del: -1: 133631898
+2022/08/21 23:32:57 [debug] 32#32: http file cache expire
+2022/08/21 23:32:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:32:57 [debug] 32#32: shmtx lock
+2022/08/21 23:32:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:32:57 [debug] 32#32: shmtx lock
+2022/08/21 23:32:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:32:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:32:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:32:57 [debug] 32#32: event timer add: -1: 10000:133641905
+2022/08/21 23:32:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:33:07 [debug] 32#32: timer delta: 10010
+2022/08/21 23:33:07 [debug] 32#32: event timer del: -1: 133641905
+2022/08/21 23:33:07 [debug] 32#32: http file cache expire
+2022/08/21 23:33:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:33:07 [debug] 32#32: shmtx lock
+2022/08/21 23:33:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:33:07 [debug] 32#32: shmtx lock
+2022/08/21 23:33:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:33:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:33:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:33:07 [debug] 32#32: event timer add: -1: 10000:133651915
+2022/08/21 23:33:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:33:17 [debug] 32#32: timer delta: 10010
+2022/08/21 23:33:17 [debug] 32#32: event timer del: -1: 133651915
+2022/08/21 23:33:17 [debug] 32#32: http file cache expire
+2022/08/21 23:33:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:33:17 [debug] 32#32: shmtx lock
+2022/08/21 23:33:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:33:17 [debug] 32#32: shmtx lock
+2022/08/21 23:33:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:33:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:33:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:33:17 [debug] 32#32: event timer add: -1: 10000:133661925
+2022/08/21 23:33:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:33:27 [debug] 32#32: timer delta: 10010
+2022/08/21 23:33:27 [debug] 32#32: event timer del: -1: 133661925
+2022/08/21 23:33:27 [debug] 32#32: http file cache expire
+2022/08/21 23:33:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:33:27 [debug] 32#32: shmtx lock
+2022/08/21 23:33:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:33:27 [debug] 32#32: shmtx lock
+2022/08/21 23:33:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:33:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:33:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:33:27 [debug] 32#32: event timer add: -1: 10000:133671935
+2022/08/21 23:33:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:33:37 [debug] 32#32: timer delta: 10010
+2022/08/21 23:33:37 [debug] 32#32: event timer del: -1: 133671935
+2022/08/21 23:33:37 [debug] 32#32: http file cache expire
+2022/08/21 23:33:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:33:37 [debug] 32#32: shmtx lock
+2022/08/21 23:33:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:33:37 [debug] 32#32: shmtx lock
+2022/08/21 23:33:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:33:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:33:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:33:37 [debug] 32#32: event timer add: -1: 10000:133681945
+2022/08/21 23:33:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:33:47 [debug] 32#32: timer delta: 10010
+2022/08/21 23:33:47 [debug] 32#32: event timer del: -1: 133681945
+2022/08/21 23:33:47 [debug] 32#32: http file cache expire
+2022/08/21 23:33:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:33:47 [debug] 32#32: shmtx lock
+2022/08/21 23:33:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:33:47 [debug] 32#32: shmtx lock
+2022/08/21 23:33:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:33:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:33:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:33:47 [debug] 32#32: event timer add: -1: 10000:133691955
+2022/08/21 23:33:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:33:57 [debug] 32#32: timer delta: 10010
+2022/08/21 23:33:57 [debug] 32#32: event timer del: -1: 133691955
+2022/08/21 23:33:57 [debug] 32#32: http file cache expire
+2022/08/21 23:33:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:33:57 [debug] 32#32: shmtx lock
+2022/08/21 23:33:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:33:57 [debug] 32#32: shmtx lock
+2022/08/21 23:33:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:33:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:33:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:33:57 [debug] 32#32: event timer add: -1: 10000:133701965
+2022/08/21 23:33:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:34:07 [debug] 32#32: timer delta: 10010
+2022/08/21 23:34:07 [debug] 32#32: event timer del: -1: 133701965
+2022/08/21 23:34:07 [debug] 32#32: http file cache expire
+2022/08/21 23:34:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:34:07 [debug] 32#32: shmtx lock
+2022/08/21 23:34:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:34:07 [debug] 32#32: shmtx lock
+2022/08/21 23:34:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:34:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:34:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:34:07 [debug] 32#32: event timer add: -1: 10000:133711975
+2022/08/21 23:34:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:34:17 [debug] 32#32: timer delta: 10010
+2022/08/21 23:34:17 [debug] 32#32: event timer del: -1: 133711975
+2022/08/21 23:34:17 [debug] 32#32: http file cache expire
+2022/08/21 23:34:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:34:17 [debug] 32#32: shmtx lock
+2022/08/21 23:34:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:34:17 [debug] 32#32: shmtx lock
+2022/08/21 23:34:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:34:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:34:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:34:17 [debug] 32#32: event timer add: -1: 10000:133721985
+2022/08/21 23:34:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:34:27 [debug] 32#32: timer delta: 10010
+2022/08/21 23:34:27 [debug] 32#32: event timer del: -1: 133721985
+2022/08/21 23:34:27 [debug] 32#32: http file cache expire
+2022/08/21 23:34:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:34:27 [debug] 32#32: shmtx lock
+2022/08/21 23:34:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:34:27 [debug] 32#32: shmtx lock
+2022/08/21 23:34:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:34:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:34:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:34:27 [debug] 32#32: event timer add: -1: 10000:133731995
+2022/08/21 23:34:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:34:37 [debug] 32#32: timer delta: 10010
+2022/08/21 23:34:37 [debug] 32#32: event timer del: -1: 133731995
+2022/08/21 23:34:37 [debug] 32#32: http file cache expire
+2022/08/21 23:34:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:34:37 [debug] 32#32: shmtx lock
+2022/08/21 23:34:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:34:37 [debug] 32#32: shmtx lock
+2022/08/21 23:34:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:34:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:34:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:34:37 [debug] 32#32: event timer add: -1: 10000:133742005
+2022/08/21 23:34:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:34:47 [debug] 32#32: timer delta: 10010
+2022/08/21 23:34:47 [debug] 32#32: event timer del: -1: 133742005
+2022/08/21 23:34:47 [debug] 32#32: http file cache expire
+2022/08/21 23:34:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:34:47 [debug] 32#32: shmtx lock
+2022/08/21 23:34:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:34:47 [debug] 32#32: shmtx lock
+2022/08/21 23:34:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:34:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:34:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:34:47 [debug] 32#32: event timer add: -1: 10000:133752015
+2022/08/21 23:34:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:34:57 [debug] 32#32: timer delta: 10010
+2022/08/21 23:34:57 [debug] 32#32: event timer del: -1: 133752015
+2022/08/21 23:34:57 [debug] 32#32: http file cache expire
+2022/08/21 23:34:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:34:57 [debug] 32#32: shmtx lock
+2022/08/21 23:34:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:34:57 [debug] 32#32: shmtx lock
+2022/08/21 23:34:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:34:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:34:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:34:57 [debug] 32#32: event timer add: -1: 10000:133762025
+2022/08/21 23:34:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:35:07 [debug] 32#32: timer delta: 10010
+2022/08/21 23:35:07 [debug] 32#32: event timer del: -1: 133762025
+2022/08/21 23:35:07 [debug] 32#32: http file cache expire
+2022/08/21 23:35:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:35:07 [debug] 32#32: shmtx lock
+2022/08/21 23:35:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:35:07 [debug] 32#32: shmtx lock
+2022/08/21 23:35:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:35:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:35:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:35:07 [debug] 32#32: event timer add: -1: 10000:133772035
+2022/08/21 23:35:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:35:17 [debug] 32#32: timer delta: 10010
+2022/08/21 23:35:17 [debug] 32#32: event timer del: -1: 133772035
+2022/08/21 23:35:17 [debug] 32#32: http file cache expire
+2022/08/21 23:35:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:35:17 [debug] 32#32: shmtx lock
+2022/08/21 23:35:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:35:17 [debug] 32#32: shmtx lock
+2022/08/21 23:35:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:35:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:35:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:35:17 [debug] 32#32: event timer add: -1: 10000:133782045
+2022/08/21 23:35:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:35:27 [debug] 32#32: timer delta: 10004
+2022/08/21 23:35:27 [debug] 32#32: event timer del: -1: 133782045
+2022/08/21 23:35:27 [debug] 32#32: http file cache expire
+2022/08/21 23:35:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:35:27 [debug] 32#32: shmtx lock
+2022/08/21 23:35:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:35:27 [debug] 32#32: shmtx lock
+2022/08/21 23:35:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:35:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:35:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:35:27 [debug] 32#32: event timer add: -1: 10000:133792049
+2022/08/21 23:35:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:35:37 [debug] 32#32: timer delta: 10009
+2022/08/21 23:35:37 [debug] 32#32: event timer del: -1: 133792049
+2022/08/21 23:35:37 [debug] 32#32: http file cache expire
+2022/08/21 23:35:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:35:37 [debug] 32#32: shmtx lock
+2022/08/21 23:35:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:35:37 [debug] 32#32: shmtx lock
+2022/08/21 23:35:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:35:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:35:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:35:37 [debug] 32#32: event timer add: -1: 10000:133802058
+2022/08/21 23:35:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:35:47 [debug] 32#32: timer delta: 10010
+2022/08/21 23:35:47 [debug] 32#32: event timer del: -1: 133802058
+2022/08/21 23:35:47 [debug] 32#32: http file cache expire
+2022/08/21 23:35:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:35:47 [debug] 32#32: shmtx lock
+2022/08/21 23:35:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:35:47 [debug] 32#32: shmtx lock
+2022/08/21 23:35:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:35:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:35:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:35:47 [debug] 32#32: event timer add: -1: 10000:133812068
+2022/08/21 23:35:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:35:57 [debug] 32#32: timer delta: 10010
+2022/08/21 23:35:57 [debug] 32#32: event timer del: -1: 133812068
+2022/08/21 23:35:57 [debug] 32#32: http file cache expire
+2022/08/21 23:35:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:35:57 [debug] 32#32: shmtx lock
+2022/08/21 23:35:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:35:57 [debug] 32#32: shmtx lock
+2022/08/21 23:35:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:35:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:35:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:35:57 [debug] 32#32: event timer add: -1: 10000:133822078
+2022/08/21 23:35:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:36:07 [debug] 32#32: timer delta: 10010
+2022/08/21 23:36:07 [debug] 32#32: event timer del: -1: 133822078
+2022/08/21 23:36:07 [debug] 32#32: http file cache expire
+2022/08/21 23:36:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:36:07 [debug] 32#32: shmtx lock
+2022/08/21 23:36:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:36:07 [debug] 32#32: shmtx lock
+2022/08/21 23:36:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:36:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:36:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:36:07 [debug] 32#32: event timer add: -1: 10000:133832088
+2022/08/21 23:36:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:36:17 [debug] 32#32: timer delta: 10010
+2022/08/21 23:36:17 [debug] 32#32: event timer del: -1: 133832088
+2022/08/21 23:36:17 [debug] 32#32: http file cache expire
+2022/08/21 23:36:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:36:17 [debug] 32#32: shmtx lock
+2022/08/21 23:36:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:36:17 [debug] 32#32: shmtx lock
+2022/08/21 23:36:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:36:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:36:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:36:17 [debug] 32#32: event timer add: -1: 10000:133842098
+2022/08/21 23:36:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:36:27 [debug] 32#32: timer delta: 10010
+2022/08/21 23:36:27 [debug] 32#32: event timer del: -1: 133842098
+2022/08/21 23:36:27 [debug] 32#32: http file cache expire
+2022/08/21 23:36:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:36:27 [debug] 32#32: shmtx lock
+2022/08/21 23:36:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:36:27 [debug] 32#32: shmtx lock
+2022/08/21 23:36:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:36:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:36:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:36:27 [debug] 32#32: event timer add: -1: 10000:133852108
+2022/08/21 23:36:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:36:37 [debug] 32#32: timer delta: 10010
+2022/08/21 23:36:37 [debug] 32#32: event timer del: -1: 133852108
+2022/08/21 23:36:37 [debug] 32#32: http file cache expire
+2022/08/21 23:36:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:36:37 [debug] 32#32: shmtx lock
+2022/08/21 23:36:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:36:37 [debug] 32#32: shmtx lock
+2022/08/21 23:36:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:36:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:36:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:36:37 [debug] 32#32: event timer add: -1: 10000:133862118
+2022/08/21 23:36:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:36:47 [debug] 32#32: timer delta: 10010
+2022/08/21 23:36:47 [debug] 32#32: event timer del: -1: 133862118
+2022/08/21 23:36:47 [debug] 32#32: http file cache expire
+2022/08/21 23:36:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:36:47 [debug] 32#32: shmtx lock
+2022/08/21 23:36:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:36:47 [debug] 32#32: shmtx lock
+2022/08/21 23:36:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:36:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:36:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:36:47 [debug] 32#32: event timer add: -1: 10000:133872128
+2022/08/21 23:36:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:36:57 [debug] 32#32: timer delta: 10010
+2022/08/21 23:36:57 [debug] 32#32: event timer del: -1: 133872128
+2022/08/21 23:36:57 [debug] 32#32: http file cache expire
+2022/08/21 23:36:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:36:57 [debug] 32#32: shmtx lock
+2022/08/21 23:36:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:36:57 [debug] 32#32: shmtx lock
+2022/08/21 23:36:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:36:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:36:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:36:57 [debug] 32#32: event timer add: -1: 10000:133882138
+2022/08/21 23:36:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:37:07 [debug] 32#32: timer delta: 10010
+2022/08/21 23:37:07 [debug] 32#32: event timer del: -1: 133882138
+2022/08/21 23:37:07 [debug] 32#32: http file cache expire
+2022/08/21 23:37:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:37:07 [debug] 32#32: shmtx lock
+2022/08/21 23:37:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:37:07 [debug] 32#32: shmtx lock
+2022/08/21 23:37:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:37:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:37:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:37:07 [debug] 32#32: event timer add: -1: 10000:133892148
+2022/08/21 23:37:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:37:17 [debug] 32#32: timer delta: 10010
+2022/08/21 23:37:17 [debug] 32#32: event timer del: -1: 133892148
+2022/08/21 23:37:17 [debug] 32#32: http file cache expire
+2022/08/21 23:37:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:37:17 [debug] 32#32: shmtx lock
+2022/08/21 23:37:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:37:17 [debug] 32#32: shmtx lock
+2022/08/21 23:37:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:37:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:37:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:37:17 [debug] 32#32: event timer add: -1: 10000:133902158
+2022/08/21 23:37:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:37:27 [debug] 32#32: timer delta: 10010
+2022/08/21 23:37:27 [debug] 32#32: event timer del: -1: 133902158
+2022/08/21 23:37:27 [debug] 32#32: http file cache expire
+2022/08/21 23:37:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:37:27 [debug] 32#32: shmtx lock
+2022/08/21 23:37:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:37:27 [debug] 32#32: shmtx lock
+2022/08/21 23:37:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:37:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:37:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:37:27 [debug] 32#32: event timer add: -1: 10000:133912168
+2022/08/21 23:37:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:37:37 [debug] 32#32: timer delta: 10010
+2022/08/21 23:37:37 [debug] 32#32: event timer del: -1: 133912168
+2022/08/21 23:37:37 [debug] 32#32: http file cache expire
+2022/08/21 23:37:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:37:37 [debug] 32#32: shmtx lock
+2022/08/21 23:37:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:37:37 [debug] 32#32: shmtx lock
+2022/08/21 23:37:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:37:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:37:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:37:37 [debug] 32#32: event timer add: -1: 10000:133922178
+2022/08/21 23:37:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:37:47 [debug] 32#32: timer delta: 10010
+2022/08/21 23:37:47 [debug] 32#32: event timer del: -1: 133922178
+2022/08/21 23:37:47 [debug] 32#32: http file cache expire
+2022/08/21 23:37:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:37:47 [debug] 32#32: shmtx lock
+2022/08/21 23:37:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:37:47 [debug] 32#32: shmtx lock
+2022/08/21 23:37:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:37:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:37:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:37:47 [debug] 32#32: event timer add: -1: 10000:133932188
+2022/08/21 23:37:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:37:57 [debug] 32#32: timer delta: 10010
+2022/08/21 23:37:57 [debug] 32#32: event timer del: -1: 133932188
+2022/08/21 23:37:57 [debug] 32#32: http file cache expire
+2022/08/21 23:37:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:37:57 [debug] 32#32: shmtx lock
+2022/08/21 23:37:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:37:57 [debug] 32#32: shmtx lock
+2022/08/21 23:37:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:37:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:37:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:37:57 [debug] 32#32: event timer add: -1: 10000:133942198
+2022/08/21 23:37:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:38:07 [debug] 32#32: timer delta: 10010
+2022/08/21 23:38:07 [debug] 32#32: event timer del: -1: 133942198
+2022/08/21 23:38:07 [debug] 32#32: http file cache expire
+2022/08/21 23:38:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:38:07 [debug] 32#32: shmtx lock
+2022/08/21 23:38:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:38:07 [debug] 32#32: shmtx lock
+2022/08/21 23:38:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:38:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:38:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:38:07 [debug] 32#32: event timer add: -1: 10000:133952208
+2022/08/21 23:38:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:38:17 [debug] 32#32: timer delta: 10010
+2022/08/21 23:38:17 [debug] 32#32: event timer del: -1: 133952208
+2022/08/21 23:38:17 [debug] 32#32: http file cache expire
+2022/08/21 23:38:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:38:17 [debug] 32#32: shmtx lock
+2022/08/21 23:38:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:38:17 [debug] 32#32: shmtx lock
+2022/08/21 23:38:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:38:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:38:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:38:17 [debug] 32#32: event timer add: -1: 10000:133962218
+2022/08/21 23:38:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:38:27 [debug] 32#32: timer delta: 10010
+2022/08/21 23:38:27 [debug] 32#32: event timer del: -1: 133962218
+2022/08/21 23:38:27 [debug] 32#32: http file cache expire
+2022/08/21 23:38:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:38:27 [debug] 32#32: shmtx lock
+2022/08/21 23:38:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:38:27 [debug] 32#32: shmtx lock
+2022/08/21 23:38:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:38:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:38:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:38:27 [debug] 32#32: event timer add: -1: 10000:133972228
+2022/08/21 23:38:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:38:37 [debug] 32#32: timer delta: 10010
+2022/08/21 23:38:37 [debug] 32#32: event timer del: -1: 133972228
+2022/08/21 23:38:37 [debug] 32#32: http file cache expire
+2022/08/21 23:38:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:38:37 [debug] 32#32: shmtx lock
+2022/08/21 23:38:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:38:37 [debug] 32#32: shmtx lock
+2022/08/21 23:38:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:38:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:38:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:38:37 [debug] 32#32: event timer add: -1: 10000:133982238
+2022/08/21 23:38:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:38:47 [debug] 32#32: timer delta: 10010
+2022/08/21 23:38:47 [debug] 32#32: event timer del: -1: 133982238
+2022/08/21 23:38:47 [debug] 32#32: http file cache expire
+2022/08/21 23:38:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:38:47 [debug] 32#32: shmtx lock
+2022/08/21 23:38:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:38:47 [debug] 32#32: shmtx lock
+2022/08/21 23:38:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:38:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:38:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:38:47 [debug] 32#32: event timer add: -1: 10000:133992248
+2022/08/21 23:38:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:38:57 [debug] 32#32: timer delta: 10010
+2022/08/21 23:38:57 [debug] 32#32: event timer del: -1: 133992248
+2022/08/21 23:38:57 [debug] 32#32: http file cache expire
+2022/08/21 23:38:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:38:57 [debug] 32#32: shmtx lock
+2022/08/21 23:38:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:38:57 [debug] 32#32: shmtx lock
+2022/08/21 23:38:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:38:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:38:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:38:57 [debug] 32#32: event timer add: -1: 10000:134002258
+2022/08/21 23:38:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:39:07 [debug] 32#32: timer delta: 10010
+2022/08/21 23:39:07 [debug] 32#32: event timer del: -1: 134002258
+2022/08/21 23:39:07 [debug] 32#32: http file cache expire
+2022/08/21 23:39:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:39:07 [debug] 32#32: shmtx lock
+2022/08/21 23:39:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:39:07 [debug] 32#32: shmtx lock
+2022/08/21 23:39:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:39:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:39:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:39:07 [debug] 32#32: event timer add: -1: 10000:134012268
+2022/08/21 23:39:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:39:17 [debug] 32#32: timer delta: 10010
+2022/08/21 23:39:17 [debug] 32#32: event timer del: -1: 134012268
+2022/08/21 23:39:17 [debug] 32#32: http file cache expire
+2022/08/21 23:39:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:39:17 [debug] 32#32: shmtx lock
+2022/08/21 23:39:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:39:17 [debug] 32#32: shmtx lock
+2022/08/21 23:39:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:39:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:39:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:39:17 [debug] 32#32: event timer add: -1: 10000:134022278
+2022/08/21 23:39:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:39:27 [debug] 32#32: timer delta: 10010
+2022/08/21 23:39:27 [debug] 32#32: event timer del: -1: 134022278
+2022/08/21 23:39:27 [debug] 32#32: http file cache expire
+2022/08/21 23:39:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:39:27 [debug] 32#32: shmtx lock
+2022/08/21 23:39:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:39:27 [debug] 32#32: shmtx lock
+2022/08/21 23:39:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:39:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:39:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:39:27 [debug] 32#32: event timer add: -1: 10000:134032288
+2022/08/21 23:39:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:39:37 [debug] 32#32: timer delta: 10011
+2022/08/21 23:39:37 [debug] 32#32: event timer del: -1: 134032288
+2022/08/21 23:39:37 [debug] 32#32: http file cache expire
+2022/08/21 23:39:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:39:37 [debug] 32#32: shmtx lock
+2022/08/21 23:39:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:39:37 [debug] 32#32: shmtx lock
+2022/08/21 23:39:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:39:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:39:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:39:37 [debug] 32#32: event timer add: -1: 10000:134042299
+2022/08/21 23:39:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:39:47 [debug] 32#32: timer delta: 10009
+2022/08/21 23:39:47 [debug] 32#32: event timer del: -1: 134042299
+2022/08/21 23:39:47 [debug] 32#32: http file cache expire
+2022/08/21 23:39:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:39:47 [debug] 32#32: shmtx lock
+2022/08/21 23:39:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:39:47 [debug] 32#32: shmtx lock
+2022/08/21 23:39:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:39:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:39:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:39:47 [debug] 32#32: event timer add: -1: 10000:134052308
+2022/08/21 23:39:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:39:57 [debug] 32#32: timer delta: 10010
+2022/08/21 23:39:57 [debug] 32#32: event timer del: -1: 134052308
+2022/08/21 23:39:57 [debug] 32#32: http file cache expire
+2022/08/21 23:39:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:39:57 [debug] 32#32: shmtx lock
+2022/08/21 23:39:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:39:57 [debug] 32#32: shmtx lock
+2022/08/21 23:39:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:39:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:39:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:39:57 [debug] 32#32: event timer add: -1: 10000:134062318
+2022/08/21 23:39:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:40:07 [debug] 32#32: timer delta: 10010
+2022/08/21 23:40:07 [debug] 32#32: event timer del: -1: 134062318
+2022/08/21 23:40:07 [debug] 32#32: http file cache expire
+2022/08/21 23:40:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:40:07 [debug] 32#32: shmtx lock
+2022/08/21 23:40:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:40:07 [debug] 32#32: shmtx lock
+2022/08/21 23:40:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:40:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:40:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:40:07 [debug] 32#32: event timer add: -1: 10000:134072328
+2022/08/21 23:40:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:40:17 [debug] 32#32: timer delta: 10010
+2022/08/21 23:40:17 [debug] 32#32: event timer del: -1: 134072328
+2022/08/21 23:40:17 [debug] 32#32: http file cache expire
+2022/08/21 23:40:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:40:17 [debug] 32#32: shmtx lock
+2022/08/21 23:40:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:40:17 [debug] 32#32: shmtx lock
+2022/08/21 23:40:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:40:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:40:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:40:17 [debug] 32#32: event timer add: -1: 10000:134082338
+2022/08/21 23:40:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:40:27 [debug] 32#32: timer delta: 10010
+2022/08/21 23:40:27 [debug] 32#32: event timer del: -1: 134082338
+2022/08/21 23:40:27 [debug] 32#32: http file cache expire
+2022/08/21 23:40:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:40:27 [debug] 32#32: shmtx lock
+2022/08/21 23:40:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:40:27 [debug] 32#32: shmtx lock
+2022/08/21 23:40:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:40:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:40:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:40:27 [debug] 32#32: event timer add: -1: 10000:134092348
+2022/08/21 23:40:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:40:37 [debug] 32#32: timer delta: 10010
+2022/08/21 23:40:37 [debug] 32#32: event timer del: -1: 134092348
+2022/08/21 23:40:37 [debug] 32#32: http file cache expire
+2022/08/21 23:40:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:40:37 [debug] 32#32: shmtx lock
+2022/08/21 23:40:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:40:37 [debug] 32#32: shmtx lock
+2022/08/21 23:40:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:40:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:40:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:40:37 [debug] 32#32: event timer add: -1: 10000:134102358
+2022/08/21 23:40:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:40:47 [debug] 32#32: timer delta: 10010
+2022/08/21 23:40:47 [debug] 32#32: event timer del: -1: 134102358
+2022/08/21 23:40:47 [debug] 32#32: http file cache expire
+2022/08/21 23:40:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:40:47 [debug] 32#32: shmtx lock
+2022/08/21 23:40:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:40:47 [debug] 32#32: shmtx lock
+2022/08/21 23:40:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:40:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:40:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:40:47 [debug] 32#32: event timer add: -1: 10000:134112368
+2022/08/21 23:40:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:40:57 [debug] 32#32: timer delta: 10010
+2022/08/21 23:40:57 [debug] 32#32: event timer del: -1: 134112368
+2022/08/21 23:40:57 [debug] 32#32: http file cache expire
+2022/08/21 23:40:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:40:57 [debug] 32#32: shmtx lock
+2022/08/21 23:40:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:40:57 [debug] 32#32: shmtx lock
+2022/08/21 23:40:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:40:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:40:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:40:57 [debug] 32#32: event timer add: -1: 10000:134122378
+2022/08/21 23:40:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:41:07 [debug] 32#32: timer delta: 10010
+2022/08/21 23:41:07 [debug] 32#32: event timer del: -1: 134122378
+2022/08/21 23:41:07 [debug] 32#32: http file cache expire
+2022/08/21 23:41:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:41:07 [debug] 32#32: shmtx lock
+2022/08/21 23:41:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:41:07 [debug] 32#32: shmtx lock
+2022/08/21 23:41:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:41:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:41:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:41:07 [debug] 32#32: event timer add: -1: 10000:134132388
+2022/08/21 23:41:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:41:17 [debug] 32#32: timer delta: 10006
+2022/08/21 23:41:17 [debug] 32#32: event timer del: -1: 134132388
+2022/08/21 23:41:17 [debug] 32#32: http file cache expire
+2022/08/21 23:41:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:41:17 [debug] 32#32: shmtx lock
+2022/08/21 23:41:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:41:17 [debug] 32#32: shmtx lock
+2022/08/21 23:41:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:41:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:41:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:41:17 [debug] 32#32: event timer add: -1: 10000:134142394
+2022/08/21 23:41:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:41:27 [debug] 32#32: timer delta: 10009
+2022/08/21 23:41:27 [debug] 32#32: event timer del: -1: 134142394
+2022/08/21 23:41:27 [debug] 32#32: http file cache expire
+2022/08/21 23:41:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:41:27 [debug] 32#32: shmtx lock
+2022/08/21 23:41:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:41:27 [debug] 32#32: shmtx lock
+2022/08/21 23:41:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:41:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:41:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:41:27 [debug] 32#32: event timer add: -1: 10000:134152403
+2022/08/21 23:41:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:41:37 [debug] 32#32: timer delta: 10008
+2022/08/21 23:41:37 [debug] 32#32: event timer del: -1: 134152403
+2022/08/21 23:41:37 [debug] 32#32: http file cache expire
+2022/08/21 23:41:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:41:37 [debug] 32#32: shmtx lock
+2022/08/21 23:41:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:41:37 [debug] 32#32: shmtx lock
+2022/08/21 23:41:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:41:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:41:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:41:37 [debug] 32#32: event timer add: -1: 10000:134162411
+2022/08/21 23:41:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:41:47 [debug] 32#32: timer delta: 10010
+2022/08/21 23:41:47 [debug] 32#32: event timer del: -1: 134162411
+2022/08/21 23:41:47 [debug] 32#32: http file cache expire
+2022/08/21 23:41:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:41:47 [debug] 32#32: shmtx lock
+2022/08/21 23:41:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:41:47 [debug] 32#32: shmtx lock
+2022/08/21 23:41:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:41:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:41:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:41:47 [debug] 32#32: event timer add: -1: 10000:134172422
+2022/08/21 23:41:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:41:57 [debug] 32#32: timer delta: 10009
+2022/08/21 23:41:57 [debug] 32#32: event timer del: -1: 134172422
+2022/08/21 23:41:57 [debug] 32#32: http file cache expire
+2022/08/21 23:41:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:41:57 [debug] 32#32: shmtx lock
+2022/08/21 23:41:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:41:57 [debug] 32#32: shmtx lock
+2022/08/21 23:41:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:41:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:41:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:41:57 [debug] 32#32: event timer add: -1: 10000:134182431
+2022/08/21 23:41:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:42:07 [debug] 32#32: timer delta: 10010
+2022/08/21 23:42:07 [debug] 32#32: event timer del: -1: 134182431
+2022/08/21 23:42:07 [debug] 32#32: http file cache expire
+2022/08/21 23:42:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:42:07 [debug] 32#32: shmtx lock
+2022/08/21 23:42:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:42:07 [debug] 32#32: shmtx lock
+2022/08/21 23:42:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:42:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:42:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:42:07 [debug] 32#32: event timer add: -1: 10000:134192441
+2022/08/21 23:42:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:42:17 [debug] 32#32: timer delta: 10010
+2022/08/21 23:42:17 [debug] 32#32: event timer del: -1: 134192441
+2022/08/21 23:42:17 [debug] 32#32: http file cache expire
+2022/08/21 23:42:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:42:17 [debug] 32#32: shmtx lock
+2022/08/21 23:42:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:42:17 [debug] 32#32: shmtx lock
+2022/08/21 23:42:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:42:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:42:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:42:17 [debug] 32#32: event timer add: -1: 10000:134202451
+2022/08/21 23:42:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:42:27 [debug] 32#32: timer delta: 10010
+2022/08/21 23:42:27 [debug] 32#32: event timer del: -1: 134202451
+2022/08/21 23:42:27 [debug] 32#32: http file cache expire
+2022/08/21 23:42:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:42:27 [debug] 32#32: shmtx lock
+2022/08/21 23:42:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:42:27 [debug] 32#32: shmtx lock
+2022/08/21 23:42:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:42:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:42:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:42:27 [debug] 32#32: event timer add: -1: 10000:134212461
+2022/08/21 23:42:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:42:37 [debug] 32#32: timer delta: 10010
+2022/08/21 23:42:37 [debug] 32#32: event timer del: -1: 134212461
+2022/08/21 23:42:37 [debug] 32#32: http file cache expire
+2022/08/21 23:42:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:42:37 [debug] 32#32: shmtx lock
+2022/08/21 23:42:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:42:37 [debug] 32#32: shmtx lock
+2022/08/21 23:42:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:42:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:42:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:42:37 [debug] 32#32: event timer add: -1: 10000:134222471
+2022/08/21 23:42:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:42:47 [debug] 32#32: timer delta: 10011
+2022/08/21 23:42:47 [debug] 32#32: event timer del: -1: 134222471
+2022/08/21 23:42:47 [debug] 32#32: http file cache expire
+2022/08/21 23:42:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:42:47 [debug] 32#32: shmtx lock
+2022/08/21 23:42:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:42:47 [debug] 32#32: shmtx lock
+2022/08/21 23:42:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:42:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:42:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:42:47 [debug] 32#32: event timer add: -1: 10000:134232482
+2022/08/21 23:42:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:42:57 [debug] 32#32: timer delta: 10009
+2022/08/21 23:42:57 [debug] 32#32: event timer del: -1: 134232482
+2022/08/21 23:42:57 [debug] 32#32: http file cache expire
+2022/08/21 23:42:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:42:57 [debug] 32#32: shmtx lock
+2022/08/21 23:42:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:42:57 [debug] 32#32: shmtx lock
+2022/08/21 23:42:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:42:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:42:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:42:57 [debug] 32#32: event timer add: -1: 10000:134242491
+2022/08/21 23:42:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:43:07 [debug] 32#32: timer delta: 10010
+2022/08/21 23:43:07 [debug] 32#32: event timer del: -1: 134242491
+2022/08/21 23:43:07 [debug] 32#32: http file cache expire
+2022/08/21 23:43:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:43:07 [debug] 32#32: shmtx lock
+2022/08/21 23:43:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:43:07 [debug] 32#32: shmtx lock
+2022/08/21 23:43:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:43:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:43:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:43:07 [debug] 32#32: event timer add: -1: 10000:134252501
+2022/08/21 23:43:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:43:17 [debug] 32#32: timer delta: 10010
+2022/08/21 23:43:17 [debug] 32#32: event timer del: -1: 134252501
+2022/08/21 23:43:17 [debug] 32#32: http file cache expire
+2022/08/21 23:43:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:43:17 [debug] 32#32: shmtx lock
+2022/08/21 23:43:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:43:17 [debug] 32#32: shmtx lock
+2022/08/21 23:43:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:43:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:43:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:43:17 [debug] 32#32: event timer add: -1: 10000:134262511
+2022/08/21 23:43:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:43:27 [debug] 32#32: timer delta: 10010
+2022/08/21 23:43:27 [debug] 32#32: event timer del: -1: 134262511
+2022/08/21 23:43:27 [debug] 32#32: http file cache expire
+2022/08/21 23:43:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:43:27 [debug] 32#32: shmtx lock
+2022/08/21 23:43:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:43:27 [debug] 32#32: shmtx lock
+2022/08/21 23:43:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:43:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:43:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:43:27 [debug] 32#32: event timer add: -1: 10000:134272521
+2022/08/21 23:43:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:43:37 [debug] 32#32: timer delta: 10010
+2022/08/21 23:43:37 [debug] 32#32: event timer del: -1: 134272521
+2022/08/21 23:43:37 [debug] 32#32: http file cache expire
+2022/08/21 23:43:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:43:37 [debug] 32#32: shmtx lock
+2022/08/21 23:43:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:43:37 [debug] 32#32: shmtx lock
+2022/08/21 23:43:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:43:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:43:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:43:37 [debug] 32#32: event timer add: -1: 10000:134282532
+2022/08/21 23:43:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:43:47 [debug] 32#32: timer delta: 10009
+2022/08/21 23:43:47 [debug] 32#32: event timer del: -1: 134282532
+2022/08/21 23:43:47 [debug] 32#32: http file cache expire
+2022/08/21 23:43:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:43:47 [debug] 32#32: shmtx lock
+2022/08/21 23:43:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:43:47 [debug] 32#32: shmtx lock
+2022/08/21 23:43:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:43:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:43:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:43:47 [debug] 32#32: event timer add: -1: 10000:134292541
+2022/08/21 23:43:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:43:57 [debug] 32#32: timer delta: 10010
+2022/08/21 23:43:57 [debug] 32#32: event timer del: -1: 134292541
+2022/08/21 23:43:57 [debug] 32#32: http file cache expire
+2022/08/21 23:43:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:43:57 [debug] 32#32: shmtx lock
+2022/08/21 23:43:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:43:57 [debug] 32#32: shmtx lock
+2022/08/21 23:43:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:43:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:43:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:43:57 [debug] 32#32: event timer add: -1: 10000:134302551
+2022/08/21 23:43:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:44:07 [debug] 32#32: timer delta: 10010
+2022/08/21 23:44:07 [debug] 32#32: event timer del: -1: 134302551
+2022/08/21 23:44:07 [debug] 32#32: http file cache expire
+2022/08/21 23:44:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:44:07 [debug] 32#32: shmtx lock
+2022/08/21 23:44:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:44:07 [debug] 32#32: shmtx lock
+2022/08/21 23:44:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:44:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:44:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:44:07 [debug] 32#32: event timer add: -1: 10000:134312562
+2022/08/21 23:44:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:44:17 [debug] 32#32: timer delta: 10010
+2022/08/21 23:44:17 [debug] 32#32: event timer del: -1: 134312562
+2022/08/21 23:44:17 [debug] 32#32: http file cache expire
+2022/08/21 23:44:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:44:17 [debug] 32#32: shmtx lock
+2022/08/21 23:44:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:44:17 [debug] 32#32: shmtx lock
+2022/08/21 23:44:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:44:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:44:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:44:17 [debug] 32#32: event timer add: -1: 10000:134322572
+2022/08/21 23:44:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:44:27 [debug] 32#32: timer delta: 10009
+2022/08/21 23:44:27 [debug] 32#32: event timer del: -1: 134322572
+2022/08/21 23:44:27 [debug] 32#32: http file cache expire
+2022/08/21 23:44:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:44:27 [debug] 32#32: shmtx lock
+2022/08/21 23:44:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:44:27 [debug] 32#32: shmtx lock
+2022/08/21 23:44:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:44:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:44:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:44:27 [debug] 32#32: event timer add: -1: 10000:134332582
+2022/08/21 23:44:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:44:37 [debug] 32#32: timer delta: 10009
+2022/08/21 23:44:37 [debug] 32#32: event timer del: -1: 134332582
+2022/08/21 23:44:37 [debug] 32#32: http file cache expire
+2022/08/21 23:44:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:44:37 [debug] 32#32: shmtx lock
+2022/08/21 23:44:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:44:37 [debug] 32#32: shmtx lock
+2022/08/21 23:44:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:44:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:44:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:44:37 [debug] 32#32: event timer add: -1: 10000:134342591
+2022/08/21 23:44:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:44:47 [debug] 32#32: timer delta: 10010
+2022/08/21 23:44:47 [debug] 32#32: event timer del: -1: 134342591
+2022/08/21 23:44:47 [debug] 32#32: http file cache expire
+2022/08/21 23:44:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:44:47 [debug] 32#32: shmtx lock
+2022/08/21 23:44:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:44:47 [debug] 32#32: shmtx lock
+2022/08/21 23:44:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:44:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:44:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:44:47 [debug] 32#32: event timer add: -1: 10000:134352601
+2022/08/21 23:44:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:44:57 [debug] 32#32: timer delta: 10011
+2022/08/21 23:44:57 [debug] 32#32: event timer del: -1: 134352601
+2022/08/21 23:44:57 [debug] 32#32: http file cache expire
+2022/08/21 23:44:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:44:57 [debug] 32#32: shmtx lock
+2022/08/21 23:44:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:44:57 [debug] 32#32: shmtx lock
+2022/08/21 23:44:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:44:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:44:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:44:57 [debug] 32#32: event timer add: -1: 10000:134362612
+2022/08/21 23:44:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:45:07 [debug] 32#32: timer delta: 10009
+2022/08/21 23:45:07 [debug] 32#32: event timer del: -1: 134362612
+2022/08/21 23:45:07 [debug] 32#32: http file cache expire
+2022/08/21 23:45:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:45:07 [debug] 32#32: shmtx lock
+2022/08/21 23:45:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:45:07 [debug] 32#32: shmtx lock
+2022/08/21 23:45:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:45:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:45:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:45:07 [debug] 32#32: event timer add: -1: 10000:134372621
+2022/08/21 23:45:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:45:17 [debug] 32#32: timer delta: 10010
+2022/08/21 23:45:17 [debug] 32#32: event timer del: -1: 134372621
+2022/08/21 23:45:17 [debug] 32#32: http file cache expire
+2022/08/21 23:45:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:45:17 [debug] 32#32: shmtx lock
+2022/08/21 23:45:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:45:17 [debug] 32#32: shmtx lock
+2022/08/21 23:45:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:45:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:45:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:45:17 [debug] 32#32: event timer add: -1: 10000:134382631
+2022/08/21 23:45:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:45:27 [debug] 32#32: timer delta: 10010
+2022/08/21 23:45:27 [debug] 32#32: event timer del: -1: 134382631
+2022/08/21 23:45:27 [debug] 32#32: http file cache expire
+2022/08/21 23:45:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:45:27 [debug] 32#32: shmtx lock
+2022/08/21 23:45:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:45:27 [debug] 32#32: shmtx lock
+2022/08/21 23:45:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:45:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:45:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:45:27 [debug] 32#32: event timer add: -1: 10000:134392641
+2022/08/21 23:45:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:45:37 [debug] 32#32: timer delta: 10002
+2022/08/21 23:45:37 [debug] 32#32: event timer del: -1: 134392641
+2022/08/21 23:45:37 [debug] 32#32: http file cache expire
+2022/08/21 23:45:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:45:37 [debug] 32#32: shmtx lock
+2022/08/21 23:45:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:45:37 [debug] 32#32: shmtx lock
+2022/08/21 23:45:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:45:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:45:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:45:37 [debug] 32#32: event timer add: -1: 10000:134402643
+2022/08/21 23:45:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:45:47 [debug] 32#32: timer delta: 10008
+2022/08/21 23:45:47 [debug] 32#32: event timer del: -1: 134402643
+2022/08/21 23:45:47 [debug] 32#32: http file cache expire
+2022/08/21 23:45:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:45:47 [debug] 32#32: shmtx lock
+2022/08/21 23:45:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:45:47 [debug] 32#32: shmtx lock
+2022/08/21 23:45:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:45:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:45:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:45:47 [debug] 32#32: event timer add: -1: 10000:134412652
+2022/08/21 23:45:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:45:57 [debug] 32#32: timer delta: 10009
+2022/08/21 23:45:57 [debug] 32#32: event timer del: -1: 134412652
+2022/08/21 23:45:57 [debug] 32#32: http file cache expire
+2022/08/21 23:45:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:45:57 [debug] 32#32: shmtx lock
+2022/08/21 23:45:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:45:57 [debug] 32#32: shmtx lock
+2022/08/21 23:45:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:45:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:45:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:45:57 [debug] 32#32: event timer add: -1: 10000:134422661
+2022/08/21 23:45:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:46:07 [debug] 32#32: timer delta: 10010
+2022/08/21 23:46:07 [debug] 32#32: event timer del: -1: 134422661
+2022/08/21 23:46:07 [debug] 32#32: http file cache expire
+2022/08/21 23:46:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:46:07 [debug] 32#32: shmtx lock
+2022/08/21 23:46:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:46:07 [debug] 32#32: shmtx lock
+2022/08/21 23:46:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:46:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:46:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:46:07 [debug] 32#32: event timer add: -1: 10000:134432671
+2022/08/21 23:46:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:46:17 [debug] 32#32: timer delta: 10010
+2022/08/21 23:46:17 [debug] 32#32: event timer del: -1: 134432671
+2022/08/21 23:46:17 [debug] 32#32: http file cache expire
+2022/08/21 23:46:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:46:17 [debug] 32#32: shmtx lock
+2022/08/21 23:46:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:46:17 [debug] 32#32: shmtx lock
+2022/08/21 23:46:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:46:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:46:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:46:17 [debug] 32#32: event timer add: -1: 10000:134442681
+2022/08/21 23:46:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:46:27 [debug] 32#32: timer delta: 10010
+2022/08/21 23:46:27 [debug] 32#32: event timer del: -1: 134442681
+2022/08/21 23:46:27 [debug] 32#32: http file cache expire
+2022/08/21 23:46:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:46:27 [debug] 32#32: shmtx lock
+2022/08/21 23:46:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:46:27 [debug] 32#32: shmtx lock
+2022/08/21 23:46:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:46:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:46:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:46:27 [debug] 32#32: event timer add: -1: 10000:134452691
+2022/08/21 23:46:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:46:37 [debug] 32#32: timer delta: 10010
+2022/08/21 23:46:37 [debug] 32#32: event timer del: -1: 134452691
+2022/08/21 23:46:37 [debug] 32#32: http file cache expire
+2022/08/21 23:46:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:46:37 [debug] 32#32: shmtx lock
+2022/08/21 23:46:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:46:37 [debug] 32#32: shmtx lock
+2022/08/21 23:46:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:46:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:46:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:46:37 [debug] 32#32: event timer add: -1: 10000:134462701
+2022/08/21 23:46:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:46:47 [debug] 32#32: timer delta: 10010
+2022/08/21 23:46:47 [debug] 32#32: event timer del: -1: 134462701
+2022/08/21 23:46:47 [debug] 32#32: http file cache expire
+2022/08/21 23:46:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:46:47 [debug] 32#32: shmtx lock
+2022/08/21 23:46:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:46:47 [debug] 32#32: shmtx lock
+2022/08/21 23:46:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:46:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:46:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:46:47 [debug] 32#32: event timer add: -1: 10000:134472711
+2022/08/21 23:46:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:46:57 [debug] 32#32: timer delta: 10010
+2022/08/21 23:46:57 [debug] 32#32: event timer del: -1: 134472711
+2022/08/21 23:46:57 [debug] 32#32: http file cache expire
+2022/08/21 23:46:57 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:46:57 [debug] 32#32: shmtx lock
+2022/08/21 23:46:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:46:57 [debug] 32#32: shmtx lock
+2022/08/21 23:46:57 [debug] 32#32: shmtx unlock
+2022/08/21 23:46:57 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:46:57 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:46:57 [debug] 32#32: event timer add: -1: 10000:134482721
+2022/08/21 23:46:57 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:47:07 [debug] 32#32: timer delta: 10010
+2022/08/21 23:47:07 [debug] 32#32: event timer del: -1: 134482721
+2022/08/21 23:47:07 [debug] 32#32: http file cache expire
+2022/08/21 23:47:07 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:47:07 [debug] 32#32: shmtx lock
+2022/08/21 23:47:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:47:07 [debug] 32#32: shmtx lock
+2022/08/21 23:47:07 [debug] 32#32: shmtx unlock
+2022/08/21 23:47:07 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:47:07 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:47:07 [debug] 32#32: event timer add: -1: 10000:134492731
+2022/08/21 23:47:07 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:47:17 [debug] 32#32: timer delta: 10010
+2022/08/21 23:47:17 [debug] 32#32: event timer del: -1: 134492731
+2022/08/21 23:47:17 [debug] 32#32: http file cache expire
+2022/08/21 23:47:17 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:47:17 [debug] 32#32: shmtx lock
+2022/08/21 23:47:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:47:17 [debug] 32#32: shmtx lock
+2022/08/21 23:47:17 [debug] 32#32: shmtx unlock
+2022/08/21 23:47:17 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:47:17 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:47:17 [debug] 32#32: event timer add: -1: 10000:134502741
+2022/08/21 23:47:17 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:47:27 [debug] 32#32: timer delta: 10011
+2022/08/21 23:47:27 [debug] 32#32: event timer del: -1: 134502741
+2022/08/21 23:47:27 [debug] 32#32: http file cache expire
+2022/08/21 23:47:27 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:47:27 [debug] 32#32: shmtx lock
+2022/08/21 23:47:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:47:27 [debug] 32#32: shmtx lock
+2022/08/21 23:47:27 [debug] 32#32: shmtx unlock
+2022/08/21 23:47:27 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:47:27 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:47:27 [debug] 32#32: event timer add: -1: 10000:134512752
+2022/08/21 23:47:27 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:47:37 [debug] 32#32: timer delta: 10009
+2022/08/21 23:47:37 [debug] 32#32: event timer del: -1: 134512752
+2022/08/21 23:47:37 [debug] 32#32: http file cache expire
+2022/08/21 23:47:37 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:47:37 [debug] 32#32: shmtx lock
+2022/08/21 23:47:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:47:37 [debug] 32#32: shmtx lock
+2022/08/21 23:47:37 [debug] 32#32: shmtx unlock
+2022/08/21 23:47:37 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:47:37 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:47:37 [debug] 32#32: event timer add: -1: 10000:134522761
+2022/08/21 23:47:37 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:47:47 [debug] 32#32: timer delta: 10010
+2022/08/21 23:47:47 [debug] 32#32: event timer del: -1: 134522761
+2022/08/21 23:47:47 [debug] 32#32: http file cache expire
+2022/08/21 23:47:47 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:47:47 [debug] 32#32: shmtx lock
+2022/08/21 23:47:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:47:47 [debug] 32#32: shmtx lock
+2022/08/21 23:47:47 [debug] 32#32: shmtx unlock
+2022/08/21 23:47:47 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:47:47 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:47:47 [debug] 32#32: event timer add: -1: 10000:134532771
+2022/08/21 23:47:47 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:47:58 [debug] 32#32: timer delta: 10010
+2022/08/21 23:47:58 [debug] 32#32: event timer del: -1: 134532771
+2022/08/21 23:47:58 [debug] 32#32: http file cache expire
+2022/08/21 23:47:58 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:47:58 [debug] 32#32: shmtx lock
+2022/08/21 23:47:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:47:58 [debug] 32#32: shmtx lock
+2022/08/21 23:47:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:47:58 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:47:58 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:47:58 [debug] 32#32: event timer add: -1: 10000:134542782
+2022/08/21 23:47:58 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:48:08 [debug] 32#32: timer delta: 10010
+2022/08/21 23:48:08 [debug] 32#32: event timer del: -1: 134542782
+2022/08/21 23:48:08 [debug] 32#32: http file cache expire
+2022/08/21 23:48:08 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:48:08 [debug] 32#32: shmtx lock
+2022/08/21 23:48:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:48:08 [debug] 32#32: shmtx lock
+2022/08/21 23:48:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:48:08 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:48:08 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:48:08 [debug] 32#32: event timer add: -1: 10000:134552792
+2022/08/21 23:48:08 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:48:18 [debug] 32#32: timer delta: 10009
+2022/08/21 23:48:18 [debug] 32#32: event timer del: -1: 134552792
+2022/08/21 23:48:18 [debug] 32#32: http file cache expire
+2022/08/21 23:48:18 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:48:18 [debug] 32#32: shmtx lock
+2022/08/21 23:48:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:48:18 [debug] 32#32: shmtx lock
+2022/08/21 23:48:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:48:18 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:48:18 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:48:18 [debug] 32#32: event timer add: -1: 10000:134562801
+2022/08/21 23:48:18 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:48:28 [debug] 32#32: timer delta: 10012
+2022/08/21 23:48:28 [debug] 32#32: event timer del: -1: 134562801
+2022/08/21 23:48:28 [debug] 32#32: http file cache expire
+2022/08/21 23:48:28 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:48:28 [debug] 32#32: shmtx lock
+2022/08/21 23:48:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:48:28 [debug] 32#32: shmtx lock
+2022/08/21 23:48:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:48:28 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:48:28 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:48:28 [debug] 32#32: event timer add: -1: 10000:134572813
+2022/08/21 23:48:28 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:48:38 [debug] 32#32: timer delta: 10008
+2022/08/21 23:48:38 [debug] 32#32: event timer del: -1: 134572813
+2022/08/21 23:48:38 [debug] 32#32: http file cache expire
+2022/08/21 23:48:38 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:48:38 [debug] 32#32: shmtx lock
+2022/08/21 23:48:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:48:38 [debug] 32#32: shmtx lock
+2022/08/21 23:48:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:48:38 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:48:38 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:48:38 [debug] 32#32: event timer add: -1: 10000:134582821
+2022/08/21 23:48:38 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:48:48 [debug] 32#32: timer delta: 10010
+2022/08/21 23:48:48 [debug] 32#32: event timer del: -1: 134582821
+2022/08/21 23:48:48 [debug] 32#32: http file cache expire
+2022/08/21 23:48:48 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:48:48 [debug] 32#32: shmtx lock
+2022/08/21 23:48:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:48:48 [debug] 32#32: shmtx lock
+2022/08/21 23:48:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:48:48 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:48:48 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:48:48 [debug] 32#32: event timer add: -1: 10000:134592831
+2022/08/21 23:48:48 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:48:58 [debug] 32#32: timer delta: 10010
+2022/08/21 23:48:58 [debug] 32#32: event timer del: -1: 134592831
+2022/08/21 23:48:58 [debug] 32#32: http file cache expire
+2022/08/21 23:48:58 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:48:58 [debug] 32#32: shmtx lock
+2022/08/21 23:48:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:48:58 [debug] 32#32: shmtx lock
+2022/08/21 23:48:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:48:58 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:48:58 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:48:58 [debug] 32#32: event timer add: -1: 10000:134602841
+2022/08/21 23:48:58 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:49:08 [debug] 32#32: timer delta: 10010
+2022/08/21 23:49:08 [debug] 32#32: event timer del: -1: 134602841
+2022/08/21 23:49:08 [debug] 32#32: http file cache expire
+2022/08/21 23:49:08 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:49:08 [debug] 32#32: shmtx lock
+2022/08/21 23:49:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:49:08 [debug] 32#32: shmtx lock
+2022/08/21 23:49:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:49:08 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:49:08 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:49:08 [debug] 32#32: event timer add: -1: 10000:134612851
+2022/08/21 23:49:08 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:49:18 [debug] 32#32: timer delta: 10010
+2022/08/21 23:49:18 [debug] 32#32: event timer del: -1: 134612851
+2022/08/21 23:49:18 [debug] 32#32: http file cache expire
+2022/08/21 23:49:18 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:49:18 [debug] 32#32: shmtx lock
+2022/08/21 23:49:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:49:18 [debug] 32#32: shmtx lock
+2022/08/21 23:49:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:49:18 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:49:18 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:49:18 [debug] 32#32: event timer add: -1: 10000:134622861
+2022/08/21 23:49:18 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:49:28 [debug] 32#32: timer delta: 10010
+2022/08/21 23:49:28 [debug] 32#32: event timer del: -1: 134622861
+2022/08/21 23:49:28 [debug] 32#32: http file cache expire
+2022/08/21 23:49:28 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:49:28 [debug] 32#32: shmtx lock
+2022/08/21 23:49:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:49:28 [debug] 32#32: shmtx lock
+2022/08/21 23:49:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:49:28 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:49:28 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:49:28 [debug] 32#32: event timer add: -1: 10000:134632871
+2022/08/21 23:49:28 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:49:38 [debug] 32#32: timer delta: 10010
+2022/08/21 23:49:38 [debug] 32#32: event timer del: -1: 134632871
+2022/08/21 23:49:38 [debug] 32#32: http file cache expire
+2022/08/21 23:49:38 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:49:38 [debug] 32#32: shmtx lock
+2022/08/21 23:49:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:49:38 [debug] 32#32: shmtx lock
+2022/08/21 23:49:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:49:38 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:49:38 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:49:38 [debug] 32#32: event timer add: -1: 10000:134642881
+2022/08/21 23:49:38 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:49:48 [debug] 32#32: timer delta: 10004
+2022/08/21 23:49:48 [debug] 32#32: event timer del: -1: 134642881
+2022/08/21 23:49:48 [debug] 32#32: http file cache expire
+2022/08/21 23:49:48 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:49:48 [debug] 32#32: shmtx lock
+2022/08/21 23:49:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:49:48 [debug] 32#32: shmtx lock
+2022/08/21 23:49:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:49:48 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:49:48 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:49:48 [debug] 32#32: event timer add: -1: 10000:134652885
+2022/08/21 23:49:48 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:49:58 [debug] 32#32: timer delta: 10010
+2022/08/21 23:49:58 [debug] 32#32: event timer del: -1: 134652885
+2022/08/21 23:49:58 [debug] 32#32: http file cache expire
+2022/08/21 23:49:58 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:49:58 [debug] 32#32: shmtx lock
+2022/08/21 23:49:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:49:58 [debug] 32#32: shmtx lock
+2022/08/21 23:49:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:49:58 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:49:58 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:49:58 [debug] 32#32: event timer add: -1: 10000:134662895
+2022/08/21 23:49:58 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:50:08 [debug] 32#32: timer delta: 10010
+2022/08/21 23:50:08 [debug] 32#32: event timer del: -1: 134662895
+2022/08/21 23:50:08 [debug] 32#32: http file cache expire
+2022/08/21 23:50:08 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:50:08 [debug] 32#32: shmtx lock
+2022/08/21 23:50:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:50:08 [debug] 32#32: shmtx lock
+2022/08/21 23:50:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:50:08 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:50:08 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:50:08 [debug] 32#32: event timer add: -1: 10000:134672905
+2022/08/21 23:50:08 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:50:18 [debug] 32#32: timer delta: 10010
+2022/08/21 23:50:18 [debug] 32#32: event timer del: -1: 134672905
+2022/08/21 23:50:18 [debug] 32#32: http file cache expire
+2022/08/21 23:50:18 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:50:18 [debug] 32#32: shmtx lock
+2022/08/21 23:50:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:50:18 [debug] 32#32: shmtx lock
+2022/08/21 23:50:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:50:18 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:50:18 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:50:18 [debug] 32#32: event timer add: -1: 10000:134682915
+2022/08/21 23:50:18 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:50:28 [debug] 32#32: timer delta: 10010
+2022/08/21 23:50:28 [debug] 32#32: event timer del: -1: 134682915
+2022/08/21 23:50:28 [debug] 32#32: http file cache expire
+2022/08/21 23:50:28 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:50:28 [debug] 32#32: shmtx lock
+2022/08/21 23:50:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:50:28 [debug] 32#32: shmtx lock
+2022/08/21 23:50:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:50:28 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:50:28 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:50:28 [debug] 32#32: event timer add: -1: 10000:134692925
+2022/08/21 23:50:28 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:50:38 [debug] 32#32: timer delta: 10010
+2022/08/21 23:50:38 [debug] 32#32: event timer del: -1: 134692925
+2022/08/21 23:50:38 [debug] 32#32: http file cache expire
+2022/08/21 23:50:38 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:50:38 [debug] 32#32: shmtx lock
+2022/08/21 23:50:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:50:38 [debug] 32#32: shmtx lock
+2022/08/21 23:50:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:50:38 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:50:38 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:50:38 [debug] 32#32: event timer add: -1: 10000:134702935
+2022/08/21 23:50:38 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:50:48 [debug] 32#32: timer delta: 10010
+2022/08/21 23:50:48 [debug] 32#32: event timer del: -1: 134702935
+2022/08/21 23:50:48 [debug] 32#32: http file cache expire
+2022/08/21 23:50:48 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:50:48 [debug] 32#32: shmtx lock
+2022/08/21 23:50:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:50:48 [debug] 32#32: shmtx lock
+2022/08/21 23:50:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:50:48 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:50:48 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:50:48 [debug] 32#32: event timer add: -1: 10000:134712945
+2022/08/21 23:50:48 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:50:58 [debug] 32#32: timer delta: 10010
+2022/08/21 23:50:58 [debug] 32#32: event timer del: -1: 134712945
+2022/08/21 23:50:58 [debug] 32#32: http file cache expire
+2022/08/21 23:50:58 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:50:58 [debug] 32#32: shmtx lock
+2022/08/21 23:50:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:50:58 [debug] 32#32: shmtx lock
+2022/08/21 23:50:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:50:58 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:50:58 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:50:58 [debug] 32#32: event timer add: -1: 10000:134722955
+2022/08/21 23:50:58 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:51:08 [debug] 32#32: timer delta: 10010
+2022/08/21 23:51:08 [debug] 32#32: event timer del: -1: 134722955
+2022/08/21 23:51:08 [debug] 32#32: http file cache expire
+2022/08/21 23:51:08 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:51:08 [debug] 32#32: shmtx lock
+2022/08/21 23:51:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:51:08 [debug] 32#32: shmtx lock
+2022/08/21 23:51:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:51:08 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:51:08 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:51:08 [debug] 32#32: event timer add: -1: 10000:134732965
+2022/08/21 23:51:08 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:51:18 [debug] 32#32: timer delta: 10009
+2022/08/21 23:51:18 [debug] 32#32: event timer del: -1: 134732965
+2022/08/21 23:51:18 [debug] 32#32: http file cache expire
+2022/08/21 23:51:18 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:51:18 [debug] 32#32: shmtx lock
+2022/08/21 23:51:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:51:18 [debug] 32#32: shmtx lock
+2022/08/21 23:51:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:51:18 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:51:18 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:51:18 [debug] 32#32: event timer add: -1: 10000:134742974
+2022/08/21 23:51:18 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:51:28 [debug] 32#32: timer delta: 10011
+2022/08/21 23:51:28 [debug] 32#32: event timer del: -1: 134742974
+2022/08/21 23:51:28 [debug] 32#32: http file cache expire
+2022/08/21 23:51:28 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:51:28 [debug] 32#32: shmtx lock
+2022/08/21 23:51:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:51:28 [debug] 32#32: shmtx lock
+2022/08/21 23:51:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:51:28 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:51:28 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:51:28 [debug] 32#32: event timer add: -1: 10000:134752985
+2022/08/21 23:51:28 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:51:38 [debug] 32#32: timer delta: 10010
+2022/08/21 23:51:38 [debug] 32#32: event timer del: -1: 134752985
+2022/08/21 23:51:38 [debug] 32#32: http file cache expire
+2022/08/21 23:51:38 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:51:38 [debug] 32#32: shmtx lock
+2022/08/21 23:51:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:51:38 [debug] 32#32: shmtx lock
+2022/08/21 23:51:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:51:38 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:51:38 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:51:38 [debug] 32#32: event timer add: -1: 10000:134762995
+2022/08/21 23:51:38 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:51:48 [debug] 32#32: timer delta: 10010
+2022/08/21 23:51:48 [debug] 32#32: event timer del: -1: 134762995
+2022/08/21 23:51:48 [debug] 32#32: http file cache expire
+2022/08/21 23:51:48 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:51:48 [debug] 32#32: shmtx lock
+2022/08/21 23:51:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:51:48 [debug] 32#32: shmtx lock
+2022/08/21 23:51:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:51:48 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:51:48 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:51:48 [debug] 32#32: event timer add: -1: 10000:134773005
+2022/08/21 23:51:48 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:51:58 [debug] 32#32: timer delta: 10010
+2022/08/21 23:51:58 [debug] 32#32: event timer del: -1: 134773005
+2022/08/21 23:51:58 [debug] 32#32: http file cache expire
+2022/08/21 23:51:58 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:51:58 [debug] 32#32: shmtx lock
+2022/08/21 23:51:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:51:58 [debug] 32#32: shmtx lock
+2022/08/21 23:51:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:51:58 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:51:58 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:51:58 [debug] 32#32: event timer add: -1: 10000:134783015
+2022/08/21 23:51:58 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:52:08 [debug] 32#32: timer delta: 10010
+2022/08/21 23:52:08 [debug] 32#32: event timer del: -1: 134783015
+2022/08/21 23:52:08 [debug] 32#32: http file cache expire
+2022/08/21 23:52:08 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:52:08 [debug] 32#32: shmtx lock
+2022/08/21 23:52:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:52:08 [debug] 32#32: shmtx lock
+2022/08/21 23:52:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:52:08 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:52:08 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:52:08 [debug] 32#32: event timer add: -1: 10000:134793025
+2022/08/21 23:52:08 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:52:18 [debug] 32#32: timer delta: 10010
+2022/08/21 23:52:18 [debug] 32#32: event timer del: -1: 134793025
+2022/08/21 23:52:18 [debug] 32#32: http file cache expire
+2022/08/21 23:52:18 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:52:18 [debug] 32#32: shmtx lock
+2022/08/21 23:52:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:52:18 [debug] 32#32: shmtx lock
+2022/08/21 23:52:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:52:18 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:52:18 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:52:18 [debug] 32#32: event timer add: -1: 10000:134803035
+2022/08/21 23:52:18 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:52:28 [debug] 32#32: timer delta: 10010
+2022/08/21 23:52:28 [debug] 32#32: event timer del: -1: 134803035
+2022/08/21 23:52:28 [debug] 32#32: http file cache expire
+2022/08/21 23:52:28 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:52:28 [debug] 32#32: shmtx lock
+2022/08/21 23:52:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:52:28 [debug] 32#32: shmtx lock
+2022/08/21 23:52:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:52:28 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:52:28 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:52:28 [debug] 32#32: event timer add: -1: 10000:134813045
+2022/08/21 23:52:28 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:52:38 [debug] 32#32: timer delta: 10010
+2022/08/21 23:52:38 [debug] 32#32: event timer del: -1: 134813045
+2022/08/21 23:52:38 [debug] 32#32: http file cache expire
+2022/08/21 23:52:38 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:52:38 [debug] 32#32: shmtx lock
+2022/08/21 23:52:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:52:38 [debug] 32#32: shmtx lock
+2022/08/21 23:52:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:52:38 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:52:38 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:52:38 [debug] 32#32: event timer add: -1: 10000:134823055
+2022/08/21 23:52:38 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:52:48 [debug] 32#32: timer delta: 10010
+2022/08/21 23:52:48 [debug] 32#32: event timer del: -1: 134823055
+2022/08/21 23:52:48 [debug] 32#32: http file cache expire
+2022/08/21 23:52:48 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:52:48 [debug] 32#32: shmtx lock
+2022/08/21 23:52:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:52:48 [debug] 32#32: shmtx lock
+2022/08/21 23:52:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:52:48 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:52:48 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:52:48 [debug] 32#32: event timer add: -1: 10000:134833065
+2022/08/21 23:52:48 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:52:58 [debug] 32#32: timer delta: 10004
+2022/08/21 23:52:58 [debug] 32#32: event timer del: -1: 134833065
+2022/08/21 23:52:58 [debug] 32#32: http file cache expire
+2022/08/21 23:52:58 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:52:58 [debug] 32#32: shmtx lock
+2022/08/21 23:52:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:52:58 [debug] 32#32: shmtx lock
+2022/08/21 23:52:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:52:58 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:52:58 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:52:58 [debug] 32#32: event timer add: -1: 10000:134843069
+2022/08/21 23:52:58 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:53:08 [debug] 32#32: timer delta: 10009
+2022/08/21 23:53:08 [debug] 32#32: event timer del: -1: 134843069
+2022/08/21 23:53:08 [debug] 32#32: http file cache expire
+2022/08/21 23:53:08 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:53:08 [debug] 32#32: shmtx lock
+2022/08/21 23:53:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:53:08 [debug] 32#32: shmtx lock
+2022/08/21 23:53:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:53:08 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:53:08 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:53:08 [debug] 32#32: event timer add: -1: 10000:134853078
+2022/08/21 23:53:08 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:53:18 [debug] 32#32: timer delta: 10010
+2022/08/21 23:53:18 [debug] 32#32: event timer del: -1: 134853078
+2022/08/21 23:53:18 [debug] 32#32: http file cache expire
+2022/08/21 23:53:18 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:53:18 [debug] 32#32: shmtx lock
+2022/08/21 23:53:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:53:18 [debug] 32#32: shmtx lock
+2022/08/21 23:53:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:53:18 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:53:18 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:53:18 [debug] 32#32: event timer add: -1: 10000:134863088
+2022/08/21 23:53:18 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:53:28 [debug] 32#32: timer delta: 10010
+2022/08/21 23:53:28 [debug] 32#32: event timer del: -1: 134863088
+2022/08/21 23:53:28 [debug] 32#32: http file cache expire
+2022/08/21 23:53:28 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:53:28 [debug] 32#32: shmtx lock
+2022/08/21 23:53:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:53:28 [debug] 32#32: shmtx lock
+2022/08/21 23:53:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:53:28 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:53:28 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:53:28 [debug] 32#32: event timer add: -1: 10000:134873098
+2022/08/21 23:53:28 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:53:38 [debug] 32#32: timer delta: 10010
+2022/08/21 23:53:38 [debug] 32#32: event timer del: -1: 134873098
+2022/08/21 23:53:38 [debug] 32#32: http file cache expire
+2022/08/21 23:53:38 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:53:38 [debug] 32#32: shmtx lock
+2022/08/21 23:53:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:53:38 [debug] 32#32: shmtx lock
+2022/08/21 23:53:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:53:38 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:53:38 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:53:38 [debug] 32#32: event timer add: -1: 10000:134883108
+2022/08/21 23:53:38 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:53:48 [debug] 32#32: timer delta: 10010
+2022/08/21 23:53:48 [debug] 32#32: event timer del: -1: 134883108
+2022/08/21 23:53:48 [debug] 32#32: http file cache expire
+2022/08/21 23:53:48 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:53:48 [debug] 32#32: shmtx lock
+2022/08/21 23:53:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:53:48 [debug] 32#32: shmtx lock
+2022/08/21 23:53:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:53:48 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:53:48 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:53:48 [debug] 32#32: event timer add: -1: 10000:134893118
+2022/08/21 23:53:48 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:53:58 [debug] 32#32: timer delta: 10010
+2022/08/21 23:53:58 [debug] 32#32: event timer del: -1: 134893118
+2022/08/21 23:53:58 [debug] 32#32: http file cache expire
+2022/08/21 23:53:58 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:53:58 [debug] 32#32: shmtx lock
+2022/08/21 23:53:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:53:58 [debug] 32#32: shmtx lock
+2022/08/21 23:53:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:53:58 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:53:58 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:53:58 [debug] 32#32: event timer add: -1: 10000:134903128
+2022/08/21 23:53:58 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:54:08 [debug] 32#32: timer delta: 10010
+2022/08/21 23:54:08 [debug] 32#32: event timer del: -1: 134903128
+2022/08/21 23:54:08 [debug] 32#32: http file cache expire
+2022/08/21 23:54:08 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:54:08 [debug] 32#32: shmtx lock
+2022/08/21 23:54:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:54:08 [debug] 32#32: shmtx lock
+2022/08/21 23:54:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:54:08 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:54:08 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:54:08 [debug] 32#32: event timer add: -1: 10000:134913138
+2022/08/21 23:54:08 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:54:18 [debug] 32#32: timer delta: 10010
+2022/08/21 23:54:18 [debug] 32#32: event timer del: -1: 134913138
+2022/08/21 23:54:18 [debug] 32#32: http file cache expire
+2022/08/21 23:54:18 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:54:18 [debug] 32#32: shmtx lock
+2022/08/21 23:54:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:54:18 [debug] 32#32: shmtx lock
+2022/08/21 23:54:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:54:18 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:54:18 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:54:18 [debug] 32#32: event timer add: -1: 10000:134923148
+2022/08/21 23:54:18 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:54:28 [debug] 32#32: timer delta: 10010
+2022/08/21 23:54:28 [debug] 32#32: event timer del: -1: 134923148
+2022/08/21 23:54:28 [debug] 32#32: http file cache expire
+2022/08/21 23:54:28 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:54:28 [debug] 32#32: shmtx lock
+2022/08/21 23:54:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:54:28 [debug] 32#32: shmtx lock
+2022/08/21 23:54:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:54:28 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:54:28 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:54:28 [debug] 32#32: event timer add: -1: 10000:134933158
+2022/08/21 23:54:28 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:54:38 [debug] 32#32: timer delta: 10001
+2022/08/21 23:54:38 [debug] 32#32: event timer del: -1: 134933158
+2022/08/21 23:54:38 [debug] 32#32: http file cache expire
+2022/08/21 23:54:38 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:54:38 [debug] 32#32: shmtx lock
+2022/08/21 23:54:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:54:38 [debug] 32#32: shmtx lock
+2022/08/21 23:54:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:54:38 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:54:38 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:54:38 [debug] 32#32: event timer add: -1: 10000:134943159
+2022/08/21 23:54:38 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:54:48 [debug] 32#32: timer delta: 10002
+2022/08/21 23:54:48 [debug] 32#32: event timer del: -1: 134943159
+2022/08/21 23:54:48 [debug] 32#32: http file cache expire
+2022/08/21 23:54:48 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:54:48 [debug] 32#32: shmtx lock
+2022/08/21 23:54:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:54:48 [debug] 32#32: shmtx lock
+2022/08/21 23:54:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:54:48 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:54:48 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:54:48 [debug] 32#32: event timer add: -1: 10000:134953161
+2022/08/21 23:54:48 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:54:58 [debug] 32#32: timer delta: 10010
+2022/08/21 23:54:58 [debug] 32#32: event timer del: -1: 134953161
+2022/08/21 23:54:58 [debug] 32#32: http file cache expire
+2022/08/21 23:54:58 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:54:58 [debug] 32#32: shmtx lock
+2022/08/21 23:54:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:54:58 [debug] 32#32: shmtx lock
+2022/08/21 23:54:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:54:58 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:54:58 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:54:58 [debug] 32#32: event timer add: -1: 10000:134963171
+2022/08/21 23:54:58 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:55:08 [debug] 32#32: timer delta: 10010
+2022/08/21 23:55:08 [debug] 32#32: event timer del: -1: 134963171
+2022/08/21 23:55:08 [debug] 32#32: http file cache expire
+2022/08/21 23:55:08 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:55:08 [debug] 32#32: shmtx lock
+2022/08/21 23:55:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:55:08 [debug] 32#32: shmtx lock
+2022/08/21 23:55:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:55:08 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:55:08 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:55:08 [debug] 32#32: event timer add: -1: 10000:134973181
+2022/08/21 23:55:08 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:55:18 [debug] 32#32: timer delta: 10010
+2022/08/21 23:55:18 [debug] 32#32: event timer del: -1: 134973181
+2022/08/21 23:55:18 [debug] 32#32: http file cache expire
+2022/08/21 23:55:18 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:55:18 [debug] 32#32: shmtx lock
+2022/08/21 23:55:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:55:18 [debug] 32#32: shmtx lock
+2022/08/21 23:55:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:55:18 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:55:18 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:55:18 [debug] 32#32: event timer add: -1: 10000:134983191
+2022/08/21 23:55:18 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:55:28 [debug] 32#32: timer delta: 10010
+2022/08/21 23:55:28 [debug] 32#32: event timer del: -1: 134983191
+2022/08/21 23:55:28 [debug] 32#32: http file cache expire
+2022/08/21 23:55:28 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:55:28 [debug] 32#32: shmtx lock
+2022/08/21 23:55:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:55:28 [debug] 32#32: shmtx lock
+2022/08/21 23:55:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:55:28 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:55:28 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:55:28 [debug] 32#32: event timer add: -1: 10000:134993201
+2022/08/21 23:55:28 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:55:38 [debug] 32#32: timer delta: 10011
+2022/08/21 23:55:38 [debug] 32#32: event timer del: -1: 134993201
+2022/08/21 23:55:38 [debug] 32#32: http file cache expire
+2022/08/21 23:55:38 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:55:38 [debug] 32#32: shmtx lock
+2022/08/21 23:55:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:55:38 [debug] 32#32: shmtx lock
+2022/08/21 23:55:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:55:38 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:55:38 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:55:38 [debug] 32#32: event timer add: -1: 10000:135003212
+2022/08/21 23:55:38 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:55:48 [debug] 32#32: timer delta: 10009
+2022/08/21 23:55:48 [debug] 32#32: event timer del: -1: 135003212
+2022/08/21 23:55:48 [debug] 32#32: http file cache expire
+2022/08/21 23:55:48 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:55:48 [debug] 32#32: shmtx lock
+2022/08/21 23:55:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:55:48 [debug] 32#32: shmtx lock
+2022/08/21 23:55:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:55:48 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:55:48 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:55:48 [debug] 32#32: event timer add: -1: 10000:135013221
+2022/08/21 23:55:48 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:55:58 [debug] 32#32: timer delta: 10010
+2022/08/21 23:55:58 [debug] 32#32: event timer del: -1: 135013221
+2022/08/21 23:55:58 [debug] 32#32: http file cache expire
+2022/08/21 23:55:58 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:55:58 [debug] 32#32: shmtx lock
+2022/08/21 23:55:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:55:58 [debug] 32#32: shmtx lock
+2022/08/21 23:55:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:55:58 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:55:58 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:55:58 [debug] 32#32: event timer add: -1: 10000:135023231
+2022/08/21 23:55:58 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:56:08 [debug] 32#32: timer delta: 10010
+2022/08/21 23:56:08 [debug] 32#32: event timer del: -1: 135023231
+2022/08/21 23:56:08 [debug] 32#32: http file cache expire
+2022/08/21 23:56:08 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:56:08 [debug] 32#32: shmtx lock
+2022/08/21 23:56:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:56:08 [debug] 32#32: shmtx lock
+2022/08/21 23:56:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:56:08 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:56:08 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:56:08 [debug] 32#32: event timer add: -1: 10000:135033241
+2022/08/21 23:56:08 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:56:18 [debug] 32#32: timer delta: 10011
+2022/08/21 23:56:18 [debug] 32#32: event timer del: -1: 135033241
+2022/08/21 23:56:18 [debug] 32#32: http file cache expire
+2022/08/21 23:56:18 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:56:18 [debug] 32#32: shmtx lock
+2022/08/21 23:56:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:56:18 [debug] 32#32: shmtx lock
+2022/08/21 23:56:18 [debug] 32#32: shmtx unlock
+2022/08/21 23:56:18 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:56:18 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:56:18 [debug] 32#32: event timer add: -1: 10000:135043252
+2022/08/21 23:56:18 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:56:28 [debug] 32#32: timer delta: 10009
+2022/08/21 23:56:28 [debug] 32#32: event timer del: -1: 135043252
+2022/08/21 23:56:28 [debug] 32#32: http file cache expire
+2022/08/21 23:56:28 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:56:28 [debug] 32#32: shmtx lock
+2022/08/21 23:56:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:56:28 [debug] 32#32: shmtx lock
+2022/08/21 23:56:28 [debug] 32#32: shmtx unlock
+2022/08/21 23:56:28 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:56:28 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:56:28 [debug] 32#32: event timer add: -1: 10000:135053261
+2022/08/21 23:56:28 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:56:38 [debug] 32#32: timer delta: 10010
+2022/08/21 23:56:38 [debug] 32#32: event timer del: -1: 135053261
+2022/08/21 23:56:38 [debug] 32#32: http file cache expire
+2022/08/21 23:56:38 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:56:38 [debug] 32#32: shmtx lock
+2022/08/21 23:56:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:56:38 [debug] 32#32: shmtx lock
+2022/08/21 23:56:38 [debug] 32#32: shmtx unlock
+2022/08/21 23:56:38 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:56:38 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:56:38 [debug] 32#32: event timer add: -1: 10000:135063271
+2022/08/21 23:56:38 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:56:48 [debug] 32#32: timer delta: 10010
+2022/08/21 23:56:48 [debug] 32#32: event timer del: -1: 135063271
+2022/08/21 23:56:48 [debug] 32#32: http file cache expire
+2022/08/21 23:56:48 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:56:48 [debug] 32#32: shmtx lock
+2022/08/21 23:56:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:56:48 [debug] 32#32: shmtx lock
+2022/08/21 23:56:48 [debug] 32#32: shmtx unlock
+2022/08/21 23:56:48 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:56:48 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:56:48 [debug] 32#32: event timer add: -1: 10000:135073281
+2022/08/21 23:56:48 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:56:58 [debug] 32#32: timer delta: 10010
+2022/08/21 23:56:58 [debug] 32#32: event timer del: -1: 135073281
+2022/08/21 23:56:58 [debug] 32#32: http file cache expire
+2022/08/21 23:56:58 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:56:58 [debug] 32#32: shmtx lock
+2022/08/21 23:56:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:56:58 [debug] 32#32: shmtx lock
+2022/08/21 23:56:58 [debug] 32#32: shmtx unlock
+2022/08/21 23:56:58 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:56:58 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:56:58 [debug] 32#32: event timer add: -1: 10000:135083291
+2022/08/21 23:56:58 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:57:08 [debug] 32#32: timer delta: 10010
+2022/08/21 23:57:08 [debug] 32#32: event timer del: -1: 135083291
+2022/08/21 23:57:08 [debug] 32#32: http file cache expire
+2022/08/21 23:57:08 [debug] 32#32: malloc: 000055D3A2655360:55
+2022/08/21 23:57:08 [debug] 32#32: shmtx lock
+2022/08/21 23:57:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:57:08 [debug] 32#32: shmtx lock
+2022/08/21 23:57:08 [debug] 32#32: shmtx unlock
+2022/08/21 23:57:08 [debug] 32#32: http file cache size: 0 c:0 w:-1
+2022/08/21 23:57:08 [debug] 32#32: http file cache manager: 0 e:0 n:10000
+2022/08/21 23:57:08 [debug] 32#32: event timer add: -1: 10000:135093301
+2022/08/21 23:57:08 [debug] 32#32: epoll timer: 10000
+2022/08/21 23:57:10 [notice] 1#1: signal 2 (SIGINT) received, exiting
+2022/08/21 23:57:10 [notice] 31#31: signal 2 (SIGINT) received, exiting
+2022/08/21 23:57:10 [notice] 32#32: signal 2 (SIGINT) received, exiting
+2022/08/21 23:57:10 [debug] 1#1: wake up, sigio 0
+2022/08/21 23:57:10 [info] 31#31: epoll_wait() failed (4: Interrupted system call)
+2022/08/21 23:57:10 [debug] 1#1: child: 0 31 e:0 t:0 d:0 r:1 j:0
+2022/08/21 23:57:10 [debug] 31#31: timer delta: 1593630
+2022/08/21 23:57:10 [notice] 31#31: exiting
+2022/08/21 23:57:10 [debug] 31#31: flush files
+2022/08/21 23:57:10 [info] 32#32: epoll_wait() failed (4: Interrupted system call)
+2022/08/21 23:57:10 [debug] 31#31: run cleanup: 000055D3A26760A8
+2022/08/21 23:57:10 [debug] 1#1: child: 1 32 e:0 t:0 d:0 r:1 j:0
+2022/08/21 23:57:10 [debug] 32#32: timer delta: 2161
+2022/08/21 23:57:10 [debug] 31#31: run cleanup: 000055D3A2670BD8
+2022/08/21 23:57:10 [debug] 1#1: termination cycle: 50
+2022/08/21 23:57:10 [notice] 32#32: exiting
+2022/08/21 23:57:10 [debug] 31#31: cleanup resolver
+2022/08/21 23:57:10 [debug] 1#1: sigsuspend
+2022/08/21 23:57:10 [debug] 31#31: run cleanup: 000055D3A26575F8
+2022/08/21 23:57:10 [debug] 31#31: free: 000055D3A2677120
+2022/08/21 23:57:10 [debug] 31#31: free: 000055D3A266C8E0
+2022/08/21 23:57:10 [debug] 31#31: free: 000055D3A266B8D0
+2022/08/21 23:57:10 [debug] 31#31: free: 000055D3A2666800
+2022/08/21 23:57:10 [debug] 31#31: free: 000055D3A2665740
+2022/08/21 23:57:10 [debug] 31#31: free: 000055D3A2664680
+2022/08/21 23:57:10 [debug] 31#31: free: 000055D3A2655410, unused: 0
+2022/08/21 23:57:10 [debug] 31#31: free: 000055D3A265D430, unused: 1
+2022/08/21 23:57:10 [debug] 31#31: free: 000055D3A26678C0, unused: 0
+2022/08/21 23:57:10 [debug] 31#31: free: 000055D3A266E8F0, unused: 0
+2022/08/21 23:57:10 [debug] 31#31: free: 000055D3A2672900, unused: 2112
+2022/08/21 23:57:10 [notice] 31#31: exit
+2022/08/21 23:57:10 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2022/08/21 23:57:10 [notice] 1#1: worker process 31 exited with code 0
+2022/08/21 23:57:10 [debug] 1#1: shmtx forced unlock
+2022/08/21 23:57:10 [debug] 1#1: shmtx forced unlock
+2022/08/21 23:57:10 [debug] 1#1: wake up, sigio 3
+2022/08/21 23:57:10 [debug] 1#1: reap children
+2022/08/21 23:57:10 [debug] 1#1: child: 0 31 e:1 t:1 d:0 r:1 j:0
+2022/08/21 23:57:10 [debug] 1#1: pass close channel s:0 pid:31 to:32
+2022/08/21 23:57:10 [debug] 1#1: child: 1 32 e:1 t:0 d:0 r:1 j:0
+2022/08/21 23:57:10 [debug] 1#1: termination cycle: 50
+2022/08/21 23:57:10 [debug] 1#1: sigsuspend
+2022/08/21 23:57:10 [notice] 1#1: signal 29 (SIGIO) received
+2022/08/21 23:57:10 [debug] 1#1: wake up, sigio 2
+2022/08/21 23:57:10 [debug] 1#1: termination cycle: 50
+2022/08/21 23:57:10 [debug] 1#1: sigsuspend
+2022/08/21 23:57:10 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2022/08/21 23:57:10 [notice] 1#1: cache manager process 32 exited with code 0
+2022/08/21 23:57:10 [debug] 1#1: shmtx forced unlock
+2022/08/21 23:57:10 [debug] 1#1: shmtx forced unlock
+2022/08/21 23:57:10 [debug] 1#1: wake up, sigio 1
+2022/08/21 23:57:10 [debug] 1#1: reap children
+2022/08/21 23:57:10 [debug] 1#1: child: 0 -1 e:1 t:1 d:0 r:1 j:0
+2022/08/21 23:57:10 [debug] 1#1: child: 1 32 e:1 t:1 d:0 r:1 j:0
+2022/08/21 23:57:10 [notice] 1#1: exit
+2022/08/21 23:57:10 [debug] 1#1: close listening 0.0.0.0:8080 #7 
+2022/08/21 23:57:10 [debug] 1#1: run cleanup: 000055D3A2670BD8
+2022/08/21 23:57:10 [debug] 1#1: cleanup resolver
+2022/08/21 23:57:10 [debug] 1#1: run cleanup: 000055D3A26575F8
+2022/08/21 23:57:10 [debug] 1#1: free: 000055D3A2677120
+2022/08/21 23:57:10 [debug] 1#1: free: 000055D3A266C8E0
+2022/08/21 23:57:10 [debug] 1#1: free: 000055D3A266B8D0
+2022/08/21 23:57:10 [debug] 1#1: free: 000055D3A2666800
+2022/08/21 23:57:10 [debug] 1#1: free: 000055D3A2665740
+2022/08/21 23:57:10 [debug] 1#1: free: 000055D3A2664680
+2022/08/21 23:57:10 [debug] 1#1: free: 000055D3A2655410, unused: 0
+2022/08/21 23:57:10 [debug] 1#1: free: 000055D3A265D430, unused: 1
+2022/08/21 23:57:10 [debug] 1#1: free: 000055D3A26678C0, unused: 0
+2022/08/21 23:57:10 [debug] 1#1: free: 000055D3A266E8F0, unused: 0
+2022/08/21 23:57:10 [debug] 1#1: free: 000055D3A2672900, unused: 2137
