@@ -1,0 +1,10 @@
+{
+  "name": "cache-demo-server",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "hititipi": "^0.11.0"
+  }
+}

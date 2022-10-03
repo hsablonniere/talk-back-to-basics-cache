@@ -31,3 +31,21 @@
 * https://github.com/zaaack/keyv-file
 * https://github.com/isaacs/node-lru-cache
 * https://wpt.live/service-workers/cache-storage/script-tests/
+
+## bfcache
+
+* seems like Chromium only saves the previous page
+* seems like Webkit saves the 2 previous pages
+* seems like Firefox saves the 3 previous pages
+
+## memory cache
+
+* a page with 3 script tags (non ESM) in the initial HTML + 4th script injected after
+  * Chromium and Webkit => 2 requests
+  * Firefox 4 requests => 2 requests
+* index.js 4 times in the initial HTML
+  * SCRIPT, MODULE, SCRIPT, MODULE
+    * => 3 requests in chromium
+    * => 3 requests in firefox
+  * SCRIPT, SCRIPT, MODULE, MODULE
+    * => 2 requests in chromium

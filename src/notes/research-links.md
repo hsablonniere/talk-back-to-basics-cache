@@ -5,21 +5,46 @@
 * https://twitter.com/malwaredllc/status/1525920922439278592
 * https://twitter.com/ericbureltech/status/1536711135063334913
 * https://twitter.com/geekprocess/status/1536915794226843648
+* https://twitter.com/anniesullie/status/1491399685961293828?s=20&t=BkT2G-jFw-q8-o-91HBjOA
 
 ## Articles, talks, podcasts...
 
+* https://blog.yoav.ws/tale-of-four-caches/
+  * the memory cache
+    * Life time of the page
+    * URL + content type and other things
+    * doesn't care about max-age 0 or no-cache
+    * care about no-store
+    * doesn't show up in devtools
+    * linked to preload
+  * Service worker cache
+    * Does what the developper decided
+  * HTTP Cache (disk cache)
+    * Does what the HTTP semantics say 
+    * "On the one hand, it is persistent, allowing resources to be reused between sessions and even across sites."
+      * I don't think this is true anymore
+    * stores prefetch requests
+  * Push Cache (HTTP/2)
+    * “unclaimed push streams container”
+    * but it does not apply strict HTTP semantics
+    * "The push cache is also not well-defined in specs and implementations may vary between browsers, operating systems and other HTTP/2 clients."
+  * going back, each layer keeps a copy or a reference
+* https://almanac.httparchive.org/en/2021/caching#fig-3
+* https://ourtechroom.com/tech/chrome-memory-cache-vs-disk-cache/
 * https://jakearchibald.com/2020/multiple-versions-same-time/
 * https://jakearchibald.com/2016/caching-best-practices/
 * https://jakearchibald.com/2014/browser-cache-vary-broken/
 * https://jakearchibald.com/2014/offline-cookbook/
+* https://web.dev/http-cache/
+* https://symfony.com/doc/current/http_cache.html
 * https://pca.st/s00z81hk (HTTP 203 podcast episode about back/forward)
-* https://web.dev/bfcache/
 * https://www.youtube.com/watch?v=HiBDZgTNpXY
 * https://www.mnot.net/cache_docs/
 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
 * https://developer.mozilla.org/en-US/docs/Web/API/Cache
 * https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage
 * https://web.dev/service-worker-caching-and-http-caching/
+* https://developer.mozilla.org/en-US/docs/Web/API/Window/applicationCache
 * https://web.dev/bfcache/
   * https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/1.5/Using_Firefox_1.5_caching
   * https://webkit.org/blog/427/webkit-page-cache-i-the-basics/
@@ -37,6 +62,8 @@
 * https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers
 * https://www.smashingmagazine.com/2022/05/performance-game-changer-back-forward-cache/
 * https://www.smashingmagazine.com/2017/11/understanding-vary-header/
+* https://css-tricks.com/strategies-for-cache-busting-css/
+* https://simonhearne.com/2020/network-faster-than-cache/
 * https://www.smashingmagazine.com/2016/05/modern-wordpress-server-stack/
 * https://www.smashingmagazine.com/2016/05/five-simple-steps-test-varnish-cache-deployment-varnishtest/
 * https://www.smashingmagazine.com/2014/03/wordpress-performance-improvements-that-can-go-wrong/
@@ -47,12 +74,30 @@
 * https://spinupwp.com/wordpress-caching-all-you-need-to-know/
 * https://www.fastly.com/blog/best-practices-using-vary-header
   * https://developer.fastly.com/reference/vcl/
+* https://groups.google.com/a/chromium.org/g/bfcache-dev/c/zat_po-KKxI
+* https://webkit.org/blog/9609/release-notes-for-safari-technology-preview-94/#:~:text=from%20working%20correctly-,back%2Dforward%20Cache,-Allowed%20pages%20served
+* https://www.chromium.org/developers/design-documents/network-stack/disk-cache/
+* https://www.chromium.org/developers/design-documents/network-stack/http-cache/
+* https://www.chromium.org/chromium-os/chromiumos-design-docs/protecting-cached-user-data/
+* https://dexecure.com/blog/http2-push-vs-http-preload/
+* https://developer.chrome.com/blog/modulepreload/
+* https://developer.chrome.com/blog/http-cache-partitioning/
+
+### Devtools
+
+* Firefox about:cache
+* chrome://discards/
+* chrome://appcache-internals/
+* chrome://serviceworker-internals/
 
 ### RFC
 
 * https://www.rfc-editor.org/rfc/rfc2616.html
 * https://httpwg.org/specs/rfc7234.html
 * https://httpwg.org/specs/rfc9111.html
+* https://html.spec.whatwg.org/multipage/links.html#link-type-modulepreload
+* https://html.spec.whatwg.org/multipage/dom.html#concept-document-module-map
+* https://html.spec.whatwg.org/multipage/webappapis.html#module-map
 
 ### Tools
 
