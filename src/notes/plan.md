@@ -1,6 +1,20 @@
 # plan
 
-* intro
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 * browser
   * Back/forward cache (bfcache)

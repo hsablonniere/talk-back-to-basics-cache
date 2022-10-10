@@ -82,6 +82,8 @@
 * https://dexecure.com/blog/http2-push-vs-http-preload/
 * https://developer.chrome.com/blog/modulepreload/
 * https://developer.chrome.com/blog/http-cache-partitioning/
+* https://arstechnica.com/gadgets/2020/12/firefox-v85-will-improve-its-cache-partitioning-for-stronger-privacy/
+* https://paulcalvano.com/2018-03-14-http-heuristic-caching-missing-cache-control-and-expires-headers-explained/
 
 ### Devtools
 
