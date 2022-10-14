@@ -49,3 +49,9 @@
     * => 3 requests in firefox
   * SCRIPT, SCRIPT, MODULE, MODULE
     * => 2 requests in chromium
+
+
+## immutable
+
+https://www.keycdn.com/blog/cache-control-immutable
+It should also be noted that Firefox only honors the immutable directive over HTTPS. All browsers that do not support the immutable directive simply ignore it, therefore it is safe to add and won't cause any conflicts.

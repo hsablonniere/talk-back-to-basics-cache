@@ -17,10 +17,11 @@ defineSlideType('slide-todo', {
   // language=CSS
   styles: css`
     :host {
-      position: relative;
+      align-content: center;
       display: grid;
-      align-items: center;
+      gap: 1rem;
       justify-content: center;
+      position: relative;
     }
   `,
 });

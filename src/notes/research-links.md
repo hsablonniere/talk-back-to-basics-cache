@@ -119,7 +119,6 @@
 * https://developers.cloudflare.com/cache/get-started/
 * https://developer.fastly.com/reference/http/http-headers/Vary/
 * https://www.fastly.com/blog/best-practices-using-vary-header
-* https://www.fastly.com/blog/best-practices-using-vary-header
 * https://www.smashingmagazine.com/2017/11/understanding-vary-header/
 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary
 * https://www.nginx.com/blog/nginx-high-performance-caching/#WhatdoesNGINXcache
@@ -127,3 +126,6 @@
 * https://www.thedotproduct.org/posts/nginx-vary-header-handling.html
 * https://github.com/nginx/nginx/blob/master/src/http/ngx_http_file_cache.c
 * https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cache_valid
+
+* https://docs.google.com/document/d/1vwx8WiUASKyC2I-j2smNhaJaQQhcWREh7PC3HiIAQCo/edit
+* https://groups.google.com/a/mozilla.org/g/dev-platform/c/IiuvO7eHBME?pli=1

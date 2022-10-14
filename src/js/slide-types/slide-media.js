@@ -48,7 +48,7 @@ defineSlideType('slide-media', {
     }
 
     :host([white]),
-    :host([logo]) {
+    :host([logo]:not([black])) {
       background-color: #fff;
     }
 

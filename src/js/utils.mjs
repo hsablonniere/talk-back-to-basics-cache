@@ -11,6 +11,7 @@ export function markup (text) {
     .replace(/\*(.*?)\*/g, '<strong>$1</strong>')
     .replace(/`(.*?)`/g, '<code>$1</code>')
     .replace(/_(.*?)_/g, '<em>$1</em>')
+    .replace(/\+(.*?)\+/g, '<span class="underline">$1</span>')
     .replace(/#(.*?)#/g, '<mark>$1</mark>')
     .replace(/@(.*?)@/g, '<span class="time">$1</span>')
     .replace(/\$(.*?)\$/g, '<span class="question">$1</span>');

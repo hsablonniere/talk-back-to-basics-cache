@@ -1,6 +1,15 @@
 # plan
 
+## vu avec seb
 
+* Cli => Ser
+* Cli => Cache => Ser
+* mais en fait il y a 2 types de cache privé/public qui peuvent venir l'un après l'autre
+* Cli => Cache priv => cache pub => Ser
+* déroule les questions "comment on dit au cache de cacher des trucs"
+  * avec démo dans un navigateur
+* cache partagé, pareil mais des directives cache specifique
+* partagé => CDN, reverse proxy
 
 
 

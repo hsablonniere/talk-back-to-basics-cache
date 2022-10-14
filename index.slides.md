@@ -2,7 +2,6 @@
 author: Hubert Sablonnière
 author-twitter: @hsablonniere
 author-company: Clever Cloud
-hashtags: #cache #http #webperf
 event: DevFest Nantes
 date: 21 octobre 2022
 ---
@@ -10,46 +9,137 @@ date: 21 octobre 2022
 # Le cache HTTP
 
 ## poster fade-from
+> @00:00:00@
 
 ## blank black
+> L'autre jour,
+> j'étais dans mon canap',
+> j'allume la télé et j'me lance dans une activité qu'on connait tous très bien :
+> #Bruit de Netflix#
 
-<!-- 
-* intro
-  * quand j'étais petit, j'allais chez le loueur de cassettes près de chez moi
-  * ah les cassettes vidéos
-  * les TV cathodiques
-  * les aller retour en voiture pour faire à peine 2km
-  * bref, les années 90
-  * je prenais tout le temps retour vers le futur
-  * à chaque fois je devais faire un aller/retour
-  * je me suis dit, tiens mais c'est quand même dommage de faire l'aller retour à chaque fois alors que le film n'a pas changé
-  * ça serait quand même plus pratique si j'avais une version en local, ça m'éviterai de faire l'aller retour à chaque fois
-  * ça éviterai d'encombrer les files d'attentes inutilement chez le loueur de cassettes
-  * ça éviterai à tous ces pauvres enfants qui voulaient aussi voir le film de ne pas leur en empếcher un énième weekend
-  * l'histoire ne dit pas si j'ai branché ensemble les deux magnétoscopes de la maison et profité d'une cassette vierge qui trainait
-  * non, l'histoire ne le dit pas
-  * par contre, j'avais déjà un peu cotoyer à ma manière, une technique, un protocole qui était en pleine création
- -->
+## text fade-from
+C'est *quoi* qu'on va <br> regarder sur Netflix *?*
+> #Voix de pub#
+> Le "C'est quoi qu'on va <br> regarder sur Netflix ?"
+> Activité qui dure souvent... un peu trop longtemps.
+> Surtout si vous êtes plusieurs à choisir et que vous cumulez les abonements à d'autres services.
+> Au final, après 20min de négo, vous choisissez un film trop long et il est trop tard pour le lancer.
 
 ## text
-> @00:00:00@
-🗓️ some text
-> NOTES
+Netflixfilmauswahldurchsuchung
+<!-- chercher à travers le choix de films de Netflix -->
 
-## code
-```js
-// some code
-```
-> NOTES
+## blank black
+> Quand j'étais plus jeune, dans les années 90,
+> j'avais pas ce problème.
+
+<!-- https://unsplash.com/photos/6Nbo9Pn0yJA -->
+## media
+<img src="src/img/videostore.jpg">
+> On allait au vidéoclub et malgré les conseils d'un être humain bien plus valables que ceux d'un algo,
+> une fois sur deux j'revenais avec la VHS de...
+
+<!-- https://www.themoviedb.org/t/p/original/wFbgPZA44apfPt5wWPinQvV2Pbs.png -->
+## media logo black
+<img src="src/img/back-to-the-future.png">
+> "Retour vers le Futur II".
+> Simple, efficace.
+
+## todo
+schéma canapé => loueur de cassette
+> Sauf qu'il fallait se taper l'aller/retour jusqu'au vidéo au club.
+
+## todo
+schéma canapé ====================> loueur de cassette
+> Et le vidéoclub, il était loin...
+
+## todo
+schéma canapé => intermédiaire ==========> loueur de cassette
+> Non ça aurait été vachement mieux si en revenant du vidéoclub, j'avais pu faire une copie locale de la cassette.
+> Comme ça prochaine fois que je veux le voir, plus besoin de faire un aller retour complet.
+> Mais bon, vous êtes pas venus ici pour savoir si oui on non j'ai fini par brancher ensemble les deux magnétoscopes de la maison.
 
 ## poster
-> @00:02:00@
+> @00:01:30@
 > Bonjour à *toutes* et à tous !
 > J'm'appelle Hubert Sablonnière,
-> J'suis développeur Web chez *Clever Cloud* et aujourd'hui, j'ai envie de vous parler de...
+> J'suis développeur Web chez *Clever Cloud* et aujourd'hui, j'ai envie de vous parler du cache HTTP.
 > #Pause#
+> Pendant que j'faisais mumuse avec mon propre cache à base de cassettes vierges,
 
-## blank
+## text
+🗓️ Mai *1996*
+> En mai 1996, Tim Berners Lee, Roy Fielding et Henrik Frystyk Nielsen publiaient la...
+
+## media
+<img src="src/img/rfc-1945.png" screenshot-url="https://www.rfc-editor.org/rfc/rfc1945">
+> ...RFC 1945 : HTTP 1.0
+> Paye ta spec à la base de tout ce qu'on utilise aujourd'hui.
+> Déjà dans cette version, on retrouve les bases du cache HTTP qu'on connait aujourd'hui.
+
+## todo
+schéma : client ===================================> serveur
+
+
+## todo
+schéma : client => cache ===================================> serveur
+> Explication du concept de cache
+
+## todo
+schéma : client => cache => cache ===========================> serveur
+
+## todo
+schéma : client => cache => cache => cache ==================> serveur
+
+## todo
+schéma : client => cache => cache => cache  => cache  =======> serveur
+
+## todo
+accolade sur les caches privés à gauche
+accolade sur les caches public (partagés) à droite
+schéma : client => cache => cache => cache  => cache  =======> serveur
+
+## list current=1
+Réduction des temps de chargement
+Réduction de la charge serveur
+
+## list current=2
+Réduction des temps de chargement
+Réduction de la charge serveur
+
+<!-- Lapin RTP -->
+<!-- à trop vouloir cacher, on se retrouve souvent dans le cas où il faut vider son cache pour réparer un bug -->
+<!-- ça c'est parce que oui le cache HTTP, c'est pas simple -->
+<!-- et on est là pour essayer de mieux comprendre ce qu'il se passe -->
+
+<!-- YOU ARE HERE -->
+
+<!-- ## text -->
+<!-- 📄 RFC 1945 - *HTTP/1.0* -->
+<!-- <br> (mai 1996) -->
+
+<!-- ## media -->
+<!-- <img src="src/img/w3c-profile-frystyk.png" screenshot-url="https://www.w3.org/People/Frystyk/"> -->
+
+<!-- ## text -->
+<!-- 📄 RFC 2068 - *HTTP/1.1* -->
+<!-- <br> (janvier 1997) -->
+
+<!-- ## media -->
+<!-- <img src="src/img/rfc-2068.png" screenshot-url="https://www.rfc-editor.org/rfc/rfc2068"> -->
+
+<!-- ## text -->
+<!-- 📄 RFC 2616 - *HTTP/1.1* -->
+<!-- <br> (juin 1999) -->
+
+<!-- ## media -->
+<!-- <img src="src/img/rfc-2616.png" screenshot-url="https://www.rfc-editor.org/rfc/rfc2616"> -->
+
+<!-- ## text -->
+<!-- 📄 RFC 2616 - Juin 1999 -->
+<!-- <br> *HTTP/1.1* -->
+
+<!-- Les screenshot de RFC, ça marche pas trop -->
 
 <!-- 
 * contexte
@@ -62,45 +152,131 @@ date: 21 octobre 2022
   * "vide ton cache"
   historique
   RFC
+
+  "transition loueur de cassettes => cache HTTP et spec RFC des années 90"
  -->
 
 ## todo
-schéma : client HTTP => serveur HTTP
+RFC 1945 HTTP/1.0 (1996)
+RFC 2068 HTTP/1.1 (1997)
+RFC 2616 HTTP/1.1 (1999)
+RFC 5861 HTTP Cache-Control Extensions for Stale Content (2010)
+RFC 7232 HTTP/1.1: Conditional Requests (2014)
+RFC 7234 HTTP/1.1: Caching (2014)
+RFC 7540 HTTP/2 (2015)
+RFC 8246 HTTP Immutable Responses (2017)
+RFC 9114 HTTP/3 (2022)
+RFC 9211 The Cache-Status HTTP Response Header Field (2022)
+RFC 9213 Targeted HTTP Cache Control (2022)
+RFC 9110 HTTP Semantics (2022)
+RFC 9111 HTTP Caching (2022)
 
-<!--
-curl en localhost, pas de surprise
--->
+## list current=0
+Réduire les temps de chargement
+Soulager la charge serveur
 
-## todo
-schéma : client HTTP => cache HTTP => serveur HTTP
+## list current=1
+Réduire les temps de chargement
+Soulager la charge serveur
 
-<!--
-TODO : choisir si on parle de validation avant ou après cache control
--->
+## list current=2
+Réduire les temps de chargement
+Soulager la charge serveur
 
-## todo
-Validation
+## text
+⏱️ Cache ça pendant X secondes
+> Avant de rentrer dans le "comment dire au cache de cacher",
+> on va déjà voir comment lui dire de ne pas cacher.
 
 ## code todo
 ```http
-last-modified: 
+cache-control: max-age=10
 ```
+> L'en-tête cache-control et la directive no-store
+> Valeur numérique en seconde
+> Expliquer la notion de frais et périmé
+> Le cache peut très bien supprimer un truc pendant qu'une réponse est fraiche pour faire de la place
+
+## text
+👍️ *Frais* +pendant+ X secondes
+
+## text
+🤙️ *Périmé* +après+ X secondes
+
+## text
+⏱️ Expiration
+
+## text
+🤔 Pas de cache-control ?
+
+## text
+🤞 Cache heuristique
+
+## todo
+RFC Cache heuristique
+> Responses with status codes that are defined as heuristically cacheable (e.g., 200, 203, 204, 206, 300, 301, 308, 404, 405, 410, 414, and 501 in this specification) 
+> https://www.rfc-editor.org/rfc/rfc9110#section-15.1
 
 ## code todo
 ```http
-etag: 29842948
+last-modified:
 ```
+> exemple/demo du last-modified qui trigger un cache heuristique
+
+## todo
+ARTICLES Cache heuristique
+
+## text
+🧐 Validation
+> Quand un cache a une réponse périmée, il ne la supprime pas forcément
+> Il va essayer de valider auprès du serveur si la version qu'il a est tjs fraiche
+> avec une requête conditionnelle
+
+## code todo
+```http
+last-modified:
+```
+```http
+if-modified-since:
+```
+> expliquer que le last-modified va trigger des requete conditionnelles if-modified-since
 
 ## code todo
 ```http
 304 Not Modified
 ```
+> C'est là que le serveur va renvoyer une 304 sans le body
 
-## todo
-heuristic cache
+## code todo
+```http
+etag: 29842948
+```
+```http
+if-none-match: 29842948
+```
+> les heuristiques se font à priori uniquement sur ces en-têtes de date
+> par contre même système de validation avec etag et if-none-match
+> s'il y a les deux, c'est le etag qui prend la main
+> de base un cache va directement répondre ce qui est frais sans faire appel au serveur
 
-## todo
-Expiration
+## text
+🙅‍♂️ *Pas* de cache
+> Avant de rentrer dans le "comment dire au cache de cacher",
+> on va déjà voir comment lui dire de ne pas cacher.
+
+## code todo
+```http
+cache-control: no-store
+```
+> L'en-tête cache-control et la directive no-store
+> Expliquer le piège avec no-cache
+> Pourquoi pas démo avec curl et nginx
+
+## code todo
+```http
+cache-control: must-revalidate
+```
+> https://www.rfc-editor.org/rfc/rfc9111#section-5.2.2.2
 
 <!-- 
 clé de stockage (URL (+ vary))
@@ -113,30 +289,28 @@ response status cacheables
 cache-control: no-cache
 ```
 
-## code todo
-```http
-cache-control: no-store
-```
-
-## code todo
-```http
-cache-control: must-revalidate
-```
-
-## code todo
-```http
-cache-control: max-age
-```
+## todo
+recap no-store, no-cache, must-revalidate
 
 ## code todo
 ```http
 cache-control: immutable
 ```
+> https://www.rfc-editor.org/rfc/rfc8246
+> à priori, la différence, c'est quand tu F5 une page
+> avec immutable, ça 304 pas les sous requêtes
+> sans immutable, ça 304 les sous requêtes
+> sauf chrome qui a déjà un système pour ça ? (WTF)
+> https://www.keycdn.com/blog/cache-control-immutable
+> https://bugs.chromium.org/p/chromium/issues/detail?id=611416#c12
+> Chrome 53/54
+> https://blog.chromium.org/2017/01/reload-reloaded-faster-and-leaner-page_26.html
 
 ## code todo
 ```http
 cache-control: no-transform
 ```
+> anecdote de test sans compression
 
 ## todo
 request cache-control

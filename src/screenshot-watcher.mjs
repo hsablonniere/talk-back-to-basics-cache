@@ -4,15 +4,15 @@ import fs from 'fs-extra';
 
 async function run () {
 
-  await takeScreenshot('http://localhost:8080/index.slides.html', 'src/img/poster_4-3.jpg', {
-    width: 1920,
-    height: 1440,
-  }, true);
+  // await takeScreenshot('http://localhost:8080/index.slides.html', 'src/img/poster_4-3.jpg', {
+  //   width: 1920,
+  //   height: 1440,
+  // }, true);
 
-  await takeScreenshot('http://localhost:8080/index.slides.html', 'src/img/poster_16-9.jpg', {
-    width: 1920,
-    height: 1080,
-  }, true);
+  // await takeScreenshot('http://localhost:8080/index.slides.html', 'src/img/poster_16-9.jpg', {
+  //   width: 1920,
+  //   height: 1080,
+  // }, true);
 
   const observedPaths = ['./*.slides.md'];
   const watcher = chokidar.watch(observedPaths, {
