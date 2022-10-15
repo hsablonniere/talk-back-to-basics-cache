@@ -17,7 +17,7 @@ date: 21 octobre 2022
 > j'allume la télé et j'me lance dans une activité qu'on connait tous très bien :
 > #Bruit de Netflix#
 
-## text
+## text netflix
 C'est *quoi* qu'on va <br> regarder sur Netflix *?*
 > #Voix de pub#
 > Le "C'est quoi qu'on va <br> regarder sur Netflix ?"
@@ -98,7 +98,7 @@ Netflixfilmauswahldurchsuchung
 
 ## subway stop=10
 
-## subway stop=10
+## subway stop=10 pop
 5. Cache
 
 ## subway stop=10
@@ -213,6 +213,9 @@ Réduction de la charge serveur
 
   "transition loueur de cassettes => cache HTTP et spec RFC des années 90"
  -->
+
+## text
+Une histoire d'en-têtes
 
 ## text
 un slide avant démo
@@ -466,9 +469,6 @@ le système est cassé
 ## todo
 schéma : onglet => cache navigateur => CDN => cache reverse proxy => serveur
 
-## todo
-pratique
-
 <!--
 temps des démos et des cas pratiques
 -->
@@ -511,12 +511,6 @@ HTTP/2 push cache
 ## todo
 schéma : onglet => les caches du navigateur => CDN => cache reverse proxy => serveur
 
-<!--
-bfcache
--->
-
-## section
-Back/Forward cache
 
 ## todo
 schéma : onglet => les caches du navigateur => CDN => cache reverse proxy => serveur
@@ -531,8 +525,26 @@ Appcache
 ## section
 Service Worker cache
 
-## subway stop=10 title="Beaucoup de couches de cache"
+<!--
+bfcache
+-->
+
+## section
+Back/Forward cache
+
+## subway stop=1 title="BF cache uniquement pour les navigations"
 1. BF cache
+2. Memory cache
+3. Module map
+4. Service worker cache
+5. Appcache
+6. Disk cache
+7. HTTP/2 push cache
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=10 title="BF cache uniquement pour les navigations"
+1.X BF cache
 2. Memory cache
 3. Module map
 4. Service worker cache

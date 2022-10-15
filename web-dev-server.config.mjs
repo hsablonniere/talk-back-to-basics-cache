@@ -11,10 +11,15 @@ await setTimeout(1500);
 const terminalPid = Number(execSync('pgrep gnome-terminal').toString().trim().split('\n').pop());
 
 process.on('SIGINT', function () {
-  chromiumProcess.kill();
-  process.kill(terminalPid);
-  firefoxProcess.kill();
-  webkitProcess.kill();
+  try {
+    chromiumProcess.kill();
+    process.kill(terminalPid);
+    firefoxProcess.kill();
+    webkitProcess.kill();
+  }
+  catch (e) {
+    console.log(e);
+  }
 });
 
 const gnomeWindows = [
@@ -26,6 +31,7 @@ const gnomeWindows = [
 
 export default {
   port: 8080,
+  hostname: '0.0.0.0',
   nodeResolve: true,
   watch: true,
   plugins: [{

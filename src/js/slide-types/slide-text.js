@@ -1,10 +1,16 @@
 import { css, html } from 'lit';
-import { defineSlideType } from './base.js';
+import { defineSlideType, playMedia, stopMedia } from './base.js';
 import twemoji from 'twemoji';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { markup } from '../utils.mjs';
 
 defineSlideType('slide-text', {
+  onEnter ({ netflix }) {
+    playMedia(netflix);
+  },
+  onLeave (position, { netflix }) {
+    stopMedia(netflix);
+  },
   render ({ content, attrs }) {
 
     const htmlContent = twemoji.parse(markup(content), (icon, options, variant) => {
@@ -12,6 +18,9 @@ defineSlideType('slide-text', {
     });
 
     return html`
+      ${(attrs.netflix != null) ? html`
+        <audio id="netflix" src="/src/music/netflix.mp3"></audio>
+      ` : ''}
       <div class="text">${unsafeHTML(htmlContent)}</div>
     `;
   },
@@ -24,6 +33,10 @@ defineSlideType('slide-text', {
       justify-content: center;
     }
 
+    audio {
+      display: none;
+    }
+
     .text {
       text-align: center;
       font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -31,7 +44,7 @@ defineSlideType('slide-text', {
       line-height: 1.25;
       font-weight: bold;
     }
-    
+
     strong {
       color: #0082ff;
     }
@@ -40,7 +53,7 @@ defineSlideType('slide-text', {
       color: #0082ff;
       font-weight: bold;
     }
-    
+
     .underline {
       text-decoration: underline;
     }

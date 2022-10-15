@@ -3,9 +3,11 @@ import { defineSlideType } from './base.js';
 
 function gnome (path, body) {
   return fetch('http://localhost:7000' + path, {
+    credentials: 'include',
+    mode: 'cors',
     method: (body != null) ? 'POST' : 'GET',
     headers: {
-      Authentication: 'foobar',
+      Authorization: 'foobar',
     },
     body: (body != null) ? JSON.stringify(body) : null,
   }).then((r) => r.json());
@@ -32,7 +34,7 @@ async function placeWindow (window, div) {
     height: Math.ceil(rect.height * ratio),
     minimize: false,
     above: true,
-  });
+  }).catch(() => null);
 }
 
 async function hideWindow (window) {
@@ -43,21 +45,27 @@ async function hideWindow (window) {
     id: window.id,
     minimize: true,
     above: false,
-  });
+  }).catch(() => null);
 }
 
 const logos = ['chromium', 'firefox', 'webkit', 'terminal'];
 
-const windowList = await gnome('/windows');
+let gnomeWindows = [];
 
-const gnomeWindowsMeta = document.querySelector('meta[name="gnome-windows"]');
-const gnomeWindowsJson = gnomeWindowsMeta.getAttribute('content');
-const gnomeWindows = JSON.parse(gnomeWindowsJson).map((win) => {
-  return {
-    ...win,
-    window: windowList.find(({ pid }) => pid === win.pid),
-  };
-});
+try {
+  const windowList = await gnome('/windows');
+
+  const gnomeWindowsMeta = document.querySelector('meta[name="gnome-windows"]');
+  const gnomeWindowsJson = gnomeWindowsMeta.getAttribute('content');
+  gnomeWindows = JSON.parse(gnomeWindowsJson).map((win) => {
+    return {
+      ...win,
+      window: windowList.find(({ pid }) => pid === win.pid),
+    };
+  });
+}
+catch (e) {
+}
 
 defineSlideType('slide-demo', {
   async onEnter (elements) {
@@ -95,8 +103,6 @@ defineSlideType('slide-demo', {
           label: label.join(' '),
         };
       });
-
-    console.log(windows);
 
     return html`
       ${windows.map(({ id, label }) => html`
@@ -148,7 +154,7 @@ defineSlideType('slide-demo', {
     .label {
       align-self: end;
       font-size: 1.25rem;
-      border-radius: 0.2rem;
+      border-radius: 0.1rem;
       font-family: Parisine, sans-serif;
       line-height: 1;
       padding: 0.25rem 0.5rem;

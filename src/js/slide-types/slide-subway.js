@@ -1,5 +1,5 @@
 import { css, html } from 'lit';
-import { defineSlideType } from './base.js';
+import { defineSlideType, playMedia, stopMedia } from './base.js';
 
 function setText (node, id, text) {
   const element = node.querySelector(id);
@@ -37,12 +37,18 @@ for (let i = 1; i <= 10; i += 1) {
 const LINE_REGEX = /^(?<index>\d)(?<dot>\S+) (?<text>.*)/;
 
 defineSlideType('slide-subway', {
+  onEnter ({ pop }) {
+    playMedia(pop);
+  },
+  onLeave (position, { pop }) {
+    stopMedia(pop);
+  },
   render ({ content, attrs }) {
 
     const svg = baseTmpl.content.cloneNode(true);
 
     const title = attrs.title ?? '';
-    console.log(attrs.title, title)
+    console.log(attrs.title, title);
     setText(svg, '#the-title', title);
 
     const isVideoStore = attrs.videostore != null;
@@ -86,6 +92,9 @@ defineSlideType('slide-subway', {
     }
 
     return html`
+      ${(attrs.pop != null) ? html`
+        <audio id="pop" src="/src/music/pop.ogg"></audio>
+      ` : ''}
       ${svg}
     `;
   },
