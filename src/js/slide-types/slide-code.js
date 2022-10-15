@@ -33,5 +33,33 @@ defineSlideType('slide-code', {
       width: 100%;
       height: 100%;
     }
+
+    pre[data-lang][hide] {
+      visibility: hidden;
+    }
+
+    pre[label] {
+      position: relative;
+      margin-top: 1rem;
+      padding-top: 1.5rem;
+    }
+
+    pre[label]::before {
+      content: attr(label);
+      display: block;
+      background-color: #333;
+      color: #fff;
+      position: absolute;
+      top: -1rem;
+      left: 1rem;
+      height: 2rem;
+      line-height: 2rem;
+      padding: 0 0.5rem;
+      border-radius: 0.25rem;
+    }
+
+    pre[data-lang="http"] .hljs-attribute {
+      color: #050D9E !important;
+    }
   `,
 });

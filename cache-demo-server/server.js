@@ -7,10 +7,11 @@ import { staticFile } from 'hititipi/src/middlewares/static-file.js';
 // import { dynamicPage } from './lib/dynamic-page.js';
 import { notFound } from './lib/not-found.js';
 import { addDelay } from './lib/add-delay.js';
-import { matchesPath } from './lib/matches-path.js';
-import { setCacheControl } from './lib/set-cache-control.js';
 import { logRequest } from './lib/log-request.js';
 import { chainAll } from 'hititipi/src/middlewares/chain-all.js';
+import { dynamicPage } from './lib/dynamic-page.js';
+import { startsWith } from './lib/matches-path.js';
+import { cacheControl } from 'hititipi/src/middlewares/cache-control.js';
 import { notModified } from 'hititipi/src/middlewares/not-modified.js';
 
 const httpsOptions = {
@@ -23,35 +24,31 @@ let hititipiSetup = hititipi(
   logRequest(
     chainAll([
       addDelay(500),
-      matchesPath('/favicon.ico', setCacheControl('public, max-age=10000')),
-      matchesPath('/bfcache/', setCacheControl('no-cache, max-age=0, must-revalidate')),
-      matchesPath('/disk-cache/:file.js', setCacheControl('public, max-age=10000')),
-      matchesPath('/disk-cache/:file.css', setCacheControl('public, max-age=10000')),
-      matchesPath('/partitionning/:file.js', setCacheControl('public, max-age=10000')),
-      matchesPath('/partitionning/:file.css', setCacheControl('public, max-age=10000')),
-
-      matchesPath('/not-immutable/', setCacheControl('max-age=0')),
-      matchesPath('/not-immutable/:file.css', setCacheControl('max-age=2000')),
-      matchesPath('/not-immutable/:file.js', setCacheControl('max-age=2000')),
-      matchesPath('/not-immutable/:file.jpg', setCacheControl('max-age=2000')),
-
-      matchesPath('/immutable/', setCacheControl('max-age=0')),
-      matchesPath('/immutable/:file.css', setCacheControl('max-age=2000, immutable')),
-      matchesPath('/immutable/:file.js', setCacheControl('max-age=2000, immutable')),
-      matchesPath('/immutable/:file.jpg', setCacheControl('max-age=2000, immutable')),
-
-      // matchesPath('/immutable/:file.jpg', setCacheControl('max-age=15, immutable')),
-      // matchesPath('/memory-cache/', preloadLinks(['/beatles.jpg'])),
-      // matchesPath('/beatles.jpg', setCacheControl('no-store, no-cache, max-age=0')),
       chainUntilResponse([
-        // dynamicPage({ root: 'pages' }),
+        dynamicPage({ root: 'pages' }),
         staticFile({ root: 'public' }),
         notFound,
       ]),
-      notModified({ lastModified: true }),
+
+      startsWith('/cc-ma-10/', cacheControl({ 'max-age': 0 })),
+      // startsWith('/cc-ma-10/', cacheControl({ 'no-cache': true })),
+      // startsWith('/cc-ma-10/', chainAll([
+        // cacheControl({ 'max-age': 5, 'stale-while-revalidate': 20 }),
+        // notModified({ etag: true }),
+      // ])),
+      startsWith('/cc-ns/', cacheControl({ 'no-store': true })),
+
+      // matchesPath(/^\/validation-last-modified\//, notModified({ lastModified: true })),
+      // matchesPath(/^\/validation-etag-last-modified\//, notModified({ etag: true, lastModified: true })),
     ]),
   ),
 );
+
 createServer(hititipiSetup).listen(process.env.PORT ?? 8081);
 createServerHttps(httpsOptions, hititipiSetup).listen(process.env.PORT ?? 8082);
 
+// browser.cache.disk.max_entry_size
+// 51200
+
+// browser.cache.disk.capacity
+// 256000

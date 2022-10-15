@@ -65,7 +65,7 @@ export async function render (context) {
     </div>
 
     <script type="module">
-    import { getRandomCard } from '/random.js';
+    import { getRandomCard } from '/cache-demo-server/old/public/random.js';
     
     // TODO use this through a param
     // window.onunload = () => console.log('unload');

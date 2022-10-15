@@ -4,7 +4,13 @@ import { defineSlideType, playMedia, stopMedia } from './base.js';
 function setText (node, id, text) {
   const element = node.querySelector(id);
   if (element != null) {
-    element.textContent = text;
+    if (text.startsWith('~') && text.endsWith('~')) {
+      element.style['text-decoration'] = 'line-through';
+      element.textContent = text.substring(1, text.length - 1);
+    }
+    else {
+      element.textContent = text;
+    }
   }
 }
 

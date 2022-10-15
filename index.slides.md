@@ -18,7 +18,7 @@ date: 21 octobre 2022
 > #Bruit de Netflix#
 
 ## text netflix
-C'est *quoi* qu'on va <br> regarder sur Netflix *?*
+🍿 C'est *quoi* qu'on va <br> regarder sur Netflix *?*
 > #Voix de pub#
 > Le "C'est quoi qu'on va <br> regarder sur Netflix ?"
 > Activité qui dure souvent... un peu trop longtemps.
@@ -26,7 +26,7 @@ C'est *quoi* qu'on va <br> regarder sur Netflix *?*
 > Au final, après 20min de négo, vous choisissez un film trop long et il est trop tard pour le lancer.
 
 ## text fade-from
-Netflixfilmauswahldurchsuchung
+👀 Netflixfilmauswahldurchsuchung
 <!-- chercher à travers le choix de films de Netflix -->
 
 ## blank black
@@ -88,92 +88,678 @@ Netflixfilmauswahldurchsuchung
 > Tim Berners Lee, Roy Fielding et Henrik Frystyk Nielsen publiaient la...
 
 ## media
+<img src="src/img/tim-berners-lee.jpg">
+
+## media
+<img src="src/img/roy-fielding.png">
+
+## media
+<img src="src/img/w3c-profile-frystyk.png" screenshot-url="https://www.w3.org/People/Frystyk/">
+
+## media
 <img src="src/img/rfc-1945.png" screenshot-url="https://www.rfc-editor.org/rfc/rfc1945">
 > ...RFC 1945 : HTTP 1.0
 > Paye ta spec à la base de tout ce qu'on utilise aujourd'hui.
-> On retrouve déjà dans cette version, une partie du cache HTTP qu'on connait aujourd'hui.
-
-<!-- ## media -->
-<!-- <img src="src/img/w3c-profile-frystyk.png" screenshot-url="https://www.w3.org/People/Frystyk/"> -->
+> On retrouve déjà dans cette version, le principe de base du cache.
 
 ## subway stop=10
 
 ## subway stop=10 pop
-5. Cache
-
-## subway stop=10
-4. Cache
-5. Cache
 6. Cache
+avec le petit train
 
-## subway stop=10
-3. Cache
-4. Cache
-5. Cache
+## subway stop=6 pop
 6. Cache
-7. Cache
+avec le petit train
 
-## subway stop=10
-2. Cache
-3. Cache
-4. Cache
-5. Cache
-6. Cache
-7. Cache
-8. Cache
+## text
+🤔 À quoi ça sert ?
 
-## subway stop=10
-1. Cache
-2. Cache
-3. Cache
-4. Cache
-5. Cache
-6. Cache
-7. Cache
-8. Cache
-9. Cache
-
-## subway stop=10
-1. Cache privé
-2. Cache privé
-3. Cache privé
-4. Cache privé
-5. Cache privé
-6. Cache privé
-7. Cache privé
-8. Cache
-9. Cache
-
-## subway stop=10
-1. Cache privé
-2. Cache privé
-3. Cache privé
-4. Cache privé
-5. Cache privé
-6. Cache privé
-7. Cache privé
-8. Cache partagé
-9. Cache partagé
-
-## todo
-accolade sur les caches privés à gauche
-accolade sur les caches public (partagés) à droite
-schéma : client => cache => cache => cache  => cache  =======> serveur
+## list current=0
+Réduire le chargement côté client
+Réduire la charge côté serveur
+Meilleures perfs pour tout le monde
 
 ## list current=1
-Réduction des temps de chargement
-Réduction de la charge serveur
+Réduire le chargement côté client
+Réduire la charge côté serveur
+Meilleures perfs pour tout le monde
 
 ## list current=2
-Réduction des temps de chargement
-Réduction de la charge serveur
+Réduire le chargement côté client
+Réduire la charge côté serveur
+Meilleures perfs pour tout le monde
+
+## list current=3
+Réduire le chargement côté client
+Réduire la charge côté serveur
+Meilleures perfs pour tout le monde
+
+## text
+🤯 C'est compliqué
+> le problème c'est que c'est pas simple à gérer
+> et on se retrouve parfois dans la situation de
+> "vide ton cache" pour résoudre un bug
+
+## todo
+n'oublie pas de vider ton cache, tu risques d'afficher un contenu trop vieux
+
+## text
+🤔 Comment ça marche ?
+
+## text
+💆‍♀️ Une histoire d'*en-tête*
+
+## code
+```http
+cache-control: max-age=?
+cache-control: no-store
+cache-control: no-cache
+cache-control: must-revalidate
+cache-control: immutable
+cache-control: stale-while-revalidate=?
+cache-control: stale-if-error=?
+cache-control: private
+cache-control: public
+cache-control: s-maxage=?
+cache-control: proxy-revalidate
+cache-control: no-transform
+```
+
+## code
+```http
+etag: W/"183d1fe5a48-87c"
+if-none-match: W/"183d1fe5a48-87c"
+```
+```http
+last-modified: Fri, 21 Oct 2022 11:20:10 GMT
+if-modified-since: Fri, 21 Oct 2022 11:20:10 GMT
+```
+```http
+vary: Accept-Encoding
+```
+
+## text
+🔗 *Sources :* HTML, CSS, JS...
+> mais aussi de comment sont écrits les sources HTML, CSS, JS...
+
+## text
+🤝
+Frontend *&* backend
+> c'est donc à la fois une affaire de front et de back
+
+<!-- 
+## text
+🫶 <br> *Tout le monde* a besoin de cache
+ -->
+
+## blank
+
+## code
+```http label="Réponse HTTP"
+cache-control: 
+```
+> l'en-tête le plus important, c'est cache-control
+
+## code
+```http label="Réponse HTTP"
+cache-control: directive-foo
+```
+> il peut être utilisé dans une requête ou dans une réponse
+> on va surtout parler de son usage dans une réponse
+
+## code
+```http label="Réponse HTTP"
+cache-control: directive-foo, directive-bar
+```
+> en valeur de cache-control, on va pouvoir mettre une ou plusieurs directive séparées par des virgules
+
+## blank
+
+## code
+```http label="Réponse HTTP"
+cache-control: max-age=[secondes]
+```
+> la directive la plus utile, c'est max-age=[secondes]
+
+## text
+🫵 <br>~C'est *pas* impératif~
+> on ne peut pas vraiment dire à un navigateur cache moi ça
+> encore moins cache moi ça pendant X secondes
+> c'est pas impératif
+
+## text
+⏱️ ~*Cache ça* pendant X secondes~
+> C'est pas impératif
+> Ça ne veut pas dire "cache ça pendant X secondes"
+
+## text
+🙏 C'est *déclaratif*
+> c'est déclaratif
+> on peut lui dire "tu as le droit" et "tu n'as pas le droit"
+> un cache peut décider à n'importe quel moment de virer une ressource (fréquence des demandes, tailles du disque...)
+
+## text
+💾 Tu as le *droit* de cacher ça
+
+## text
+👍️ *Frais* +pendant+ X secondes
+> ça veut dire "tu as le droit de cacher ça", "considère que c'est frais pendant X secondes" et "considère que c'est périmé > après X secondes"
+> les x secondes sont calculées par rapport à l'en tête date
+
+## text
+🤙️ *Périmé* +après+ X secondes
+
+## demo
+
+## demo
+_
+terminal Serveur HTTP
+
+## demo
+firefox Firefox 105
+terminal Serveur HTTP
+
+## code
+```http label="Réponse HTTP"
+cache-control: no-store
+```
+> à l'inverse si on ne veut pas que le navigateur cache qqchose
+> on utilise cache-control: no-store
+> avec ça, on lui dit "tu n'as pas le droit de cacher ça"
+
+## demo
+firefox Firefox 105
+terminal Serveur HTTP
+
+## text
+🤔 On fait quoi quand c'est *périmé* ?
+> il se passe quoi quand un élément qui est dans le cache est périmé ?
+
+## demo
+firefox Firefox 105
+terminal Serveur HTTP
+> le navigateur ne le supprime pas instantanément
+> il peut décider de le garder en cache 
+> montrer about:cache
+> il a ses propre règles pour savoir quand virer des trucs et pourquoi
+
+## text
+🤙 *Validation* avec le serveur
+> quand c'est périmé, il doit faire une requête de validation pour savoir si ce qu'il a en cache peut-être utilisé
+
+## code
+```http label="Réponse HTTP"
+etag: W/"183d1fe5a48-87c"
+```
+```http label="Requête HTTP" hide
+if-none-match: W/"183d1fe5a48-87c"
+```
+
+## code
+```http label="Réponse HTTP"
+etag: W/"183d1fe5a48-87c"
+```
+```http label="Requête HTTP"
+if-none-match: W/"183d1fe5a48-87c"
+```
+
+## demo
+firefox Firefox 105
+terminal Serveur HTTP
+
+## code
+```http label="Réponse HTTP"
+last-modified: Fri, 21 Oct 2022 11:20:10 GMT
+```
+```http label="Requête HTTP" hide
+if-modified-since: Fri, 21 Oct 2022 11:20:10 GMT
+```
+
+## code
+```http label="Réponse HTTP"
+last-modified: Fri, 21 Oct 2022 11:20:10 GMT
+```
+```http label="Requête HTTP"
+if-modified-since: Fri, 21 Oct 2022 11:20:10 GMT
+```
+
+## demo
+firefox Firefox 105
+terminal Serveur HTTP
+
+## text
+<!-- 😬 Cache *heuristique* -->
+🙈 Cache *heuristique*
+> si tu n'as que des last-modified
+> et pas de cache control
+> un cache peut rentrer en mode "heuristique"
+> et considérer la réponse fraiche pendant pas plus que 10% de maintenant - last modified
+
+## demo
+firefox Firefox 105
+terminal Serveur HTTP
+
+<!-- https://stackoverflow.com/questions/1046966/whats-the-difference-between-cache-control-max-age-0-and-no-cache -->
+<!-- Semantically; not much. It's shorter, though. – Mark Nottingham Apr 20, 2013 at 7:08 -->
+<!-- https://web.archive.org/web/20140811162719/http://palizine.plynt.com/issues/2008Jul/cache-control-attributes/ -->
+## code
+```http label="Réponse HTTP"
+cache-control: no-cache
+```
+> si vous voulez éviter ce comportement
+> et forcer une validation
+> vous pouvez utilise max-age=0 (mais il parait que chrome fait comme si c'était 10)
+> à la place, vous pouvez utiliser no-cache
+> no-cache
+
+## demo
+firefox Firefox 105
+terminal Serveur HTTP
+
+## code
+```http label="Réponse HTTP"
+cache-control: must-revalidate
+```
+> TODO, il me faut une demo avec nginx
+
+## demo
+firefox Firefox 105
+terminal Serveur HTTP
+
+## code
+```http label="Requête HTTP"
+cache-control: no-cache
+```
+
+## code
+```http label="Requête HTTP"
+cache-control: max-age=0
+```
+
+## demo
+firefox Firefox 105
+terminal Serveur HTTP
+
+## demo
+chromium Chromium 106
+terminal Serveur HTTP
+
+## demo
+webkit WebKitGTK (Safari 15)
+terminal Serveur HTTP
+
+## code
+```http label="Réponse HTTP"
+cache-control: immutable
+```
+
+## code
+```http label="Réponse HTTP"
+cache-control: max-age=31536000, immutable
+```
+> mentionner la RFC
+
+## demo
+firefox Firefox 105
+terminal Serveur HTTP
+
+## demo
+chromium Chromium 106
+terminal Serveur HTTP
+
+## demo
+webkit WebKitGTK (Safari 15)
+terminal Serveur HTTP
+
+<!-- > https://www.rfc-editor.org/rfc/rfc8246
+> à priori, la différence, c'est quand tu F5 une page
+> avec immutable, ça 304 pas les sous requêtes
+> sans immutable, ça 304 les sous requêtes
+> sauf chrome qui a déjà un système pour ça ? (WTF)
+> https://www.keycdn.com/blog/cache-control-immutable
+> https://bugs.chromium.org/p/chromium/issues/detail?id=611416#c12
+> Chrome 53/54
+> https://blog.chromium.org/2017/01/reload-reloaded-faster-and-leaner-page_26.html -->
+
+## code
+```http label="Réponse HTTP"
+cache-control: stale-while-revalidate=[secondes]
+```
+> RFC
+
+## code
+```http label="Réponse HTTP"
+cache-control: max-age=604800, stale-while-revalidate=86400
+```
+
+## demo
+firefox Firefox 105
+terminal Serveur HTTP
+
+## code
+```http label="Réponse HTTP"
+cache-control: stale-if-error=[secondes]
+```
+
+## code
+```http label="Réponse HTTP"
+cache-control: max-age=604800, stale-if-error=86400
+```
+
+## demo
+firefox Firefox 105
+terminal Serveur HTTP
+
+## todo
+en-tête obsoletes
+pragma
+expire
+
+## code
+```http label="Réponse HTTP"
+cache-control: public
+```
+```http label="Réponse HTTP"
+cache-control: private
+```
+> TODO transition
+> public / privé
+> age
+
+## section
+Reverse proxy
+
+## subway stop=10
+6. Cache navigateur
+
+## subway stop=10 pop
+6. Cache navigateur
+9. Reverse proxy cache
+
+## subway
+6. Cache navigateur
+9. Reverse proxy cache
+
+## subway stop=6
+6. Cache navigateur
+9. Reverse proxy cache
+
+<!-- TODO schéma avec autre client -->
+## subway stop=9
+6. Cache navigateur
+9. Reverse proxy cache
+
+## section
+CDN
+
+## section
+Content Delivery <br> +Network+
+
+## subway stop=10
+6. Cache navigateur
+9. Reverse proxy cache
+
+## subway stop=10 pop
+6. Cache navigateur
+8. CDN
+9. Reverse proxy cache
+
+## subway
+6. Cache navigateur
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=6
+6. Cache navigateur
+8. CDN
+9. Reverse proxy cache
+
+<!-- TODO schéma avec autre client -->
+## subway stop=8
+6. Cache navigateur
+8. CDN
+9. Reverse proxy cache
+
+<!-- TODO pourquoi pas en conclusion -->
+## text
+⚡ *Premières* visites rapides
+> autre détails, ça n'est pas qu'une question de 2e visite
+
+## code
+```http label="Réponse HTTP"
+cache-control: s-maxage=[secondes]
+```
+
+## code
+```http label="Réponse HTTP"
+cdn-cache-control: 
+```
+
+## code
+```http label="Réponse HTTP"
+surrogate-control: 
+```
+
+## code
+```http label="Réponse HTTP"
+vary: [en-tête]
+```
+
+## code
+```http label="Réponse HTTP"
+vary: accept-encoding
+```
+
+## code
+```http label="Réponse HTTP"
+cache-control: no-transform
+```
+
+## section
+Disk cache
+
+## subway stop=10
+6. Cache navigateur
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=10 pop
+6. Disk cache
+8. CDN
+9. Reverse proxy cache
+
+## section
+Memory cache
+
+## subway stop=10
+6. Disk cache
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=10 pop
+2. Memory cache
+6. Disk cache
+8. CDN
+9. Reverse proxy cache
+
+## section
+Module map
+
+## subway stop=10
+2. Memory cache
+6. Disk cache
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=10 pop
+2. Memory cache
+3. Module map
+6. Disk cache
+8. CDN
+9. Reverse proxy cache
+
+## todo
+cache partitionning
+
+## section
+HTTP/2 push cache
+
+## subway stop=10
+2. Memory cache
+3. Module map
+6. Disk cache
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=10 pop
+2. Memory cache
+3. Module map
+6. Disk cache
+7. HTTP/2 push cache
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=10
+2. Memory cache
+3. Module map
+6. Disk cache
+7. ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
+
+## section
+Appcache
+
+## subway stop=10
+2. Memory cache
+3. Module map
+6. Disk cache
+7. ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=10 pop
+2. Memory cache
+3. Module map
+5. Appcache
+6. Disk cache
+7. ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=10
+2. Memory cache
+3. Module map
+5. ~Appcache~
+6. Disk cache
+7. ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
+
+## section
+Service Worker cache
+
+## subway stop=0
+2. Memory cache
+3. Module map
+4. Service worker cache
+5.X Appcache
+6. Disk cache
+7. ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=2
+2. Memory cache
+3. Module map
+4. Service worker cache
+5.X Appcache
+6. Disk cache
+7. ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=3
+2. Memory cache
+3. Module map
+4. Service worker cache
+5.X Appcache
+6. Disk cache
+7. ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=4
+2. Memory cache
+3. Module map
+4. Service worker cache
+5.X Appcache
+6. Disk cache
+7. ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=6
+2. Memory cache
+3. Module map
+4. Service worker cache
+5.X Appcache
+6. Disk cache
+7. ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=10 pop
+2. Memory cache
+3. Module map
+4. Service worker cache
+5.X Appcache
+6. Disk cache
+7. ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
+
+## section
+Back/Forward cache
+
+## subway stop=0
+1. BF cache
+2. Memory cache
+3. Module map
+4. Service worker cache
+5. ~Appcache~
+6. Disk cache
+7. ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=10 title="Navigations normales"
+1.X BF cache
+2. Memory cache
+3. Module map
+4. Service worker cache
+5. ~Appcache~
+6. Disk cache
+7. ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=1 title="Historique via précédent/suivant"
+1. BF cache
+2. Memory cache
+3. Module map
+4. Service worker cache
+5. ~Appcache~
+6. Disk cache
+7. ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
 
 <!-- Lapin RTP -->
 <!-- à trop vouloir cacher, on se retrouve souvent dans le cas où il faut vider son cache pour réparer un bug -->
 <!-- ça c'est parce que oui le cache HTTP, c'est pas simple -->
 <!-- et on est là pour essayer de mieux comprendre ce qu'il se passe -->
-
-<!-- YOU ARE HERE -->
 
 <!-- ## text -->
 <!-- 📄 RFC 1945 - *HTTP/1.0* -->
@@ -213,346 +799,6 @@ Réduction de la charge serveur
 
   "transition loueur de cassettes => cache HTTP et spec RFC des années 90"
  -->
-
-## text
-Une histoire d'en-têtes
-
-## text
-un slide avant démo
-
-## demo
-
-## demo
-_
-terminal Serveur HTTP
-
-## demo
-chromium Chromium 106
-firefox Firefox 105
-terminal Serveur HTTP
-
-## demo
-chromium Chromium 106
-_
-_
-
-## demo
-chromium Chromium 106
-firefox Firefox 105
-_
-
-## demo
-chromium Chromium 106
-firefox Firefox 105
-webkit WebKitGTK (Safari 15)
-
-## demo
-chromium Chromium 106
-terminal Serveur HTTP
-
-## demo
-chromium Chromium 106
-
-## text
-un slide entre 2 démos
-
-## demo chromium
-
-## text
-super démo !
-
-## todo
-RFC 1945 HTTP/1.0 (1996)
-RFC 2068 HTTP/1.1 (1997)
-RFC 2616 HTTP/1.1 (1999)
-RFC 5861 HTTP Cache-Control Extensions for Stale Content (2010)
-RFC 7232 HTTP/1.1: Conditional Requests (2014)
-RFC 7234 HTTP/1.1: Caching (2014)
-RFC 7540 HTTP/2 (2015)
-RFC 8246 HTTP Immutable Responses (2017)
-RFC 9114 HTTP/3 (2022)
-RFC 9211 The Cache-Status HTTP Response Header Field (2022)
-RFC 9213 Targeted HTTP Cache Control (2022)
-RFC 9110 HTTP Semantics (2022)
-RFC 9111 HTTP Caching (2022)
-
-## list current=0
-Réduire les temps de chargement
-Soulager la charge serveur
-
-## list current=1
-Réduire les temps de chargement
-Soulager la charge serveur
-
-## list current=2
-Réduire les temps de chargement
-Soulager la charge serveur
-
-## text
-⏱️ Cache ça pendant X secondes
-> Avant de rentrer dans le "comment dire au cache de cacher",
-> on va déjà voir comment lui dire de ne pas cacher.
-
-## code todo
-```http
-cache-control: max-age=10
-```
-> L'en-tête cache-control et la directive no-store
-> Valeur numérique en seconde
-> Expliquer la notion de frais et périmé
-> Le cache peut très bien supprimer un truc pendant qu'une réponse est fraiche pour faire de la place
-
-## text
-👍️ *Frais* +pendant+ X secondes
-
-## text
-🤙️ *Périmé* +après+ X secondes
-
-## text
-⏱️ Expiration
-
-## text
-🤔 Pas de cache-control ?
-
-## text
-🤞 Cache heuristique
-
-## todo
-RFC Cache heuristique
-> Responses with status codes that are defined as heuristically cacheable (e.g., 200, 203, 204, 206, 300, 301, 308, 404, 405, 410, 414, and 501 in this specification) 
-> https://www.rfc-editor.org/rfc/rfc9110#section-15.1
-
-## code todo
-```http
-last-modified:
-```
-> exemple/demo du last-modified qui trigger un cache heuristique
-
-## todo
-ARTICLES Cache heuristique
-
-## text
-🧐 Validation
-> Quand un cache a une réponse périmée, il ne la supprime pas forcément
-> Il va essayer de valider auprès du serveur si la version qu'il a est tjs fraiche
-> avec une requête conditionnelle
-
-## code todo
-```http
-last-modified:
-```
-```http
-if-modified-since:
-```
-> expliquer que le last-modified va trigger des requete conditionnelles if-modified-since
-
-## code todo
-```http
-304 Not Modified
-```
-> C'est là que le serveur va renvoyer une 304 sans le body
-
-## code todo
-```http
-etag: 29842948
-```
-```http
-if-none-match: 29842948
-```
-> les heuristiques se font à priori uniquement sur ces en-têtes de date
-> par contre même système de validation avec etag et if-none-match
-> s'il y a les deux, c'est le etag qui prend la main
-> de base un cache va directement répondre ce qui est frais sans faire appel au serveur
-
-## text
-🙅‍♂️ *Pas* de cache
-> Avant de rentrer dans le "comment dire au cache de cacher",
-> on va déjà voir comment lui dire de ne pas cacher.
-
-## code todo
-```http
-cache-control: no-store
-```
-> L'en-tête cache-control et la directive no-store
-> Expliquer le piège avec no-cache
-> Pourquoi pas démo avec curl et nginx
-
-## code todo
-```http
-cache-control: must-revalidate
-```
-> https://www.rfc-editor.org/rfc/rfc9111#section-5.2.2.2
-
-<!-- 
-clé de stockage (URL (+ vary))
-méthodes cachables
-response status cacheables
- -->
-
-## code todo
-```http
-cache-control: no-cache
-```
-
-## todo
-recap no-store, no-cache, must-revalidate
-
-## code todo
-```http
-cache-control: immutable
-```
-> https://www.rfc-editor.org/rfc/rfc8246
-> à priori, la différence, c'est quand tu F5 une page
-> avec immutable, ça 304 pas les sous requêtes
-> sans immutable, ça 304 les sous requêtes
-> sauf chrome qui a déjà un système pour ça ? (WTF)
-> https://www.keycdn.com/blog/cache-control-immutable
-> https://bugs.chromium.org/p/chromium/issues/detail?id=611416#c12
-> Chrome 53/54
-> https://blog.chromium.org/2017/01/reload-reloaded-faster-and-leaner-page_26.html
-
-## code todo
-```http
-cache-control: no-transform
-```
-> anecdote de test sans compression
-
-## todo
-request cache-control
-
-## todo
-obsolete headers
-
-## todo
-schéma : client => cache privé => cache partagé/public => serveur
-
-<!-- 
-* montrer 2 entrées, 2 navigateurs, 2 utilisateurs, avec un seul cache partagé
- -->
-
-## todo
-public/private
-
-## todo
-schéma : onglet => cache navigateur => CDN => cache reverse proxy => serveur
-
-<!-- 
-* montrer plusieurs entrées/navigateurs/utilisateurs, avec plusieurs points de CDN vers un seul serveur
-* nginx, varnish, apache...
-* CDN (c'est un réseau de couches de cache aussi)
-* s-maxage
-* proxy-revalidate
-* header vary
- -->
-
-## section
-Reverse proxy
-
-## section
-CDN
-
-## section
-Content Delivery <br> Network
-
-## todo
-cache-control: s-maxage
-
-## todo
-vary
-
-<!-- 
-article sur vary du w3c
-article sur vary de jake
-le système est cassé
- -->
-
-## todo
-schéma : onglet => cache navigateur => CDN => cache reverse proxy => serveur
-
-<!--
-temps des démos et des cas pratiques
--->
-
-## todo
-schéma : onglet => les caches du navigateur => CDN => cache reverse proxy => serveur
-
-<!--
-les caches du navigateur
-memory cache
-disk cache
--->
-
-## section
-Disk cache
-
-## section
-Memory cache
-
-## todo
-schéma : onglet => les caches du navigateur => CDN => cache reverse proxy => serveur
-
-<!--
-module map
--->
-
-## section
-Module map
-
-## todo
-schéma : onglet => les caches du navigateur => CDN => cache reverse proxy => serveur
-
-<!--
-http2 push cache
--->
-
-## section
-HTTP/2 push cache
-
-## todo
-schéma : onglet => les caches du navigateur => CDN => cache reverse proxy => serveur
-
-
-## todo
-schéma : onglet => les caches du navigateur => CDN => cache reverse proxy => serveur
-
-<!--
-SW et appcache
--->
-
-## section
-Appcache
-
-## section
-Service Worker cache
-
-<!--
-bfcache
--->
-
-## section
-Back/Forward cache
-
-## subway stop=1 title="BF cache uniquement pour les navigations"
-1. BF cache
-2. Memory cache
-3. Module map
-4. Service worker cache
-5. Appcache
-6. Disk cache
-7. HTTP/2 push cache
-8. CDN
-9. Reverse proxy cache
-
-## subway stop=10 title="BF cache uniquement pour les navigations"
-1.X BF cache
-2. Memory cache
-3. Module map
-4. Service worker cache
-5. Appcache
-6. Disk cache
-7. HTTP/2 push cache
-8. CDN
-9. Reverse proxy cache
 
 ## blank
 > TODO

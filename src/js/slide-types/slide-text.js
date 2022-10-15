@@ -57,6 +57,10 @@ defineSlideType('slide-text', {
     .underline {
       text-decoration: underline;
     }
+    
+    .strike-through {
+      text-decoration: line-through;
+    }
 
     img {
       height: 8rem;

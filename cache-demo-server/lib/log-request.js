@@ -27,7 +27,7 @@ export function logRequest (applyMiddleware) {
 
     logHeader(context.requestHeaders, 'cache-control');
     logHeader(context.requestHeaders, 'if-modified-since');
-    logHeader(context.requestHeaders, 'etag');
+    logHeader(context.requestHeaders, 'if-none-match');
 
     return newContext;
   };

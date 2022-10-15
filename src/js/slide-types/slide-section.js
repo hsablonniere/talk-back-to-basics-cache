@@ -33,5 +33,9 @@ defineSlideType('slide-section', {
       padding: 0 3rem 0.25rem 3rem;
       line-height: 1.5;
     }
+
+    .underline {
+      text-decoration: underline;
+    }
   `,
 });
