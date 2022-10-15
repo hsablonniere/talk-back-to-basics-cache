@@ -17,7 +17,7 @@ date: 21 octobre 2022
 > j'allume la télé et j'me lance dans une activité qu'on connait tous très bien :
 > #Bruit de Netflix#
 
-## text fade-from
+## text
 C'est *quoi* qu'on va <br> regarder sur Netflix *?*
 > #Voix de pub#
 > Le "C'est quoi qu'on va <br> regarder sur Netflix ?"
@@ -25,7 +25,7 @@ C'est *quoi* qu'on va <br> regarder sur Netflix *?*
 > Surtout si vous êtes plusieurs à choisir et que vous cumulez les abonements à d'autres services.
 > Au final, après 20min de négo, vous choisissez un film trop long et il est trop tard pour le lancer.
 
-## text
+## text fade-from
 Netflixfilmauswahldurchsuchung
 <!-- chercher à travers le choix de films de Netflix -->
 
@@ -45,54 +45,115 @@ Netflixfilmauswahldurchsuchung
 > "Retour vers le Futur II".
 > Simple, efficace.
 
-## todo
-schéma canapé => loueur de cassette
-> Sauf qu'il fallait se taper l'aller/retour jusqu'au vidéo au club.
+## subway videostore stop=0
 
-## todo
-schéma canapé ====================> loueur de cassette
+## subway videostore stop=3
+
+## subway videostore stop=4
+
+## subway videostore stop=7
+
+## subway videostore stop=9
+
+## subway videostore stop=10
+> Sauf qu'il fallait se taper l'aller/retour jusqu'au vidéo au club.
 > Et le vidéoclub, il était loin...
 
-## todo
-schéma canapé => intermédiaire ==========> loueur de cassette
+## subway videostore stop=10
+1. Étagère
+
+## subway videostore stop=0
+1. Étagère
+
+## subway videostore stop=1 fade-from
+1. Étagère
 > Non ça aurait été vachement mieux si en revenant du vidéoclub, j'avais pu faire une copie locale de la cassette.
 > Comme ça prochaine fois que je veux le voir, plus besoin de faire un aller retour complet.
 > Mais bon, vous êtes pas venus ici pour savoir si oui on non j'ai fini par brancher ensemble les deux magnétoscopes de la maison.
+
+## blank black
 
 ## poster
 > @00:01:30@
 > Bonjour à *toutes* et à tous !
 > J'm'appelle Hubert Sablonnière,
 > J'suis développeur Web chez *Clever Cloud* et aujourd'hui, j'ai envie de vous parler du cache HTTP.
+> On va s'faire un petit retour aux sources avec des rappels pour certains et je l'espère quelques découvertes pour tout le monde.
 > #Pause#
-> Pendant que j'faisais mumuse avec mon propre cache à base de cassettes vierges,
 
 ## text
 🗓️ Mai *1996*
-> En mai 1996, Tim Berners Lee, Roy Fielding et Henrik Frystyk Nielsen publiaient la...
+> En mai 96,
+> Pendant que j'faisais mumuse avec mon cache à base de cassettes vierges,
+> Tim Berners Lee, Roy Fielding et Henrik Frystyk Nielsen publiaient la...
 
 ## media
 <img src="src/img/rfc-1945.png" screenshot-url="https://www.rfc-editor.org/rfc/rfc1945">
 > ...RFC 1945 : HTTP 1.0
 > Paye ta spec à la base de tout ce qu'on utilise aujourd'hui.
-> Déjà dans cette version, on retrouve les bases du cache HTTP qu'on connait aujourd'hui.
+> On retrouve déjà dans cette version, une partie du cache HTTP qu'on connait aujourd'hui.
 
-## todo
-schéma : client ===================================> serveur
+<!-- ## media -->
+<!-- <img src="src/img/w3c-profile-frystyk.png" screenshot-url="https://www.w3.org/People/Frystyk/"> -->
 
+## subway stop=10
 
-## todo
-schéma : client => cache ===================================> serveur
-> Explication du concept de cache
+## subway stop=10
+5. Cache
 
-## todo
-schéma : client => cache => cache ===========================> serveur
+## subway stop=10
+4. Cache
+5. Cache
+6. Cache
 
-## todo
-schéma : client => cache => cache => cache ==================> serveur
+## subway stop=10
+3. Cache
+4. Cache
+5. Cache
+6. Cache
+7. Cache
 
-## todo
-schéma : client => cache => cache => cache  => cache  =======> serveur
+## subway stop=10
+2. Cache
+3. Cache
+4. Cache
+5. Cache
+6. Cache
+7. Cache
+8. Cache
+
+## subway stop=10
+1. Cache
+2. Cache
+3. Cache
+4. Cache
+5. Cache
+6. Cache
+7. Cache
+8. Cache
+9. Cache
+
+## subway stop=10
+1. Cache privé
+2. Cache privé
+3. Cache privé
+4. Cache privé
+5. Cache privé
+6. Cache privé
+7. Cache privé
+8. Cache
+9. Cache
+
+## subway stop=10
+1. Cache privé
+2. Cache privé
+3. Cache privé
+4. Cache privé
+5. Cache privé
+6. Cache privé
+7. Cache privé
+8. Cache partagé
+9. Cache partagé
 
 ## todo
 accolade sur les caches privés à gauche
@@ -117,9 +178,6 @@ Réduction de la charge serveur
 <!-- ## text -->
 <!-- 📄 RFC 1945 - *HTTP/1.0* -->
 <!-- <br> (mai 1996) -->
-
-<!-- ## media -->
-<!-- <img src="src/img/w3c-profile-frystyk.png" screenshot-url="https://www.w3.org/People/Frystyk/"> -->
 
 <!-- ## text -->
 <!-- 📄 RFC 2068 - *HTTP/1.1* -->
@@ -155,6 +213,50 @@ Réduction de la charge serveur
 
   "transition loueur de cassettes => cache HTTP et spec RFC des années 90"
  -->
+
+## text
+un slide avant démo
+
+## demo
+
+## demo
+_
+terminal Serveur HTTP
+
+## demo
+chromium Chromium 106
+firefox Firefox 105
+terminal Serveur HTTP
+
+## demo
+chromium Chromium 106
+_
+_
+
+## demo
+chromium Chromium 106
+firefox Firefox 105
+_
+
+## demo
+chromium Chromium 106
+firefox Firefox 105
+webkit WebKitGTK (Safari 15)
+
+## demo
+chromium Chromium 106
+terminal Serveur HTTP
+
+## demo
+chromium Chromium 106
+
+## text
+un slide entre 2 démos
+
+## demo chromium
+
+## text
+super démo !
 
 ## todo
 RFC 1945 HTTP/1.0 (1996)
@@ -428,6 +530,17 @@ Appcache
 
 ## section
 Service Worker cache
+
+## subway stop=10 title="Beaucoup de couches de cache"
+1. BF cache
+2. Memory cache
+3. Module map
+4. Service worker cache
+5. Appcache
+6. Disk cache
+7. HTTP/2 push cache
+8. CDN
+9. Reverse proxy cache
 
 ## blank
 > TODO

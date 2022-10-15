@@ -1,7 +1,8 @@
 import { markup } from './js/utils.mjs';
 import hljs from 'highlight.js';
+import fs from 'node:fs';
 
-export function transformSlides (pseudoMarkdown) {
+export function transformSlides (pseudoMarkdown, gnomeWindows) {
 
   const lines = pseudoMarkdown
     .trim()
@@ -88,6 +89,7 @@ export function transformSlides (pseudoMarkdown) {
     `<html lang="en">`,
     `<head>`,
     `<meta charset="UTF-8">`,
+    `<meta name="gnome-windows" content='${JSON.stringify(gnomeWindows)}'>`,
     ``,
     ...frontmatterData.map(([name, content]) => `<meta name="${name}" content="${content}">`),
     ``,
@@ -135,6 +137,10 @@ function getSlideLines (slide) {
       const attrs = rawAttrs.join(' ');
       const code = hljs.highlight(rawCode, { language }).value;
       return `<pre data-lang="${language}" ${attrs}>${code}</pre>`;
+    })
+    .replace(/<img inline src="(.*)">/gs, (_, svgPath) => {
+      const svg = fs.readFileSync(svgPath, 'utf8');
+      return svg;
     })
     .split('\n');
 

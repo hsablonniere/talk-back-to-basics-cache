@@ -52,6 +52,6 @@ let hititipiSetup = hititipi(
     ]),
   ),
 );
-createServer(hititipiSetup).listen(process.env.PORT ?? 8080);
-createServerHttps(httpsOptions, hititipiSetup).listen(process.env.PORT ?? 8081);
+createServer(hititipiSetup).listen(process.env.PORT ?? 8081);
+createServerHttps(httpsOptions, hititipiSetup).listen(process.env.PORT ?? 8082);
 
