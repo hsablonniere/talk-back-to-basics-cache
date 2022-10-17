@@ -158,6 +158,70 @@ export function defineSlideType (slideType, options) {
   });
 }
 
+export class Slide extends LitElement {
+
+  static get properties () {
+    return {
+      position: { type: String, attribute: 'data-position', reflect: true },
+    };
+  }
+
+  render () {
+
+    const attrs = this.getAttributeNames()
+      .map((name) => [toCamelCase(name), this.getAttribute(name)])
+      .reduce(entriesToObject);
+
+    if (trim(this.innerHTML) === '') {
+      this.innerHTML = '';
+    }
+
+    const content = (this.innerHTML !== '') ? this.innerHTML : null;
+
+    return this?.renderSlide({ attrs, content }) ?? '';
+  }
+
+  update (changedProperties) {
+    super.update(changedProperties);
+    if (changedProperties.has('position')) {
+      const elements = Array
+        .from(this.shadowRoot.querySelectorAll('[id]'))
+        .map((node) => [node.id, node])
+        .reduce(entriesToObject, []);
+      elements['host'] = this.shadowRoot;
+      if (this.position === 'current') {
+        if (this.onEnter != null) {
+          this.onEnter(elements);
+        }
+        $$(this.shadowRoot, 'audio.global, video').forEach((media) => {
+          console.log({ media });
+          playMedia(media);
+        });
+        $$(this, 'audio.global').forEach((media) => {
+          console.log({ media });
+          playMedia(media);
+        });
+      }
+      if (this.position !== 'current') {
+        if (this.onLeave != null) {
+          this.onLeave(this.position, elements);
+        }
+        $$(this, 'audio, video').forEach((media) => stopMedia(media));
+      }
+    }
+  }
+
+  static get styles () {
+    return [
+      atomOneLightCss,
+      vsCss,
+      defaultSlideStyles,
+      codeBlocksStyles,
+    ];
+  }
+
+}
+
 const timeoutIds = new WeakMap();
 
 export function playMedia (media, delay = 0) {

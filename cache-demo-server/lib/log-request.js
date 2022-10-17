@@ -1,4 +1,5 @@
 import { performance } from 'perf_hooks';
+import chalk from 'chalk';
 
 let timeoutId;
 
@@ -23,7 +24,8 @@ export function logRequest (applyMiddleware) {
     const after = performance.now();
     const elapsed = (after - before).toFixed(2) + 'ms';
     let requestCc = context.requestHeaders['cache-control'];
-    console.log(shortNow, newContext.requestMethod, newContext.requestUrl.pathname, newContext.requestUrl.search, newContext.responseStatus, elapsed);
+    // console.log(shortNow, newContext.requestMethod, newContext.requestUrl.pathname, newContext.requestUrl.search, newContext.responseStatus, elapsed);
+    console.log(chalk.bgYellow.black(shortNow), chalk.bgBlue.black(newContext.requestMethod + ' ' + newContext.requestUrl.pathname), newContext.responseStatus);
 
     logHeader(context.requestHeaders, 'cache-control');
     logHeader(context.requestHeaders, 'if-modified-since');

@@ -118,22 +118,22 @@ avec le petit train
 ## list current=0
 Réduire le chargement côté client
 Réduire la charge côté serveur
-Meilleures perfs pour tout le monde
+Meilleures perfs = business
 
 ## list current=1
 Réduire le chargement côté client
 Réduire la charge côté serveur
-Meilleures perfs pour tout le monde
+Meilleures perfs = business
 
 ## list current=2
 Réduire le chargement côté client
 Réduire la charge côté serveur
-Meilleures perfs pour tout le monde
+Meilleures perfs = business
 
 ## list current=3
 Réduire le chargement côté client
 Réduire la charge côté serveur
-Meilleures perfs pour tout le monde
+Meilleures perfs = business
 
 ## text
 🤯 C'est compliqué
@@ -141,8 +141,10 @@ Meilleures perfs pour tout le monde
 > et on se retrouve parfois dans la situation de
 > "vide ton cache" pour résoudre un bug
 
-## todo
-n'oublie pas de vider ton cache, tu risques d'afficher un contenu trop vieux
+## lapin
+Attention !
+<br>
+N'oublie pas de vider ton cache, tu risques d'afficher un contenu trop vieux.
 
 ## text
 🤔 Comment ça marche ?
@@ -168,8 +170,8 @@ cache-control: no-transform
 
 ## code
 ```http
-etag: W/"183d1fe5a48-87c"
-if-none-match: W/"183d1fe5a48-87c"
+etag: "183d1fe5a48-87c"
+if-none-match: "183d1fe5a48-87c"
 ```
 ```http
 last-modified: Fri, 21 Oct 2022 11:20:10 GMT
@@ -180,7 +182,7 @@ vary: Accept-Encoding
 ```
 
 ## text
-🔗 *Sources :* HTML, CSS, JS...
+🔗 Une histoire de *sources*
 > mais aussi de comment sont écrits les sources HTML, CSS, JS...
 
 ## text
@@ -195,29 +197,25 @@ Frontend *&* backend
 
 ## blank
 
+<!-- https://www.rfc-editor.org/rfc/rfc9111#name-overview-of-cache-operation
+Although caching is an entirely OPTIONAL feature of HTTP, it can be assumed that reusing a cached response is desirable and that such reuse is the default behavior when no requirement or local configuration prevents it. Therefore, HTTP cache requirements are focused on preventing a cache from either storing a non-reusable response or reusing a stored response inappropriately, rather than mandating that caches always store and reuse particular responses. -->
+
+## todo
+cache key
+lister les méthodes safes et pas safe
+parler de clé de cache
+
 ## code
-```http label="Réponse HTTP"
-cache-control: 
+```http label="⬅️ Réponse HTTP"
+cache-control: ...
 ```
 > l'en-tête le plus important, c'est cache-control
-
-## code
-```http label="Réponse HTTP"
-cache-control: directive-foo
-```
 > il peut être utilisé dans une requête ou dans une réponse
 > on va surtout parler de son usage dans une réponse
-
-## code
-```http label="Réponse HTTP"
-cache-control: directive-foo, directive-bar
-```
 > en valeur de cache-control, on va pouvoir mettre une ou plusieurs directive séparées par des virgules
 
-## blank
-
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 cache-control: max-age=[secondes]
 ```
 > la directive la plus utile, c'est max-age=[secondes]
@@ -239,6 +237,11 @@ cache-control: max-age=[secondes]
 > on peut lui dire "tu as le droit" et "tu n'as pas le droit"
 > un cache peut décider à n'importe quel moment de virer une ressource (fréquence des demandes, tailles du disque...)
 
+## code
+```http label="⬅️ Réponse HTTP"
+cache-control: max-age=[secondes]
+```
+
 ## text
 💾 Tu as le *droit* de cacher ça
 
@@ -249,6 +252,12 @@ cache-control: max-age=[secondes]
 
 ## text
 🤙️ *Périmé* +après+ X secondes
+
+## code
+```http label="⬅️ Réponse HTTP"
+date: Fri, 21 Oct 2022 11:12:13 GMT
+cache-control: max-age=[secondes]
+```
 
 ## demo
 
@@ -261,7 +270,7 @@ firefox Firefox 105
 terminal Serveur HTTP
 
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 cache-control: no-store
 ```
 > à l'inverse si on ne veut pas que le navigateur cache qqchose
@@ -289,19 +298,34 @@ terminal Serveur HTTP
 > quand c'est périmé, il doit faire une requête de validation pour savoir si ce qu'il a en cache peut-être utilisé
 
 ## code
-```http label="Réponse HTTP"
-etag: W/"183d1fe5a48-87c"
+```http label="⬅️ Réponse HTTP"
+etag: "183d1fe5a48-87c"
 ```
-```http label="Requête HTTP" hide
-if-none-match: W/"183d1fe5a48-87c"
+```http label="Requête HTTP ➡️" hide
+if-none-match: "183d1fe5a48-87c"
 ```
+> weak etag vs strong etag
+> lien avec les range requests
 
+## todo
+schéma avec etag (et last modified)
+
+<!-- todo en 2 colonnes -->
 ## code
-```http label="Réponse HTTP"
-etag: W/"183d1fe5a48-87c"
+```http label="Requête HTTP ➡️"
+GET /index.html
 ```
-```http label="Requête HTTP"
-if-none-match: W/"183d1fe5a48-87c"
+```http label="⬅️ Réponse HTTP"
+200 OK
+etag: "183d1fe5a48-87c"
+```
+```http label="Requête HTTP ➡️"
+GET /index.html
+if-none-match: "183d1fe5a48-87c"
+```
+```http label="⬅️ Réponse HTTP"
+304 Not Modified
+etag: "183d1fe5a48-87c"
 ```
 
 ## demo
@@ -309,18 +333,18 @@ firefox Firefox 105
 terminal Serveur HTTP
 
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 last-modified: Fri, 21 Oct 2022 11:20:10 GMT
 ```
-```http label="Requête HTTP" hide
+```http label="Requête HTTP ➡️" hide
 if-modified-since: Fri, 21 Oct 2022 11:20:10 GMT
 ```
 
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 last-modified: Fri, 21 Oct 2022 11:20:10 GMT
 ```
-```http label="Requête HTTP"
+```http label="Requête HTTP ➡️"
 if-modified-since: Fri, 21 Oct 2022 11:20:10 GMT
 ```
 
@@ -340,11 +364,16 @@ terminal Serveur HTTP
 firefox Firefox 105
 terminal Serveur HTTP
 
+## code
+```http label="Requête HTTP ➡️"
+cache-control: max-age=0
+```
+
 <!-- https://stackoverflow.com/questions/1046966/whats-the-difference-between-cache-control-max-age-0-and-no-cache -->
 <!-- Semantically; not much. It's shorter, though. – Mark Nottingham Apr 20, 2013 at 7:08 -->
 <!-- https://web.archive.org/web/20140811162719/http://palizine.plynt.com/issues/2008Jul/cache-control-attributes/ -->
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 cache-control: no-cache
 ```
 > si vous voulez éviter ce comportement
@@ -353,13 +382,31 @@ cache-control: no-cache
 > à la place, vous pouvez utiliser no-cache
 > no-cache
 
+## lapin
+ATTENTION !
+<br>
++no-cache+ `!==` pas de cache
+
 ## demo
 firefox Firefox 105
 terminal Serveur HTTP
 
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 cache-control: must-revalidate
+```
+> TODO, il me faut une demo avec nginx
+> c'est confus
+<!-- * https://almanac.httparchive.org/en/2021/caching
+  * Driving more awareness around using these directives, for example during larger conferences, could help avoid accidentally wasted bytes.
+  * C'est qui le plus fort entre max-age=0, no-cache et no-store -->
+> https://www.fastly.com/blog/cache-control-wild
+> Furthermore, almost 80% of responses with must-revalidate also included no-cache or no-store, which override it. I suspect this is because a lot of folks aren’t sure what different directives do, so they “throw the kitchen sink” at caches.
+
+## code
+```http label="⬅️ Réponse HTTP"
+<!-- etag: "183d1fe5a48-87c" -->
+cache-control: max-age=10, must-revalidate
 ```
 > TODO, il me faut une demo avec nginx
 
@@ -368,37 +415,17 @@ firefox Firefox 105
 terminal Serveur HTTP
 
 ## code
-```http label="Requête HTTP"
-cache-control: no-cache
-```
-
-## code
-```http label="Requête HTTP"
-cache-control: max-age=0
-```
-
-## demo
-firefox Firefox 105
-terminal Serveur HTTP
-
-## demo
-chromium Chromium 106
-terminal Serveur HTTP
-
-## demo
-webkit WebKitGTK (Safari 15)
-terminal Serveur HTTP
-
-## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 cache-control: immutable
 ```
 
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 cache-control: max-age=31536000, immutable
 ```
 > mentionner la RFC
+> mentionner que ça marche hors ligne mais c'est fragile
+> à quel moment parler de noms des fichiers et de cache busting
 
 ## demo
 firefox Firefox 105
@@ -423,13 +450,13 @@ terminal Serveur HTTP
 > https://blog.chromium.org/2017/01/reload-reloaded-faster-and-leaner-page_26.html -->
 
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 cache-control: stale-while-revalidate=[secondes]
 ```
 > RFC
 
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 cache-control: max-age=604800, stale-while-revalidate=86400
 ```
 
@@ -438,14 +465,16 @@ firefox Firefox 105
 terminal Serveur HTTP
 
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 cache-control: stale-if-error=[secondes]
 ```
 
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 cache-control: max-age=604800, stale-if-error=86400
 ```
+> stale-if-error => pas possible de tester dans un navigateur
+> stale-if-error => pas possible de tester avec nginx
 
 ## demo
 firefox Firefox 105
@@ -456,11 +485,14 @@ en-tête obsoletes
 pragma
 expire
 
+## todo
+un post invalide un get
+
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 cache-control: public
 ```
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 cache-control: private
 ```
 > TODO transition
@@ -527,32 +559,32 @@ Content Delivery <br> +Network+
 > autre détails, ça n'est pas qu'une question de 2e visite
 
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 cache-control: s-maxage=[secondes]
 ```
 
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 cdn-cache-control: 
 ```
 
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 surrogate-control: 
 ```
 
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 vary: [en-tête]
 ```
 
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 vary: accept-encoding
 ```
 
 ## code
-```http label="Réponse HTTP"
+```http label="⬅️ Réponse HTTP"
 cache-control: no-transform
 ```
 
@@ -723,6 +755,8 @@ Service Worker cache
 ## section
 Back/Forward cache
 
+<!-- Bfcache attention a vos script tiers -->
+
 ## subway stop=0
 1. BF cache
 2. Memory cache
@@ -800,6 +834,10 @@ Back/Forward cache
   "transition loueur de cassettes => cache HTTP et spec RFC des années 90"
  -->
 
+<!-- TODO recettes -->
+<!-- * pour les recettes ce chart est parfait -->
+  <!-- * https://simonhearne.com/2022/caching-header-best-practices/#general-recommendations -->
+
 ## blank
 > TODO
 
@@ -816,12 +854,11 @@ Liens :
 
 Références :
 
-* Panneaux code de la route : https://fr.wikibooks.org/wiki/Code_de_la_route/Liste_des_panneaux
+* _ : _
 
 Images :
 
 * Brique métro : https://fr.depositphotos.com/15705561/stock-photo-white-tiled-parisian-metro.html
-* https://www.dreamstime.com/stock-image-white-tiled-parisian-metro-image27856761
 
 Polices :
 
@@ -832,4 +869,5 @@ Polices :
 
 Sons :
 
-* Marimba note : https://www.youtube.com/watch?v=8FJMTJmuoU8
+* Netflix logo : https://www.youtube.com/watch?v=GV3HUDMQ-F8
+* Pop : https://www.youtube.com/watch?v=qUs_Jq6FcQU

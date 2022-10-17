@@ -1,5 +1,5 @@
 import { css, html } from 'lit';
-import { defineSlideType } from './base.js';
+import { Slide } from './base.js';
 
 function gnome (path, body) {
   return fetch('http://localhost:7000' + path, {
@@ -67,7 +67,8 @@ try {
 catch (e) {
 }
 
-defineSlideType('slide-demo', {
+customElements.define('slide-demo', class extends Slide {
+
   async onEnter (elements) {
     if (elements == null) {
       return;
@@ -80,7 +81,8 @@ defineSlideType('slide-demo', {
         hideWindow(w.window);
       }
     });
-  },
+  }
+
   async onLeave (elements) {
     const currentSlide = document.querySelector('[data-position="current"]');
     const currentSlideType = currentSlide.tagName.toLowerCase();
@@ -89,8 +91,26 @@ defineSlideType('slide-demo', {
         hideWindow(w.window);
       });
     }
-  },
-  render ({ content, attrs }) {
+  }
+
+  _toggle (id) {
+    Array
+      .from(this.shadowRoot.querySelectorAll('.wrapper'))
+      .forEach((wrapper) => {
+        if (wrapper.dataset.id !== id) {
+          wrapper.classList.toggle('dn');
+        }
+      });
+    const elements = Object.fromEntries(
+      Array
+        .from(this.shadowRoot.querySelectorAll(`.wrapper:not(.dn)`))
+        .map((wrapper) => [wrapper.dataset.id, wrapper.querySelector('.window')]),
+    );
+    this.setAttribute('data-setup', Object.keys(elements).join(','));
+    this.onEnter(elements);
+  }
+
+  renderSlide ({ content, attrs }) {
 
     const windows = (content ?? '')
       .trim()
@@ -104,11 +124,13 @@ defineSlideType('slide-demo', {
         };
       });
 
+    this.setAttribute('data-setup', windows.map((w) => w.id).join(','));
+
     return html`
       ${windows.map(({ id, label }) => html`
-        <div class="wrapper" style="grid-aarea: ${id}">
+        <div class="wrapper" data-id="${id}">
           ${logos.includes(id) ? html`
-            <img class="logo" src="src/img/logo-${id}.svg" alt="">
+            <img class="logo" src="src/img/logo-${id}.svg" alt="" @click="${() => this._toggle(id)}">
           ` : ''}
           ${id !== '_' ? html`
             <div class="label">${label}</div>
@@ -117,58 +139,73 @@ defineSlideType('slide-demo', {
         </div>
       `)}
     `;
-  },
+  }
+
   // language=CSS
-  styles: css`
-    :host {
-      --gap: 0.75rem;
-      background-image: url(/src/img/tuiles-pattern.jpg);
-      background-size: 5rem;
-      background-position: center center;
-      background-color: #fff;
-      display: grid;
-      padding: var(--gap);
-      grid-auto-columns: 1fr;
-      grid-auto-flow: column;
-      /*grid-template-areas: "chromium firefox" "terminal terminal";*/
-      /*grid-template-rows: 1fr 12rem;*/
-      gap: var(--gap);
-    }
+  static get styles () {
+    return [
+      ...Slide.styles,
+      css`
+        :host {
+          --gap: 0.75rem;
+          background-image: url(/src/img/tuiles-pattern.jpg);
+          background-size: 5rem;
+          background-position: center center;
+          background-color: #fff;
+          display: grid;
+          padding: var(--gap);
+          grid-auto-columns: 1fr;
+          grid-auto-flow: column;
+          gap: var(--gap);
+        }
 
-    .wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap);
-      position: relative;
-    }
+        /*:host([data-setup="_,terminal"]),*/
+        /*:host([data-setup="firefox,terminal"]),*/
+        /*:host([data-setup="chromium,terminal"]),*/
+        /*:host([data-setup="webkit,terminal"]) {*/
+        /*  grid-template-columns: auto 25rem;*/
+        /*}*/
 
-    .logo {
-      height: 4rem;
-      width: 4rem;
-      position: absolute;
-      left: 0.5rem;
-      z-index: 1;
-      filter: drop-shadow(0 0 0.2rem #555);
-    }
+        .wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: var(--gap);
+          position: relative;
+        }
 
-    .label {
-      align-self: end;
-      font-size: 1.25rem;
-      border-radius: 0.1rem;
-      font-family: Parisine, sans-serif;
-      line-height: 1;
-      padding: 0.25rem 0.5rem;
-      box-shadow: 0 0 0.25rem #555;
-      background-color: #050D9E;
-      color: #ffffff;
-    }
+        .logo {
+          height: 3.5rem;
+          width: 3.5rem;
+          position: absolute;
+          left: 0.5rem;
+          z-index: 1;
+          filter: drop-shadow(0 0 0.2rem #555);
+        }
 
-    .window {
-      background-color: #000000;
-      box-shadow: 0 0 0.25rem #555;
-      border-radius: 0.25rem;
-      flex: 1 1 0;
-      z-index: 2;
-    }
-  `,
+        .label {
+          align-self: end;
+          font-size: 1.25rem;
+          border-radius: 0.1rem;
+          font-family: Parisine, sans-serif;
+          line-height: 1;
+          padding: 0.25rem 0.5rem;
+          box-shadow: 0 0 0.25rem #555;
+          background-color: #050D9E;
+          color: #ffffff;
+        }
+
+        .window {
+          background-color: #000000;
+          box-shadow: 0 0 0.25rem #555;
+          border-radius: 0.25rem;
+          flex: 1 1 0;
+          z-index: 2;
+        }
+
+        .dn {
+          display: none;
+        }
+      `,
+    ];
+  };
 });

@@ -5,6 +5,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "chalk": "^5.1.2",
     "hititipi": "^0.11.1"
   }
 }

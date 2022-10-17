@@ -84,6 +84,7 @@
 * https://developer.chrome.com/blog/http-cache-partitioning/
 * https://arstechnica.com/gadgets/2020/12/firefox-v85-will-improve-its-cache-partitioning-for-stronger-privacy/
 * https://paulcalvano.com/2018-03-14-http-heuristic-caching-missing-cache-control-and-expires-headers-explained/
+* https://www.freecodecamp.org/news/an-in-depth-introduction-to-http-caching-cache-control-vary/
 
 ### Devtools
 
@@ -129,3 +130,22 @@
 
 * https://docs.google.com/document/d/1vwx8WiUASKyC2I-j2smNhaJaQQhcWREh7PC3HiIAQCo/edit
 * https://groups.google.com/a/mozilla.org/g/dev-platform/c/IiuvO7eHBME?pli=1
+* https://html.spec.whatwg.org/multipage/links.html#link-type-modulepreload
+* https://html.spec.whatwg.org/multipage/webappapis.html#module-map
+* https://html.spec.whatwg.org/multipage/webappapis.html#module-map
+* https://www.keycdn.com/blog/http-preload-vs-http2-push
+* https://developer.chrome.com/blog/modulepreload/
+* https://developer.fastly.com/reference/http/http-headers/Surrogate-Control/
+* https://github.com/shivanigithub/http-cache-partitioning/
+* https://www.fastly.com/blog/cache-control-wild
+> Furthermore, almost 80% of responses with must-revalidate also included no-cache or no-store, which override it. I suspect this is because a lot of folks aren’t sure what different directives do, so they “throw the kitchen sink” at caches.
+
+Nobody cares about must-revalidate
+* https://github.com/varnishcache/varnish-cache/pull/3364
+* https://github.com/caddyserver/cache-handler/search?q=must-revalidate+is%3Aissue&type=issues
+* https://github.com/nginx/nginx/search?q=must-revalidate
+* https://github.com/apache/httpd/search?q=must-revalidate&type=code
+* https://github.com/apache/trafficserver/search?l=C%2B%2B&q=must-revalidate
+* https://github.com/apache/trafficserver/search?q=HTTP_VALUE_MUST_REVALIDATE
+
+* https://www.fastly.com/blog/best-practices-using-vary-header

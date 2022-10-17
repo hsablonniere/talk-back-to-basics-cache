@@ -10,6 +10,13 @@ const webkitProcess = spawn('epiphany');
 await setTimeout(1500);
 const terminalPid = Number(execSync('pgrep gnome-terminal').toString().trim().split('\n').pop());
 
+console.log({
+  chromium: chromiumProcess.pid,
+  terminal: terminalPid,
+  firefox: firefoxProcess.pid,
+  webkit: webkitProcess.pid,
+});
+
 process.on('SIGINT', function () {
   try {
     chromiumProcess.kill();
