@@ -31,16 +31,22 @@ const baseTmpl = document.createElement('template');
 baseTmpl.innerHTML = subwaySvg;
 
 // reset template
+style(baseTmpl.content, '#wagon-00', 'opacity', 0);
+style(baseTmpl.content, '#card-00', 'opacity', 0);
+setText(baseTmpl.content, '#card-text-00', '');
 for (let i = 1; i <= 10; i += 1) {
   const indexStr = String(i).padStart(2, '0');
   setText(baseTmpl.content, '#cache-' + indexStr, '');
   style(baseTmpl.content, '#cache-' + indexStr + '-dot-junction', 'opacity', 0);
   style(baseTmpl.content, '#cache-' + indexStr + '-dot-classic', 'opacity', 0);
   style(baseTmpl.content, '#cache-' + indexStr + '-dot-cross', 'opacity', 0);
+  style(baseTmpl.content, '#wagon-' + indexStr, 'opacity', 0);
+  style(baseTmpl.content, '#card-' + indexStr, 'opacity', 0);
+  setText(baseTmpl.content, '#card-text-' + indexStr, '');
   style(baseTmpl.content, '#line-segment-' + indexStr, 'stroke', '#eee');
 }
 
-const LINE_REGEX = /^(?<index>\d)(?<dot>\S+) (?<text>.*)/;
+const LINE_REGEX = /^(?<index>\d+)(?<dot>\S+) (?<text>.*)/;
 
 defineSlideType('slide-subway', {
   onEnter ({ pop }) {
@@ -54,7 +60,6 @@ defineSlideType('slide-subway', {
     const svg = baseTmpl.content.cloneNode(true);
 
     const title = attrs.title ?? '';
-    console.log(attrs.title, title);
     setText(svg, '#the-title', title);
 
     const isVideoStore = attrs.videostore != null;
@@ -85,11 +90,19 @@ defineSlideType('slide-subway', {
           const isDotJunction = dot.includes('*');
           const isDotClassic = dot.includes('.');
           const isDotCross = dot.includes('X');
+          const hasWagon = text.includes('🚃');
+          const hasFigure = text.includes('♠');
+          const cleanText = text
+            .replace('🚃', '')
+            .replace('♠️', '');
 
-          setText(svg, '#cache-' + indexStr, text);
+          setText(svg, '#cache-' + indexStr, cleanText);
+          setText(svg, '#card-text-' + indexStr, hasFigure ? '♠' : '');
           style(svg, '#cache-' + indexStr + '-dot-junction', 'opacity', isDotJunction ? 1 : 0);
           style(svg, '#cache-' + indexStr + '-dot-classic', 'opacity', isDotClassic ? 1 : 0);
           style(svg, '#cache-' + indexStr + '-dot-cross', 'opacity', isDotCross ? 1 : 0);
+          style(svg, '#wagon-' + indexStr, 'opacity', hasWagon ? 1 : 0);
+          style(svg, '#card-' + indexStr, 'opacity', hasFigure ? 1 : 0);
           if (index > stopNb) {
             style(svg, '#cache-' + indexStr + '-dot-classic', 'fill', '#eee');
             style(svg, '#cache-' + indexStr, 'opacity', 0.85, true);
@@ -107,6 +120,7 @@ defineSlideType('slide-subway', {
   // language=CSS
   styles: css`
     :host {
+      display: grid;
     }
 
     svg {

@@ -1,5 +1,7 @@
 import { css, html } from 'lit';
 import { defineSlideType } from './base.js';
+import { markup } from '../utils.mjs';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 const TIMELINE_REGEX = /^\* ([^:]*): (.*) (<img.*)$/;
 
@@ -15,6 +17,9 @@ defineSlideType('slide-code', {
     const codeBlocks = select(content, 'pre');
 
     return html`
+      ${attrs.title != null ? html`
+        <div class="title">${unsafeHTML(markup(attrs.title))}</div>
+      ` : ''}
       <div class="code-blocks">
         ${codeBlocks}
       </div>
@@ -24,14 +29,30 @@ defineSlideType('slide-code', {
   styles: css`
     :host {
       position: relative;
+      display: grid;
+      align-content: center;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .title {
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 5rem;
+      font-weight: bold;
+      line-height: 1.2;
+      text-align: center;
+      color: #000;
+    }
+
+    .title strong {
+      color: #0082ff;
+    }
+
+    .underline {
+      text-decoration: underline;
     }
 
     .code-blocks {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
     }
 
     pre[data-lang][hide] {

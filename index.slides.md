@@ -15,139 +15,228 @@ date: 21 octobre 2022
 > L'autre jour,
 > j'étais dans mon canap',
 > j'allume la télé et j'me lance dans une activité qu'on connait tous très bien :
-> #Bruit de Netflix#
 
 ## text netflix
+> #Bruit de Netflix#
 🍿 C'est *quoi* qu'on va <br> regarder sur Netflix *?*
 > #Voix de pub#
-> Le "C'est quoi qu'on va <br> regarder sur Netflix ?"
-> Activité qui dure souvent... un peu trop longtemps.
-> Surtout si vous êtes plusieurs à choisir et que vous cumulez les abonements à d'autres services.
-> Au final, après 20min de négo, vous choisissez un film trop long et il est trop tard pour le lancer.
+> Le "C'est quoi qu'on va regarder sur Netflix ?"
 
 ## text fade-from
 👀 Netflixfilmauswahldurchsuchung
 <!-- chercher à travers le choix de films de Netflix -->
+> Activité qui a bien entendu son propre mot en allemand...
+> mais qui dure souvent...
+> un peu trop longtemps.
+> Surtout si vous êtes plusieurs à choisir et que vous cumulez what mille abonements à d'autres services.
+> Bref, après 20min de négo, vous choisissez un film trop long...
 
 ## blank black
-> Quand j'étais plus jeune, dans les années 90,
-> j'avais pas ce problème.
+> ...et il est trop tard pour le lancer.
+
+## media white
+<img src="src/img/wordart.png">
+> #Voix pédante#
+> Dans les années 90, j'avais pas ce problème.
 
 <!-- https://unsplash.com/photos/6Nbo9Pn0yJA -->
 ## media
 <img src="src/img/videostore.jpg">
-> On allait au vidéoclub et malgré les conseils d'un être humain bien plus valables que ceux d'un algo,
+> On allait au vidéoclub, mais malgré les conseils d'un être humain bien plus pertinent que ceux d'un algo,
 > une fois sur deux j'revenais avec la VHS de...
 
 <!-- https://www.themoviedb.org/t/p/original/wFbgPZA44apfPt5wWPinQvV2Pbs.png -->
 ## media logo black
 <img src="src/img/back-to-the-future.png">
 > "Retour vers le Futur II".
-> Simple, efficace.
+> C'était simple et efficace, mais...
 
 ## subway videostore stop=0
+> fallait s'taper l'aller/retour et le vidéoclub il était,
 
 ## subway videostore stop=3
+> très...
 
 ## subway videostore stop=4
+> très...
 
 ## subway videostore stop=7
+> très...
 
 ## subway videostore stop=9
+> très...
 
 ## subway videostore stop=10
-> Sauf qu'il fallait se taper l'aller/retour jusqu'au vidéo au club.
-> Et le vidéoclub, il était loin...
+> loin !
+> Non ça aurait été vachement mieux si sur la route du retour vers mon canapé,
+> j'avais pu garder une copie de la cassette et la poser...
 
 ## subway videostore stop=10
 1. Étagère
+> ... sur l'étagère par exemple.
+> Du coup,
 
 ## subway videostore stop=0
 1. Étagère
+> quand je veux revoir le film,
 
 ## subway videostore stop=1 fade-from
 1. Étagère
-> Non ça aurait été vachement mieux si en revenant du vidéoclub, j'avais pu faire une copie locale de la cassette.
-> Comme ça prochaine fois que je veux le voir, plus besoin de faire un aller retour complet.
-> Mais bon, vous êtes pas venus ici pour savoir si oui on non j'ai fini par brancher ensemble les deux magnétoscopes de la maison.
+> pas besoin de fair l'aller/retour complet.
+> Mais bon,
 
 ## blank black
+> vous êtes pas venus ici pour savoir si oui où non j'ai fini par brancher ensemble les deux magnétoscopes de la maison.
 
 ## poster
 > @00:01:30@
 > Bonjour à *toutes* et à tous !
 > J'm'appelle Hubert Sablonnière,
 > J'suis développeur Web chez *Clever Cloud* et aujourd'hui, j'ai envie de vous parler du cache HTTP.
-> On va s'faire un petit retour aux sources avec des rappels pour certains et je l'espère quelques découvertes pour tout le monde.
+> #Pause#
+> On va s'faire un p'tit "retour aux sources" avec de la théorie, des démos et des conseils,
+> avec :
+> * des rappels pour certains,
+> * et quelques découvertes pour tout le monde.
 > #Pause#
 
 ## text
 🗓️ Mai *1996*
 > En mai 96,
 > Pendant que j'faisais mumuse avec mon cache à base de cassettes vierges,
-> Tim Berners Lee, Roy Fielding et Henrik Frystyk Nielsen publiaient la...
 
 ## media
 <img src="src/img/tim-berners-lee.jpg">
+> Tim Berners Lee, le papa du Web,
 
 ## media
 <img src="src/img/roy-fielding.png">
+> Roy Fielding, le papa de REST
 
 ## media
 <img src="src/img/w3c-profile-frystyk.png" screenshot-url="https://www.w3.org/People/Frystyk/">
+> et Henrik Frystyk Nielsen, le papa du...
+> #hésitation#
+> jaune et du Comic Sans ?
+> publiaient la...
 
 ## media
 <img src="src/img/rfc-1945.png" screenshot-url="https://www.rfc-editor.org/rfc/rfc1945">
 > ...RFC 1945 : HTTP 1.0
-> Paye ta spec à la base de tout ce qu'on utilise aujourd'hui.
-> On retrouve déjà dans cette version, le principe de base du cache.
+> Et ça, ça pète la classe !
+> Dans cette version, on retrouve déjà, certains principes de base du cache HTTP.
+
+<!-- ## media -->
+<!-- <img src="src/img/rfc-2068.png" screenshot-url="https://www.rfc-editor.org/rfc/rfc2068"> -->
+<!-- > Le reste sera complété par HTTP/1.1 par 2 RFC, en 1997, -->
+
+<!-- ## media -->
+<!-- <img src="src/img/rfc-2616.png" screenshot-url="https://www.rfc-editor.org/rfc/rfc2616"> -->
+<!-- > puis en 1999. -->
+
+## subway
+> Un client, un serveur
+
+## subway pop
+6. Cache
+> et un intermédiaire
+
+## subway pop
+0. 🚃
+6. Cache
+> Le client envoie une requête HTTP,
+
+## subway stop=6
+6. Cache 🚃
+> elle passe par le cache,
+> rien à signaler,
 
 ## subway stop=10
-
-## subway stop=10 pop
 6. Cache
-avec le petit train
+10. 🚃
+> puis arrive au serveur.
 
-## subway stop=6 pop
+## subway stop=10
 6. Cache
-avec le petit train
+10. 🚃♠️
+> Le serveur génère une réponse,
+
+## subway stop=10
+6. Cache 🚃♠️
+> sur le chemin du retour,
+> la réponse est cachée, au sens "mise en cache",
+
+## subway stop=10
+0. 🚃♠️
+6. Cache ♠️
+> puis elle arrive à son destinataire.
+
+## subway
+6. Cache ♠️
+> Du coup, si le client refait la
+
+## subway
+0. 🚃
+6. Cache ♠️
+> même requête HTTP,
+
+## subway stop=6
+6. Cache 🚃♠️
+> elle arrive au cache et...
+
+## subway stop=6
+0. 🚃♠️
+6. Cache ♠️
+> ...pas besoin d'aller plus loin pour obtenir une réponse.
 
 ## text
 🤔 À quoi ça sert ?
+> OK, mais à quoi ça sert le cache HTTP ?
 
-## list current=0
-Réduire le chargement côté client
-Réduire la charge côté serveur
-Meilleures perfs = business
+## blank
+> Le premier avantage, c'est qu'en rapprochant la source de la réponse,
+> on vient...
 
 ## list current=1
 Réduire le chargement côté client
 Réduire la charge côté serveur
-Meilleures perfs = business
+Meilleures perfs = meilleur business
+> ...réduire les temps de chargement côté client.
+> Le deuxième avantage, c'est qu'avec différentes couches de cache qui peuvent répondre à la place du serveur,
+> on vient créer un bouclier qui...
 
 ## list current=2
 Réduire le chargement côté client
 Réduire la charge côté serveur
-Meilleures perfs = business
+Meilleures perfs = meilleur business
+> ...réduit la charge côté serveur.
 
 ## list current=3
 Réduire le chargement côté client
 Réduire la charge côté serveur
-Meilleures perfs = business
+Meilleures perfs = meilleur business
+> Dans les deux cas, c'est censé améliorer les performances
+> et donc améliorer l'expérience utilisateur,
+> les factures mobiles des clients
+> et les factures du serveur.
 
 ## text
 🤯 C'est compliqué
-> le problème c'est que c'est pas simple à gérer
-> et on se retrouve parfois dans la situation de
-> "vide ton cache" pour résoudre un bug
+> Le problème c'est que le cache, c'est compliqué.
+> À force de vouloir trop cacher sans forcément connaitre et comprendres les règles,
+> on se retrouve tôt où tard à dire à un utilisateur :
 
 ## lapin
 Attention !
 <br>
 N'oublie pas de vider ton cache, tu risques d'afficher un contenu trop vieux.
+> "t'as essayé de vider ton cache ?", ça devrait résoudre le bug.
+> Pour éviter cette histoire,
+> c'est important de bien comprendre
 
 ## text
 🤔 Comment ça marche ?
+> comment ça marche.
 
 ## text
 💆‍♀️ Une histoire d'*en-tête*
@@ -155,16 +244,16 @@ N'oublie pas de vider ton cache, tu risques d'afficher un contenu trop vieux.
 ## code
 ```http
 cache-control: max-age=?
-cache-control: no-store
 cache-control: no-cache
+cache-control: no-store
 cache-control: must-revalidate
 cache-control: immutable
-cache-control: stale-while-revalidate=?
-cache-control: stale-if-error=?
 cache-control: private
 cache-control: public
 cache-control: s-maxage=?
 cache-control: proxy-revalidate
+cache-control: stale-while-revalidate=?
+cache-control: stale-if-error=?
 cache-control: no-transform
 ```
 
@@ -190,6 +279,11 @@ vary: Accept-Encoding
 Frontend *&* backend
 > c'est donc à la fois une affaire de front et de back
 
+
+## text
+🤝
+Devs *&* ops
+
 <!-- 
 ## text
 🫶 <br> *Tout le monde* a besoin de cache
@@ -199,11 +293,6 @@ Frontend *&* backend
 
 <!-- https://www.rfc-editor.org/rfc/rfc9111#name-overview-of-cache-operation
 Although caching is an entirely OPTIONAL feature of HTTP, it can be assumed that reusing a cached response is desirable and that such reuse is the default behavior when no requirement or local configuration prevents it. Therefore, HTTP cache requirements are focused on preventing a cache from either storing a non-reusable response or reusing a stored response inappropriately, rather than mandating that caches always store and reuse particular responses. -->
-
-## todo
-cache key
-lister les méthodes safes et pas safe
-parler de clé de cache
 
 ## code
 ```http label="⬅️ Réponse HTTP"
@@ -243,7 +332,7 @@ cache-control: max-age=[secondes]
 ```
 
 ## text
-💾 Tu as le *droit* de cacher ça
+✅ Tu as le *droit* de cacher ça
 
 ## text
 👍️ *Frais* +pendant+ X secondes
@@ -251,7 +340,7 @@ cache-control: max-age=[secondes]
 > les x secondes sont calculées par rapport à l'en tête date
 
 ## text
-🤙️ *Périmé* +après+ X secondes
+✋ *Périmé* +après+ X secondes
 
 ## code
 ```http label="⬅️ Réponse HTTP"
@@ -268,18 +357,7 @@ terminal Serveur HTTP
 ## demo
 firefox Firefox 105
 terminal Serveur HTTP
-
-## code
-```http label="⬅️ Réponse HTTP"
-cache-control: no-store
-```
-> à l'inverse si on ne veut pas que le navigateur cache qqchose
-> on utilise cache-control: no-store
-> avec ça, on lui dit "tu n'as pas le droit de cacher ça"
-
-## demo
-firefox Firefox 105
-terminal Serveur HTTP
+> Expliquer le setup des démos
 
 ## text
 🤔 On fait quoi quand c'est *périmé* ?
@@ -294,7 +372,7 @@ terminal Serveur HTTP
 > il a ses propre règles pour savoir quand virer des trucs et pourquoi
 
 ## text
-🤙 *Validation* avec le serveur
+🤙 *Revalidation* avec le serveur
 > quand c'est périmé, il doit faire une requête de validation pour savoir si ce qu'il a en cache peut-être utilisé
 
 ## code
@@ -304,13 +382,16 @@ etag: "183d1fe5a48-87c"
 ```http label="Requête HTTP ➡️" hide
 if-none-match: "183d1fe5a48-87c"
 ```
-> weak etag vs strong etag
-> lien avec les range requests
 
-## todo
-schéma avec etag (et last modified)
+## code
+```http label="Requête HTTP ➡️"
+GET /index.html
+```
+```http label="⬅️ Réponse HTTP" hide
+200 OK
+etag: "183d1fe5a48-87c"
+```
 
-<!-- todo en 2 colonnes -->
 ## code
 ```http label="Requête HTTP ➡️"
 GET /index.html
@@ -319,6 +400,20 @@ GET /index.html
 200 OK
 etag: "183d1fe5a48-87c"
 ```
+
+## blank
+
+## code
+```http label="Requête HTTP ➡️"
+GET /index.html
+if-none-match: "183d1fe5a48-87c"
+```
+```http label="⬅️ Réponse HTTP" hide
+304 Not Modified
+etag: "183d1fe5a48-87c"
+```
+
+## code
 ```http label="Requête HTTP ➡️"
 GET /index.html
 if-none-match: "183d1fe5a48-87c"
@@ -327,6 +422,11 @@ if-none-match: "183d1fe5a48-87c"
 304 Not Modified
 etag: "183d1fe5a48-87c"
 ```
+> weak etag vs strong etag
+> lien avec les range requests
+
+## todo
+schéma avec etag (et last modified)
 
 ## demo
 firefox Firefox 105
@@ -364,6 +464,9 @@ terminal Serveur HTTP
 firefox Firefox 105
 terminal Serveur HTTP
 
+## text
+🤙 *Forcer* la revalidation
+
 ## code
 ```http label="Requête HTTP ➡️"
 cache-control: max-age=0
@@ -391,6 +494,21 @@ ATTENTION !
 firefox Firefox 105
 terminal Serveur HTTP
 
+## text
+⛔ Tu n'as *pas le droit* de cacher ça
+
+## code
+```http label="⬅️ Réponse HTTP"
+cache-control: no-store
+```
+> à l'inverse si on ne veut pas que le navigateur cache qqchose
+> on utilise cache-control: no-store
+> avec ça, on lui dit "tu n'as pas le droit de cacher ça"
+
+## demo
+firefox Firefox 105
+terminal Serveur HTTP
+
 ## code
 ```http label="⬅️ Réponse HTTP"
 cache-control: must-revalidate
@@ -403,16 +521,7 @@ cache-control: must-revalidate
 > https://www.fastly.com/blog/cache-control-wild
 > Furthermore, almost 80% of responses with must-revalidate also included no-cache or no-store, which override it. I suspect this is because a lot of folks aren’t sure what different directives do, so they “throw the kitchen sink” at caches.
 
-## code
-```http label="⬅️ Réponse HTTP"
-<!-- etag: "183d1fe5a48-87c" -->
-cache-control: max-age=10, must-revalidate
-```
-> TODO, il me faut une demo avec nginx
-
 ## demo
-firefox Firefox 105
-terminal Serveur HTTP
 
 ## code
 ```http label="⬅️ Réponse HTTP"
@@ -426,17 +535,28 @@ cache-control: max-age=31536000, immutable
 > mentionner la RFC
 > mentionner que ça marche hors ligne mais c'est fragile
 > à quel moment parler de noms des fichiers et de cache busting
+> article des mise à jour de jake
+
+## demo
+webkit WebKitGTK (Safari 15)
+terminal Serveur HTTP
+
+## code
+```http label="⬅️ Requête HTTP"
+cache-control: max-age
+```
 
 ## demo
 firefox Firefox 105
 terminal Serveur HTTP
 
-## demo
-chromium Chromium 106
-terminal Serveur HTTP
+## code
+```http label="⬅️ Requête HTTP"
+cache-control: no-cache
+```
 
 ## demo
-webkit WebKitGTK (Safari 15)
+chromium Chromium 106
 terminal Serveur HTTP
 
 <!-- > https://www.rfc-editor.org/rfc/rfc8246
@@ -464,40 +584,35 @@ cache-control: max-age=604800, stale-while-revalidate=86400
 firefox Firefox 105
 terminal Serveur HTTP
 
-## code
-```http label="⬅️ Réponse HTTP"
-cache-control: stale-if-error=[secondes]
+## code title="En-têtes *obsolètes*"
+```http label="⬅️ Requête HTTP" hide
+Pragma: no-cache
+```
+```http label="⬅️ Réponse HTTP" hide
+Expires: Fri, 21 Oct 2022 11:12:13 GMT
 ```
 
-## code
-```http label="⬅️ Réponse HTTP"
-cache-control: max-age=604800, stale-if-error=86400
+## code title="En-têtes *obsolètes*"
+```http label="⬅️ Requête HTTP"
+Pragma: no-cache
 ```
-> stale-if-error => pas possible de tester dans un navigateur
-> stale-if-error => pas possible de tester avec nginx
+```http label="⬅️ Réponse HTTP" hide
+Expires: Fri, 21 Oct 2022 11:12:13 GMT
+```
 
-## demo
-firefox Firefox 105
-terminal Serveur HTTP
-
-## todo
-en-tête obsoletes
-pragma
-expire
+## code title="En-têtes *obsolètes*"
+```http label="⬅️ Requête HTTP"
+Pragma: no-cache
+```
+```http label="⬅️ Réponse HTTP"
+Expires: Fri, 21 Oct 2022 11:12:13 GMT
+```
 
 ## todo
 un post invalide un get
 
-## code
-```http label="⬅️ Réponse HTTP"
-cache-control: public
-```
-```http label="⬅️ Réponse HTTP"
-cache-control: private
-```
-> TODO transition
-> public / privé
-> age
+## text
+🕵️‍♀️ Cache *privé* vs. cache *partagé*
 
 ## section
 Reverse proxy
@@ -513,14 +628,80 @@ Reverse proxy
 6. Cache navigateur
 9. Reverse proxy cache
 
-## subway stop=6
+## subway
+0. 🚃
 6. Cache navigateur
 9. Reverse proxy cache
 
-<!-- TODO schéma avec autre client -->
+## subway stop=6
+6. Cache navigateur 🚃
+9. Reverse proxy cache
+
 ## subway stop=9
 6. Cache navigateur
+9. Reverse proxy cache 🚃
+
+## subway stop=10
+6. Cache navigateur
 9. Reverse proxy cache
+10. 🚃
+
+## subway stop=10
+6. Cache navigateur
+9. Reverse proxy cache
+10. 🚃♠️
+
+## subway stop=10
+6. Cache navigateur
+9. Reverse proxy cache 🚃♠️
+
+## subway stop=10
+6. Cache navigateur 🚃♠️
+9. Reverse proxy cache ♠️
+
+## subway stop=10
+0. 🚃♠️
+6. Cache navigateur ♠️
+9. Reverse proxy cache ♠️
+
+## subway
+6. Cache navigateur ♠️
+9. Reverse proxy cache ♠️
+
+## media white
+<img src="src/img/diagram-subway-shared-reverse-proxy.svg">
+
+## code
+```http label="⬅️ Réponse HTTP"
+cache-control: private
+```
+```http label="⬅️ Réponse HTTP" hide
+cache-control: public
+```
+> TODO transition
+> public / privé
+> age
+
+## code
+```http label="⬅️ Réponse HTTP"
+cache-control: private
+```
+```http label="⬅️ Réponse HTTP"
+cache-control: public
+```
+> TODO transition
+> public / privé
+> age
+
+## code
+```http label="⬅️ Réponse HTTP"
+date: Fri, 21 Oct 2022 11:12:13 GMT
+age: 122
+cache-control: max-age=3600
+```
+> TODO transition
+> public / privé
+> age
 
 ## section
 CDN
@@ -553,6 +734,9 @@ Content Delivery <br> +Network+
 8. CDN
 9. Reverse proxy cache
 
+## todo
+schéma multi branche
+
 <!-- TODO pourquoi pas en conclusion -->
 ## text
 ⚡ *Premières* visites rapides
@@ -562,6 +746,22 @@ Content Delivery <br> +Network+
 ```http label="⬅️ Réponse HTTP"
 cache-control: s-maxage=[secondes]
 ```
+
+## code
+```http label="⬅️ Réponse HTTP"
+cache-control: stale-if-error=[secondes]
+```
+
+## code
+```http label="⬅️ Réponse HTTP"
+cache-control: max-age=604800, stale-if-error=86400
+```
+> stale-if-error => pas possible de tester dans un navigateur
+> stale-if-error => pas possible de tester avec nginx
+
+## demo
+firefox Firefox 105
+terminal Serveur HTTP
 
 ## code
 ```http label="⬅️ Réponse HTTP"
@@ -582,6 +782,18 @@ vary: [en-tête]
 ```http label="⬅️ Réponse HTTP"
 vary: accept-encoding
 ```
+
+## todo
+schéma vary
+
+## media
+<img src="src/img/jake-archibald-vary.png" screenshot-url="https://jakearchibald.com/2014/browser-cache-vary-broken/">
+
+## media
+<img src="src/img/wiki-whatwg-vary.png" screenshot-url="https://wiki.whatwg.org/wiki/Why_not_conneg">
+
+## media
+<img src="src/img/fastly-vary.png" screenshot-url="https://www.fastly.com/blog/best-practices-using-vary-header">
 
 ## code
 ```http label="⬅️ Réponse HTTP"
@@ -615,6 +827,9 @@ Memory cache
 8. CDN
 9. Reverse proxy cache
 
+## todo
+démo ?
+
 ## section
 Module map
 
@@ -632,7 +847,19 @@ Module map
 9. Reverse proxy cache
 
 ## todo
-cache partitionning
+démo avec 2 modules qui chargent le même
+
+## todo
+webpack
+
+## todo
+schéma partage entre onglets
+
+## text todo
+✂️ Cache *partitioning*
+
+## todo
+démo avec des domaines différents
 
 ## section
 HTTP/2 push cache
@@ -659,6 +886,9 @@ HTTP/2 push cache
 7. ~HTTP/2 push cache~
 8. CDN
 9. Reverse proxy cache
+
+## todo
+démo ?
 
 ## section
 Appcache
@@ -689,6 +919,12 @@ Appcache
 8. CDN
 9. Reverse proxy cache
 
+## todo
+exemple
+
+## todo
+article douchebag
+
 ## section
 Service Worker cache
 
@@ -696,61 +932,32 @@ Service Worker cache
 2. Memory cache
 3. Module map
 4. Service worker cache
-5.X Appcache
 6. Disk cache
-7. ~HTTP/2 push cache~
 8. CDN
 9. Reverse proxy cache
 
-## subway stop=2
+## subway stop=0
+2. Memory cache
+3. Module map
+5. Appcache
+6. Disk cache
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=0
 2. Memory cache
 3. Module map
 4. Service worker cache
 5.X Appcache
 6. Disk cache
-7. ~HTTP/2 push cache~
 8. CDN
 9. Reverse proxy cache
 
-## subway stop=3
-2. Memory cache
-3. Module map
-4. Service worker cache
-5.X Appcache
-6. Disk cache
-7. ~HTTP/2 push cache~
-8. CDN
-9. Reverse proxy cache
+## todo
+schéma service worker
 
-## subway stop=4
-2. Memory cache
-3. Module map
-4. Service worker cache
-5.X Appcache
-6. Disk cache
-7. ~HTTP/2 push cache~
-8. CDN
-9. Reverse proxy cache
-
-## subway stop=6
-2. Memory cache
-3. Module map
-4. Service worker cache
-5.X Appcache
-6. Disk cache
-7. ~HTTP/2 push cache~
-8. CDN
-9. Reverse proxy cache
-
-## subway stop=10 pop
-2. Memory cache
-3. Module map
-4. Service worker cache
-5.X Appcache
-6. Disk cache
-7. ~HTTP/2 push cache~
-8. CDN
-9. Reverse proxy cache
+## todo
+exemple code service worker
 
 ## section
 Back/Forward cache
@@ -790,55 +997,49 @@ Back/Forward cache
 8. CDN
 9. Reverse proxy cache
 
-<!-- Lapin RTP -->
-<!-- à trop vouloir cacher, on se retrouve souvent dans le cas où il faut vider son cache pour réparer un bug -->
-<!-- ça c'est parce que oui le cache HTTP, c'est pas simple -->
-<!-- et on est là pour essayer de mieux comprendre ce qu'il se passe -->
+## todo
+démo
+marche pas pour les SPA
 
-<!-- ## text -->
-<!-- 📄 RFC 1945 - *HTTP/1.0* -->
-<!-- <br> (mai 1996) -->
-
-<!-- ## text -->
-<!-- 📄 RFC 2068 - *HTTP/1.1* -->
-<!-- <br> (janvier 1997) -->
-
-<!-- ## media -->
-<!-- <img src="src/img/rfc-2068.png" screenshot-url="https://www.rfc-editor.org/rfc/rfc2068"> -->
-
-<!-- ## text -->
-<!-- 📄 RFC 2616 - *HTTP/1.1* -->
-<!-- <br> (juin 1999) -->
-
-<!-- ## media -->
-<!-- <img src="src/img/rfc-2616.png" screenshot-url="https://www.rfc-editor.org/rfc/rfc2616"> -->
-
-<!-- ## text -->
-<!-- 📄 RFC 2616 - Juin 1999 -->
-<!-- <br> *HTTP/1.1* -->
-
-<!-- Les screenshot de RFC, ça marche pas trop -->
-
-<!-- 
-* contexte
-  * le cache c'est puissant
-  * le cache c'est utile pour soulager la charge du serveur
-  * le cache c'est utile pour soulager la conso réseau du client
-  * c'est en conséquence un outil très puissant pour améliorer les performances d'un site Web
-  * entre le serveur et le client, il n'y a pas qu'un seul cache, il y en a bcp
-  * c'est compliqué et rarement maitrisé
-  * "vide ton cache"
-  historique
-  RFC
-
-  "transition loueur de cassettes => cache HTTP et spec RFC des années 90"
- -->
-
-<!-- TODO recettes -->
+## text
+🧑‍🍳 Recettes
 <!-- * pour les recettes ce chart est parfait -->
   <!-- * https://simonhearne.com/2022/caching-header-best-practices/#general-recommendations -->
 
-## blank
+## todo
+fichiers statiques qui ne changent pas
+nom avec hash
+(etag)
+max-age=31536000,immutable
+
+## todo
+page dynamique mais pas de ouf
+etag
+max-age=600
+
+## todo
+page dynamique, pourquoi pas un peu de
+etag
+max-age=600
+
+## todo
+page dynamique
+etag
+no-cache
+
+## todo
+page ultra dynamique
+no-store
+
+## todo
+si ça compresse
+Vary: Accept-Encoding
+
+## todo fade-from
+si c'est spécifique à l'utilisateur (API via cookie)
+private
+
+## blank black
 > TODO
 
 ## poster
