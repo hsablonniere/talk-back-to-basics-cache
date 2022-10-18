@@ -35,6 +35,56 @@
     * pas qqchose qu'on voit vraiment en fac
   * requête / réponse => pas clair
 
+## TODO
+
+* Clarifier le vary
+* Ajouter la RFC pour cdn-cache-control
+* Préciser que cdn-cache-control et surrogate control, c'est CDN only
+* Préciser de lire la doc de chaque CDN
+* Préciser un "on va conclure avec un récap et des recettes"
+  * des couches successives de cache (privé et partagé)
+  * des en-tête, principalement sur les réponses pour dire à toute la chaine quoi faire
+  * ça concerne le front, le back, les ops
+* Préciser ce que c'est un en-tête HTTP
+  * Peut-être au premier exemple de code
+* Préciser "caché" = mettre en cache (petite blague)
+* Mieux mettre en avant la différence requête / réponse
+* Avoir une idée de combien on va voir d'en-tête et de directives
+  * ça peut aider à apréhender
+* Il faut clarifier "qui mets les en-têtes" dev front ? back ?
+  * où est-ce qu'on règle tel ou tel en-tête
+* Modifier le train qui part et qui revient => couleur différentes
+* pourquoi pas utiliser les stations X pour appcache et H2 push cache
+  * et du coup, changer l'usage du X pour BF cache
+* ajouter les GET /foo et les 200 OK
+* systématiser le
+  * une directive => une phrase
+* mentionner que toutes les directives évoquées concernes les caches partagés et privés
+
+Timing :
+
+* À simplifier au max :
+  * H2 push cache
+  * appache
+* À réduire :
+  * 31 min de "comment ça marche" à "en tête obsolètes"
+    * Une histoire d'en-être
+    * Frontend & backend
+    * max-age
+    * etag
+    * last-modified
+    * cache heuristique
+    * max-age=0 / no-cache
+    * no-store
+    * must-revalidate (3min => 1min)
+    * 9min immutable (=> 2min)
+      * +1min pour parler du versioning
+    * no-cache dans les request
+    * stale-while-revalidate (3min => 2min)
+    * => On doit pouvoir tabler sur 20min
+  * 10min30 de "Cache privé vs partagé" à vary
+    * on doit pouvoir faire 5min
+
 ## Timing
 
 01.30 - Préambule

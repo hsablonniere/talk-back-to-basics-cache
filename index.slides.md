@@ -29,7 +29,8 @@ date: 21 octobre 2022
 > mais qui dure souvent...
 > un peu trop longtemps.
 > Surtout si vous êtes plusieurs à choisir et que vous cumulez what mille abonements à d'autres services.
-> Bref, après 20min de négo, vous choisissez un film trop long...
+> Bref, après 20min de négo,
+> vous choisissez un film trop long...
 
 ## blank black
 > ...et il est trop tard pour le lancer.
@@ -69,7 +70,7 @@ date: 21 octobre 2022
 ## subway videostore stop=10
 > loin !
 > Non ça aurait été vachement mieux si sur la route du retour vers mon canapé,
-> j'avais pu garder une copie de la cassette et la poser...
+> j'avais pu garder une copie de la cassette...
 
 ## subway videostore stop=10
 1. Étagère
@@ -149,7 +150,7 @@ date: 21 octobre 2022
 ## subway stop=6
 6. Cache 🚃
 > elle passe par le cache,
-> rien à signaler,
+> rien à déclarer,
 
 ## subway stop=10
 6. Cache
@@ -163,7 +164,7 @@ date: 21 octobre 2022
 
 ## subway stop=10
 6. Cache 🚃♠️
-> sur le chemin du retour,
+> et sur le chemin du retour,
 > la réponse est cachée, au sens "mise en cache",
 
 ## subway stop=10
@@ -182,12 +183,13 @@ date: 21 octobre 2022
 
 ## subway stop=6
 6. Cache 🚃♠️
-> elle arrive au cache et...
+> elle va jusqu'au cache
+> il a la réponse...
 
 ## subway stop=6
 0. 🚃♠️
 6. Cache ♠️
-> ...pas besoin d'aller plus loin pour obtenir une réponse.
+> ...pas besoin d'aller plus loin.
 
 ## text
 🤔 À quoi ça sert ?
@@ -217,12 +219,12 @@ Réduire la charge côté serveur
 Meilleures perfs = meilleur business
 > Dans les deux cas, c'est censé améliorer les performances
 > et donc améliorer l'expérience utilisateur,
-> les factures mobiles des clients
-> et les factures du serveur.
+> réduire les factures mobiles des clients
+> et réduire les factures du serveur.
 
 ## text
 🤯 C'est compliqué
-> Le problème c'est que le cache, c'est compliqué.
+> Le problème c'est que le cache HTTP, c'est compliqué.
 > À force de vouloir trop cacher sans forcément connaitre et comprendres les règles,
 > on se retrouve tôt où tard à dire à un utilisateur :
 
@@ -254,7 +256,7 @@ cache-control: s-maxage=?
 cache-control: proxy-revalidate
 cache-control: stale-while-revalidate=?
 cache-control: stale-if-error=?
-cache-control: no-transform
+<!-- cache-control: no-transform -->
 ```
 
 ## code
@@ -278,7 +280,6 @@ vary: Accept-Encoding
 🤝
 Frontend *&* backend
 > c'est donc à la fois une affaire de front et de back
-
 
 ## text
 🤝
@@ -304,7 +305,11 @@ cache-control: ...
 > en valeur de cache-control, on va pouvoir mettre une ou plusieurs directive séparées par des virgules
 
 ## code
+```http label="Requête HTTP ➡️"
+GET /index.css HTTP/1.1
+```
 ```http label="⬅️ Réponse HTTP"
+HTTP/1.1 200 OK
 cache-control: max-age=[secondes]
 ```
 > la directive la plus utile, c'est max-age=[secondes]
@@ -328,6 +333,7 @@ cache-control: max-age=[secondes]
 
 ## code
 ```http label="⬅️ Réponse HTTP"
+HTTP/1.1 200 OK
 cache-control: max-age=[secondes]
 ```
 
@@ -344,9 +350,11 @@ cache-control: max-age=[secondes]
 
 ## code
 ```http label="⬅️ Réponse HTTP"
+HTTP/1.1 200 OK
 date: Fri, 21 Oct 2022 11:12:13 GMT
 cache-control: max-age=[secondes]
 ```
+> L'age est calculé à partir de l'en-tête date
 
 ## demo
 
@@ -409,7 +417,7 @@ GET /index.html
 if-none-match: "183d1fe5a48-87c"
 ```
 ```http label="⬅️ Réponse HTTP" hide
-304 Not Modified
+HTTP/1.1 304 Not Modified
 etag: "183d1fe5a48-87c"
 ```
 
@@ -419,14 +427,11 @@ GET /index.html
 if-none-match: "183d1fe5a48-87c"
 ```
 ```http label="⬅️ Réponse HTTP"
-304 Not Modified
+HTTP/1.1 304 Not Modified
 etag: "183d1fe5a48-87c"
 ```
 > weak etag vs strong etag
 > lien avec les range requests
-
-## todo
-schéma avec etag (et last modified)
 
 ## demo
 firefox Firefox 105
@@ -795,10 +800,10 @@ schéma vary
 ## media
 <img src="src/img/fastly-vary.png" screenshot-url="https://www.fastly.com/blog/best-practices-using-vary-header">
 
-## code
+<!-- ## code
 ```http label="⬅️ Réponse HTTP"
 cache-control: no-transform
-```
+``` -->
 
 ## section
 Disk cache
@@ -889,6 +894,9 @@ HTTP/2 push cache
 
 ## todo
 démo ?
+
+## todo
+early hints?
 
 ## section
 Appcache
@@ -1018,12 +1026,7 @@ etag
 max-age=600
 
 ## todo
-page dynamique, pourquoi pas un peu de
-etag
-max-age=600
-
-## todo
-page dynamique
+page dynamique mais...
 etag
 no-cache
 
@@ -1034,6 +1037,13 @@ no-store
 ## todo
 si ça compresse
 Vary: Accept-Encoding
+> mais c'est tout
+
+## todo
+stale-while-revalidate
+
+## todo
+normalement, vous aurez rarement besoin de public ou must-revalidate
 
 ## todo fade-from
 si c'est spécifique à l'utilisateur (API via cookie)
@@ -1049,9 +1059,7 @@ Merci beaucoup !
 
 Liens :
 
-* Source des composants : https://github.com/CleverCloud/clever-components
-* Smart CDN source : https://github.com/CleverCloud/clever-components-cdn
-* UI pour sélectionner : https://components.clever-cloud.com/
+* _ : 
 
 Références :
 

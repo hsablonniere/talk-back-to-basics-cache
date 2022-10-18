@@ -52,9 +52,6 @@ defineSlideType('slide-code', {
       text-decoration: underline;
     }
 
-    .code-blocks {
-    }
-
     pre[data-lang][hide] {
       visibility: hidden;
     }

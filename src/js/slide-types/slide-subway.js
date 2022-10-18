@@ -91,18 +91,22 @@ defineSlideType('slide-subway', {
           const isDotClassic = dot.includes('.');
           const isDotCross = dot.includes('X');
           const hasWagon = text.includes('🚃');
-          const hasFigure = text.includes('♠');
+          const response = false ? ''
+            : text.includes('📼') ? '📼'
+              : text.includes('♠') ? '♠'
+                : '';
           const cleanText = text
             .replace('🚃', '')
+            .replace('📼️', '')
             .replace('♠️', '');
 
           setText(svg, '#cache-' + indexStr, cleanText);
-          setText(svg, '#card-text-' + indexStr, hasFigure ? '♠' : '');
+          setText(svg, '#card-text-' + indexStr, response);
           style(svg, '#cache-' + indexStr + '-dot-junction', 'opacity', isDotJunction ? 1 : 0);
           style(svg, '#cache-' + indexStr + '-dot-classic', 'opacity', isDotClassic ? 1 : 0);
           style(svg, '#cache-' + indexStr + '-dot-cross', 'opacity', isDotCross ? 1 : 0);
           style(svg, '#wagon-' + indexStr, 'opacity', hasWagon ? 1 : 0);
-          style(svg, '#card-' + indexStr, 'opacity', hasFigure ? 1 : 0);
+          style(svg, '#card-' + indexStr, 'opacity', response ? 1 : 0);
           if (index > stopNb) {
             style(svg, '#cache-' + indexStr + '-dot-classic', 'fill', '#eee');
             style(svg, '#cache-' + indexStr, 'opacity', 0.85, true);
