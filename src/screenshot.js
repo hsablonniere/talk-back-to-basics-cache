@@ -5,8 +5,8 @@ let puppeteer;
 puppeteer = require('puppeteer');
 
 const defaultViewport = {
-  width: 1280,
-  height: 960,
+  width: 1500,
+  height: 1050,
   isLandscape: true,
 };
 

@@ -268,6 +268,9 @@ last-modified: Thu, 20 Oct 2022 11:20:00 GMT
 if-modified-since: Thu, 20 Oct 2022 11:20:00 GMT
 ```
 ```http
+age: 122
+```
+```http
 vary: Accept-Encoding
 ```
 
@@ -390,7 +393,7 @@ terminal Serveur HTTP
 > Expliquer le setup des démos
 
 ## text
-🤔 On fait quoi quand c'est *périmé* ?
+🤔 Et quand c'est *périmé* ?
 > il se passe quoi quand un élément qui est dans le cache est périmé ?
 
 ## demo
@@ -595,10 +598,10 @@ ATTENTION !
 +no-cache+ `!==` pas de cache
 
 ## text
-✅ Tu as le *droit* de cacher ça
+✅ Tu as le *droit* de cacher ça,
 
 ## text
-🤙 Revalide *tout le temps*
+🤙 mais tu revalides *tout le temps*
 
 ## demo
 firefox Firefox 105
@@ -658,7 +661,7 @@ cache-control: must-revalidate
 > Furthermore, almost 80% of responses with must-revalidate also included no-cache or no-store, which override it. I suspect this is because a lot of folks aren’t sure what different directives do, so they “throw the kitchen sink” at caches.
 
 ## text
-🤙 Revalide quand c'est *périmé*
+🤙 Revalide si c'est *périmé*
 
 ## demo
 
@@ -792,10 +795,10 @@ cache-control: max-age=604800, stale-while-revalidate=86400
 ```
 
 ## text
-✅ Tu as le *droit* de servir du périmé <br> +pendant+ X secondes
+✅ Tu as le *droit* de servir du périmé <br> +pendant+ X secondes,
 
 ## text
-🤙 Mais en *parallèle* <br> tu +revalides+
+🤙 mais en *parallèle* <br> tu +revalides+
 
 ## demo
 firefox Firefox 105
@@ -879,6 +882,17 @@ Reverse proxy cache
 ## media white
 <img src="src/img/diagram-subway-shared-reverse-proxy.svg">
 
+## code
+```http type="response"
+HTTP/1.1 200 OK
+date: Fri, 21 Oct 2022 11:12:13 GMT
+age: 122
+cache-control: max-age=3600
+```
+> TODO transition
+> public / privé
+> age
+
 ## code title="Caches *privés* uniquement"
 ```http type="request"
 GET /profile.html HTTP/1.1
@@ -897,34 +911,22 @@ HTTP/1.1 200 OK
 cache-control: private
 ```
 
-## code
+## code title="Caches *privés* et *partagés*"
+```http type="request"
+GET /avatar.jpg HTTP/1.1
+```
+```http type="response" hide
+HTTP/1.1 200 OK
+cache-control: public
+```
+
+## code title="Caches *privés* et *partagés*"
 ```http type="request"
 GET /avatar.jpg HTTP/1.1
 ```
 ```http type="response"
 HTTP/1.1 200 OK
 cache-control: public
-```
-> TODO transition
-> public / privé
-> age
-
-## code
-```http type="response"
-cache-control: private
-```
-```http type="response"
-cache-control: public
-```
-> TODO transition
-> public / privé
-> age
-
-## code
-```http type="response"
-date: Fri, 21 Oct 2022 11:12:13 GMT
-age: 122
-cache-control: max-age=3600
 ```
 > TODO transition
 > public / privé
@@ -969,36 +971,110 @@ schéma multi branche
 ⚡ *Premières* visites rapides
 > autre détails, ça n'est pas qu'une question de 2e visite
 
-## code
+## code title="Caches *privés* et *partagés*"
+<!-- ## code title="Caches *privés* uniquement" -->
+```http type="request"
+GET /index.html HTTP/1.1
+```
 ```http type="response"
-cache-control: s-maxage=[secondes]
+HTTP/1.1 200 OK
+cache-control: max-age=60
 ```
 
-## code
+## code title="Caches *partagés* uniquement"
+<!-- ## code title="Caches *privés* uniquement" -->
+```http type="request"
+GET /index.html HTTP/1.1
+```
 ```http type="response"
+HTTP/1.1 200 OK
+cache-control: s-maxage=60
+```
+
+## code title="Combinaisons"
+<!-- ## code title="Caches *privés* uniquement" -->
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: max-age=60, s-maxage=3600
+```
+
+## code title="Combinaisons"
+<!-- ## code title="Caches *privés* uniquement" -->
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: no-cache, s-maxage=3600
+```
+
+## blank
+
+## code
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
 cache-control: stale-if-error=[secondes]
 ```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=60, stale-if-error=86400
+```
 
 ## code
+```http type="request"
+GET /index.html HTTP/1.1
+```
 ```http type="response"
-cache-control: max-age=604800, stale-if-error=86400
+HTTP/1.1 200 OK
+cache-control: max-age=60, stale-if-error=86400
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=60, stale-if-error=86400
+```
+
+## code
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: max-age=60, stale-while-revalidate=3600, stale-if-error=86400
 ```
 > stale-if-error => pas possible de tester dans un navigateur
 > stale-if-error => pas possible de tester avec nginx
 
-## demo
-firefox Firefox 105
-terminal Serveur HTTP
+## text
+✅ Tu as le *droit* de servir du périmé <br> +si tu te prends+ une erreur
 
 ## code
 ```http type="response"
-cdn-cache-control: 
+HTTP/1.1 200 OK
+cdn-cache-control: ...
 ```
 
 ## code
 ```http type="response"
-surrogate-control: 
+HTTP/1.1 200 OK
+cloudflare-cdn-cache-control: ...
 ```
+
+## code
+```http type="response"
+HTTP/1.1 200 OK
+surrogate-control: ...
+```
+
+## blank
+
+## todo
+explication des clés cache
 
 ## code
 ```http type="response"
@@ -1082,7 +1158,7 @@ webpack
 ## todo
 schéma partage entre onglets
 
-## text todo
+## text
 ✂️ Cache *partitioning*
 
 ## todo
@@ -1117,8 +1193,9 @@ HTTP/2 push cache
 ## todo
 démo ?
 
-## todo
-early hints?
+## media
+<img src="src/img/early-hints-article.png" screenshot-url="https://developer.chrome.com/blog/early-hints/">
+> early hints
 
 ## section
 Appcache
@@ -1152,13 +1229,13 @@ Appcache
 ## todo
 exemple
 
-## todo
-article douchebag
+## media
+<img src="src/img/appcache-is-a-douchebag.png" screenshot-url="https://alistapart.com/article/application-cache-is-a-douchebag/">
 
 ## section
 Service Worker cache
 
-## subway stop=0
+## subway stop=10
 2. Memory cache
 3. Module map
 5.X ~Appcache~
@@ -1167,7 +1244,7 @@ Service Worker cache
 8. CDN
 9. Reverse proxy cache
 
-## subway stop=0 pop
+## subway stop=10 pop
 2. Memory cache
 3. Module map
 4. Service worker cache
@@ -1188,7 +1265,7 @@ Back/Forward cache
 
 <!-- Bfcache attention a vos script tiers -->
 
-## subway stop=0
+## subway stop=10
 2. Memory cache
 3. Module map
 4. Service worker cache
@@ -1198,7 +1275,7 @@ Back/Forward cache
 8. CDN
 9. Reverse proxy cache
 
-## subway stop=0 pop
+## subway stop=10 pop
 1. BF cache
 2. Memory cache
 3. Module map
@@ -1231,40 +1308,128 @@ marche pas pour les SPA
 <!-- * pour les recettes ce chart est parfait -->
   <!-- * https://simonhearne.com/2022/caching-header-best-practices/#general-recommendations -->
 
-## todo
-fichiers statiques qui ne changent pas
-nom avec hash
-(etag)
-max-age=31536000,immutable
+## code title="Fichiers *statiques* qui ne changent pas"
+```http type="request" hide
+GET /index.2cc645f2.css HTTP/1.1
+```
+```http type="response" hide
+HTTP/1.1 200 OK
+cache-control: max-age=31536000, immutable
+```
 
-## todo
-page dynamique mais pas de ouf
-etag
-max-age=600
+## code title="Fichiers *statiques* qui ne changent pas"
+```http type="request"
+GET /index.2cc645f2.css HTTP/1.1
+```
+```http type="response" hide
+HTTP/1.1 200 OK
+cache-control: max-age=31536000, immutable
+```
 
-## todo
-page dynamique mais...
-etag
-no-cache
+## code title="Fichiers *statiques* qui ne changent pas"
+```http type="request"
+GET /index.2cc645f2.css HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: max-age=31536000, immutable
+```
 
-## todo
-page ultra dynamique
-no-store
+## code title="Pages *dynamiques* (mais pas trop)"
+```http type="request" hide
+GET /mon-article.html HTTP/1.1
+```
+```http type="response" hide
+HTTP/1.1 200 OK
+etag: "11111111111-111"
+cache-control: max-age=120
+```
 
-## todo
-si ça compresse
-Vary: Accept-Encoding
-> mais c'est tout
+## code title="Pages *dynamiques* (mais pas trop)"
+```http type="request"
+GET /mon-article.html HTTP/1.1
+```
+```http type="response" hide
+HTTP/1.1 200 OK
+etag: "11111111111-111"
+cache-control: max-age=120
+```
+
+## code title="Pages *dynamiques* (mais pas trop)"
+```http type="request"
+GET /mon-article.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+etag: "11111111111-111"
+cache-control: max-age=120
+```
+
+## code title="Pages *dynamiques*"
+```http type="request" hide
+GET /scores-tennis.html HTTP/1.1
+```
+```http type="response" hide
+HTTP/1.1 200 OK
+etag: "11111111111-111"
+cache-control: no-cache
+```
+
+## code title="Pages *dynamiques*"
+```http type="request"
+GET /scores-tennis.html HTTP/1.1
+```
+```http type="response" hide
+HTTP/1.1 200 OK
+etag: "11111111111-111"
+cache-control: no-cache
+```
+
+## code title="Pages *dynamiques*"
+```http type="request"
+GET /scores-tennis.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+etag: "11111111111-111"
+cache-control: no-cache
+```
+
+## code title="*Pas* de cache"
+```http type="request"
+GET /ultra-dynamique.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: no-store
+```
+
+## code title="*Si* ça se +compresse+"
+```http type="request"
+GET /index.html HTTP/1.1
+accept-encoding: gzip, deflate, br
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: no-store
+vary: accept-encoding
+```
+
+## code title="*Si* c'est +spécifique+ au profil connecté"
+```http type="request"
+GET /index.html HTTP/1.1
+Cookie: session-id=42
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: private
+```
 
 ## todo
 stale-while-revalidate
 
-## todo
-normalement, vous aurez rarement besoin de public ou must-revalidate
-
 ## todo fade-from
-si c'est spécifique à l'utilisateur (API via cookie)
-private
+normalement, vous aurez rarement besoin de public ou must-revalidate
 
 ## blank black
 > TODO
