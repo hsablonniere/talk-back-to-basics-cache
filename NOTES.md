@@ -54,8 +54,6 @@
 * Il faut clarifier "qui mets les en-têtes" dev front ? back ?
   * où est-ce qu'on règle tel ou tel en-tête
 * Modifier le train qui part et qui revient => couleur différentes
-* pourquoi pas utiliser les stations X pour appcache et H2 push cache
-  * et du coup, changer l'usage du X pour BF cache
 * ajouter les GET /foo et les 200 OK
 * systématiser le
   * une directive => une phrase

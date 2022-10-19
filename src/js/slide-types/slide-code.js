@@ -56,24 +56,46 @@ defineSlideType('slide-code', {
       visibility: hidden;
     }
 
-    pre[label] {
+    pre[data-lang][hide-height] {
+      height: 0;
+      overflow: hidden;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    pre[type] {
       position: relative;
       margin-top: 1rem;
       padding-top: 1.5rem;
     }
 
-    pre[label]::before {
+    pre[type]::before {
       content: attr(label);
       display: block;
       background-color: #333;
       color: #fff;
       position: absolute;
       top: -1rem;
-      left: 1rem;
       height: 2rem;
       line-height: 2rem;
       padding: 0 0.5rem;
       border-radius: 0.25rem;
+    }
+
+    pre[type="request"]::before {
+      content: 'Requête HTTP ➡️';
+      left: 1rem;
+    }
+
+    pre[type="response"]::before {
+      content: '⬅️ Réponse HTTP';
+      right: 1rem;
+    }
+
+    pre[data-lang="http"] .hljs-meta {
+      color: #999 !important;
     }
 
     pre[data-lang="http"] .hljs-attribute {

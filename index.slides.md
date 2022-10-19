@@ -250,23 +250,22 @@ cache-control: no-cache
 cache-control: no-store
 cache-control: must-revalidate
 cache-control: immutable
+cache-control: stale-while-revalidate=?
 cache-control: private
 cache-control: public
 cache-control: s-maxage=?
-cache-control: proxy-revalidate
-cache-control: stale-while-revalidate=?
 cache-control: stale-if-error=?
 <!-- cache-control: no-transform -->
 ```
 
 ## code
 ```http
-etag: "183d1fe5a48-87c"
-if-none-match: "183d1fe5a48-87c"
+etag: "11111111111-111"
+if-none-match: "11111111111-111"
 ```
 ```http
-last-modified: Fri, 21 Oct 2022 11:20:10 GMT
-if-modified-since: Fri, 21 Oct 2022 11:20:10 GMT
+last-modified: Thu, 20 Oct 2022 11:20:00 GMT
+if-modified-since: Thu, 20 Oct 2022 11:20:00 GMT
 ```
 ```http
 vary: Accept-Encoding
@@ -285,10 +284,8 @@ Frontend *&* backend
 🤝
 Devs *&* ops
 
-<!-- 
-## text
-🫶 <br> *Tout le monde* a besoin de cache
- -->
+<!-- ## text -->
+<!-- 🫶 <br> *Tout le monde* a besoin de cache -->
 
 ## blank
 
@@ -296,8 +293,29 @@ Devs *&* ops
 Although caching is an entirely OPTIONAL feature of HTTP, it can be assumed that reusing a cached response is desirable and that such reuse is the default behavior when no requirement or local configuration prevents it. Therefore, HTTP cache requirements are focused on preventing a cache from either storing a non-reusable response or reusing a stored response inappropriately, rather than mandating that caches always store and reuse particular responses. -->
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response" hide
+HTTP/1.1 200 OK
 cache-control: ...
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=[secondes]
+```
+
+## code
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: ...
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=[secondes]
 ```
 > l'en-tête le plus important, c'est cache-control
 > il peut être utilisé dans une requête ou dans une réponse
@@ -305,10 +323,14 @@ cache-control: ...
 > en valeur de cache-control, on va pouvoir mettre une ou plusieurs directive séparées par des virgules
 
 ## code
-```http label="Requête HTTP ➡️"
-GET /index.css HTTP/1.1
+```http type="request"
+GET /index.html HTTP/1.1
 ```
-```http label="⬅️ Réponse HTTP"
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: max-age=[secondes]
+```
+```http type="response" hide-height
 HTTP/1.1 200 OK
 cache-control: max-age=[secondes]
 ```
@@ -332,7 +354,7 @@ cache-control: max-age=[secondes]
 > un cache peut décider à n'importe quel moment de virer une ressource (fréquence des demandes, tailles du disque...)
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="response"
 HTTP/1.1 200 OK
 cache-control: max-age=[secondes]
 ```
@@ -349,7 +371,7 @@ cache-control: max-age=[secondes]
 ✋ *Périmé* +après+ X secondes
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="response"
 HTTP/1.1 200 OK
 date: Fri, 21 Oct 2022 11:12:13 GMT
 cache-control: max-age=[secondes]
@@ -383,52 +405,65 @@ terminal Serveur HTTP
 🤙 *Revalidation* avec le serveur
 > quand c'est périmé, il doit faire une requête de validation pour savoir si ce qu'il a en cache peut-être utilisé
 
-## code
-```http label="⬅️ Réponse HTTP"
-etag: "183d1fe5a48-87c"
+## text
+🏷️ etag
+
+## code title="*Première* requête"
+```http type="request"
+GET /index.html HTTP/1.1
 ```
-```http label="Requête HTTP ➡️" hide
-if-none-match: "183d1fe5a48-87c"
+```http type="response" hide
+HTTP/1.1 200 OK
+etag: "11111111111-111"
 ```
 
-## code
-```http label="Requête HTTP ➡️"
-GET /index.html
+## code title="*Première* requête"
+```http type="request"
+GET /index.html HTTP/1.1
 ```
-```http label="⬅️ Réponse HTTP" hide
-200 OK
-etag: "183d1fe5a48-87c"
-```
-
-## code
-```http label="Requête HTTP ➡️"
-GET /index.html
-```
-```http label="⬅️ Réponse HTTP"
-200 OK
-etag: "183d1fe5a48-87c"
+```http type="response"
+HTTP/1.1 200 OK
+etag: "11111111111-111"
 ```
 
-## blank
-
-## code
-```http label="Requête HTTP ➡️"
-GET /index.html
-if-none-match: "183d1fe5a48-87c"
+## code title="Requêtes *suivantes*"
+```http type="request" hide
+GET /index.html HTTP/1.1
+if-none-match: "11111111111-111"
 ```
-```http label="⬅️ Réponse HTTP" hide
+```http type="response" hide
+HTTP/1.1 200 OK
+etag: "11111111111-111"
+```
+
+## code title="Requêtes *suivantes*"
+```http type="request"
+GET /index.html HTTP/1.1
+if-none-match: "11111111111-111"
+```
+```http type="response" hide
+HTTP/1.1 200 OK
+etag: "11111111111-111"
+```
+
+## code title="304 : *pas* de changement"
+```http type="request"
+GET /index.html HTTP/1.1
+if-none-match: "11111111111-111"
+```
+```http type="response"
 HTTP/1.1 304 Not Modified
-etag: "183d1fe5a48-87c"
+etag: "11111111111-111"
 ```
 
-## code
-```http label="Requête HTTP ➡️"
-GET /index.html
-if-none-match: "183d1fe5a48-87c"
+## code title="200 : *nouveau* contenu"
+```http type="request"
+GET /index.html HTTP/1.1
+if-none-match: "11111111111-111"
 ```
-```http label="⬅️ Réponse HTTP"
-HTTP/1.1 304 Not Modified
-etag: "183d1fe5a48-87c"
+```http type="response"
+HTTP/1.1 200 OK
+etag: "22222222222-222"
 ```
 > weak etag vs strong etag
 > lien avec les range requests
@@ -437,20 +472,65 @@ etag: "183d1fe5a48-87c"
 firefox Firefox 105
 terminal Serveur HTTP
 
-## code
-```http label="⬅️ Réponse HTTP"
-last-modified: Fri, 21 Oct 2022 11:20:10 GMT
+## text
+📅 last-modified
+
+## code title="*Première* requête"
+```http type="request"
+GET /index.html HTTP/1.1
 ```
-```http label="Requête HTTP ➡️" hide
-if-modified-since: Fri, 21 Oct 2022 11:20:10 GMT
+```http type="response" hide
+HTTP/1.1 200 OK
+last-modified: Thu, 20 Oct 2022 11:20:00 GMT
 ```
 
-## code
-```http label="⬅️ Réponse HTTP"
-last-modified: Fri, 21 Oct 2022 11:20:10 GMT
+## code title="*Première* requête"
+```http type="request"
+GET /index.html HTTP/1.1
 ```
-```http label="Requête HTTP ➡️"
-if-modified-since: Fri, 21 Oct 2022 11:20:10 GMT
+```http type="response"
+HTTP/1.1 200 OK
+last-modified: Thu, 20 Oct 2022 11:20:00 GMT
+```
+
+## code title="Requêtes *suivantes*"
+```http type="request" hide
+GET /index.html HTTP/1.1
+if-modified-since: Thu, 20 Oct 2022 11:20:00 GMT
+```
+```http type="response" hide
+HTTP/1.1 200 OK
+last-modified: Thu, 20 Oct 2022 11:20:00 GMT
+```
+
+## code title="Requêtes *suivantes*"
+```http type="request"
+GET /index.html HTTP/1.1
+if-modified-since: Thu, 20 Oct 2022 11:20:00 GMT
+```
+```http type="response" hide
+HTTP/1.1 200 OK
+last-modified: Thu, 20 Oct 2022 11:20:00 GMT
+```
+
+## code title="304 : *pas* de changement"
+```http type="request"
+GET /index.html HTTP/1.1
+if-modified-since: Thu, 20 Oct 2022 11:20:00 GMT
+```
+```http type="response"
+HTTP/1.1 304 Not Modified
+last-modified: Thu, 20 Oct 2022 11:20:00 GMT
+```
+
+## code title="200 : *nouveau* contenu"
+```http type="request"
+GET /index.html HTTP/1.1
+if-modified-since: Thu, 20 Oct 2022 11:20:00 GMT
+```
+```http type="response"
+HTTP/1.1 200 OK
+last-modified: Fri, 21 Oct 2022 06:00:00 GMT
 ```
 
 ## demo
@@ -473,15 +553,34 @@ terminal Serveur HTTP
 🤙 *Forcer* la revalidation
 
 ## code
-```http label="Requête HTTP ➡️"
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response" hide
+HTTP/1.1 200 OK
+cache-control: max-age=0
+```
+
+## code
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
 cache-control: max-age=0
 ```
 
 <!-- https://stackoverflow.com/questions/1046966/whats-the-difference-between-cache-control-max-age-0-and-no-cache -->
 <!-- Semantically; not much. It's shorter, though. – Mark Nottingham Apr 20, 2013 at 7:08 -->
 <!-- https://web.archive.org/web/20140811162719/http://palizine.plynt.com/issues/2008Jul/cache-control-attributes/ -->
+
+
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
 cache-control: no-cache
 ```
 > si vous voulez éviter ce comportement
@@ -495,27 +594,59 @@ ATTENTION !
 <br>
 +no-cache+ `!==` pas de cache
 
+## text
+✅ Tu as le *droit* de cacher ça
+
+## text
+🤙 Revalide *tout le temps*
+
 ## demo
 firefox Firefox 105
 terminal Serveur HTTP
 
-## text
-⛔ Tu n'as *pas le droit* de cacher ça
+## code
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response" hide
+HTTP/1.1 200 OK
+cache-control: no-store
+```
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
 cache-control: no-store
 ```
 > à l'inverse si on ne veut pas que le navigateur cache qqchose
 > on utilise cache-control: no-store
 > avec ça, on lui dit "tu n'as pas le droit de cacher ça"
 
+## text
+⛔ Tu n'as *pas le droit* de cacher ça
+
 ## demo
 firefox Firefox 105
 terminal Serveur HTTP
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response" hide
+HTTP/1.1 200 OK
+cache-control: must-revalidate
+```
+
+## code
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
 cache-control: must-revalidate
 ```
 > TODO, il me faut une demo avec nginx
@@ -526,15 +657,47 @@ cache-control: must-revalidate
 > https://www.fastly.com/blog/cache-control-wild
 > Furthermore, almost 80% of responses with must-revalidate also included no-cache or no-store, which override it. I suspect this is because a lot of folks aren’t sure what different directives do, so they “throw the kitchen sink” at caches.
 
+## text
+🤙 Revalide quand c'est *périmé*
+
 ## demo
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="request"
+GET /index.css HTTP/1.1
+```
+```http type="response" hide
+HTTP/1.1 200 OK
 cache-control: immutable
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=31536000, immutable
 ```
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="request"
+GET /index.css HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: immutable
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=31536000, immutable
+```
+
+## code
+```http type="request"
+GET /index.css HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: max-age=31536000, immutable
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
 cache-control: max-age=31536000, immutable
 ```
 > mentionner la RFC
@@ -542,27 +705,39 @@ cache-control: max-age=31536000, immutable
 > à quel moment parler de noms des fichiers et de cache busting
 > article des mise à jour de jake
 
+## text
+🔄 *Pas* de revalidation <br> en cas de +rechargement+
+
 ## demo
 webkit WebKitGTK (Safari 15)
 terminal Serveur HTTP
 
-## code
+<!-- ## code
 ```http label="⬅️ Requête HTTP"
 cache-control: max-age
-```
+``` -->
 
 ## demo
 firefox Firefox 105
 terminal Serveur HTTP
 
-## code
+<!-- ## code
 ```http label="⬅️ Requête HTTP"
 cache-control: no-cache
-```
+``` -->
 
 ## demo
 chromium Chromium 106
 terminal Serveur HTTP
+
+## code title="*Longue* expiration"
+```http type="request"
+GET /index.2cc645f2.css HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: max-age=31536000, immutable
+```
 
 <!-- > https://www.rfc-editor.org/rfc/rfc8246
 > à priori, la différence, c'est quand tu F5 une page
@@ -574,53 +749,81 @@ terminal Serveur HTTP
 > Chrome 53/54
 > https://blog.chromium.org/2017/01/reload-reloaded-faster-and-leaner-page_26.html -->
 
+## blank
+
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="request"
+GET /avatar.jpg HTTP/1.1
+```
+```http type="response" hide
+HTTP/1.1 200 OK
 cache-control: stale-while-revalidate=[secondes]
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=604800, stale-while-revalidate=86400
+```
+
+## code
+```http type="request"
+GET /avatar.jpg HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: stale-while-revalidate=[secondes]
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=604800, stale-while-revalidate=86400
 ```
 > RFC
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="request"
+GET /avatar.jpg HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
 cache-control: max-age=604800, stale-while-revalidate=86400
 ```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=604800, stale-while-revalidate=86400
+```
+
+## text
+✅ Tu as le *droit* de servir du périmé <br> +pendant+ X secondes
+
+## text
+🤙 Mais en *parallèle* <br> tu +revalides+
 
 ## demo
 firefox Firefox 105
 terminal Serveur HTTP
 
 ## code title="En-têtes *obsolètes*"
-```http label="⬅️ Requête HTTP" hide
+```http type="request"
+GET /index.html HTTP/1.1
 Pragma: no-cache
-```
-```http label="⬅️ Réponse HTTP" hide
-Expires: Fri, 21 Oct 2022 11:12:13 GMT
 ```
 
 ## code title="En-têtes *obsolètes*"
-```http label="⬅️ Requête HTTP"
-Pragma: no-cache
-```
-```http label="⬅️ Réponse HTTP" hide
-Expires: Fri, 21 Oct 2022 11:12:13 GMT
-```
-
-## code title="En-têtes *obsolètes*"
-```http label="⬅️ Requête HTTP"
-Pragma: no-cache
-```
-```http label="⬅️ Réponse HTTP"
+```http type="response"
+HTTP/1.1 200 OK
 Expires: Fri, 21 Oct 2022 11:12:13 GMT
 ```
 
 ## todo
 un post invalide un get
 
+## subway stop=10
+6. Cache navigateur
+
 ## text
-🕵️‍♀️ Cache *privé* vs. cache *partagé*
+🕵️‍♀️ Caches *privés* vs. cache *partagés*
 
 ## section
-Reverse proxy
+Reverse proxy cache
 
 ## subway stop=10
 6. Cache navigateur
@@ -676,11 +879,30 @@ Reverse proxy
 ## media white
 <img src="src/img/diagram-subway-shared-reverse-proxy.svg">
 
-## code
-```http label="⬅️ Réponse HTTP"
+## code title="Caches *privés* uniquement"
+```http type="request"
+GET /profile.html HTTP/1.1
+```
+```http type="response" hide
+HTTP/1.1 200 OK
 cache-control: private
 ```
-```http label="⬅️ Réponse HTTP" hide
+
+## code title="Caches *privés* uniquement"
+```http type="request"
+GET /profile.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: private
+```
+
+## code
+```http type="request"
+GET /avatar.jpg HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
 cache-control: public
 ```
 > TODO transition
@@ -688,10 +910,10 @@ cache-control: public
 > age
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="response"
 cache-control: private
 ```
-```http label="⬅️ Réponse HTTP"
+```http type="response"
 cache-control: public
 ```
 > TODO transition
@@ -699,7 +921,7 @@ cache-control: public
 > age
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="response"
 date: Fri, 21 Oct 2022 11:12:13 GMT
 age: 122
 cache-control: max-age=3600
@@ -748,17 +970,17 @@ schéma multi branche
 > autre détails, ça n'est pas qu'une question de 2e visite
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="response"
 cache-control: s-maxage=[secondes]
 ```
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="response"
 cache-control: stale-if-error=[secondes]
 ```
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="response"
 cache-control: max-age=604800, stale-if-error=86400
 ```
 > stale-if-error => pas possible de tester dans un navigateur
@@ -769,22 +991,22 @@ firefox Firefox 105
 terminal Serveur HTTP
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="response"
 cdn-cache-control: 
 ```
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="response"
 surrogate-control: 
 ```
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="response"
 vary: [en-tête]
 ```
 
 ## code
-```http label="⬅️ Réponse HTTP"
+```http type="response"
 vary: accept-encoding
 ```
 
@@ -801,7 +1023,7 @@ schéma vary
 <img src="src/img/fastly-vary.png" screenshot-url="https://www.fastly.com/blog/best-practices-using-vary-header">
 
 <!-- ## code
-```http label="⬅️ Réponse HTTP"
+```http type="response"
 cache-control: no-transform
 ``` -->
 
@@ -888,7 +1110,7 @@ HTTP/2 push cache
 2. Memory cache
 3. Module map
 6. Disk cache
-7. ~HTTP/2 push cache~
+7.X ~HTTP/2 push cache~
 8. CDN
 9. Reverse proxy cache
 
@@ -905,7 +1127,7 @@ Appcache
 2. Memory cache
 3. Module map
 6. Disk cache
-7. ~HTTP/2 push cache~
+7.X ~HTTP/2 push cache~
 8. CDN
 9. Reverse proxy cache
 
@@ -914,16 +1136,16 @@ Appcache
 3. Module map
 5. Appcache
 6. Disk cache
-7. ~HTTP/2 push cache~
+7.X ~HTTP/2 push cache~
 8. CDN
 9. Reverse proxy cache
 
 ## subway stop=10
 2. Memory cache
 3. Module map
-5. ~Appcache~
+5.X ~Appcache~
 6. Disk cache
-7. ~HTTP/2 push cache~
+7.X ~HTTP/2 push cache~
 8. CDN
 9. Reverse proxy cache
 
@@ -939,25 +1161,19 @@ Service Worker cache
 ## subway stop=0
 2. Memory cache
 3. Module map
-4. Service worker cache
+5.X ~Appcache~
+7.X ~HTTP/2 push cache~
 6. Disk cache
 8. CDN
 9. Reverse proxy cache
 
-## subway stop=0
-2. Memory cache
-3. Module map
-5. Appcache
-6. Disk cache
-8. CDN
-9. Reverse proxy cache
-
-## subway stop=0
+## subway stop=0 pop
 2. Memory cache
 3. Module map
 4. Service worker cache
-5.X Appcache
+5.X ~Appcache~
 6. Disk cache
+7.X ~HTTP/2 push cache~
 8. CDN
 9. Reverse proxy cache
 
@@ -973,37 +1189,38 @@ Back/Forward cache
 <!-- Bfcache attention a vos script tiers -->
 
 ## subway stop=0
+2. Memory cache
+3. Module map
+4. Service worker cache
+5.X ~Appcache~
+6. Disk cache
+7.X ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=0 pop
 1. BF cache
 2. Memory cache
 3. Module map
 4. Service worker cache
-5. ~Appcache~
+5.X ~Appcache~
 6. Disk cache
-7. ~HTTP/2 push cache~
+7.X ~HTTP/2 push cache~
 8. CDN
 9. Reverse proxy cache
 
 ## subway stop=10 title="Navigations normales"
-1.X BF cache
 2. Memory cache
 3. Module map
 4. Service worker cache
-5. ~Appcache~
+5.X ~Appcache~
 6. Disk cache
-7. ~HTTP/2 push cache~
+7.X ~HTTP/2 push cache~
 8. CDN
 9. Reverse proxy cache
 
 ## subway stop=1 title="Historique via précédent/suivant"
 1. BF cache
-2. Memory cache
-3. Module map
-4. Service worker cache
-5. ~Appcache~
-6. Disk cache
-7. ~HTTP/2 push cache~
-8. CDN
-9. Reverse proxy cache
 
 ## todo
 démo
