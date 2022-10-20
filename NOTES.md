@@ -38,6 +38,13 @@
 ## TODO
 
 * Clarifier le vary
+* scenar démo lm-nc
+* scenar démo cc-ns
+* scenar démo immutable
+* scenar démo stale-while-revalidate
+* démo reverse proxy avec carte aléatoire
+* peut-être regrouper ensemble l'ajout de reverse proxy et CDN pour ensuite parler des headers privé/public
+
 * Ajouter la RFC pour cdn-cache-control
 * Préciser que cdn-cache-control et surrogate control, c'est CDN only
 * Préciser de lire la doc de chaque CDN
@@ -45,19 +52,19 @@
   * des couches successives de cache (privé et partagé)
   * des en-tête, principalement sur les réponses pour dire à toute la chaine quoi faire
   * ça concerne le front, le back, les ops
-* Préciser ce que c'est un en-tête HTTP
-  * Peut-être au premier exemple de code
-* Préciser "caché" = mettre en cache (petite blague)
-* Mieux mettre en avant la différence requête / réponse
+<!-- * Mieux mettre en avant la différence requête / réponse -->
 * Avoir une idée de combien on va voir d'en-tête et de directives
   * ça peut aider à apréhender
 * Il faut clarifier "qui mets les en-têtes" dev front ? back ?
   * où est-ce qu'on règle tel ou tel en-tête
 * Modifier le train qui part et qui revient => couleur différentes
-* ajouter les GET /foo et les 200 OK
+<!-- * ajouter les GET /foo et les 200 OK -->
 * systématiser le
   * une directive => une phrase
 * mentionner que toutes les directives évoquées concernes les caches partagés et privés
+<!-- * Préciser ce que c'est un en-tête HTTP -->
+  <!-- * Peut-être au premier exemple de code -->
+<!-- * Préciser "caché" = mettre en cache (petite blague) -->
 
 Timing :
 
@@ -115,3 +122,18 @@ Timing :
 01.00 - Conclusion
 ---
 TOTAL => 1.10.00
+
+## timing
+
+00:00 intro
+01:30 bonjour
+05:00 on commence à lister les directives de cache control
+  * pourquoi pas rester en "ça existe"
+28:00 cache privés / partagés
+39:00 vary
+45:00 couches
+  * pourquoi moins de démo sur cette partie
+  * garde les démos
+55:00 recettes
+57:00 conclusion
+58:00 STOP

@@ -1,5 +1,6 @@
 import path from 'node:path';
 import { Readable } from 'node:stream';
+import fs from 'fs/promises';
 
 // try to add context.responseStatus 200
 // try to add context.responseHeaders['content-type']
@@ -23,6 +24,7 @@ export function dynamicPage (options = {}) {
     try {
 
       const page = await import(filepath + '.js');
+      const pageStats = await getFileStats(filepath + '.js');
       const body = await page.render(context);
       const contentType = filepath.endsWith('.svg') ? 'image/svg+xml' : null;
 
@@ -35,6 +37,7 @@ export function dynamicPage (options = {}) {
           'content-type': contentType,
           // 'cache-control': 'no-store, no-cache, max-age=0, must-revalidate',
         },
+        responseModificationDate: pageStats.mtime,
         responseStatus: 200,
         responseBody: Readable.from(body),
       };
@@ -44,4 +47,14 @@ export function dynamicPage (options = {}) {
       // console.error(e);
     }
   };
+}
+
+async function getFileStats (filepath) {
+  try {
+    const stats = await fs.stat(filepath);
+    return stats.isFile() ? stats : null;
+  }
+  catch (e) {
+    return null;
+  }
 }

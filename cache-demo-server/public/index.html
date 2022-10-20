@@ -18,15 +18,19 @@
   <li><a href="/etag-simple/"><code>etag: X</code></a></li>
   <li><a href="/etag-cc-ma-10/"><code>etag: X & cache-control: max-age=10</code></a></li>
   <li><a href="/lm-simple/"><code>last-modified: X</code></a></li>
-  <li><a href="/lm-cc-ma-10/"><code>last-modified: X & cache-control: max-age=10</code></a></li>
+<!--  <li><a href="/lm-cc-ma-10/"><code>last-modified: X & cache-control: max-age=10</code></a></li>-->
   <li><a href="/lm-cc-nc/"><code>last-modified: X & cache-control: no-cache</code></a></li>
   <li><a href="/cc-ns/"><code>cache-control: no-store</code></a></li>
-  <li><a href="/etag-cc-ma-10-mr/"><code>etag: X & cache-control: max-age=10, must-revalidate</code></a></li>
+<!--  <li><a href="/etag-cc-ma-10-mr/"><code>etag: X & cache-control: max-age=10, must-revalidate</code></a></li>-->
   <li><a href="/etag-cc-ma-31536000/"><code>etag: X & cache-control: max-age=31536000</code></a></li>
   <li><a href="/etag-cc-ma-31536000-immutable/"><code>etag: X & cache-control: max-age=31536000, immutable</code></a></li>
   <li><a href="/etag-cc-ma-10-swr-20/"><code>etag: X & cache-control: max-age=10, stale-while-revalidate-20</code></a></li>
 <!--  <li><a href="/etag-cc-ma-10-swr-20-mr/"><code>etag: X & cache-control: max-age=10, state-while-revalidate-20, must-revalidate</code></a></li>-->
   <li><a href="/etag-cc-ma-10-sie-20/"><code>etag: X & cache-control: max-age=10, stale-if-error-20</code></a></li>
+  <li><a href="/accept-language/"><code>accept-language</code></a></li>
+  <li><a href="/accept-language-vary/"><code>accept-language, vary</code></a></li>
+  <li><a href="http://example-foo.com:8081/partitioning/"><code>partitioning (foo)</code></a></li>
+  <li><a href="http://example-bar.com:8081/partitioning/"><code>partitioning (bar)</code></a></li>
 </ul>
 
 </body>

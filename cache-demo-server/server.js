@@ -74,7 +74,22 @@ let hititipiSetup = hititipi(
       ])),
       startsWith('/etag-cc-ma-10-sie-20/', chainAll([
         notModified({ etag: true }),
-        cacheControl({ 'max-age': 10, 'stale-if-error': 20 }),
+        cacheControl({ 'max-age': 10, 'stale-if-error': 3600 }),
+      ])),
+      startsWith('/accept-language/', chainAll([
+        cacheControl({ 'max-age': 10 }),
+      ])),
+      startsWith('/accept-language-vary/', chainAll([
+        cacheControl({ 'max-age': 10 }),
+        (context) => {
+          return {
+            ...context,
+            responseHeaders: {
+              ...context.responseHeaders,
+              'vary': 'accept-language',
+            },
+          };
+        },
       ])),
 
       (context) => {
@@ -83,8 +98,8 @@ let hititipiSetup = hititipi(
         }
         return {
           ...context,
-          responseBody: Readable.from('Not Found'),
-          responseStatus: 404,
+          responseBody: Readable.from('503 Service Unavailable'),
+          responseStatus: 503,
         };
       },
 

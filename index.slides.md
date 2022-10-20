@@ -291,6 +291,7 @@ Devs *&* ops
 <!-- 🫶 <br> *Tout le monde* a besoin de cache -->
 
 ## blank
+> @00:05:00@
 
 <!-- https://www.rfc-editor.org/rfc/rfc9111#name-overview-of-cache-operation
 Although caching is an entirely OPTIONAL feature of HTTP, it can be assumed that reusing a cached response is desirable and that such reuse is the default behavior when no requirement or local configuration prevents it. Therefore, HTTP cache requirements are focused on preventing a cache from either storing a non-reusable response or reusing a stored response inappropriately, rather than mandating that caches always store and reuse particular responses. -->
@@ -386,11 +387,17 @@ cache-control: max-age=[secondes]
 ## demo
 _
 terminal Serveur HTTP
+> Expliquer le setup des démos
 
 ## demo
 firefox Firefox 105
 terminal Serveur HTTP
-> Expliquer le setup des démos
+> Le cache doit être vide => Ctrl+Shift+Suppr
+> Charger l'accueil des démos
+> Ouvrir un onglet
+> Ouvrir les devtools
+> Montrer qu'on peut choisir les colonnes
+> ouvrir le #cc-ma-10#
 
 ## text
 🤔 Et quand c'est *périmé* ?
@@ -399,17 +406,20 @@ terminal Serveur HTTP
 ## demo
 firefox Firefox 105
 terminal Serveur HTTP
-> le navigateur ne le supprime pas instantanément
-> il peut décider de le garder en cache 
-> montrer about:cache
+> Maximiser le firefox
+> Taper la page about:cache et aller voir le cache disque
+> On voit bien la date et la date d'expiration calculée avec 10s de +
+> => le navigateur ne le supprime pas tout de suite ce qui est périmé
 > il a ses propre règles pour savoir quand virer des trucs et pourquoi
+> Ne pas oublier de re-minimiser le firefox avant de partir
 
 ## text
 🤙 *Revalidation* avec le serveur
+> Il garde la réponse en cache pour pouvoir faire une revalidation avec le serveur la prochaine fois
 > quand c'est périmé, il doit faire une requête de validation pour savoir si ce qu'il a en cache peut-être utilisé
 
 ## text
-🏷️ etag
+🏷️ Requête +conditionnelle+ <br> avec *etag*
 
 ## code title="*Première* requête"
 ```http type="request"
@@ -474,9 +484,25 @@ etag: "22222222222-222"
 ## demo
 firefox Firefox 105
 terminal Serveur HTTP
+> clean le serveur
+> clean le firefox
+> ouvrir #etag-simple#
+> constater les requêtes avec 200
+> aller sur un autre site
+> revenir sur #etag-simple#
+> constater les requêtes avec *if-none-match* envoyées par le client
+> elles sont reçues par le serveur,
+> le etag est le même, donc le serveur renvoie des 304
+> avec cette config, le navigateur n'utilisera jamais son cache directement
+> il fera tout de suite une revalidation avec le serveur.
+> Si on combine un etag avec un cache-control: max-age=10
+> on aura bien une période de 10 secondes où le navigateur utilise directement le cache
+> et une fois périmé, il déclenche une revalidation
 
 ## text
-📅 last-modified
+📅 Requête +conditionnelle+ <br> avec *last-modified*
+> L'autre manière de faire de la revalidation conditionnelle
+> c'est avec des dates
 
 ## code title="*Première* requête"
 ```http type="request"
@@ -539,21 +565,41 @@ last-modified: Fri, 21 Oct 2022 06:00:00 GMT
 ## demo
 firefox Firefox 105
 terminal Serveur HTTP
+> clean le serveur
+> clean le firefox
+> ouvrir #lm-simple#
+> constater les requêtes avec 200
+> aller sur un autre site
+> revenir sur #lm-simple#
+> constater que ça ne fait pas de requête au serveur
+> ça utilise le cache
+> c'est parce que dans la RFC, ils y a une partie
 
 ## text
 <!-- 😬 Cache *heuristique* -->
 🙈 Cache *heuristique*
-> si tu n'as que des last-modified
-> et pas de cache control
-> un cache peut rentrer en mode "heuristique"
-> et considérer la réponse fraiche pendant pas plus que 10% de maintenant - last modified
+> cache heuristique
+> qui dit en gros :
+> si un cache a une avec last-modified mais pas de cache control
+> (donc pas d'expiration explicite)
+> on peut calculer une date d'expiration basée sur des "heuristiques" qui sont un peu libre
+> la spec impose que tu ne peux pas considérer une réponse fraiche + de 10% de son age
+> tu reçois une réponse, elle a un last-modified d'il y a 10 mois
+> tu peux la considérer fraîche pendant maximum 1 mois
+> après, c'est un peu aléatoire
 
 ## demo
 firefox Firefox 105
 terminal Serveur HTTP
+> montrer les last-modified différents
+> montrer about:cache
+> expliquer que le last-modified est étrange
+> montrer qu'il y a une date d'expiration calculée
+> c'est un peu risqué
 
 ## text
 🤙 *Forcer* la revalidation
+> C'est à mon avis mieux de maitriser la revalidation
 
 ## code
 ```http type="request"
@@ -588,9 +634,8 @@ cache-control: no-cache
 ```
 > si vous voulez éviter ce comportement
 > et forcer une validation
-> vous pouvez utilise max-age=0 (mais il parait que chrome fait comme si c'était 10)
+> vous pouvez utilise max-age=0
 > à la place, vous pouvez utiliser no-cache
-> no-cache
 
 ## lapin
 ATTENTION !
@@ -606,6 +651,7 @@ ATTENTION !
 ## demo
 firefox Firefox 105
 terminal Serveur HTTP
+> montrer lm-nc
 
 ## code
 ```http type="request"
@@ -634,6 +680,7 @@ cache-control: no-store
 ## demo
 firefox Firefox 105
 terminal Serveur HTTP
+> montrer que Firefox ne stock rien
 
 ## code
 ```http type="request"
@@ -661,7 +708,7 @@ cache-control: must-revalidate
 > Furthermore, almost 80% of responses with must-revalidate also included no-cache or no-store, which override it. I suspect this is because a lot of folks aren’t sure what different directives do, so they “throw the kitchen sink” at caches.
 
 ## text
-🤙 Revalide si c'est *périmé*
+🤙 Revalide +si+ c'est *périmé*
 
 ## demo
 
@@ -715,10 +762,9 @@ cache-control: max-age=31536000, immutable
 webkit WebKitGTK (Safari 15)
 terminal Serveur HTTP
 
-<!-- ## code
-```http label="⬅️ Requête HTTP"
-cache-control: max-age
-``` -->
+## demo
+chromium Chromium 106
+terminal Serveur HTTP
 
 ## demo
 firefox Firefox 105
@@ -726,12 +772,13 @@ terminal Serveur HTTP
 
 <!-- ## code
 ```http label="⬅️ Requête HTTP"
-cache-control: no-cache
+cache-control: max-age
 ``` -->
 
-## demo
-chromium Chromium 106
-terminal Serveur HTTP
+<!-- ## code
+```http label="⬅️ Requête HTTP"
+cache-control: no-cache
+``` -->
 
 ## code title="*Longue* expiration"
 ```http type="request"
@@ -781,6 +828,12 @@ cache-control: max-age=604800, stale-while-revalidate=86400
 ```
 > RFC
 
+## text
+✅ Tu as le *droit* de servir du périmé <br> +pendant+ X secondes,
+
+## text
+🤙 mais en *parallèle* <br> tu +revalides+
+
 ## code
 ```http type="request"
 GET /avatar.jpg HTTP/1.1
@@ -793,12 +846,6 @@ cache-control: max-age=604800, stale-while-revalidate=86400
 HTTP/1.1 200 OK
 cache-control: max-age=604800, stale-while-revalidate=86400
 ```
-
-## text
-✅ Tu as le *droit* de servir du périmé <br> +pendant+ X secondes,
-
-## text
-🤙 mais en *parallèle* <br> tu +revalides+
 
 ## demo
 firefox Firefox 105
@@ -821,6 +868,7 @@ un post invalide un get
 
 ## subway stop=10
 6. Cache navigateur
+> @00:28:00@
 
 ## text
 🕵️‍♀️ Caches *privés* vs. cache *partagés*
@@ -1026,6 +1074,9 @@ HTTP/1.1 200 OK
 cache-control: max-age=60, stale-if-error=86400
 ```
 
+## text
+✅ Tu as le *droit* de servir du périmé <br> +si tu reçois+ une erreur
+
 ## code
 ```http type="request"
 GET /index.html HTTP/1.1
@@ -1050,9 +1101,6 @@ cache-control: max-age=60, stale-while-revalidate=3600, stale-if-error=86400
 > stale-if-error => pas possible de tester dans un navigateur
 > stale-if-error => pas possible de tester avec nginx
 
-## text
-✅ Tu as le *droit* de servir du périmé <br> +si tu te prends+ une erreur
-
 ## code
 ```http type="response"
 HTTP/1.1 200 OK
@@ -1071,23 +1119,32 @@ HTTP/1.1 200 OK
 surrogate-control: ...
 ```
 
-## blank
+## code
+```http type="response"
+HTTP/1.1 200 OK
+X-Accel-Expires: [secondes]
+```
 
-## todo
-explication des clés cache
+## blank
 
 ## code
 ```http type="response"
 vary: [en-tête]
 ```
+> @00:39:00@
+
+## demo
+
+## demo
+firefox Firefox 105
+chromium Chromium 106
+terminal Serveur HTTP
 
 ## code
 ```http type="response"
 vary: accept-encoding
 ```
-
-## todo
-schéma vary
+> explication des clés cache
 
 ## media
 <img src="src/img/jake-archibald-vary.png" screenshot-url="https://jakearchibald.com/2014/browser-cache-vary-broken/">
@@ -1105,6 +1162,7 @@ cache-control: no-transform
 
 ## section
 Disk cache
+> @00:45:00@
 
 ## subway stop=10
 6. Cache navigateur
@@ -1161,8 +1219,9 @@ schéma partage entre onglets
 ## text
 ✂️ Cache *partitioning*
 
-## todo
-démo avec des domaines différents
+## demo
+firefox Firefox 105
+terminal Serveur HTTP
 
 ## section
 HTTP/2 push cache
@@ -1305,6 +1364,7 @@ marche pas pour les SPA
 
 ## text
 🧑‍🍳 Recettes
+> @00:55:00@
 <!-- * pour les recettes ce chart est parfait -->
   <!-- * https://simonhearne.com/2022/caching-header-best-practices/#general-recommendations -->
 
@@ -1430,6 +1490,10 @@ stale-while-revalidate
 
 ## todo fade-from
 normalement, vous aurez rarement besoin de public ou must-revalidate
+
+## text fade-from
+⏱️
+Mesurez, testez...
 
 ## blank black
 > TODO
