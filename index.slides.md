@@ -946,7 +946,7 @@ un post invalide un get -->
 
 ## subway stop=10
 6. Cache navigateur
-> @00:26:00@
+> @00:23:30@
 
 ## text
 🕵️‍♀️ Caches *privés* vs. cache *partagés*
@@ -1269,7 +1269,7 @@ cache-control: no-transform
 
 ## section
 Disk cache
-> @00:45:00@
+> @00:38:00@
 
 ## subway stop=10
 6. Cache navigateur

@@ -76,10 +76,10 @@ let hititipiSetup = hititipi(
         notModified({ etag: true }),
         cacheControl({ 'max-age': 10, 'stale-if-error': 3600 }),
       ])),
-      startsWith('/accept-language/', chainAll([
+      startsWith('/hello/', chainAll([
         cacheControl({ 'max-age': 10 }),
       ])),
-      startsWith('/accept-language-vary/', chainAll([
+      startsWith('/hello-vary/', chainAll([
         cacheControl({ 'max-age': 10 }),
         (context) => {
           return {
