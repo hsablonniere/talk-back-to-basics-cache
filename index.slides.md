@@ -1267,6 +1267,8 @@ vary: accept-encoding
 cache-control: no-transform
 ``` -->
 
+## blank
+
 ## section
 Disk cache
 > @00:38:00@
@@ -1646,6 +1648,12 @@ cache-control: public
 Mesurez, testez...
 
 ## blank black
+> Au final, on se sait toujours pas si j'ai branché les deux magnétoscopes de la maison pour faire un cache de VHS.
+> Par contre, vous devriez repartir avec une meilleure compréhension du cache HTTP
+
+## text
+🤝 Frontend *&* backend
+> une histoire de frontend et de backend
 
 ## subway stop=10 zones
 1. BF cache
@@ -1657,6 +1665,14 @@ Mesurez, testez...
 7.X ~HTTP/2 push cache~
 8. CDN
 9. Reverse proxy cache
+> * entre un client et un serveur
+> * il y a plusieurs couches de caches
+> * des couches privées dans le navigateurs
+> * des couches partagés sur internet
+> * gardez en tête les en-tête qui entre en jeu
+
+## text
+🫶 <br> Le *cache* HTTP <br> +c'est la vie+
 
 ## poster
 Merci beaucoup !
