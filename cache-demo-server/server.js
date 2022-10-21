@@ -143,3 +143,5 @@ process.stdin.on('keypress', function (character, key) {
     process.exit();
   }
 });
+
+console.log('Bonjour, je suis un serveur de test...')

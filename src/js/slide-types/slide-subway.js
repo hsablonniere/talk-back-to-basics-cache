@@ -31,6 +31,7 @@ const baseTmpl = document.createElement('template');
 baseTmpl.innerHTML = subwaySvg;
 
 // reset template
+style(baseTmpl.content, '#zones', 'opacity', 0);
 style(baseTmpl.content, '#wagon-00', 'opacity', 0);
 style(baseTmpl.content, '#card-00', 'opacity', 0);
 setText(baseTmpl.content, '#card-text-00', '');
@@ -61,6 +62,10 @@ defineSlideType('slide-subway', {
 
     const title = attrs.title ?? '';
     setText(svg, '#the-title', title);
+    
+    if (attrs.zones != null) {
+      style(svg, '#zones', 'opacity', 1);
+    }
 
     const isVideoStore = attrs.videostore != null;
     style(svg, '#couch-videostore-labels', 'opacity', isVideoStore ? 1 : 0);
@@ -109,7 +114,7 @@ defineSlideType('slide-subway', {
           style(svg, '#card-' + indexStr, 'opacity', response ? 1 : 0);
           if (index > stopNb) {
             style(svg, '#cache-' + indexStr + '-dot-classic', 'fill', '#eee');
-            style(svg, '#cache-' + indexStr, 'opacity', 0.85, true);
+            style(svg, '#cache-' + indexStr, 'opacity', 1, true);
           }
         });
     }

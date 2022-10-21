@@ -127,6 +127,9 @@ customElements.define('slide-demo', class extends Slide {
     this.setAttribute('data-setup', windows.map((w) => w.id).join(','));
 
     return html`
+      ${(attrs.nodemo != null) ? html`
+        <div class="no-demo">Pas de démo</div>
+      ` : ''}
       ${windows.map(({ id, label }) => html`
         <div class="wrapper" data-id="${id}">
           ${logos.includes(id) ? html`
@@ -157,6 +160,13 @@ customElements.define('slide-demo', class extends Slide {
           grid-auto-columns: 1fr;
           grid-auto-flow: column;
           gap: var(--gap);
+        }
+        
+        .no-demo {
+          font-family: "Hiruzen Exist", sans-serif;
+          font-size: 8rem;
+          justify-self: center;
+          align-self: center;
         }
 
         /*:host([data-setup="_,terminal"]),*/

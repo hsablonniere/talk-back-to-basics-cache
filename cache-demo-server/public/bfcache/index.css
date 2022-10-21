@@ -1,0 +1,16 @@
+.card {
+  border: 4px solid #000;
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  height: 6rem;
+  line-height: 6rem;
+  width: 8rem;
+  margin: 2rem 0;
+  text-align: center;
+  border-radius: 0.5rem;
+}
+
+input {
+  font-size: 2rem;
+}
