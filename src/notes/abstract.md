@@ -56,13 +56,13 @@ Pour faire les bons choix, il est important de bien comprendre comment tout cela
 Au menu de cette session, je vous propose de (re)découvrir le cache HTTP par l'exemple et la pratique.
 Nous reviendrons sur les différents en-têtes HTTP gérés par les navigateurs, CDN, proxys-cache et autres serveurs.
 Nous parlerons des différents caches présents au sein des navigateurs (HTTP, Service Worker, back/forward...).
-Enfin, nous aborderons différents contextes et cas de figures en proposant des stratégies adaptées (site statique, SPA, API REST...).
+Enfin, nous aborderons différents contextes et cas de figures.
 
 ## Message pour le comité
 
-Il s'agit d'une proposition toute neuve qui n'a jamais été présentée.
+Il s'agit d'une présentation que j'ai donné une seule fois au DevFest Nantes en octobre 2022 : https://www.youtube.com/watch?v=xtpaQ8_mmKM.
 C'est un sujet que j'ai pas mal creusé durant ma carrière et qui m'intéresse beaucoup.
-J'aimerais faire une présentation dans le même esprit que ce que j'ai pu faire avec les cookies HTTP : https://www.youtube.com/watch?v=KL9MR721c4w.
+J'ai essayé de faire une présentation dans le même esprit que ce que j'ai pu faire avec les cookies HTTP : https://www.youtube.com/watch?v=KL9MR721c4w.
 Revenir aux bases, expliquer les fondamentaux et donner des recettes pratiques pour des cas concrets : un site statique, une SPA dans un onglet ouvert longtemps, une API REST, que faire pendant un redéploiement sans downtime ? ...
 
 Une personne qui a suivi la présentation repart avec :
