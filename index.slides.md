@@ -2,8 +2,8 @@
 author: Hubert Sablonnière
 author-twitter: @hsablonniere
 author-company: Clever Cloud
-event: DevFest Nantes
-date: 21 octobre 2022
+event: Meetup Frontend Beers
+date: 16 mars 2023
 ---
 
 # Le cache HTTP
@@ -14,7 +14,7 @@ date: 21 octobre 2022
 ## blank black
 > L'autre jour,
 > j'étais dans mon canap',
-> j'allume la télé et j'me lance dans une activité qu'on connait tous très bien :
+> installé tranquille devant la télé et j'me lance dans une activité qu'on connait tous très bien :
 
 ## text netflix
 > #Bruit de Netflix#
@@ -26,8 +26,8 @@ date: 21 octobre 2022
 👀 Netflixfilmauswahldurchsuchung
 <!-- chercher à travers le choix de films de Netflix -->
 > Activité qui a bien entendu son propre mot en allemand...
-> mais qui dure souvent ... un peu trop longtemps.
-> Surtout si vous êtes plusieurs à choisir et que vous cumulez what mille abonements à d'autres services.
+> mais ... qui dure souvent ... un peu trop longtemps.
+> Surtout si vous êtes plusieurs à choisir, ça négocie, en plus vous êtes abonné à what-mille services.
 > Bref, après 20min de négo,
 > vous choisissez un film trop long...
 
@@ -42,13 +42,13 @@ date: 21 octobre 2022
 <!-- https://unsplash.com/photos/6Nbo9Pn0yJA -->
 ## media
 <img src="src/img/videostore.jpg">
-> Ouais, on allait au vidéoclub, mais malgré les conseils d'un être humain bien plus pertinent que ceux d'un algo,
+> Ouais, on allait au vidéoclub, mais malgré les conseils d'un être humain beaucoup plus pertinent que ceux d'un algo,
 > moi, une fois sur deux j'revenais avec la VHS de...
 
 <!-- https://www.themoviedb.org/t/p/original/wFbgPZA44apfPt5wWPinQvV2Pbs.png -->
 ## media logo black
 <img src="src/img/back-to-the-future.png">
-> "Retour vers le Futur II".
+> "Retour vers le Futur II" quoi.
 > C'était simple et efficace, mais...
 
 ## subway videostore stop=0
@@ -74,7 +74,7 @@ date: 21 octobre 2022
 ## subway videostore stop=10
 1. Étagère
 > ... sur l'étagère par exemple.
-> Du coup,
+> Comme ça,
 
 ## subway videostore stop=0
 1. Étagère
@@ -82,7 +82,7 @@ date: 21 octobre 2022
 
 ## subway videostore stop=1 fade-from
 1. Étagère
-> pas besoin de faire l'aller/retour complet.
+> paf, pas besoin de faire l'aller/retour complet.
 > Mais bon,
 
 ## blank black
@@ -96,7 +96,7 @@ date: 21 octobre 2022
 > #Pause#
 > On va s'faire un p'tit "retour aux sources" avec de la théorie, des démos et des conseils,
 > il y aura :
-> * des rappels pour certains,
+> * des rappels pour les plus expérimentés,
 > * et quelques découvertes pour tout le monde.
 
 ## text
@@ -122,7 +122,7 @@ date: 21 octobre 2022
 ## media
 <img src="src/img/rfc-1945.png" screenshot-url="https://www.rfc-editor.org/rfc/rfc1945">
 > ...RFC 1945 : HTTP 1.0
-> Comment ça pète la classe !
+> Et ça, t'as beau être nul en CSS, ça pète la classe !
 > Dans cette version, on retrouve déjà certains principes de base du cache HTTP.
 
 <!-- ## media -->
@@ -138,6 +138,7 @@ date: 21 octobre 2022
 
 ## subway pop
 6. Cache
+> #pop#
 > et un intermédiaire
 
 ## subway
@@ -188,14 +189,14 @@ date: 21 octobre 2022
 0. 🚃♠️
 6. Cache ♠️
 > ...pas besoin d'aller plus loin.
+> Merci, au revoir.
 
 ## text
 🤔 À quoi ça sert ?
 > Cool, mais à quoi ça sert de faire ça ?
 
 ## blank
-> Le premier avantage, c'est qu'en rapprochant la source de la réponse,
-> on vient...
+> Le premier avantage, c'est qu'en rapprochant la source de la réponse, on vient...
 
 ## list current=1
 Réduire le chargement côté client
@@ -228,7 +229,7 @@ Meilleures perfs = meilleur business
 🤯 C'est *compliqué*
 > ...c'est compliqué.
 > À force de vouloir trop cacher sans forcément connaitre et comprendres les règles,
-> on se retrouve tôt où tard à dire à un utilisateur :
+> on se retrouve tôt où tard à dire à nos utilisateurs :
 
 ## lapin
 ATTENTION !
@@ -242,10 +243,11 @@ N'oublie pas de vider ton cache, tu risques d'afficher un contenu trop vieux.
 🧑‍🎓 *Comment* ça marche ?
 > comment ça marche,
 > et on est là pour ça ;-)
+> Le cache HTTP,
 
 ## text
 💆‍♀️ Une histoire d'*en-tête*
-> Le cache HTTP, c'est d'abord une histoire d'en-tête.
+> c'est d'abord une histoire d'en-tête.
 
 ## code
 ```http
@@ -261,7 +263,7 @@ cache-control: s-maxage=?
 cache-control: stale-if-error=?
 <!-- cache-control: no-transform -->
 ```
-Des en-têtes qui seront principalement envoyés par le serveur de prod dans des réponses HTTP.
+> Le plus important étant "cache-control" mais il y a...
 
 ## code
 ```http
@@ -269,8 +271,8 @@ etag: "11aa11aa11-aa"
 if-none-match: "11aa11aa11-aa"
 ```
 ```http
-last-modified: Thu, 20 Oct 2022 11:20:00 GMT
-if-modified-since: Thu, 20 Oct 2022 11:20:00 GMT
+last-modified: Thu, 22 Mar 2023 11:20:00 GMT
+if-modified-since: Thu, 22 Mar 2023 11:20:00 GMT
 ```
 ```http
 age: 120
@@ -278,7 +280,8 @@ age: 120
 ```http
 vary: accept-encoding
 ```
-> Je vais essayer de vous présenter le plus importants.
+> D'autres en-têtes qui entrent en jeu.
+> Je vais essayer de vous présenter les plus importants.
 
 ## text
 🔗 Une histoire de *sources*
@@ -299,6 +302,9 @@ vary: accept-encoding
 
 ## blank black
 > @00:05:00@
+> OK, vous êtes prêt pour passer en revue tous les en-têtes et à quoi ils servent ?
+> #Chanté#
+> On monte à bord du métro !
 
 <!-- https://www.rfc-editor.org/rfc/rfc9111#name-overview-of-cache-operation
 Although caching is an entirely OPTIONAL feature of HTTP, it can be assumed that reusing a cached response is desirable and that such reuse is the default behavior when no requirement or local configuration prevents it. Therefore, HTTP cache requirements are focused on preventing a cache from either storing a non-reusable response or reusing a stored response inappropriately, rather than mandating that caches always store and reuse particular responses. -->
@@ -315,6 +321,8 @@ cache-control: ...
 HTTP/1.1 200 OK
 cache-control: max-age=[secondes]
 ```
+> OK donc si le client fait une requête HTTP en mode
+> Dis-moi serveur, je voudrais la page index.html
 
 ## code
 ```http type="request"
@@ -328,11 +336,12 @@ cache-control: ...
 HTTP/1.1 200 OK
 cache-control: max-age=[secondes]
 ```
-> C'est parti pour un petit tour d'horizon des en-têtes qui entre en jeu dans la gestion du cache
-> l'en-tête le plus important, c'est cache-control
-> il peut être utilisé dans une requête ou dans une réponse
-> on va surtout parler de son usage dans une réponse
-> en valeur de cache-control, on va pouvoir mettre une ou plusieurs directive séparées par des virgules
+> Le serveur ce qu'il va pouvoir faire c'est déposer un en-tête dans la réponse HTTP qui s'appelle "cache-control".
+> Celui là, il est incontournable.
+> Il peut être utilisé dans une requête ou dans une réponse,
+> mais là, on va surtout parler de son usage dans une réponse.
+> Dans cache-control, on va retrouver une ou plusieurs directives, séparées par des virgules.
+> Elles ont toutes un rôle et elles ont des nommages bien pétés, on va en reparler.
 
 ## code
 ```http type="request"
@@ -385,7 +394,7 @@ cache-control: max-age=[secondes]
 ## code
 ```http type="response"
 HTTP/1.1 200 OK
-date: Fri, 21 Oct 2022 11:12:13 GMT
+date: Fri, 23 Mar 2023 11:12:13 GMT
 cache-control: max-age=[secondes]
 ```
 > L'age est calculé à partir de l'en-tête date
@@ -396,10 +405,10 @@ cache-control: max-age=[secondes]
 ## demo
 _
 terminal Serveur HTTP
-> À chaque fois, ou presque, j'aurai un terminal à droite avec un serveur web de test que j'ai créé pour les démos qui logs les requêtes,
+> À chaque fois, ou presque, j'aurai un terminal à droite avec un serveur HTTP de test que j'ai créé pour les démos qui logs les requêtes,
 
 ## demo
-firefox Firefox 105
+firefox Firefox 111
 terminal Serveur HTTP
 > et à gauche un navigateur, avec la plupart du temps Firefox, parceque Firefox, c'est bien :p
 > * cache vidé => Ctrl+Shift+Suppr
@@ -414,7 +423,7 @@ terminal Serveur HTTP
 > il se passe quoi quand un élément qui est dans le cache est périmé ?
 
 ## demo
-firefox Firefox 105
+firefox Firefox 111
 terminal Serveur HTTP
 > * Maximiser le firefox
 > * Taper la page about:cache et aller voir le cache disque
@@ -493,7 +502,7 @@ etag: "22bb22bb22-bb"
 > lien avec les range requests
 
 ## demo
-firefox Firefox 105
+firefox Firefox 111
 terminal Serveur HTTP
 > * clean le serveur
 > * ouvrir #etag-simple#
@@ -520,7 +529,7 @@ GET /index.html HTTP/1.1
 ```
 ```http type="response" hide
 HTTP/1.1 200 OK
-last-modified: Thu, 20 Oct 2022 11:20:00 GMT
+last-modified: Thu, 22 Mar 2023 11:20:00 GMT
 ```
 
 ## code title="*Première* requête"
@@ -529,51 +538,51 @@ GET /index.html HTTP/1.1
 ```
 ```http type="response"
 HTTP/1.1 200 OK
-last-modified: Thu, 20 Oct 2022 11:20:00 GMT
+last-modified: Thu, 22 Mar 2023 11:20:00 GMT
 ```
 
 ## code title="Requêtes *suivantes*"
 ```http type="request" hide
 GET /index.html HTTP/1.1
-if-modified-since: Thu, 20 Oct 2022 11:20:00 GMT
+if-modified-since: Thu, 22 Mar 2023 11:20:00 GMT
 ```
 ```http type="response" hide
 HTTP/1.1 200 OK
-last-modified: Thu, 20 Oct 2022 11:20:00 GMT
+last-modified: Thu, 22 Mar 2023 11:20:00 GMT
 ```
 
 ## code title="Requêtes *suivantes*"
 ```http type="request"
 GET /index.html HTTP/1.1
-if-modified-since: Thu, 20 Oct 2022 11:20:00 GMT
+if-modified-since: Thu, 22 Mar 2023 11:20:00 GMT
 ```
 ```http type="response" hide
 HTTP/1.1 200 OK
-last-modified: Thu, 20 Oct 2022 11:20:00 GMT
+last-modified: Thu, 22 Mar 2023 11:20:00 GMT
 ```
 
 ## code title="304 : *pas* de changement"
 ```http type="request"
 GET /index.html HTTP/1.1
-if-modified-since: Thu, 20 Oct 2022 11:20:00 GMT
+if-modified-since: Thu, 22 Mar 2023 11:20:00 GMT
 ```
 ```http type="response"
 HTTP/1.1 304 Not Modified
-last-modified: Thu, 20 Oct 2022 11:20:00 GMT
+last-modified: Thu, 22 Mar 2023 11:20:00 GMT
 ```
 
 ## code title="200 : *nouveau* contenu"
 ```http type="request"
 GET /index.html HTTP/1.1
-if-modified-since: Thu, 20 Oct 2022 11:20:00 GMT
+if-modified-since: Thu, 22 Mar 2023 11:20:00 GMT
 ```
 ```http type="response"
 HTTP/1.1 200 OK
-last-modified: Fri, 21 Oct 2022 06:00:00 GMT
+last-modified: Fri, 23 Mar 2023 06:00:00 GMT
 ```
 
 ## demo
-firefox Firefox 105
+firefox Firefox 111
 terminal Serveur HTTP
 > * clean le serveur
 > * clean le firefox
@@ -598,7 +607,7 @@ terminal Serveur HTTP
 > après, c'est un peu aléatoire
 
 ## demo
-firefox Firefox 105
+firefox Firefox 111
 terminal Serveur HTTP
 > montrer les last-modified différents dans les devtools
 > montrer #about:cache#
@@ -658,7 +667,7 @@ ATTENTION !
 🤙 mais tu revalides *tout le temps*
 
 ## demo
-firefox Firefox 105
+firefox Firefox 111
 terminal Serveur HTTP
 > montrer #lm-nc#
 
@@ -689,7 +698,7 @@ cache-control: no-store
 ⛔ Tu n'as *pas le droit* de cacher ça
 
 ## demo
-firefox Firefox 105
+firefox Firefox 111
 terminal Serveur HTTP
 > * vider tout le cache
 > * montrer le cache vide
@@ -797,15 +806,15 @@ cache-control: max-age=31536000, immutable
 🔄 *Pas* de revalidation <br> en cas de +rechargement+
 
 ## demo
-webkit WebKitGTK (Safari 15)
+webkit WebKitGTK (Safari 16)
 terminal Serveur HTTP
 
 ## demo
-chromium Chromium 106
+chromium Chromium 111
 terminal Serveur HTTP
 
 ## demo
-firefox Firefox 105
+firefox Firefox 111
 terminal Serveur HTTP
 
 <!-- ## code
@@ -922,7 +931,7 @@ cache-control: max-age=3600, stale-while-revalidate=60
 ```
 
 ## demo
-firefox Firefox 105
+firefox Firefox 111
 terminal Serveur HTTP
 
 ## blank
@@ -936,7 +945,7 @@ Pragma: no-cache
 ## code title="En-têtes *obsolètes*"
 ```http type="response"
 HTTP/1.1 200 OK
-Expires: Fri, 21 Oct 2022 11:12:13 GMT
+Expires: Fri, 22 Mar 2023 11:12:13 GMT
 ```
 
 ## blank
@@ -947,19 +956,29 @@ un post invalide un get -->
 ## subway stop=10
 6. Cache navigateur
 > @00:23:30@
+> Depuis tout à l'heure, je vous parle d'un cache,
+> mais en fait, j'vous montre le cache du navigateur.
+> Vous vous doutez bien que si je me suis amusé à faire une ligne de métro,
+> c'est qu'il n'y a pas qu'un seul arrêt au milieu.
 
 ## text
 🕵️‍♀️ Caches *privés* vs. cache *partagés*
+> En fait, le cache navigateur, c'est un cache privé.
+> Dans le monde, il y les caches privés et les caches partagés.
 
 ## section
 Reverse proxy cache
+> cache partagé
 
 ## subway stop=10
 6. Cache navigateur
 
 ## subway stop=10 pop
 6. Cache navigateur
-9. Reverse proxy cache
+7. Reverse proxy cache
+> #pop#
+> varnish devant un PHP
+> squid, nginx, "apache" bof
 
 <!-- ## subway stop=9
 6. Cache navigateur
@@ -979,6 +998,9 @@ Content Delivery <br> +Network+
 6. Cache navigateur
 8. CDN
 9. Reverse proxy cache
+> #pop#
+> réseau de serveur
+> Point of Presence
 
 ## subway
 0. 🚃
@@ -1041,18 +1063,26 @@ Content Delivery <br> +Network+
 
 ## media white
 <img src="src/img/diagram-subway-shared-proxy-1.svg">
+> si on a un deuxième client qui vient pour la première fois
+> Alice et Bob par exemple
 
 ## media white
 <img src="src/img/diagram-subway-shared-proxy-2.svg">
+> Alice va profiter du CDN, un cache partagé alors qu'elle n'est jamais venue sur ce site.
+> En fait quand des gens me disent :
+> "ouais, moi j'ai pas besoin de cache, les gens ils viennent sur mon site une seule fois"
+> Bah déjà je suis triste pour eux mais bon, chacun son business mais comme on vient de le montrer...
 
 ## text
 ⚡ *Premières* visites rapides
 > autre détails, ça n'est pas qu'une question de 2e visite
+> le cache, ça profite aussi aux premières visites
+> notamment sur les caches partagés comme un CDN.
 
 ## code
 ```http type="response"
 HTTP/1.1 200 OK
-date: Fri, 21 Oct 2022 11:12:13 GMT
+date: Fri, 23 Mar 2023 11:12:13 GMT
 age: 120
 cache-control: max-age=3600
 ```
@@ -1219,6 +1249,8 @@ X-Accel-Expires: [secondes]
 ```
 
 ## blank black
+> OK, il nous reste un en-tête et c'est le plus...
+> enfin, vous allez comprendre.
 
 ## code
 ```http type="response"
@@ -1234,8 +1266,12 @@ Ne mets pas tes mains dans +vary+, tu vas te pincer très fort.
 ## demo
 
 ## demo
-firefox Firefox 105
-chromium Chromium 106
+firefox Firefox 111
+terminal Serveur HTTP
+
+## demo
+firefox Firefox 111
+chromium Chromium 111
 terminal Serveur HTTP
 > * charger la page dans firefox
 > * montrer l'en-tête accept language
@@ -1282,6 +1318,7 @@ Disk cache
 6. Disk cache
 8. CDN
 9. Reverse proxy cache
+> #pop#
 
 ## section
 Memory cache
@@ -1296,10 +1333,11 @@ Memory cache
 6. Disk cache
 8. CDN
 9. Reverse proxy cache
+> #pop#
 
 ## demo
-firefox Firefox 105
-chromium Chromium 106
+firefox Firefox 111
+chromium Chromium 111
 > montrer avec une navigation et avec un autre site entre les deux
 > si je reste dans la même page ou le même site
 > si j'affiche plusieurs fois la même image
@@ -1319,6 +1357,7 @@ Module map
 6. Disk cache
 8. CDN
 9. Reverse proxy cache
+> #pop#
 
 ## code
 ```js
@@ -1362,6 +1401,7 @@ HTTP/2 push cache
 7. HTTP/2 push cache
 8. CDN
 9. Reverse proxy cache
+> #pop#
 
 ## subway stop=10
 2. Memory cache
@@ -1394,6 +1434,7 @@ Appcache
 7.X ~HTTP/2 push cache~
 8. CDN
 9. Reverse proxy cache
+> #pop#
 
 ## subway stop=10
 2. Memory cache
@@ -1437,6 +1478,7 @@ Service Worker cache
 7.X ~HTTP/2 push cache~
 8. CDN
 9. Reverse proxy cache
+> #pop#
 
 ## media white
 <img src="src/img/diagram-subway-shared-tab-2.svg">
@@ -1448,7 +1490,7 @@ Service Worker cache
 ✂️ Cache *partitioning*
 
 ## demo
-firefox Firefox 105
+firefox Firefox 111
 
 ## section
 Back/Forward cache
@@ -1473,6 +1515,7 @@ Back/Forward cache
 7.X ~HTTP/2 push cache~
 8. CDN
 9. Reverse proxy cache
+> #pop#
 
 ## subway stop=1 title="Navigation via précédent/suivant"
 1. BF cache
@@ -1488,13 +1531,14 @@ Back/Forward cache
 9. Reverse proxy cache
 
 ## demo fade-from
-firefox Firefox 105
+firefox Firefox 111
 terminal Serveur HTTP
 > marche pas pour les SPA
 
 ## media fade-from
 <img src="src/img/bfcache.png">
 <!-- Bfcache attention a vos script tiers -->
+> onunload
 
 ## blank black
 

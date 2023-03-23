@@ -144,4 +144,4 @@ process.stdin.on('keypress', function (character, key) {
   }
 });
 
-console.log('Bonjour, je suis un serveur de test...')
+console.log('Bonjour, je suis un serveur HTTP de test...')
