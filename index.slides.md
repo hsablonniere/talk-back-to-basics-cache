@@ -3,7 +3,7 @@ author: Hubert Sablonnière
 author-twitter: @hsablonniere
 author-company: Clever Cloud
 event: Meetup Frontend Beers
-date: 16 mars 2023
+date: 23 mars 2023
 ---
 
 # Le cache HTTP
