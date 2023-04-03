@@ -77,10 +77,10 @@ let hititipiSetup = hititipi(
         cacheControl({ 'max-age': 10, 'stale-if-error': 3600 }),
       ])),
       startsWith('/hello/', chainAll([
-        cacheControl({ 'max-age': 10 }),
+        cacheControl({ 's-maxage': 10 }),
       ])),
       startsWith('/hello-vary/', chainAll([
-        cacheControl({ 'max-age': 10 }),
+        cacheControl({ 's-maxage': 10 }),
         (context) => {
           return {
             ...context,
@@ -156,4 +156,4 @@ process.stdin.on('keypress', function (character, key) {
   }
 });
 
-console.log('Bonjour, je suis un serveur HTTP de test...')
+console.log('Bonjour, je suis un serveur HTTP de test...');

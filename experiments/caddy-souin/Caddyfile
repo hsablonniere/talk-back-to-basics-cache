@@ -1,0 +1,12 @@
+{
+    order cache before rewrite
+    #cache {
+    #    stale 200s
+    #    ttl 1000s
+    #}
+}
+
+http://localhost:8082 {
+    #cache
+    reverse_proxy localhost:8080
+}

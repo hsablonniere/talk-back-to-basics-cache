@@ -1,6 +1,6 @@
 export function render (context) {
 
-  const hasFrench = context.requestHeaders['accept-language'].split(',').includes('fr');
+  const hasFrench = context.requestHeaders['accept-language']?.split(',')?.includes('fr');
 
   const hello = hasFrench
     ? 'Bonjour tout le monde !'
