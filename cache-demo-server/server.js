@@ -91,6 +91,18 @@ let hititipiSetup = hititipi(
           };
         },
       ])),
+      startsWith('/sw/', chainAll([
+        cacheControl({ 'max-age': 10 }),
+        (context) => {
+          return {
+            ...context,
+            responseHeaders: {
+              ...context.responseHeaders,
+              'vary': 'accept-language',
+            },
+          };
+        },
+      ])),
 
       (context) => {
         if (!errorMode) {

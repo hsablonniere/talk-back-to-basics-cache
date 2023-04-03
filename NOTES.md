@@ -137,3 +137,9 @@ TOTAL => 1.10.00
 55:00 recettes
 57:00 conclusion
 58:00 STOP
+
+## Notes Antoine
+
+* Alors, dans un CDN cloudflare / Cloudfront / fastly tu peux facilement le faire sur 1 cookie en spécifique
+* Pour moi, dans ta conférence, tu pourrais aborder le concept de cache hit rate. Sujet très intéressant comme KPI à suivre sur l'usage du cache :)
+* On le mesure coté CDN mais aussi coté test automatisés en vérifiant que les ressources ne sont pas rechargées
