@@ -52,10 +52,7 @@ let hititipiSetup = hititipi(
         notModified({ lastModified: true }),
         cacheControl({ 'no-cache': true }),
       ])),
-      startsWith('/etag-cc-ma-10-mr/', chainAll([
-        notModified({ etag: true }),
-        cacheControl({ 'max-age': 10, 'must-revalidate': true }),
-      ])),
+      startsWith('/cc-ma-10-mr/', cacheControl({ 'max-age': 10, 'must-revalidate': true })),
       startsWith('/etag-cc-ma-31536000/', chainAll([
         notModified({ etag: true }),
         cacheControl({ 'max-age': 31536000 }),
@@ -110,8 +107,8 @@ let hititipiSetup = hititipi(
         }
         return {
           ...context,
-          responseBody: Readable.from('503 Service Unavailable'),
-          responseStatus: 503,
+          responseBody: Readable.from('500 Service Unavailable'),
+          responseStatus: 500,
         };
       },
 
