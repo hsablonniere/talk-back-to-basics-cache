@@ -1,12 +1,16 @@
 {
     order cache before rewrite
-    #cache {
-    #    stale 200s
-    #    ttl 1000s
-    #}
+#    debug
+    cache {
+        stale 120s
+        ttl 120s
+        api {
+            souin
+        }
+    }
 }
 
-http://localhost:8082 {
-    #cache
-    reverse_proxy localhost:8080
+http://localhost:8888 {
+    cache
+    reverse_proxy localhost:8081
 }

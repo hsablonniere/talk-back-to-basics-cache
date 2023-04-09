@@ -1,3 +1,0 @@
-default_cache: # Required
-  ttl: 10s # Default TTL
-reverse_proxy_url: 'http://localhost:8081'

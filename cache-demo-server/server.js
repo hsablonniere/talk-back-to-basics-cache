@@ -1,4 +1,5 @@
 import { createServer } from 'node:http';
+import ansiEscapes from 'ansi-escapes';
 import { createServer as createServerHttps } from 'node:https';
 import { hititipi } from 'hititipi';
 import fs from 'node:fs';
@@ -20,7 +21,9 @@ const httpsOptions = {
   cert: fs.readFileSync('./cert/host.crt'),
 };
 
+const ERROR_MODES = [false, 500, 503];
 let errorMode = false;
+let fakeLastModified = false;
 let delay = 500;
 
 // options,
@@ -52,12 +55,20 @@ let hititipiSetup = hititipi(
         notModified({ lastModified: true }),
         cacheControl({ 'no-cache': true }),
       ])),
+      startsWith('/lm-cc-ma-0/', chainAll([
+        notModified({ lastModified: true }),
+        cacheControl({ 'max-age': 0 }),
+      ])),
       startsWith('/cc-ma-10-mr/', cacheControl({ 'max-age': 10, 'must-revalidate': true })),
-      startsWith('/etag-cc-ma-31536000/', chainAll([
+      startsWith('/etag-cc-ma-10-mr/', chainAll([
+        notModified({ etag: true }),
+        cacheControl({ 'max-age': 10, 'must-revalidate': true }),
+      ])),
+      startsWith('/etag-cc-ma-1y/', chainAll([
         notModified({ etag: true }),
         cacheControl({ 'max-age': 31536000 }),
       ])),
-      startsWith('/etag-cc-ma-31536000-immutable/', chainAll([
+      startsWith('/etag-cc-ma-1y-immutable/', chainAll([
         notModified({ etag: true }),
         cacheControl({ 'max-age': 31536000, 'immutable': true }),
       ])),
@@ -102,13 +113,27 @@ let hititipiSetup = hititipi(
       ])),
 
       (context) => {
+        if (!fakeLastModified || context.responseHeaders['last-modified'] == null) {
+          return;
+        }
+        const lastModifiedTs = Date.now() - 10 * 60 * 60 * 1000;
+        return {
+          ...context,
+          responseHeaders: {
+            ...context.responseHeaders,
+            'last-modified': new Date(lastModifiedTs).toUTCString(),
+          },
+        };
+      },
+
+      (context) => {
         if (!errorMode) {
           return;
         }
         return {
           ...context,
-          responseBody: Readable.from('500 Service Unavailable'),
-          responseStatus: 500,
+          responseBody: Readable.from('503 Service Unavailable'),
+          responseStatus: errorMode,
         };
       },
 
@@ -130,15 +155,27 @@ createServerHttps(httpsOptions, hititipiSetup).listen(process.env.PORT ?? 8082);
 readlineModule.emitKeypressEvents(process.stdin);
 process.stdin.setRawMode(true);
 
-process.stdin.on('keypress', function (character, key) {
+process.stdin.on('keypress', async function (character, key) {
   // console.log(key);
   if (key.name === 'return') {
-    console.log('\n'.repeat(40));
-    console.clear();
+    for (let i = 0; i < 25; i += 1) {
+      await setTimeout(20);
+      process.stdout.write(ansiEscapes.cursorPrevLine);
+      process.stdout.write(ansiEscapes.eraseLine);
+    }
   }
   if (key.name === 'e' && key.ctrl) {
-    errorMode = !errorMode;
+    errorMode = ERROR_MODES[(ERROR_MODES.indexOf(errorMode) + 1) % ERROR_MODES.length];
     console.log('toggle error mode:', errorMode);
+  }
+  if (key.name === 'l' && key.ctrl) {
+    fakeLastModified = !fakeLastModified;
+    if (fakeLastModified) {
+      console.log('last-modified: dates rewritten to 10 hours ago');
+    }
+    else {
+      console.log('last-modified: real filesystem dates');
+    }
   }
   if (key.name === 'up' && key.ctrl) {
     delay = delay + 500;
@@ -153,4 +190,18 @@ process.stdin.on('keypress', function (character, key) {
   }
 });
 
-console.log('Bonjour, je suis un serveur HTTP de test...');
+async function write (text) {
+  for (let i = 0; i < text.length; i += 1) {
+    process.stdout.write(text[i]);
+    const delay = (text[i] === '\n') ? 200 : 15;
+    await setTimeout(delay);
+  }
+}
+
+await write(`
+Bonjour Hubert et bonjour Devoxx !
+
+je suis un serveur HTTP de test,
+j'affiche les requêtes que je reçois.
+
+`)

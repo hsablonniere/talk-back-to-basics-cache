@@ -30,6 +30,7 @@ export function logRequest (applyMiddleware) {
     logHeader(context.requestHeaders, 'cache-control');
     logHeader(context.requestHeaders, 'if-modified-since');
     logHeader(context.requestHeaders, 'if-none-match');
+    logHeader(context.requestHeaders, 'cache-status');
 
     return newContext;
   };

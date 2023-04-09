@@ -1,83 +1,125 @@
 # plan
 
-## vu avec seb
-
-* Cli => Ser
-* Cli => Cache => Ser
-* mais en fait il y a 2 types de cache privé/public qui peuvent venir l'un après l'autre
-* Cli => Cache priv => cache pub => Ser
-* déroule les questions "comment on dit au cache de cacher des trucs"
-  * avec démo dans un navigateur
-* cache partagé, pareil mais des directives cache specifique
-* partagé => CDN, reverse proxy
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-* browser
-  * Back/forward cache (bfcache)
-    * La page avec toutes ses sous requêtes (HTML, CSS, JS, images, polices...)
-    * Chaque navigateur à ses subtilités
-      * Conditions pour faire partir (ou pas) du bfcache
-        * unload, WS...
-      * Nombre de pages qui rentrent dans le bfcache
-      * événements du DOM quand une page va rentrer dans le bfcache ou en revient
-      * page lifecycle API
-    * Comme pour beaucoup de choses, quand vous codez une SPA et que vous avez un routeur côté client
-      * Vous ne bénéficiez pas de ce comportement par défaut du navigateur et vous devez potentiellement gérer vous-même un système de cache
-    * demo
-      * le fait que le JS soit gardé
-        * pourquoi pas du gros JS
-      * le fait que les images
-      * et pourquoi pas du canvas
-    * recap et conseils
-  * Memory cache
-    * preload implicites TODO vv
-    * si c'est déjà chargé dans la page, on va essayer de se baser sur le memory cache
-      * mais ça dépend of course
-      * globalement, c'est vrai pour les images
-        * mais si no-store, chromium refait des requêtes alors que webkit et firefox se servent des requêtes
-          * mais Firefox montre une 2e requête venant du cache
-      * s'en fout du cache-control sauf le no-store
-      * faut que ça match URL, content type, CORS mode
-    * pour les scripts (non module) :
-      * au chargement sur Chromium et Webkit, pas sur Firefox
-    * preload explicites TODO
-      * balise link ou header
-      * préchargé (et parsé si JS)
-  * La module map
-    * toute la durée de vie d'une page
-    * URLs normalisées
-    * modulepreload
-      * tu peux pas preload un script et t'en servir en tant que module
-      * https://bugs.webkit.org/show_bug.cgi?id=180574
-      * https://github.com/web-platform-tests/wpt/blob/master/preload/modulepreload.html
-      * https://bugzilla.mozilla.org/show_bug.cgi?id=1425310
-      * https://developer.chrome.com/blog/modulepreload/
-    * notez que si votre application web type SPA ne génère pas de l'ESM en sortie (Rollup, Vite...) comme Webpack
-      * votre bundler est obligé d'émuler le fonctionnement de la modulemap et ne peut profiter du modulepreload
-  * Service Worker Cache
-  * Appcache
-    * Deprecated
-  * HTTP Cache / Disk cache
-    * cache-control
-  * HTTP/2 Push "Cache" (unclaimed push streams container)
-    * Deprecated
-* CDN
-  * proxy cache
-* Server
-  * proxy cache
-  * real server
-
-* est-ce qu'on parle de 301
+* 00:00:00 Intro
+  * Netflix
+  * Vidéoclub
+* 00:00:00 Titre
+  * RFC 1945
+  * Schéma cache simple
+  * À quoi ça sert ? => 1, 2, 3
+  * Le cache c'est la vie,
+  * mais c'est compliqué.
+  * Comment ça marche ?
+  * Une histoire d'en-tête
+  * Une histoire de sources
+  * Frontend & backend / devs & ops
+* 00:00:00 cache-control: max-age=[secondes]
+* 00:00:00 DEMO max-age
+  * (expliquer le setup des démos)
+  * (t=0) charger cc-ma-10
+    * le cache est vierge, le navigateur demande au serveur
+  * (t<10) charger cc-ma-10
+    * le navigateur utilise le cache tant que c'est frais
+  * (t>10) charger cc-ma-10
+    * le navigateur demande au serveur quand c'est périmé
+* 00:00:00 Et quand c'est périmé ?
+* 00:00:00 DEMO about:cache
+  * charger about:cache disk
+  * expliquer que le navigateur garde les fichiers en cache pour pouvoir revalider
+* 00:00:00 Explication requête conditionnelle : etag
+* 00:00:00 DEMO etag
+  * charger etag-simple
+    * le cache est vierge, le navigateur demande au serveur
+  * charger etag-simple
+    * le navigateur a une version en cache avec des etags
+    * il demande au serveur une revalidation avec if-none-match
+* 00:00:00 Explication requête conditionnelle : last-modified
+* 00:00:00 DEMO last-modified
+  * charger lm-simple
+    * le cache est vierge, le navigateur demande au serveur
+  * (montrer qu'on peut choisir les en-têtes affichés dans les devtools)
+  * charger lm-simple
+    * le navigateur a une version en cache avec des last-modified
+    * il utilise la version qu'il a en cache sans faire de revalidation avec le serveur
+* 00:00:00 Cache heuristique
+* 00:00:00 DEMO cache heuristique
+  * charger about:cache disk
+    * montrer que les dates "expires" sont dans le futur
+    * pas évident de comprendre les règles de calcul
+  * changer le mode de last-modified vers fake 10h ago
+  * vider le cache
+  * charger lm-simple
+    * montrer les fausses dates
+  * charger about:cache disk
+    * montrer que les dates "expires" sont dans une heure
+* 00:00:00 Explication de no-cache
+* 00:00:00 DEMO last-modified + no-cache
+  * charger lm-cc-nc
+    * le cache est vierge, le navigateur demande au serveur
+  * charger lm-cc-nc
+    * le navigateur a une version en cache avec des last-modified
+    * il demande au serveur une revalidation avec if-modified-since
+* 00:00:00 Explication de no-store
+* 00:00:00 DEMO no-store
+  * vider le cache
+  * charger about:cache disk
+    * montrer que le cache est vide
+  * charger no-store (plusieurs fois)
+    * montrer que le cache est vide
+* 00:00:00 Explication must-revalidate
+* 00:00:00 Explication immutable
+* 00:00:00 DEMO immutable
+  * charger etag-cc-ma-31536000
+    * montrer les requêtes
+  * recharger
+    * montrer les requêtes avec 304 y compris des sous-ressources
+  * charger etag-cc-ma-31536000-immutable
+    * montrer les requêtes
+  * recharger
+    * montrer qu'il n'y a pas de requête pour les sous-ressources
+  * passer à chrome
+  * charger etag-cc-ma-31536000
+    * montrer les requêtes
+  * recharger
+    * montrer qu'il n'y a pas de requête pour les sous-ressources
+  * passer à firefox
+    * expliquer qu'ils étaient les premiers à implémenter immutable et que maintenant ils font à peu près pareil que Chrome
+* 00:00:00 Explication cache busting
+* 00:00:00 Explication stale-while-revalidate
+* 00:00:00 DEMO stale-while-revalidate
+  * TODO
+* 00:00:00 En-têtes obsolètes
+* 00:00:00 Explication caches privés/partagés
+  * Reverse proxy cache
+  * CDN
+  * schéma
+  * explication en-tête age
+  * explication private
+  * explication public
+  * explication s-maxage
+  * explication stale-if-error
+  * explication *-cache-control
+* 00:00:00 intro vary
+* 00:00:00 DEMO vary
+  * TODO
+* 00:00:00 explication vary
+* 00:00:00 Disk cache
+* 00:00:00 Memory cache
+* 00:00:00 DEMO memory cache
+  * TODO
+* 00:00:00 Module map
+* 00:00:00 HTTP/2 push cache
+* 00:00:00 Appcache
+* 00:00:00 Service Worker cache
+* 00:00:00 Explication cache partitionning
+* 00:00:00 DEMO cache partitionning
+  * TODO
+* 00:00:00 Back forward cache
+* 00:00:00 DEMO BF cache
+  * TODO
+* 00:00:00 
+* 00:00:00 
+* 00:00:00 
+* 00:00:00 
+* 00:00:00 
+* 

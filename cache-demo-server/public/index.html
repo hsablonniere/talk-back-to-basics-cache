@@ -12,6 +12,7 @@
   </style>
 </head>
 <body>
+
 <h1>Cache demo</h1>
 
 <ul>
@@ -22,12 +23,14 @@
   <li><a href="/etag-simple/"><code>etag: X</code></a></li>
   <li><a href="/etag-cc-ma-10/"><code>etag: X & cache-control: max-age=10</code></a></li>
   <li><a href="/lm-simple/"><code>last-modified: X</code></a></li>
-  <!--  <li><a href="/lm-cc-ma-10/"><code>last-modified: X & cache-control: max-age=10</code></a></li>-->
+  <li><a href="/lm-cc-ma-10/"><code>last-modified: X & cache-control: max-age=10</code></a></li>
   <li><a href="/lm-cc-nc/"><code>last-modified: X & cache-control: no-cache</code></a></li>
+  <li><a href="/lm-cc-ma-0/"><code>last-modified: X & cache-control: max-age=0</code></a></li>
   <li><a href="/cc-ns/"><code>cache-control: no-store</code></a></li>
   <li><a href="/cc-ma-10-mr/"><code>cache-control: max-age=10, must-revalidate</code></a></li>
-  <li><a href="/etag-cc-ma-31536000/"><code>etag: X & cache-control: max-age=31536000</code></a></li>
-  <li><a href="/etag-cc-ma-31536000-immutable/"><code>etag: X & cache-control: max-age=31536000, immutable</code></a>
+  <li><a href="/etag-cc-ma-10-mr/"><code>etag: X & cache-control: max-age=10, must-revalidate</code></a></li>
+  <li><a href="/etag-cc-ma-1y/"><code>etag: X & cache-control: max-age=31536000</code></a></li>
+  <li><a href="/etag-cc-ma-1y-immutable/"><code>etag: X & cache-control: max-age=31536000, immutable</code></a>
   </li>
   <li><a href="/etag-cc-ma-10-swr-20/"><code>etag: X & cache-control: max-age=10, stale-while-revalidate-20</code></a>
   </li>
@@ -39,6 +42,13 @@
   <li><a href="http://example-bar.com:8081/partitioning/"><code>partitioning (bar)</code></a></li>
   <li><a href="/sw/"><code>Service Worker</code></a></li>
   <li><a href="/bfcache/"><code>BF cache</code></a></li>
+  <li><a href="http://localhost:8888/souin-api/souin"><code>Souin API</code></a></li>
+</ul>
+
+<h2>other demos</h2>
+
+<ul>
+
 </ul>
 
 </body>

@@ -4,7 +4,7 @@
 <svg
    xml:space="preserve"
    sodipodi:docname="diagram-subway-shared-tab-2.svg"
-   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    id="svg8"
    version="1.1"
    viewBox="0 0 507.99999 285.75001"
@@ -1094,16 +1094,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.46923813"
-     inkscape:cx="1002.6892"
-     inkscape:cy="621.21977"
+     inkscape:cx="1461.9443"
+     inkscape:cy="623.35088"
      inkscape:document-units="mm"
      inkscape:current-layer="layer7"
      showgrid="false"
      units="px"
      inkscape:window-width="1920"
-     inkscape:window-height="1011"
+     inkscape:window-height="1043"
      inkscape:window-x="0"
-     inkscape:window-y="32"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:showpageshadow="2"
      inkscape:pagecheckerboard="0"
@@ -1280,7 +1280,7 @@
        transform="rotate(-50)"><tspan
          sodipodi:role="line"
          id="cache-05"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.8318px;font-family:Parisine;-inkscape-font-specification:Parisine;fill:#294a92;fill-opacity:1;stroke-width:0.264584"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.8318px;font-family:Parisine;-inkscape-font-specification:Parisine;fill:#294a92;fill-opacity:1;stroke-width:0.264584;text-decoration: line-through;"
          x="43.974651"
          y="281.38162">Appcache</tspan></text><text
        xml:space="preserve"
@@ -1313,7 +1313,7 @@
        transform="rotate(-50)"><tspan
          sodipodi:role="line"
          id="cache-07"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.8318px;font-family:Parisine;-inkscape-font-specification:Parisine;fill:#294a92;fill-opacity:1;stroke-width:0.264584"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.8318px;font-family:Parisine;-inkscape-font-specification:Parisine;fill:#294a92;fill-opacity:1;stroke-width:0.264584;text-decoration: line-through;"
          x="96.844223"
          y="345.24115">HTTP/2 push cache</tspan></text><text
        xml:space="preserve"

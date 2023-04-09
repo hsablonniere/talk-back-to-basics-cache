@@ -2,8 +2,8 @@
 author: Hubert Sablonnière
 author-twitter: @hsablonniere
 author-company: Clever Cloud
-event: Meetup Frontend Beers
-date: 23 mars 2023
+event: Devoxx France
+date: 13 avril 2023
 ---
 
 # Le cache HTTP
@@ -37,22 +37,25 @@ date: 23 mars 2023
 ## media white
 <img src="src/img/wordart.png">
 > #Voix pédante#
-> Oui euh, dans les années 90, on avait pas ce problème hann.
+> Oui euh, dans les années 90, on n'avait pas ce problème hann.
 
 <!-- https://unsplash.com/photos/6Nbo9Pn0yJA -->
 ## media
 <img src="src/img/videostore.jpg">
-> Ouais, on allait au vidéoclub, mais malgré les conseils d'un être humain beaucoup plus pertinent que ceux d'un algo,
-> moi, une fois sur deux j'revenais avec la VHS de...
+> Ouais, on allait au vidéoclub,
+> on était conseillé par un vrai être humain au lieu d'un algo,
+> mais bon,
+> quand t'as 10 ans,
 
 <!-- https://www.themoviedb.org/t/p/original/wFbgPZA44apfPt5wWPinQvV2Pbs.png -->
 ## media logo black
 <img src="src/img/back-to-the-future.png">
-> "Retour vers le Futur II" quoi.
-> C'était simple et efficace, mais...
+> tu loues un peu tout le temps le même film,
+> et pour récupérer la même VHS,
 
 ## subway videostore stop=0
-> fallait s'taper l'aller/retour et le vidéoclub il était,
+> fallait s'taper l'aller/retour à chaque fois,
+> et le vidéoclub il était,
 
 ## subway videostore stop=3
 > très...
@@ -102,7 +105,7 @@ date: 23 mars 2023
 ## text
 🗓️ Mai *1996*
 > En mai 96,
-> Pendant que j'faisais mumuse avec mon cache à base de cassettes vierges,
+> Pendant que j'faisais "peut-être" mumuse avec mon cache à base de cassettes vierges,
 
 ## media
 <img src="src/img/tim-berners-lee.jpg">
@@ -235,14 +238,15 @@ Meilleures perfs = meilleur business
 ATTENTION !
 <br>
 N'oublie pas de vider ton cache, tu risques d'afficher un contenu trop vieux.
-> "t'as essayé de vider ton cache ? ça devrait résoudre le bug"
+> #Voix un gênée#
+> "Tu peux essayer de vider ton cache ? Ça devrait résoudre le bug..."
 > Pour éviter cette histoire,
-> c'est important de bien comprendre
+> c'est important de bien comprendre...
 
 ## text
 🧑‍🎓 *Comment* ça marche ?
-> comment ça marche,
-> et on est là pour ça ;-)
+> ...comment ça marche,
+> et ça tombe bien, on est là pour ça ;-)
 > Le cache HTTP,
 
 ## text
@@ -280,8 +284,8 @@ age: 120
 ```http
 vary: accept-encoding
 ```
-> D'autres en-têtes qui entrent en jeu.
-> Je vais essayer de vous présenter les plus importants.
+> ...d'autres en-têtes qui entrent en jeu,
+> et je vais essayer de vous présenter les plus importants.
 
 ## text
 🔗 Une histoire de *sources*
@@ -291,11 +295,12 @@ vary: accept-encoding
 
 ## text
 🤝 Frontend *&* backend
-> C'est donc à la fois une affaire de front et de back
+> C'est donc à la fois une affaire de front et de back...
 
 ## text fade-from
 🤝 Devs *&* ops
-> Ou de devs et d'ops en fonction de qui gère les réglages du serveur.
+> ...ou de devs et d'ops,
+> en fonction de qui gère les réglages du serveur.
 
 <!-- ## text -->
 <!-- 🫶 <br> *Tout le monde* a besoin de cache -->
@@ -337,11 +342,12 @@ HTTP/1.1 200 OK
 cache-control: max-age=[secondes]
 ```
 > Le serveur ce qu'il va pouvoir faire c'est déposer un en-tête dans la réponse HTTP qui s'appelle "cache-control".
-> Celui là, il est incontournable.
+> *Celui là, il est incontournable.*
 > Il peut être utilisé dans une requête ou dans une réponse,
 > mais là, on va surtout parler de son usage dans une réponse.
 > Dans cache-control, on va retrouver une ou plusieurs directives, séparées par des virgules.
-> Elles ont toutes un rôle et elles ont des nommages bien pétés, on va en reparler.
+> Elles ont toutes un rôle et elles ont des nommages *bien pétés*,
+> on va en reparler.
 
 ## code
 ```http type="request"
@@ -355,62 +361,148 @@ cache-control: max-age=[secondes]
 HTTP/1.1 200 OK
 cache-control: max-age=[secondes]
 ```
-> la directive la plus utile, c'est max-age=[secondes]
+> La directive la plus utile, c'est *max-age*,
+> avec une valeur en secondes.
+
+## code
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: max-age=3600
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=[secondes]
+```
+> Ça peut être une heure,
+
+## code
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: max-age=120
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=[secondes]
+```
+> deux minutes,
+
+## code
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: max-age=10
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=[secondes]
+```
+> 10 secondes,
+> ça va forcément dépendre de votre contexte.
+> Faut bien garder en-tête que le cache...
 
 ## text
 🫵 <br>~C'est *pas* impératif~
-> on ne peut pas vraiment dire à un navigateur cache moi ça
-> encore moins cache moi ça pendant X secondes
-> c'est pas impératif
+> c'est pas impératif.
+> Quand on utilise max-age,
+> on est pas en train de dire :
 
 ## text
 ⏱️ ~*Cache ça* pendant X secondes~
-> C'est pas impératif
-> Ça ne veut pas dire "cache ça pendant X secondes"
+> #Voix autoritaire#
+> "cache ça pendant X secondes et après supprime le !"
+> Non, le cache,
+> #Voix stone#
+> c'est détente,
 
 ## text
 🙏 C'est *déclaratif*
-> c'est déclaratif
-> on peut lui dire "tu as le droit" et "tu n'as pas le droit"
-> un cache peut décider à n'importe quel moment de virer une ressource (fréquence des demandes, tailles du disque...)
+> c'est déclaratif.
 
 ## code
 ```http type="response"
 HTTP/1.1 200 OK
 cache-control: max-age=[secondes]
 ```
+> Avec max-age "tant de secondes",
+> vous êtes en train de dire...
 
 ## text
 ✅ Tu as le *droit* de cacher ça
+> "tu as le *droit* de cacher ça",
 
 ## text
 👍️ *Frais* +pendant+ X secondes
-> ça veut dire "tu as le droit de cacher ça", "considère que c'est frais pendant X secondes" et "considère que c'est périmé > après X secondes"
-> les x secondes sont calculées par rapport à l'en tête date
+> "considère que c'est frais pendant X secondes",
 
 ## text
 ✋ *Périmé* +après+ X secondes
+> et "considère que c'est périmé, après X secondes".
 
 ## code
 ```http type="response"
 HTTP/1.1 200 OK
-date: Fri, 23 Mar 2023 11:12:13 GMT
-cache-control: max-age=[secondes]
+cache-control: max-age=10
+ 
 ```
-> L'age est calculé à partir de l'en-tête date
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=10
+date: Fri, 23 Mar 2023 11:29:50 GMT
+```
+> Pour calculer la date de péremption,
+> on prend 10 secondes,
+
+## code
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: max-age=10
+date: Fri, 23 Mar 2023 11:29:50 GMT
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=10
+date: Fri, 23 Mar 2023 11:29:50 GMT
+```
+> après ce qu'il y a dans l'en tête *date*.
+
+## media
+<img src="src/img/trust-no-one.jpg">
+> C'est rarement une bonne idée de prendre pour argent comptant ce que dit une RFC,
+> C'est aussi rarement une bonne idée de croire tout ce qu'on vous dit en conférence,
 
 ## demo
-> C'est rarement une bonne idée de prendre pour argent comptant ce que dit spec, du coup on va se faire plusieurs petites démos.
+> du coup, on va se faire plusieurs petites démos.
 
 ## demo
 _
 terminal Serveur HTTP
-> À chaque fois, ou presque, j'aurai un terminal à droite avec un serveur HTTP de test que j'ai créé pour les démos qui logs les requêtes,
+> À chaque fois, ou presque,
+> on aura,
+> à droite :un terminal avec un serveur HTTP de test,
 
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
-> et à gauche un navigateur, avec la plupart du temps Firefox, parceque Firefox, c'est bien :p
+> et à gauche : un navigateur,
+> la plupart du temps Firefox,
+> parceque Firefox, c'est trop bien...
+
+## media
+<img src="src/img/firefox-sleeping.jpg">
+> ...et les pandas roux, c'est trop mignon.
+
+## demo
+firefox Firefox 111
+terminal Serveur HTTP
+> #DEMO max-age#
 > * cache vidé => Ctrl+Shift+Suppr
 > * accueil des démos
 > * ouvrir un onglet
@@ -424,7 +516,7 @@ terminal Serveur HTTP
 
 ## demo
 firefox Firefox 111
-terminal Serveur HTTP
+> #DEMO about:cache#
 > * Maximiser le firefox
 > * Taper la page about:cache et aller voir le cache disque
 > => On voit bien la date et la date d'expiration calculée avec 10s de +
@@ -504,6 +596,7 @@ etag: "22bb22bb22-bb"
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
+> #DEMO etag#
 > * clean le serveur
 > * ouvrir #etag-simple#
 > * constater les requêtes avec 200
@@ -584,6 +677,7 @@ last-modified: Fri, 23 Mar 2023 06:00:00 GMT
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
+> #DEMO last-modified#
 > * clean le serveur
 > * clean le firefox
 > * ouvrir #lm-simple#
@@ -609,6 +703,7 @@ terminal Serveur HTTP
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
+> #DEMO cache heuristique#
 > montrer les last-modified différents dans les devtools
 > montrer #about:cache#
 > expliquer que le last-modified est étrange
@@ -669,6 +764,7 @@ ATTENTION !
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
+> #DEMO last-modified + no-cache#
 > montrer #lm-nc#
 
 ## blank
@@ -700,6 +796,7 @@ cache-control: no-store
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
+> #DEMO no-store#
 > * vider tout le cache
 > * montrer le cache vide
 > * lancer #cc-ns#
@@ -808,14 +905,17 @@ cache-control: max-age=31536000, immutable
 ## demo
 webkit WebKitGTK (Safari 16)
 terminal Serveur HTTP
+> #DEMO immutable (safari)#
 
 ## demo
 chromium Chromium 111
 terminal Serveur HTTP
+> #DEMO immutable (chrome)#
 
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
+> #DEMO immutable (firefox)#
 
 <!-- ## code
 ```http label="⬅️ Requête HTTP"
@@ -933,6 +1033,7 @@ cache-control: max-age=3600, stale-while-revalidate=60
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
+> #DEMO stale-while-revalidate#
 
 ## blank
 
@@ -1268,6 +1369,7 @@ Ne mets pas tes mains dans +vary+, tu vas te pincer très fort.
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
+> #DEMO vary#
 
 ## demo
 firefox Firefox 111
@@ -1338,6 +1440,7 @@ Memory cache
 ## demo
 firefox Firefox 111
 chromium Chromium 111
+> #DEMO memory cache#
 > montrer avec une navigation et avec un autre site entre les deux
 > si je reste dans la même page ou le même site
 > si j'affiche plusieurs fois la même image
@@ -1491,6 +1594,7 @@ Service Worker cache
 
 ## demo
 firefox Firefox 111
+> #DEMO cache partitionning#
 
 ## section
 Back/Forward cache
@@ -1530,9 +1634,10 @@ Back/Forward cache
 8. CDN
 9. Reverse proxy cache
 
-## demo fade-from
+## demo
 firefox Firefox 111
 terminal Serveur HTTP
+> #DEMO BF cache#
 > marche pas pour les SPA
 
 ## media fade-from
