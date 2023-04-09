@@ -905,17 +905,15 @@ cache-control: max-age=31536000, immutable
 ## demo
 webkit WebKitGTK (Safari 16)
 terminal Serveur HTTP
-> #DEMO immutable (safari)#
+> #DEMO immutable#
 
 ## demo
 chromium Chromium 111
 terminal Serveur HTTP
-> #DEMO immutable (chrome)#
 
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
-> #DEMO immutable (firefox)#
 
 <!-- ## code
 ```http label="⬅️ Requête HTTP"
@@ -1283,6 +1281,7 @@ HTTP/1.1 200 OK
 cache-control: no-cache, s-maxage=3600
 ```
 
+<!--
 ## blank
 
 ## code
@@ -1324,6 +1323,7 @@ cache-control: max-age=60, stale-while-revalidate=3600, stale-if-error=86400
 ```
 > stale-if-error => pas possible de tester dans un navigateur
 > stale-if-error => pas possible de tester avec nginx
+-->
 
 ## code
 ```http type="response"
