@@ -267,7 +267,7 @@ cache-control: s-maxage=?
 cache-control: stale-if-error=?
 <!-- cache-control: no-transform -->
 ```
-> Le plus important étant "cache-control" mais il y a...
+> Le plus utile étant "cache-control" mais il y a...
 
 ## code
 ```http
@@ -275,8 +275,8 @@ etag: "11aa11aa11-aa"
 if-none-match: "11aa11aa11-aa"
 ```
 ```http
-last-modified: Thu, 22 Mar 2023 11:20:00 GMT
-if-modified-since: Thu, 22 Mar 2023 11:20:00 GMT
+last-modified: Wed, 12 Apr 2023 11:30:00 GMT
+if-modified-since: Wed, 12 Apr 2023 11:30:00 GMT
 ```
 ```http
 age: 120
@@ -326,8 +326,9 @@ cache-control: ...
 HTTP/1.1 200 OK
 cache-control: max-age=[secondes]
 ```
-> OK donc si le client fait une requête HTTP en mode
-> Dis-moi serveur, je voudrais la page index.html
+> ➡️ *EXPLICATION max-age ⬅️*
+> OK donc si le client fait une requête HTTP en mode :
+> Dis-moi serveur, je voudrais la page index.html !
 
 ## code
 ```http type="request"
@@ -343,8 +344,6 @@ cache-control: max-age=[secondes]
 ```
 > Le serveur ce qu'il va pouvoir faire c'est déposer un en-tête dans la réponse HTTP qui s'appelle "cache-control".
 > *Celui là, il est incontournable.*
-> Il peut être utilisé dans une requête ou dans une réponse,
-> mais là, on va surtout parler de son usage dans une réponse.
 > Dans cache-control, on va retrouver une ou plusieurs directives, séparées par des virgules.
 > Elles ont toutes un rôle et elles ont des nommages *bien pétés*,
 > on va en reparler.
@@ -361,7 +360,7 @@ cache-control: max-age=[secondes]
 HTTP/1.1 200 OK
 cache-control: max-age=[secondes]
 ```
-> La directive la plus utile, c'est *max-age*,
+> La directive la plus importante, c'est *max-age*,
 > avec une valeur en secondes.
 
 ## code
@@ -412,12 +411,12 @@ cache-control: max-age=[secondes]
 🫵 <br>~C'est *pas* impératif~
 > c'est pas impératif.
 > Quand on utilise max-age,
-> on est pas en train de dire :
+> on n'est *pas* en train de dire :
 
 ## text
 ⏱️ ~*Cache ça* pendant X secondes~
 > #Voix autoritaire#
-> "cache ça pendant X secondes et après supprime le !"
+> "cache ça pendant X secondes et après, supprime le !"
 > Non, le cache,
 > #Voix stone#
 > c'est détente,
@@ -440,10 +439,12 @@ cache-control: max-age=[secondes]
 
 ## text
 👍️ *Frais* +pendant+ X secondes
+> #pouce avec la main#
 > "considère que c'est frais pendant X secondes",
 
 ## text
 ✋ *Périmé* +après+ X secondes
+> #main qui bloque#
 > et "considère que c'est périmé, après X secondes".
 
 ## code
@@ -455,23 +456,24 @@ cache-control: max-age=10
 ```http type="response" hide-height
 HTTP/1.1 200 OK
 cache-control: max-age=10
-date: Fri, 23 Mar 2023 11:29:50 GMT
+date: Thu, 13 Apr 2023 11:59:50 GMT
 ```
 > Pour calculer la date de péremption,
-> on prend 10 secondes,
+> on prend le nombre de secondes de max-age,
 
 ## code
 ```http type="response"
 HTTP/1.1 200 OK
 cache-control: max-age=10
-date: Fri, 23 Mar 2023 11:29:50 GMT
+date: Thu, 13 Apr 2023 11:59:50 GMT
 ```
 ```http type="response" hide-height
 HTTP/1.1 200 OK
 cache-control: max-age=10
-date: Fri, 23 Mar 2023 11:29:50 GMT
+date: Thu, 13 Apr 2023 11:59:50 GMT
 ```
-> après ce qu'il y a dans l'en tête *date*.
+> après la date de création de la réponse,
+> qui est dans l'en tête *date*.
 
 ## media
 <img src="src/img/trust-no-one.jpg">
@@ -486,7 +488,7 @@ _
 terminal Serveur HTTP
 > À chaque fois, ou presque,
 > on aura,
-> à droite :un terminal avec un serveur HTTP de test,
+> à droite : un terminal avec un serveur HTTP de test,
 
 ## demo
 firefox Firefox 111
@@ -502,36 +504,59 @@ terminal Serveur HTTP
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
-> #DEMO max-age#
-> * cache vidé => Ctrl+Shift+Suppr
-> * accueil des démos
-> * ouvrir un onglet
-> * ouvrir les devtools
-> * montrer qu'on peut choisir les colonnes
-> * ouvrir le #cc-ma-10#
+> $DEMO max-age$
+> *lancer le serveur de test*
+> *charger l'accueil de la démo*
+> *ouvrir les devtools*
+> *(t=0) charger cc-ma-10*
+> .. le cache est vierge, le navigateur demande au serveur
+> *(t<10) charger autre site*
+> *(t<10) charger cc-ma-10*
+> .. le cache est frais, le navigateur utilise le cache
+> *(t>10) charger autre site*
+> *(t>10) charger cc-ma-10*
+> .. le cache est périmé, le navigateur demande au serveur
 
 ## text
 🤔 Et quand c'est *périmé* ?
-> il se passe quoi quand un élément qui est dans le cache est périmé ?
+> Qu'est-ce qu'il se passe quand c'est périmé ?
+> Qu'est ce qu'il fait Firefox ?
+> Le plus simple, c'est d'aller lui demander.
 
 ## demo
 firefox Firefox 111
-> #DEMO about:cache#
-> * Maximiser le firefox
-> * Taper la page about:cache et aller voir le cache disque
-> => On voit bien la date et la date d'expiration calculée avec 10s de +
-> => le navigateur ne le supprime pas tout de suite ce qui est périmé
-> il a ses propre règles pour savoir quand virer des trucs et pourquoi
-> * Ne pas oublier de re-minimiser le firefox avant de partir
+terminal Serveur HTTP
+> $DEMO about:cache$
+> D'ailleurs, c'est assez cool, parceque Chrome, il sait pas faire ça.
+> Firefox, il a une interface pour voir ce qu'il y a dans son cache.
+> *maximiser le firefox*
+> *charger about:cache => clic disk*
+> Si on regarde bien, on voit les fichiers de ma démo.
+> Ils ont expiré à peu près 10 secondes après être arrivé dans mon cache,
+> et pourtant, ils sont toujours sur mon disque.
+<!-- (quand on ouvre un navigateur => il utilise cache)-->
+> *minimiser le firefox*
 
 ## text
 🤙 *Revalidation* avec le serveur
-> Il garde la réponse en cache pour pouvoir faire une revalidation avec le serveur la prochaine fois,
-> et pour faire des revalidations efficaces, on va se baser sur les...
+> Firefox garde les réponses en cache, car quand c'est périmé,
+> il doit faire une revalidation avec le serveur.
+> En gros, il fait _"allo serveur, j'ai un truc dans mon cache qui est périmé, redonne-moi la réponse !"_.
+> En l'occurence, c'est pas ouf vu qu'il peut pas se servir de c'qu'il a dans son cache.
+> Pour faire des revalidations efficaces qui se base sur les contenus périmés encore en cache,
+> on va faire des...
 
 ## text
-🏷️ Requête +conditionnelle+ <br> avec *etag*
-> requêtes conditionnelles
+🤞 Requêtes *conditionnelles*
+> ...requêtes conditionnelles.
+> En gros l'idée, c'est qu'en revalidant avec le serveur,
+> on espère qu'il puisse nous dire "tu peux utiliser c'qu'il y a dans ton cache".
+> Il y a deux manières de faire des requêtes conditionnelles.
+
+## text
+🏷️ Requêtes +conditionnelles+ <br> avec *etag*
+> ➡️ *EXPLICATION etag ⬅️*
+> La première, c'est avec des etags.
 
 ## code title="*Première* requête"
 ```http type="request"
@@ -576,7 +601,7 @@ etag: "11aa11aa11-aa"
 GET /index.html HTTP/1.1
 if-none-match: "11aa11aa11-aa"
 ```
-```http type="response"
+```http type="response" status="304"
 HTTP/1.1 304 Not Modified
 etag: "11aa11aa11-aa"
 ```
@@ -596,7 +621,7 @@ etag: "22bb22bb22-bb"
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
-> #DEMO etag#
+> $DEMO etag$
 > * clean le serveur
 > * ouvrir #etag-simple#
 > * constater les requêtes avec 200
@@ -612,7 +637,8 @@ terminal Serveur HTTP
 > et une fois périmé, il déclenche une revalidation
 
 ## text
-📅 Requête +conditionnelle+ <br> avec *last-modified*
+📅 Requêtes +conditionnelles+ <br> avec *last-modified*
+> ➡️ *EXPLICATION last-modified ⬅️*
 > L'autre manière de faire de la revalidation conditionnelle
 > c'est avec des dates
 
@@ -622,7 +648,7 @@ GET /index.html HTTP/1.1
 ```
 ```http type="response" hide
 HTTP/1.1 200 OK
-last-modified: Thu, 22 Mar 2023 11:20:00 GMT
+last-modified: Wed, 12 Apr 2023 11:30:00 GMT
 ```
 
 ## code title="*Première* requête"
@@ -631,53 +657,53 @@ GET /index.html HTTP/1.1
 ```
 ```http type="response"
 HTTP/1.1 200 OK
-last-modified: Thu, 22 Mar 2023 11:20:00 GMT
+last-modified: Wed, 12 Apr 2023 11:30:00 GMT
 ```
 
 ## code title="Requêtes *suivantes*"
 ```http type="request" hide
 GET /index.html HTTP/1.1
-if-modified-since: Thu, 22 Mar 2023 11:20:00 GMT
+if-modified-since: Wed, 12 Apr 2023 11:30:00 GMT
 ```
 ```http type="response" hide
 HTTP/1.1 200 OK
-last-modified: Thu, 22 Mar 2023 11:20:00 GMT
+last-modified: Wed, 12 Apr 2023 11:30:00 GMT
 ```
 
 ## code title="Requêtes *suivantes*"
 ```http type="request"
 GET /index.html HTTP/1.1
-if-modified-since: Thu, 22 Mar 2023 11:20:00 GMT
+if-modified-since: Wed, 12 Apr 2023 11:30:00 GMT
 ```
 ```http type="response" hide
 HTTP/1.1 200 OK
-last-modified: Thu, 22 Mar 2023 11:20:00 GMT
+last-modified: Wed, 12 Apr 2023 11:30:00 GMT
 ```
 
 ## code title="304 : *pas* de changement"
 ```http type="request"
 GET /index.html HTTP/1.1
-if-modified-since: Thu, 22 Mar 2023 11:20:00 GMT
+if-modified-since: Wed, 12 Apr 2023 11:30:00 GMT
 ```
-```http type="response"
+```http type="response" status="304"
 HTTP/1.1 304 Not Modified
-last-modified: Thu, 22 Mar 2023 11:20:00 GMT
+last-modified: Wed, 12 Apr 2023 11:30:00 GMT
 ```
 
 ## code title="200 : *nouveau* contenu"
 ```http type="request"
 GET /index.html HTTP/1.1
-if-modified-since: Thu, 22 Mar 2023 11:20:00 GMT
+if-modified-since: Wed, 12 Apr 2023 11:30:00 GMT
 ```
 ```http type="response"
 HTTP/1.1 200 OK
-last-modified: Fri, 23 Mar 2023 06:00:00 GMT
+last-modified: Thu, 13 Apr 2023 06:00:00 GMT
 ```
 
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
-> #DEMO last-modified#
+> $DEMO last-modified$
 > * clean le serveur
 > * clean le firefox
 > * ouvrir #lm-simple#
@@ -691,6 +717,7 @@ terminal Serveur HTTP
 ## text
 <!-- 😬 Cache *heuristique* -->
 🙈 Cache *heuristique*
+> ➡️ *EXPLICATION cache heuristique ⬅️*
 > cache heuristique qui dit en gros :
 > si un cache a une réponse avec un last-modified mais pas de cache-control
 > (donc pas d'expiration explicite)
@@ -703,7 +730,7 @@ terminal Serveur HTTP
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
-> #DEMO cache heuristique#
+> $DEMO cache heuristique$
 > montrer les last-modified différents dans les devtools
 > montrer #about:cache#
 > expliquer que le last-modified est étrange
@@ -712,6 +739,7 @@ terminal Serveur HTTP
 
 ## text
 🤙 *Forcer* la revalidation
+> ➡️ *EXPLICATION no-cache ⬅️*
 > C'est à mon avis mieux de maitriser la revalidation
 
 ## code
@@ -764,7 +792,7 @@ ATTENTION !
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
-> #DEMO last-modified + no-cache#
+> $DEMO last-modified + no-cache$
 > montrer #lm-nc#
 
 ## blank
@@ -777,6 +805,7 @@ GET /index.html HTTP/1.1
 HTTP/1.1 200 OK
 cache-control: no-store
 ```
+> ➡️ *EXPLICATION no-store ⬅️*
 
 ## code
 ```http type="request"
@@ -796,7 +825,7 @@ cache-control: no-store
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
-> #DEMO no-store#
+> $DEMO no-store$
 > * vider tout le cache
 > * montrer le cache vide
 > * lancer #cc-ns#
@@ -816,6 +845,7 @@ cache-control: must-revalidate
 HTTP/1.1 200 OK
 cache-control: max-age=60, must-revalidate
 ```
+> ➡️ *EXPLICATION must-revalidate ⬅️*
 
 ## code
 ```http type="request"
@@ -868,6 +898,7 @@ cache-control: immutable
 HTTP/1.1 200 OK
 cache-control: max-age=31536000, immutable
 ```
+> ➡️ *EXPLICATION immutable ⬅️*
 
 ## code
 ```http type="request"
@@ -905,7 +936,7 @@ cache-control: max-age=31536000, immutable
 ## demo
 webkit WebKitGTK (Safari 16)
 terminal Serveur HTTP
-> #DEMO immutable#
+> $DEMO immutable$
 
 ## demo
 chromium Chromium 111
@@ -914,16 +945,6 @@ terminal Serveur HTTP
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
-
-<!-- ## code
-```http label="⬅️ Requête HTTP"
-cache-control: max-age
-``` -->
-
-<!-- ## code
-```http label="⬅️ Requête HTTP"
-cache-control: no-cache
-``` -->
 
 ## code title="*Longue* expiration"
 ```http type="request"
@@ -994,6 +1015,7 @@ cache-control: stale-while-revalidate=[secondes]
 HTTP/1.1 200 OK
 cache-control: max-age=3600, stale-while-revalidate=60
 ```
+> ➡️ *EXPLICATION stale-while-revalidate ⬅️*
 
 ## code
 ```http type="request"
@@ -1031,7 +1053,7 @@ cache-control: max-age=3600, stale-while-revalidate=60
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
-> #DEMO stale-while-revalidate#
+> $DEMO stale-while-revalidate$
 
 ## blank
 
@@ -1040,17 +1062,21 @@ terminal Serveur HTTP
 GET /index.html HTTP/1.1
 Pragma: no-cache
 ```
+> ➡️ *EXPLICATION en-têtes obsolètes ⬅️*
 
 ## code title="En-têtes *obsolètes*"
 ```http type="response"
 HTTP/1.1 200 OK
-Expires: Fri, 22 Mar 2023 11:12:13 GMT
+Expires: Wed, 12 Apr 2023 11:30:00 GMT
 ```
 
 ## blank
 
 <!-- ## text
 un post invalide un get -->
+
+## subway stop=10
+6. Cache
 
 ## subway stop=10
 6. Cache navigateur
@@ -1074,7 +1100,7 @@ Reverse proxy cache
 
 ## subway stop=10 pop
 6. Cache navigateur
-7. Reverse proxy cache
+9. Reverse proxy cache
 > #pop#
 > varnish devant un PHP
 > squid, nginx, "apache" bof
@@ -1181,20 +1207,74 @@ Content Delivery <br> +Network+
 ## code
 ```http type="response"
 HTTP/1.1 200 OK
-date: Fri, 23 Mar 2023 11:12:13 GMT
-age: 120
 cache-control: max-age=3600
-```
-> public / privé
-> age
 
-## code title="Caches *privés* uniquement"
+ 
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=3600
+date: Thu, 13 Apr 2023 11:00:00 GMT
+age: 120
+```
+> ➡️ *EXPLICATION age ⬅️*
+
+## code
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: max-age=3600
+date: Thu, 13 Apr 2023 11:00:00 GMT
+ 
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=3600
+date: Thu, 13 Apr 2023 11:00:00 GMT
+age: 120
+```
+
+## code
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: max-age=3600
+date: Thu, 13 Apr 2023 11:00:00 GMT
+age: 120
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: max-age=3600
+date: Thu, 13 Apr 2023 11:00:00 GMT
+age: 120
+```
+
+## blank
+
+## code title="Caches *privés* +et+ *partagés*"
 ```http type="request"
 GET /profile.html HTTP/1.1
 cookie: session-id=42
 ```
 ```http type="response" hide
 HTTP/1.1 200 OK
+cache-control: [...]
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: [...], private
+```
+> ➡️ *EXPLICATION private ⬅️*
+
+## code title="Caches *privés* +et+ *partagés*"
+```http type="request"
+GET /profile.html HTTP/1.1
+cookie: session-id=42
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: [...]
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
 cache-control: [...], private
 ```
 
@@ -1207,15 +1287,12 @@ cookie: session-id=42
 HTTP/1.1 200 OK
 cache-control: [...], private
 ```
-
-## code title="Caches *privés* uniquement"
-```http type="request"
-GET /profile.html HTTP/1.1
-authorization: Basic YWRtaW46YWRtaW4=
-```
-```http type="response"
+```http type="response" hide-height
 HTTP/1.1 200 OK
+cache-control: [...], private
 ```
+
+## blank
 
 ## code title="Caches *privés* uniquement"
 ```http type="request"
@@ -1224,7 +1301,26 @@ authorization: Basic YWRtaW46YWRtaW4=
 ```
 ```http type="response" hide
 HTTP/1.1 200 OK
-cache-control: [...], private
+cache-control: [...]
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: [...], public
+```
+> ➡️ *EXPLICATION public ⬅️*
+
+## code title="Caches *privés* uniquement"
+```http type="request"
+GET /about.html HTTP/1.1
+authorization: Basic YWRtaW46YWRtaW4=
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: [...]
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: [...], public
 ```
 
 ## code title="Caches *privés* +et+ *partagés*"
@@ -1236,8 +1332,10 @@ authorization: Basic YWRtaW46YWRtaW4=
 HTTP/1.1 200 OK
 cache-control: [...], public
 ```
-> public / privé
-> age
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: [...], public
+```
 
 ## blank
 
@@ -1250,6 +1348,7 @@ GET /index.html HTTP/1.1
 HTTP/1.1 200 OK
 cache-control: max-age=60
 ```
+> ➡️ *EXPLICATION s-maxage ⬅️*
 
 ## code title="Caches *partagés* uniquement"
 <!-- ## code title="Caches *privés* uniquement" -->
@@ -1325,28 +1424,45 @@ cache-control: max-age=60, stale-while-revalidate=3600, stale-if-error=86400
 > stale-if-error => pas possible de tester avec nginx
 -->
 
-## code
+## blank
+
+## media
+<img src="src/img/rfc-9213.png" screenshot-url="https://www.rfc-editor.org/rfc/rfc9213.html">
+
+## code title="Contrôle du cache *ciblé*"
 ```http type="response"
 HTTP/1.1 200 OK
-cdn-cache-control: ...
+cache-control: no-cache
+TARGET-cache-control: max-age=60
 ```
 
-## code
+## code title="Ciblé pour *Cloudflare*"
 ```http type="response"
 HTTP/1.1 200 OK
-cloudflare-cdn-cache-control: ...
+cache-control: no-cache
+cdn-cache-control: max-age=60
+cloudflare-cdn-cache-control: max-age=3600
 ```
 
-## code
+## code title="Ciblé pour *Akamai*"
 ```http type="response"
 HTTP/1.1 200 OK
-surrogate-control: ...
+cache-control: no-cache
+cdn-cache-control: max-age=60
+akamai-cache-control: max-age=3600
 ```
 
-## code fade-from
+## code title="Ciblé pour *Fastly*"
 ```http type="response"
 HTTP/1.1 200 OK
-X-Accel-Expires: [secondes]
+cache-control: no-cache
+surrogate-control: max-age=60
+```
+
+## code title="Ciblé pour *nginx*"
+```http type="response"
+HTTP/1.1 200 OK
+X-Accel-Expires: 60
 ```
 
 ## blank black
@@ -1358,6 +1474,7 @@ X-Accel-Expires: [secondes]
 vary: .............
 ```
 > @00:34:00@
+> ➡️ *EXPLICATION vary ⬅️*
 
 ## lapin
 ATTENTION !
@@ -1369,7 +1486,7 @@ Ne mets pas tes mains dans +vary+, tu vas te pincer très fort.
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
-> #DEMO vary#
+> $DEMO vary$
 
 ## demo
 firefox Firefox 111
@@ -1385,6 +1502,21 @@ terminal Serveur HTTP
 > * afficher dans firefox puis dans chrome
 > * expliquer qu'on profite du cache partagé
 
+## code title="Ne faites *pas* ça !"
+```http type="request"
+GET /index.html HTTP/1.1
+accept-language: ...
+```
+```http type="response"
+HTTP/1.1 200 OK
+vary: accept-language
+```
+
+## demo
+firefox Firefox 111
+chromium Chromium 111
+terminal Serveur HTTP
+
 ## media
 <img src="src/img/jake-archibald-vary.png" screenshot-url="https://jakearchibald.com/2014/browser-cache-vary-broken/">
 
@@ -1392,7 +1524,24 @@ terminal Serveur HTTP
 <img src="src/img/wiki-whatwg-vary.png" screenshot-url="https://wiki.whatwg.org/wiki/Why_not_conneg">
 
 ## code title="+Utiliser+ avec la *compression*"
+```http type="request"
+GET /index.html HTTP/1.1
+accept-encoding: gzip, deflate, br
+```
 ```http type="response"
+HTTP/1.1 200 OK
+content-encoding: gzip
+vary: accept-encoding
+```
+
+## code title="+Utiliser+ avec la *compression*"
+```http type="request"
+GET /index.html HTTP/1.1
+accept-encoding: gzip, deflate, br
+```
+```http type="response"
+HTTP/1.1 200 OK
+content-encoding: br
 vary: accept-encoding
 ```
 > explication des clés cache
@@ -1440,7 +1589,7 @@ Memory cache
 ## demo
 firefox Firefox 111
 chromium Chromium 111
-> #DEMO memory cache#
+> $DEMO memory cache$
 > montrer avec une navigation et avec un autre site entre les deux
 > si je reste dans la même page ou le même site
 > si j'affiche plusieurs fois la même image
@@ -1583,6 +1732,26 @@ Service Worker cache
 9. Reverse proxy cache
 > #pop#
 
+## subway stop=2
+2. Memory cache
+3. Module map
+4. Service worker cache
+5.X ~Appcache~
+6. Disk cache
+7.X ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
+
+## subway stop=6
+2. Memory cache
+3. Module map
+4. Service worker cache
+5.X ~Appcache~
+6. Disk cache
+7.X ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
+
 ## media white
 <img src="src/img/diagram-subway-shared-tab-2.svg">
 
@@ -1594,7 +1763,7 @@ Service Worker cache
 
 ## demo
 firefox Firefox 111
-> #DEMO cache partitionning#
+> $DEMO cache partitionning$
 
 ## section
 Back/Forward cache
@@ -1637,7 +1806,7 @@ Back/Forward cache
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
-> #DEMO BF cache#
+> $DEMO BF cache$
 > marche pas pour les SPA
 
 ## media fade-from
@@ -1765,7 +1934,7 @@ accept-encoding: gzip, deflate, br
 ```
 ```http type="response"
 HTTP/1.1 200 OK
-content-encoding: ...
+content-encoding: br
 vary: accept-encoding
 ```
 
@@ -1791,6 +1960,9 @@ cache-control: must-revalidate
 HTTP/1.1 200 OK
 cache-control: public
 ```
+
+## media
+<img src="src/img/trust-no-one.jpg">
 
 ## text fade-from
 ⏱️
@@ -1839,6 +2011,7 @@ Références :
 Images :
 
 * Brique métro : https://fr.depositphotos.com/15705561/stock-photo-white-tiled-parisian-metro.html
+* Trust no one  : X-Files, 20th Century Fox Television
 
 Polices :
 

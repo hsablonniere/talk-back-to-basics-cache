@@ -15,6 +15,7 @@ import { notModified } from 'hititipi/src/middlewares/not-modified.js';
 import readlineModule from 'readline';
 import { Readable } from 'node:stream';
 import { setTimeout } from 'node:timers/promises';
+import { ResponseDelay } from './lib/response-transformer.js';
 
 const httpsOptions = {
   key: fs.readFileSync('./cert/host.key'),
@@ -24,14 +25,19 @@ const httpsOptions = {
 const ERROR_MODES = [false, 500, 503];
 let errorMode = false;
 let fakeLastModified = false;
-let delay = 500;
+let delay = 50;
 
 // options,
 let hititipiSetup = hititipi(
   logRequest(
     chainAll([
-      async () => {
-        await setTimeout(delay);
+      async (context) => {
+        await setTimeout(500);
+        const responseTransformers = [
+          ...context.responseTransformers,
+          new ResponseDelay(delay),
+        ];
+        return { ...context, responseTransformers };
       },
       chainUntilResponse([
         dynamicPage({ root: 'pages' }),
@@ -85,10 +91,10 @@ let hititipiSetup = hititipi(
         cacheControl({ 'max-age': 10, 'stale-if-error': 3600 }),
       ])),
       startsWith('/hello/', chainAll([
-        cacheControl({ 's-maxage': 10 }),
+        cacheControl({ 's-maxage': 20 }),
       ])),
       startsWith('/hello-vary/', chainAll([
-        cacheControl({ 's-maxage': 10 }),
+        cacheControl({ 's-maxage': 20 }),
         (context) => {
           return {
             ...context,
@@ -178,11 +184,11 @@ process.stdin.on('keypress', async function (character, key) {
     }
   }
   if (key.name === 'up' && key.ctrl) {
-    delay = delay + 500;
+    delay = delay + 25;
     console.log('delay:', delay + 'ms');
   }
   if (key.name === 'down' && key.ctrl) {
-    delay = Math.max(0, delay - 500);
+    delay = Math.max(0, delay - 25);
     console.log('delay:', delay + 'ms');
   }
   if (key.name === 'c' && key.ctrl) {
@@ -198,10 +204,10 @@ async function write (text) {
   }
 }
 
-await write(`
-Bonjour Hubert et bonjour Devoxx !
-
-je suis un serveur HTTP de test,
-j'affiche les requêtes que je reçois.
-
-`)
+// await write(`
+// Bonjour Hubert et bonjour Devoxx !
+//
+// je suis un serveur HTTP de test,
+// j'affiche les requêtes que je reçois.
+//
+// `);

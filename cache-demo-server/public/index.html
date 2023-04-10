@@ -8,6 +8,13 @@
   <style>
   body {
     font-size: 1.25em;
+    margin: 1em auto;
+    width: 30em;
+  }
+
+  h1,
+  h2 {
+    text-align: center;
   }
   </style>
 </head>
@@ -16,39 +23,41 @@
 <h1>Cache demo</h1>
 
 <ul>
-  <li><a href="http://localhost:8081/">http://localhost:8081</a></li>
-  <li><a href="https://example-foo.com:8082/">https://example-foo.com:8082</a></li>
-  <li><a href="http://localhost:8888/">http://localhost:8888</a></li>
   <li><a href="/cc-ma-10/"><code>cache-control: max-age=10</code></a></li>
   <li><a href="/etag-simple/"><code>etag: X</code></a></li>
-  <li><a href="/etag-cc-ma-10/"><code>etag: X & cache-control: max-age=10</code></a></li>
   <li><a href="/lm-simple/"><code>last-modified: X</code></a></li>
-  <li><a href="/lm-cc-ma-10/"><code>last-modified: X & cache-control: max-age=10</code></a></li>
   <li><a href="/lm-cc-nc/"><code>last-modified: X & cache-control: no-cache</code></a></li>
-  <li><a href="/lm-cc-ma-0/"><code>last-modified: X & cache-control: max-age=0</code></a></li>
   <li><a href="/cc-ns/"><code>cache-control: no-store</code></a></li>
-  <li><a href="/cc-ma-10-mr/"><code>cache-control: max-age=10, must-revalidate</code></a></li>
-  <li><a href="/etag-cc-ma-10-mr/"><code>etag: X & cache-control: max-age=10, must-revalidate</code></a></li>
   <li><a href="/etag-cc-ma-1y/"><code>etag: X & cache-control: max-age=31536000</code></a></li>
-  <li><a href="/etag-cc-ma-1y-immutable/"><code>etag: X & cache-control: max-age=31536000, immutable</code></a>
-  </li>
-  <li><a href="/etag-cc-ma-10-swr-20/"><code>etag: X & cache-control: max-age=10, stale-while-revalidate-20</code></a>
-  </li>
-  <!--  <li><a href="/etag-cc-ma-10-swr-20-mr/"><code>etag: X & cache-control: max-age=10, state-while-revalidate-20, must-revalidate</code></a></li>-->
-  <li><a href="/etag-cc-ma-10-sie-20/"><code>etag: X & cache-control: max-age=10, stale-if-error-20</code></a></li>
+  <li><a href="/etag-cc-ma-1y-immutable/"><code>etag: X & cache-control: max-age=31536000, immutable</code></a></li>
   <li><a href="/hello/"><code>hello</code></a></li>
   <li><a href="/hello-vary/"><code>hello (vary)</code></a></li>
   <li><a href="http://example-foo.com:8081/partitioning/"><code>partitioning (foo)</code></a></li>
   <li><a href="http://example-bar.com:8081/partitioning/"><code>partitioning (bar)</code></a></li>
-  <li><a href="/sw/"><code>Service Worker</code></a></li>
   <li><a href="/bfcache/"><code>BF cache</code></a></li>
+</ul>
+
+<h2>links</h2>
+
+<ul>
+  <li><a href="http://localhost:8081/">http://localhost:8081</a></li>
+  <li><a href="https://example-foo.com:8082/">https://example-foo.com:8082</a></li>
+  <li><a href="http://localhost:8888/">http://localhost:8888</a></li>
   <li><a href="http://localhost:8888/souin-api/souin"><code>Souin API</code></a></li>
 </ul>
 
-<h2>other demos</h2>
+<!--<h2>other demos</h2>-->
 
 <ul>
-
+<!--  <li><a href="/etag-cc-ma-10/"><code>etag: X & cache-control: max-age=10</code></a></li>-->
+<!--  <li><a href="/lm-cc-ma-10/"><code>last-modified: X & cache-control: max-age=10</code></a></li>-->
+<!--  <li><a href="/lm-cc-ma-0/"><code>last-modified: X & cache-control: max-age=0</code></a></li>-->
+  <li><a href="/cc-ma-10-mr/"><code>cache-control: max-age=10, must-revalidate</code></a></li>
+<!--  <li><a href="/etag-cc-ma-10-mr/"><code>etag: X & cache-control: max-age=10, must-revalidate</code></a></li>-->
+<!--  <li><a href="/etag-cc-ma-10-swr-20/"><code>etag: X & cache-control: max-age=10, stale-while-revalidate-20</code></a></li>-->
+<!--  <li><a href="/etag-cc-ma-10-swr-20-mr/"><code>etag: X & cache-control: max-age=10, state-while-revalidate-20, must-revalidate</code></a></li>-->
+<!--  <li><a href="/etag-cc-ma-10-sie-20/"><code>etag: X & cache-control: max-age=10, stale-if-error-20</code></a></li>-->
+<!--  <li><a href="/sw/"><code>Service Worker</code></a></li>-->
 </ul>
 
 </body>

@@ -63,12 +63,18 @@ defineSlideType('slide-code', {
       padding-bottom: 0;
       margin-top: 0;
       margin-bottom: 0;
+      border-top-width: 0;
+      border-bottom-width: 0;
     }
 
     pre[type] {
       position: relative;
       margin-top: 1rem;
       padding-top: 1.5rem;
+      /* cond request */
+      /*background-color: #fafafa;*/
+      border: 0.15rem solid #bbb;
+      /*border: 0.15rem solid transparent;*/
     }
 
     pre[type]::before {
@@ -92,6 +98,12 @@ defineSlideType('slide-code', {
     pre[type="response"]::before {
       content: '⬅️ Réponse HTTP';
       right: 1rem;
+    }
+
+    /* cond request */
+    pre[status="304"] {
+      background: none;
+      border: 0.15rem dotted #bbb;
     }
 
     pre[data-lang="http"] .hljs-meta {

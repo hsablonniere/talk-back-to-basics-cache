@@ -5,7 +5,7 @@ let timeoutId;
 
 function logHeader (headers, headerName) {
   if (headers[headerName] != null) {
-    console.log('  ', headerName, headers[headerName]);
+    console.log('  ', chalk.cyan(headerName), headers[headerName]);
   }
 }
 
@@ -19,7 +19,7 @@ export function logRequest (applyMiddleware) {
 
     const before = performance.now();
     const now = new Date().toISOString();
-    const shortNow = now.substring(11, 23);
+    const shortNow = now.substring(11, 21);
     const newContext = await applyMiddleware(context);
     const after = performance.now();
     const elapsed = (after - before).toFixed(2) + 'ms';
@@ -31,6 +31,9 @@ export function logRequest (applyMiddleware) {
     logHeader(context.requestHeaders, 'if-modified-since');
     logHeader(context.requestHeaders, 'if-none-match');
     logHeader(context.requestHeaders, 'cache-status');
+
+    // logHeader(context.requestHeaders, 'user-agent');
+    // logHeader(context.requestHeaders, 'accept-language');
 
     return newContext;
   };
