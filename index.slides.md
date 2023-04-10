@@ -225,8 +225,8 @@ Meilleures perfs = meilleur business
 > réduire les factures des serveurs.
 
 ## text
-🫶 <br> Le *cache* HTTP <br> +c'est la vie+
-> Bref, le cache HTTP, c'est la vie mais...
+🫶 <br> Le *cache* HTTP <br> +c'est la vie !+
+> Bref, le cache HTTP, c'est la vie ! mais...
 
 ## text
 🤯 C'est *compliqué*
@@ -260,11 +260,11 @@ cache-control: no-cache
 cache-control: no-store
 cache-control: must-revalidate
 cache-control: immutable
-cache-control: stale-while-revalidate=?
+<!--cache-control: stale-while-revalidate=?-->
 cache-control: private
 cache-control: public
 cache-control: s-maxage=?
-cache-control: stale-if-error=?
+<!--cache-control: stale-if-error=?-->
 <!-- cache-control: no-transform -->
 ```
 > Le plus utile étant "cache-control" mais il y a...
@@ -320,7 +320,7 @@ GET /index.html HTTP/1.1
 ```
 ```http type="response" hide
 HTTP/1.1 200 OK
-cache-control: ...
+cache-control: [...]
 ```
 ```http type="response" hide-height
 HTTP/1.1 200 OK
@@ -336,7 +336,7 @@ GET /index.html HTTP/1.1
 ```
 ```http type="response"
 HTTP/1.1 200 OK
-cache-control: ...
+cache-control: [...]
 ```
 ```http type="response" hide-height
 HTTP/1.1 200 OK
@@ -1057,17 +1057,35 @@ terminal Serveur HTTP
 
 ## blank
 
+## code title="Autres directives"
+```http type="request"
+cache-control: max-stale
+cache-control: min-fresh
+cache-control: no-store
+cache-control: no-transform
+cache-control: only-if-cached
+cache-control: stale-if-error
+```
+> ➡️ *EXPLICATION autres en-têtes ⬅️*
+
+## code title="Autres directives"
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: no-transform
+cache-control: must-understand
+<!--cache-control: stale-while-revalidate-->
+```
+
 ## code title="En-têtes *obsolètes*"
 ```http type="request"
 GET /index.html HTTP/1.1
 Pragma: no-cache
 ```
-> ➡️ *EXPLICATION en-têtes obsolètes ⬅️*
 
 ## code title="En-têtes *obsolètes*"
 ```http type="response"
-HTTP/1.1 200 OK
-Expires: Wed, 12 Apr 2023 11:30:00 GMT
+GET /index.html HTTP/1.1
+Pragma: no-cache
 ```
 
 ## blank
@@ -1465,6 +1483,13 @@ HTTP/1.1 200 OK
 X-Accel-Expires: 60
 ```
 
+## code title="Autres directives" fade-from
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: proxy-revalidate
+cache-control: stale-if-error
+```
+
 ## blank black
 > OK, il nous reste un en-tête et c'est le plus...
 > enfin, vous allez comprendre.
@@ -1485,13 +1510,9 @@ Ne mets pas tes mains dans +vary+, tu vas te pincer très fort.
 
 ## demo
 firefox Firefox 111
-terminal Serveur HTTP
-> $DEMO vary$
-
-## demo
-firefox Firefox 111
 chromium Chromium 111
 terminal Serveur HTTP
+> $DEMO vary$
 > * charger la page dans firefox
 > * montrer l'en-tête accept language
 > * charger la page dans chrome
@@ -1502,10 +1523,43 @@ terminal Serveur HTTP
 > * afficher dans firefox puis dans chrome
 > * expliquer qu'on profite du cache partagé
 
-## code title="Ne faites *pas* ça !"
+## code title="*Firefox* (réglé en +français+)"
+```http type="request" hide-height
+GET /index.html HTTP/1.1
+accept-language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+```
 ```http type="request"
 GET /index.html HTTP/1.1
-accept-language: ...
+accept-language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+```
+```http type="response"
+HTTP/1.1 200 OK
+Bonjour tout le monde !
+```
+
+## code title="*Chromium* (réglé en +anglais+)"
+```http type="request" hide-height
+GET /index.html HTTP/1.1
+accept-language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+```
+```http type="request"
+GET /index.html HTTP/1.1
+accept-language: en-US,en;q=0.9
+```
+```http type="response"
+HTTP/1.1 200 OK
+Hello World!
+```
+
+## demo
+firefox Firefox 111
+chromium Chromium 111
+terminal Serveur HTTP
+
+## code
+```http type="request"
+GET /index.html HTTP/1.1
+accept-language: [...]
 ```
 ```http type="response"
 HTTP/1.1 200 OK
@@ -1522,17 +1576,6 @@ terminal Serveur HTTP
 
 ## media
 <img src="src/img/wiki-whatwg-vary.png" screenshot-url="https://wiki.whatwg.org/wiki/Why_not_conneg">
-
-## code title="+Utiliser+ avec la *compression*"
-```http type="request"
-GET /index.html HTTP/1.1
-accept-encoding: gzip, deflate, br
-```
-```http type="response"
-HTTP/1.1 200 OK
-content-encoding: gzip
-vary: accept-encoding
-```
 
 ## code title="+Utiliser+ avec la *compression*"
 ```http type="request"
@@ -1742,7 +1785,7 @@ Service Worker cache
 8. CDN
 9. Reverse proxy cache
 
-## subway stop=6
+## subway stop=4
 2. Memory cache
 3. Module map
 4. Service worker cache
@@ -1751,6 +1794,18 @@ Service Worker cache
 7.X ~HTTP/2 push cache~
 8. CDN
 9. Reverse proxy cache
+
+## subway stop=6
+2. Memory cache
+3. Module map
+4. Service worker cache
+5.X ~Appcache~
+5. Disk cache
+7.X ~HTTP/2 push cache~
+6. CDN
+7. Reverse proxy cache
+
+## blank
 
 ## media white
 <img src="src/img/diagram-subway-shared-tab-2.svg">
@@ -1810,7 +1865,7 @@ terminal Serveur HTTP
 > marche pas pour les SPA
 
 ## media fade-from
-<img src="src/img/bfcache.png">
+<img src="src/img/bfcache.png" screenshot-url="https://web.dev/bfcache/">
 <!-- Bfcache attention a vos script tiers -->
 > onunload
 
@@ -1820,7 +1875,7 @@ terminal Serveur HTTP
 🧑‍🍳 Recettes
 > @00:50:00@
 <!-- * pour les recettes ce chart est parfait -->
-  <!-- * https://simonhearne.com/2022/caching-header-best-practices/#general-recommendations -->
+<!-- * https://simonhearne.com/2022/caching-header-best-practices/#general-recommendations -->
 
 ## code title="Fichiers *statiques*"
 ```http type="request" hide
@@ -1993,20 +2048,29 @@ Mesurez, testez...
 > * gardez en tête les en-tête qui entre en jeu
 
 ## text
-🫶 <br> Le *cache* HTTP <br> +c'est la vie+
+🫶 <br> Le *cache* HTTP <br> +c'est la vie !+
 
 ## poster
 Merci beaucoup !
 
 ## credits
 
-Liens :
-
-* _ : 
-
 Références :
 
-* _ : _
+* Dépôt de la présentation : https://github.com/hsablonniere/talk-back-to-basics-cache
+
+Liens :
+
+* Henrik Frystyk Nielsen : https://www.w3.org/People/Frystyk/
+* RFC 1945 : https://www.rfc-editor.org/rfc/rfc1945.html
+* RFC 9213 : https://www.rfc-editor.org/rfc/rfc9213.html
+* The browser cache is Vary broken : https://jakearchibald.com/2014/browser-cache-vary-broken/
+* Why not conneg : https://wiki.whatwg.org/wiki/Why_not_conneg
+* Best practices for using the Vary header : https://www.fastly.com/blog/best-practices-using-vary-header
+* Faster page loads using server think-time with Early Hints : https://developer.chrome.com/blog/early-hints/
+* Application Cache is a Douchebag : https://alistapart.com/article/application-cache-is-a-douchebag/
+* Back/forward cache : https://web.dev/http-cache/
+* From Jurassic Web to offline-first and more with Service Workers : https://www.youtube.com/watch?v=SltjVpgTaCo
 
 Images :
 

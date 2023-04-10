@@ -25,7 +25,7 @@ const httpsOptions = {
 const ERROR_MODES = [false, 500, 503];
 let errorMode = false;
 let fakeLastModified = false;
-let delay = 50;
+let delay = 75;
 
 // options,
 let hititipiSetup = hititipi(
@@ -45,7 +45,7 @@ let hititipiSetup = hititipi(
         notFound,
       ]),
 
-      startsWith('/cc-ma-10/', cacheControl({ 'max-age': 10 })),
+      startsWith('/cc-ma-15/', cacheControl({ 'max-age': 15 })),
       startsWith('/cc-ns/', cacheControl({ 'no-store': true })),
       startsWith('/etag-simple/', notModified({ etag: true })),
       startsWith('/etag-cc-ma-10/', chainAll([
@@ -78,9 +78,9 @@ let hititipiSetup = hititipi(
         notModified({ etag: true }),
         cacheControl({ 'max-age': 31536000, 'immutable': true }),
       ])),
-      startsWith('/etag-cc-ma-10-swr-20/', chainAll([
+      startsWith('/etag-cc-ma-15-swr-20/', chainAll([
         notModified({ etag: true }),
-        cacheControl({ 'max-age': 10, 'stale-while-revalidate': 20 }),
+        cacheControl({ 'max-age': 15, 'stale-while-revalidate': 20 }),
       ])),
       startsWith('/etag-cc-ma-10-swr-20-mr/', chainAll([
         notModified({ etag: true }),
@@ -185,11 +185,11 @@ process.stdin.on('keypress', async function (character, key) {
   }
   if (key.name === 'up' && key.ctrl) {
     delay = delay + 25;
-    console.log('delay:', delay + 'ms');
+    console.log('throttle:', delay + 'ms');
   }
   if (key.name === 'down' && key.ctrl) {
     delay = Math.max(0, delay - 25);
-    console.log('delay:', delay + 'ms');
+    console.log('throttle:', delay + 'ms');
   }
   if (key.name === 'c' && key.ctrl) {
     process.exit();
@@ -204,10 +204,10 @@ async function write (text) {
   }
 }
 
-// await write(`
-// Bonjour Hubert et bonjour Devoxx !
-//
-// je suis un serveur HTTP de test,
-// j'affiche les requêtes que je reçois.
-//
-// `);
+await write(`
+Bonjour Hubert et bonjour Devoxx !
+
+je suis un serveur HTTP de test,
+j'affiche les requêtes que je reçois.
+
+`);
