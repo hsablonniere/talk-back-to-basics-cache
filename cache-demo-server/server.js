@@ -164,7 +164,7 @@ process.stdin.setRawMode(true);
 process.stdin.on('keypress', async function (character, key) {
   // console.log(key);
   if (key.name === 'return') {
-    for (let i = 0; i < 25; i += 1) {
+    for (let i = 0; i < 40; i += 1) {
       await setTimeout(20);
       process.stdout.write(ansiEscapes.cursorPrevLine);
       process.stdout.write(ansiEscapes.eraseLine);
