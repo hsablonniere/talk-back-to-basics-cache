@@ -28,7 +28,7 @@ defineSlideType('slide-lapin', {
 
     .message {
       align-self: center;
-      font-size: 2.5rem;
+      font-size: 1.75rem;
       font-family: Parisine, sans-serif;
       color: #707070;
       padding-right: 1rem;

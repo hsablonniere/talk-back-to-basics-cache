@@ -2,8 +2,8 @@
 author: Hubert Sablonnière
 author-twitter: @hsablonniere
 author-company: Clever Cloud
-event: Devoxx France
-date: 13 avril 2023
+event: MiXiT
+date: 14 avril 2023
 ---
 
 # Le cache HTTP
@@ -34,7 +34,7 @@ date: 13 avril 2023
 ## blank black
 > ...et il est trop tard pour le lancer.
 
-## media white
+## media white contain
 <img src="src/img/wordart.png">
 > #Voix pédante#
 > Oui euh, dans les années 90, on n'avait pas ce problème hann.
@@ -478,7 +478,7 @@ date: Thu, 13 Apr 2023 11:59:50 GMT
 > après la date de création de la réponse,
 > qui est dans l'en tête *date*.
 
-## media
+## media cover
 <img src="src/img/trust-no-one.jpg">
 > C'est rarement une bonne idée de prendre pour argent comptant ce que dit une RFC,
 > C'est aussi rarement une bonne idée de croire tout ce qu'on vous dit en conférence,
@@ -1228,12 +1228,12 @@ Content Delivery <br> +Network+
 8. CDN ♠️
 9. Reverse proxy cache ♠️
 
-## media white
+## media white contain
 <img src="src/img/diagram-subway-shared-proxy-1.svg">
 > si on a un deuxième client qui vient pour la première fois
 > Alice et Bob par exemple
 
-## media white
+## media white contain
 <img src="src/img/diagram-subway-shared-proxy-2.svg">
 > Alice va profiter du CDN, un cache partagé alors qu'elle n'est jamais venue sur ce site.
 > En fait quand des gens me disent :
@@ -1517,7 +1517,7 @@ cache-control: max-age=60, stale-while-revalidate=3600, stale-if-error=86400
 ## blank
 
 ## media
-<img src="src/img/rfc-9213.png" screenshot-url="https://www.rfc-editor.org/rfc/rfc9213.html">
+<img src="src/img/rfc-9214.png" screenshot-url="https://www.rfc-editor.org/rfc/rfc9213.html">
 
 ## code title="Contrôle du cache *ciblé*"
 ```http type="response"
@@ -1584,7 +1584,7 @@ Ne mets pas tes mains dans +vary+, tu vas te pincer très fort.
 ## demo
 firefox Firefox 111
 chromium Chromium 111
-webkit WebKitGTK (Safari 16)
+<!--webkit WebKitGTK (Safari 16)-->
 > $DEMO vary$
 > * charger la page dans firefox
 > * montrer l'en-tête accept language
@@ -1624,6 +1624,7 @@ HTTP/1.1 200 OK
 Hello World!
 ```
 
+<!--
 ## code title="*Safari* (réglé en +français+)"
 ```http type="request" hide-height
 GET /index.html HTTP/1.1
@@ -1637,6 +1638,7 @@ accept-language: fr-BE
 HTTP/1.1 200 OK
 Bonjour tout le monde !
 ```
+-->
 
 ## media
 <img src="src/img/caddy.png" screenshot-url="https://caddyserver.com/">
@@ -1647,7 +1649,7 @@ Bonjour tout le monde !
 ## demo bottom-terminal
 firefox Firefox 111
 chromium Chromium 111
-webkit WebKitGTK (Safari 16)
+<!--webkit WebKitGTK (Safari 16)-->
 terminal Serveur HTTP
 
 ## code
@@ -1663,7 +1665,7 @@ vary: accept-language
 ## demo bottom-terminal
 firefox Firefox 111
 chromium Chromium 111
-webkit WebKitGTK (Safari 16)
+<!--webkit WebKitGTK (Safari 16)-->
 terminal Serveur HTTP
 
 ## media
@@ -1910,7 +1912,7 @@ Service Worker cache
 8. CDN
 9. Reverse proxy cache
 
-## media white
+## media white contain
 <img src="src/img/diagram-subway-shared-tab-2.svg">
 
 <!-- ## media white -->

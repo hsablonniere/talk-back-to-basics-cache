@@ -74,7 +74,7 @@ defineSlideType('slide-credits', {
 
     .group-title {
       font-family: Parisine, sans-serif;
-      font-size: 4rem;
+      font-size: 3.5rem;
       justify-self: center;
       grid-column: 1 / -1;
       margin-bottom: 2rem;
@@ -84,7 +84,7 @@ defineSlideType('slide-credits', {
 
     .credit-line-left,
     .credit-line-right {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-family: PT Sans, sans-serif;
       line-height: 1.2;
     }

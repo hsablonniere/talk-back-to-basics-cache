@@ -77,7 +77,7 @@ export const codeBlocksStyles = css`
   }
 
   pre[tiny] {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 
   pre[invisible] {

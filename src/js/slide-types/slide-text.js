@@ -40,7 +40,7 @@ defineSlideType('slide-text', {
     .text {
       text-align: center;
       font-family: 'Yanone Kaffeesatz', sans-serif;
-      font-size: 5.5rem;
+      font-size: 4.5rem;
       line-height: 1.25;
       font-weight: bold;
     }
@@ -63,7 +63,7 @@ defineSlideType('slide-text', {
     }
 
     img {
-      height: 8rem;
+      height: 6rem;
       margin-bottom: 1rem;
       display: block;
       width: 100%;

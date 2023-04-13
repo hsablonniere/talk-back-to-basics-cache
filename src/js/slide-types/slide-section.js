@@ -22,7 +22,7 @@ defineSlideType('slide-section', {
 
     .title {
       background-color: #050D9E;
-      font-size: 5rem;
+      font-size: 3.75rem;
       color: #fff;
       box-shadow: 0 0.5rem 1rem #999;
       border-radius: 0.2rem;

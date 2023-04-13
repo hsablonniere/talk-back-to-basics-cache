@@ -41,7 +41,7 @@ defineSlideType('slide-list', {
       align-items: center;
       display: flex;
       gap: 1rem;
-      font-size: calc(1.4rem * var(--zoom));
+      font-size: calc(1.3rem * var(--zoom));
       font-family: 'Parisine', sans-serif;
       padding: 0.5rem 0;
     }

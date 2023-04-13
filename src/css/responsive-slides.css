@@ -6,17 +6,17 @@ html {
   --slide-ratio: calc(16 / 9);
 }
 
-/*@media (max-aspect-ratio: 14/9) {*/
-/*  html {*/
-/*    --slide-ratio: calc(4 / 3);*/
-/*  }*/
-/*}*/
+@media (max-aspect-ratio: 14/9) {
+  html {
+    --slide-ratio: calc(4 / 3);
+  }
+}
 
-/*@media (min-aspect-ratio: 14/9) {*/
-/*  html {*/
-/*    --slide-ratio: calc(16 / 9);*/
-/*  }*/
-/*}*/
+@media (min-aspect-ratio: 14/9) {
+  html {
+    --slide-ratio: calc(16 / 9);
+  }
+}
 
 @media (max-aspect-ratio: 4/3), (min-aspect-ratio: 14/9) and (max-aspect-ratio: 16/9) {
   html {

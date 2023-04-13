@@ -22,7 +22,8 @@ async function placeWindow (window, div) {
   const rect = div.getBoundingClientRect();
 
   const windowRect = document.body.getBoundingClientRect();
-  const ratio = 1920 / windowRect.width;
+  // const ratio = 1920 / windowRect.width;
+  const ratio = 1400 / windowRect.width;
 
   const MOZINNERSCREENY = globalThis.mozInnerScreenY;
 
@@ -164,7 +165,7 @@ customElements.define('slide-demo', class extends Slide {
         
         .no-demo {
           font-family: "Hiruzen Exist", sans-serif;
-          font-size: 8rem;
+          font-size: 7rem;
           justify-self: center;
           align-self: center;
         }
@@ -185,7 +186,10 @@ customElements.define('slide-demo', class extends Slide {
 
         :host([bottom-terminal]) .wrapper[data-id="terminal"] {
           grid-row: 2 / 3;
+          /* 16/3 */
           grid-column: 1 / 4;
+          /* 4/3 */
+          grid-column: 1 / 3;
         }
 
         .logo {
