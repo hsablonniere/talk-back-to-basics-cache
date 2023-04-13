@@ -183,6 +183,11 @@ customElements.define('slide-demo', class extends Slide {
           position: relative;
         }
 
+        :host([bottom-terminal]) .wrapper[data-id="terminal"] {
+          grid-row: 2 / 3;
+          grid-column: 1 / 4;
+        }
+
         .logo {
           height: 3.5rem;
           width: 3.5rem;

@@ -282,6 +282,9 @@ if-modified-since: Wed, 12 Apr 2023 11:30:00 GMT
 age: 120
 ```
 ```http
+TARGET-cache-control: ...
+```
+```http
 vary: accept-encoding
 ```
 > ...d'autres en-têtes qui entrent en jeu,
@@ -727,6 +730,13 @@ terminal Serveur HTTP
 > tu peux la considérer fraîche pendant maximum 1 mois
 > après, c'est un peu aléatoire
 
+## code
+```http type="response"
+HTTP/1.1 200 OK
+date: Thu, 13 Apr 2023 11:00:00 GMT
+last-modified: Thu, 13 Apr 2023 01:00:00 GMT
+```
+
 ## demo
 firefox Firefox 111
 terminal Serveur HTTP
@@ -1003,6 +1013,7 @@ cache-control: max-age=31536000, immutable
 
 ## blank
 
+<!-- stale-while-revalidate
 ## code
 ```http type="request"
 GET /avatar.jpg HTTP/1.1
@@ -1056,6 +1067,7 @@ terminal Serveur HTTP
 > $DEMO stale-while-revalidate$
 
 ## blank
+-->
 
 ## code title="Autres directives"
 ```http type="request"
@@ -1068,12 +1080,21 @@ cache-control: stale-if-error
 ```
 > ➡️ *EXPLICATION autres en-têtes ⬅️*
 
+<!-- stale-while-revalidate
 ## code title="Autres directives"
 ```http type="response"
 HTTP/1.1 200 OK
 cache-control: no-transform
 cache-control: must-understand
-<!--cache-control: stale-while-revalidate-->
+```
+-->
+
+## code title="Autres directives"
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: no-transform
+cache-control: must-understand
+cache-control: stale-while-revalidate
 ```
 
 ## code title="En-têtes *obsolètes*"
@@ -1084,8 +1105,8 @@ Pragma: no-cache
 
 ## code title="En-têtes *obsolètes*"
 ```http type="response"
-GET /index.html HTTP/1.1
-Pragma: no-cache
+HTTP/1.1 200 OK
+Expires: Thu, 13 Apr 2023 12:00:00 GMT
 ```
 
 ## blank
@@ -1366,14 +1387,61 @@ GET /index.html HTTP/1.1
 HTTP/1.1 200 OK
 cache-control: max-age=60
 ```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: s-maxage=60
+```
 > ➡️ *EXPLICATION s-maxage ⬅️*
 
-## code title="Caches *partagés* uniquement"
-<!-- ## code title="Caches *privés* uniquement" -->
+## code title="&nbsp;"
 ```http type="request"
 GET /index.html HTTP/1.1
 ```
 ```http type="response"
+HTTP/1.1 200 OK
+cache-control: ma-xage=60
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: s-maxage=60
+```
+
+## code title="&nbsp;"
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: m-axage=60
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: s-maxage=60
+```
+
+## code title="&nbsp;"
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: -maxage=60
+```
+```http type="response" hide-height
+HTTP/1.1 200 OK
+cache-control: s-maxage=60
+```
+
+## code title="Caches *partagés* uniquement"
+
+```http type="request"
+GET /index.html HTTP/1.1
+```
+```http type="response"
+HTTP/1.1 200 OK
+cache-control: s-maxage=60
+```
+```http type="response" hide-height
 HTTP/1.1 200 OK
 cache-control: s-maxage=60
 ```
@@ -1467,6 +1535,7 @@ cloudflare-cdn-cache-control: max-age=3600
 HTTP/1.1 200 OK
 cache-control: no-cache
 cdn-cache-control: max-age=60
+edge-control: max-age=3600
 akamai-cache-control: max-age=3600
 ```
 
@@ -1511,7 +1580,7 @@ Ne mets pas tes mains dans +vary+, tu vas te pincer très fort.
 ## demo
 firefox Firefox 111
 chromium Chromium 111
-terminal Serveur HTTP
+webkit WebKitGTK (Safari 16)
 > $DEMO vary$
 > * charger la page dans firefox
 > * montrer l'en-tête accept language
@@ -1551,9 +1620,24 @@ HTTP/1.1 200 OK
 Hello World!
 ```
 
-## demo
+## code title="*Safari* (réglé en +français+)"
+```http type="request" hide-height
+GET /index.html HTTP/1.1
+accept-language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+```
+```http type="request"
+GET /index.html HTTP/1.1
+accept-language: fr-BE
+```
+```http type="response"
+HTTP/1.1 200 OK
+Bonjour tout le monde !
+```
+
+## demo bottom-terminal
 firefox Firefox 111
 chromium Chromium 111
+webkit WebKitGTK (Safari 16)
 terminal Serveur HTTP
 
 ## code
@@ -1566,9 +1650,10 @@ HTTP/1.1 200 OK
 vary: accept-language
 ```
 
-## demo
+## demo bottom-terminal
 firefox Firefox 111
 chromium Chromium 111
+webkit WebKitGTK (Safari 16)
 terminal Serveur HTTP
 
 ## media
@@ -1800,12 +1885,20 @@ Service Worker cache
 3. Module map
 4. Service worker cache
 5.X ~Appcache~
-5. Disk cache
+6. Disk cache
 7.X ~HTTP/2 push cache~
-6. CDN
-7. Reverse proxy cache
+8. CDN
+9. Reverse proxy cache
 
-## blank
+## subway stop=10
+2. Memory cache
+3. Module map
+4. Service worker cache
+5.X ~Appcache~
+6. Disk cache
+7.X ~HTTP/2 push cache~
+8. CDN
+9. Reverse proxy cache
 
 ## media white
 <img src="src/img/diagram-subway-shared-tab-2.svg">
@@ -2021,7 +2114,7 @@ cache-control: public
 
 ## text fade-from
 ⏱️
-Mesurez, testez...
+Testez, mesurez, surveillez...
 
 ## blank black
 > Au final, on se sait toujours pas si j'ai branché les deux magnétoscopes de la maison pour faire un cache de VHS.
