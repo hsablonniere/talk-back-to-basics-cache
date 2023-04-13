@@ -275,8 +275,8 @@ etag: "11aa11aa11-aa"
 if-none-match: "11aa11aa11-aa"
 ```
 ```http
-last-modified: Wed, 12 Apr 2023 11:30:00 GMT
-if-modified-since: Wed, 12 Apr 2023 11:30:00 GMT
+last-modified: Thu, 13 Apr 2023 11:30:00 GMT
+if-modified-since: Thu, 13 Apr 2023 11:30:00 GMT
 ```
 ```http
 age: 120
@@ -459,7 +459,7 @@ cache-control: max-age=10
 ```http type="response" hide-height
 HTTP/1.1 200 OK
 cache-control: max-age=10
-date: Thu, 13 Apr 2023 11:59:50 GMT
+date: Fri, 14 Apr 2023 11:59:50 GMT
 ```
 > Pour calculer la date de péremption,
 > on prend le nombre de secondes de max-age,
@@ -468,12 +468,12 @@ date: Thu, 13 Apr 2023 11:59:50 GMT
 ```http type="response"
 HTTP/1.1 200 OK
 cache-control: max-age=10
-date: Thu, 13 Apr 2023 11:59:50 GMT
+date: Fri, 14 Apr 2023 11:59:50 GMT
 ```
 ```http type="response" hide-height
 HTTP/1.1 200 OK
 cache-control: max-age=10
-date: Thu, 13 Apr 2023 11:59:50 GMT
+date: Fri, 14 Apr 2023 11:59:50 GMT
 ```
 > après la date de création de la réponse,
 > qui est dans l'en tête *date*.
@@ -652,7 +652,7 @@ GET /index.html HTTP/1.1
 ```
 ```http type="response" hide
 HTTP/1.1 200 OK
-last-modified: Wed, 12 Apr 2023 11:30:00 GMT
+last-modified: Thu, 13 Apr 2023 11:30:00 GMT
 ```
 
 ## code title="*Première* requête"
@@ -661,47 +661,47 @@ GET /index.html HTTP/1.1
 ```
 ```http type="response"
 HTTP/1.1 200 OK
-last-modified: Wed, 12 Apr 2023 11:30:00 GMT
+last-modified: Thu, 13 Apr 2023 11:30:00 GMT
 ```
 
 ## code title="Requêtes *suivantes*"
 ```http type="request" hide
 GET /index.html HTTP/1.1
-if-modified-since: Wed, 12 Apr 2023 11:30:00 GMT
+if-modified-since: Thu, 13 Apr 2023 11:30:00 GMT
 ```
 ```http type="response" hide
 HTTP/1.1 200 OK
-last-modified: Wed, 12 Apr 2023 11:30:00 GMT
+last-modified: Thu, 13 Apr 2023 11:30:00 GMT
 ```
 
 ## code title="Requêtes *suivantes*"
 ```http type="request"
 GET /index.html HTTP/1.1
-if-modified-since: Wed, 12 Apr 2023 11:30:00 GMT
+if-modified-since: Thu, 13 Apr 2023 11:30:00 GMT
 ```
 ```http type="response" hide
 HTTP/1.1 200 OK
-last-modified: Wed, 12 Apr 2023 11:30:00 GMT
+last-modified: Thu, 13 Apr 2023 11:30:00 GMT
 ```
 
 ## code title="304 : *pas* de changement"
 ```http type="request"
 GET /index.html HTTP/1.1
-if-modified-since: Wed, 12 Apr 2023 11:30:00 GMT
+if-modified-since: Thu, 13 Apr 2023 11:30:00 GMT
 ```
 ```http type="response" status="304"
 HTTP/1.1 304 Not Modified
-last-modified: Wed, 12 Apr 2023 11:30:00 GMT
+last-modified: Thu, 13 Apr 2023 11:30:00 GMT
 ```
 
 ## code title="200 : *nouveau* contenu"
 ```http type="request"
 GET /index.html HTTP/1.1
-if-modified-since: Wed, 12 Apr 2023 11:30:00 GMT
+if-modified-since: Thu, 13 Apr 2023 11:30:00 GMT
 ```
 ```http type="response"
 HTTP/1.1 200 OK
-last-modified: Thu, 13 Apr 2023 06:00:00 GMT
+last-modified: Fri, 14 Apr 2023 06:00:00 GMT
 ```
 
 ## demo
@@ -734,8 +734,8 @@ terminal Serveur HTTP
 ## code
 ```http type="response"
 HTTP/1.1 200 OK
-date: Thu, 13 Apr 2023 11:00:00 GMT
-last-modified: Thu, 13 Apr 2023 01:00:00 GMT
+date: Fri, 14 Apr 2023 11:00:00 GMT
+last-modified: Fri, 14 Apr 2023 01:00:00 GMT
 ```
 
 ## demo
@@ -1109,7 +1109,7 @@ Pragma: no-cache
 ## code title="En-têtes *obsolètes*"
 ```http type="response"
 HTTP/1.1 200 OK
-Expires: Thu, 13 Apr 2023 12:00:00 GMT
+Expires: Fri, 14 Apr 2023 12:00:00 GMT
 ```
 
 ## blank
@@ -1256,7 +1256,7 @@ cache-control: max-age=3600
 ```http type="response" hide-height
 HTTP/1.1 200 OK
 cache-control: max-age=3600
-date: Thu, 13 Apr 2023 11:00:00 GMT
+date: Fri, 14 Apr 2023 11:00:00 GMT
 age: 120
 ```
 > ➡️ *EXPLICATION age ⬅️*
@@ -1265,13 +1265,13 @@ age: 120
 ```http type="response"
 HTTP/1.1 200 OK
 cache-control: max-age=3600
-date: Thu, 13 Apr 2023 11:00:00 GMT
+date: Fri, 14 Apr 2023 11:00:00 GMT
  
 ```
 ```http type="response" hide-height
 HTTP/1.1 200 OK
 cache-control: max-age=3600
-date: Thu, 13 Apr 2023 11:00:00 GMT
+date: Fri, 14 Apr 2023 11:00:00 GMT
 age: 120
 ```
 
@@ -1279,13 +1279,13 @@ age: 120
 ```http type="response"
 HTTP/1.1 200 OK
 cache-control: max-age=3600
-date: Thu, 13 Apr 2023 11:00:00 GMT
+date: Fri, 14 Apr 2023 11:00:00 GMT
 age: 120
 ```
 ```http type="response" hide-height
 HTTP/1.1 200 OK
 cache-control: max-age=3600
-date: Thu, 13 Apr 2023 11:00:00 GMT
+date: Fri, 14 Apr 2023 11:00:00 GMT
 age: 120
 ```
 
