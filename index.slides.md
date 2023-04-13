@@ -92,7 +92,7 @@ date: 13 avril 2023
 > vous êtes pas venus ici pour savoir si oui où non j'ai fini par brancher ensemble les deux magnétoscopes de la maison.
 
 ## poster
-> @00:01:30@
+> @00:01:20@
 > Bonjour à *toutes* et à tous !
 > J'm'appelle Hubert Sablonnière,
 > J'suis développeur Web chez *Clever Cloud* et aujourd'hui, j'ai envie de vous parler du cache HTTP.
@@ -309,7 +309,7 @@ vary: accept-encoding
 <!-- 🫶 <br> *Tout le monde* a besoin de cache -->
 
 ## blank black
-> @00:05:00@
+> @00:04:40@
 > OK, vous êtes prêt pour passer en revue tous les en-têtes et à quoi ils servent ?
 > #Chanté#
 > On monte à bord du métro !
@@ -558,6 +558,7 @@ terminal Serveur HTTP
 
 ## text
 🏷️ Requêtes +conditionnelles+ <br> avec *etag*
+> @00:09:00@
 > ➡️ *EXPLICATION etag ⬅️*
 > La première, c'est avec des etags.
 
@@ -815,6 +816,7 @@ GET /index.html HTTP/1.1
 HTTP/1.1 200 OK
 cache-control: no-store
 ```
+> @00:14:30@
 > ➡️ *EXPLICATION no-store ⬅️*
 
 ## code
@@ -908,6 +910,7 @@ cache-control: immutable
 HTTP/1.1 200 OK
 cache-control: max-age=31536000, immutable
 ```
+> @00:17:00@
 > ➡️ *EXPLICATION immutable ⬅️*
 
 ## code
@@ -1119,7 +1122,7 @@ un post invalide un get -->
 
 ## subway stop=10
 6. Cache navigateur
-> @00:23:30@
+> @00:22:00@
 > Depuis tout à l'heure, je vous parle d'un cache,
 > mais en fait, j'vous montre le cache du navigateur.
 > Vous vous doutez bien que si je me suis amusé à faire une ligne de métro,
@@ -1301,6 +1304,7 @@ cache-control: [...]
 HTTP/1.1 200 OK
 cache-control: [...], private
 ```
+> @00:25:00@
 > ➡️ *EXPLICATION private ⬅️*
 
 ## code title="Caches *privés* +et+ *partagés*"
@@ -1686,7 +1690,7 @@ cache-control: no-transform
 
 ## section
 Disk cache
-> @00:38:00@
+> @00:34:00@
 
 ## subway stop=10
 6. Cache navigateur
