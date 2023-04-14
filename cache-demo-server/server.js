@@ -205,7 +205,7 @@ async function write (text) {
 }
 
 await write(`
-Bonjour Hubert et bonjour Devoxx !
+Bonjour Hubert et bonjour MiXiT !
 
 je suis un serveur HTTP de test,
 j'affiche les requêtes que je reçois.

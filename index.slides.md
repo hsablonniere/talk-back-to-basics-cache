@@ -260,7 +260,7 @@ cache-control: no-cache
 cache-control: no-store
 cache-control: must-revalidate
 cache-control: immutable
-cache-control: stale-while-revalidate=?
+<!--cache-control: stale-while-revalidate=?-->
 cache-control: private
 cache-control: public
 cache-control: s-maxage=?
@@ -1016,6 +1016,7 @@ cache-control: max-age=31536000, immutable
 
 ## blank
 
+<!-- stale-while-revalidate
 ## code
 ```http type="request"
 GET /avatar.jpg HTTP/1.1
@@ -1069,6 +1070,7 @@ terminal Serveur HTTP
 > $DEMO stale-while-revalidate$
 
 ## blank
+-->
 
 ## code title="Autres directives"
 ```http type="request"
@@ -1077,7 +1079,7 @@ cache-control: min-fresh
 cache-control: no-store
 cache-control: no-transform
 cache-control: only-if-cached
-cache-control: stale-if-error
+cache-control: stale-if-error=
 ```
 > ➡️ *EXPLICATION autres en-têtes ⬅️*
 
@@ -1095,7 +1097,7 @@ cache-control: must-understand
 HTTP/1.1 200 OK
 cache-control: no-transform
 cache-control: must-understand
-<!--cache-control: stale-while-revalidate-->
+cache-control: stale-while-revalidate
 ```
 
 ## code title="En-têtes *obsolètes*"
