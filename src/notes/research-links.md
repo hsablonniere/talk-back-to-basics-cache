@@ -216,3 +216,4 @@ Nobody cares about must-revalidate
 * https://bugzilla.mozilla.org/show_bug.cgi?id=1267474
 * https://www.keycdn.com/blog/cache-control-immutable
 * https://github.com/mnot/redbot/
+* https://jolicode.github.io/http-cache-conf/images/varnish-flow.png
