@@ -1624,7 +1624,6 @@ HTTP/1.1 200 OK
 Hello World!
 ```
 
-<!--
 ## code title="*Safari* (réglé en +français+)"
 ```http type="request" hide-height
 GET /index.html HTTP/1.1
@@ -1638,7 +1637,6 @@ accept-language: fr-BE
 HTTP/1.1 200 OK
 Bonjour tout le monde !
 ```
--->
 
 ## media
 <img src="src/img/caddy.png" screenshot-url="https://caddyserver.com/">
@@ -1649,7 +1647,7 @@ Bonjour tout le monde !
 ## demo bottom-terminal
 firefox Firefox 111
 chromium Chromium 111
-<!--webkit WebKitGTK (Safari 16)-->
+webkit WebKitGTK (Safari 16)
 terminal Serveur HTTP
 
 ## code
@@ -1665,7 +1663,7 @@ vary: accept-language
 ## demo bottom-terminal
 firefox Firefox 111
 chromium Chromium 111
-<!--webkit WebKitGTK (Safari 16)-->
+webkit WebKitGTK (Safari 16)
 terminal Serveur HTTP
 
 ## media

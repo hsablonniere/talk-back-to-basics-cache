@@ -22,8 +22,8 @@ async function placeWindow (window, div) {
   const rect = div.getBoundingClientRect();
 
   const windowRect = document.body.getBoundingClientRect();
-  // const ratio = 1920 / windowRect.width;
-  const ratio = 1400 / windowRect.width;
+  const ratio = 1920 / windowRect.width;
+  // const ratio = 1400 / windowRect.width;
 
   const MOZINNERSCREENY = globalThis.mozInnerScreenY;
 
@@ -189,7 +189,7 @@ customElements.define('slide-demo', class extends Slide {
           /* 16/3 */
           grid-column: 1 / 4;
           /* 4/3 */
-          grid-column: 1 / 3;
+          /*grid-column: 1 / 3;*/
         }
 
         .logo {
